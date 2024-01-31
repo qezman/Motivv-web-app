@@ -33,6 +33,7 @@ import BusinessTemplate from "./pages/BusinessTemplate";
 import SuggestTemplate from "./pages/SuggestTemplate";
 import University from "./University/index";
 // import NewDesignChallenge from "./pages/NewDesignChallenge";
+import Verification from "./components/OtpEdit/Verification.js"
 
 function App() {
   const user = useContext(UserContext);
@@ -47,6 +48,9 @@ function App() {
           <Route exact path="/post-job" component={JobPostPage} />
           <Route exact path="/update/:id/:phone/:email" component={Update} />
           <Route exact path="/Edit" component={Edit} />
+
+          <Route exact path="/verification" component={Verification} />
+
           <Route
             exact
             path="/challenges?email=:email&username=:username"
