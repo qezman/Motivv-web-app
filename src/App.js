@@ -33,7 +33,9 @@ import BusinessTemplate from "./pages/BusinessTemplate";
 import SuggestTemplate from "./pages/SuggestTemplate";
 import University from "./University/index";
 // import NewDesignChallenge from "./pages/NewDesignChallenge";
-import Verification from "./components/OtpEdit/Verification.js"
+import Verification from "./components/OtpEdit/Verification.js";
+
+import AdminApproved from "./admin/AdminApproved/AdminApproved.js";
 
 function App() {
   const user = useContext(UserContext);
@@ -66,6 +68,7 @@ function App() {
             path="/business-template/suggest"
             component={SuggestTemplate}
           />
+          <Route exact path="/approved" component={AdminApproved}/>
 
           <PrivateRoute
             user={challengeUser}
