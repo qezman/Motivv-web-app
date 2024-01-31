@@ -1,0 +1,71 @@
+.mot-dsc-insider {
+  /* margin-top: 7rem; */
+  margin-bottom: 7rem;
+}
+.mot-dsc-insider__one-text {
+  line-height: 26px;
+}
+.lots-more_cont {
+  top: 4%;
+  right: 15%;
+}
+.lots-more_svg {
+  width: 130px;
+  height: 130px;
+}
+.mot-dsc-insider__one-text {
+  width: 63%;
+}
+
+.rotate-circle,
+.rotate-circle2 {
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.rotate-circle {
+  animation: spin 15s linear infinite;
+}
+.rotate-circle2 {
+  animation: spin2 15s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin2 {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+@media (max-width: 850px) {
+  .mot-dsc-insider__flex {
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+  }
+  .lots-more_cont {
+    display: none;
+  }
+  .mot-dsc-insider__one-text {
+    width: 100%;
+  }
+  .mot-dsc-insider__two {
+    padding: 0;
+  }
+}
+@media (min-width: 850px) and (max-width: 1100px) {
+  .lots-more_cont {
+    top: 10%;
+    right: 2%;
+  }
+  .mot-dsc-insider__two svg {
+    width: 400px;
+  }
+}

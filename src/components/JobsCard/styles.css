@@ -1,0 +1,59 @@
+.mot-job-card {
+  border: 1px solid #bdbdbd;
+  border-radius: 10px;
+  padding: 1rem 0.85rem;
+  height: 300px;
+}
+.mot-default-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #134a7c;
+}
+.mot-job-company-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+.mot-job-name {
+  color: #134a7c;
+  font-size: 22px;
+  font-weight: 700;
+}
+.mot-job-apply-btn {
+  width: 200px;
+  align-self: center;
+  margin-top: 15px;
+  font-size: 0.8rem;
+  height: 49px;
+  border: 2px solid #134a7c;
+  background-color: #134a7c;
+  padding: 5px 25px;
+  border-radius: 10px;
+  color: #ffffff;
+  outline: none !important;
+}
+.green-color {
+  color: #83b900;
+  font-weight: 400;
+  font-style: normal;
+  /* width: 67px; */
+}
+.bleak-color {
+  color: #656565;
+  font-style: normal;
+  font-size: 12px;
+}
+.bleaker-color {
+  color: #656565;
+  font-style: normal;
+  font-weight: 400;
+}

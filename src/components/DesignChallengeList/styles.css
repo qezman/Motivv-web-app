@@ -1,0 +1,35 @@
+.mot-design-challenge-section {
+  padding: 1.35rem 7rem;
+}
+.challenge-title {
+  font-weight: 700;
+  color: #000;
+  line-height: 135%;
+}
+.mot-challenge-list {
+  margin: 2rem 0;
+  padding: 3.5rem 0;
+}
+.mot-create-challenge-btn,
+.mot-create-challenge-btn:focus,
+.mot-create-challenge-btn:hover {
+  width: 190px;
+  height: 55px;
+  top: 1.5%;
+  right: 9%;
+  background: #134a7c;
+  border: 0;
+  outline: none;
+  box-shadow: 0px 4px 70px rgba(19, 74, 124, 0.2);
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 0.85rem 1.35rem;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-full {
+  width: 100%;
+}

@@ -1,0 +1,42 @@
+.rate-dropdown button{
+    background: none;
+    color: #134A7C;
+    border: none;
+    padding:0;
+}
+
+.rate-dropdown, .rate-dropdown:active,.rate-dropdown:focus{
+  transition-duration: 0.5s;
+  background: none;
+  color: #134A7C;
+  border: none;
+  outline:none;
+  width: 92px;
+  padding:0;
+  cursor: pointer;
+}
+
+.text-red{
+  color: #FF0202;
+}
+
+.text-red:hover{
+  background-color: #FF0202;
+  color: #fff;
+}
+
+.skill-container:nth-child(even){
+  justify-content: flex-start;
+}
+.skill-container:nth-child(odd){
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 700px){
+  .mot-profile-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 10px;
+    padding: 15px 0px;
+  }
+}

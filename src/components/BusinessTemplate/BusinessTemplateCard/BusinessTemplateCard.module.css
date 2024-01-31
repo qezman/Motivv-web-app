@@ -1,0 +1,64 @@
+.templateCard {
+  width: 320px;
+  padding: 20px 16px;
+  background: #ffffff;
+  border: 1px solid #f2f1f0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.templateCardTop {
+  display: flex;
+}
+
+.cardImage {
+  width: 51px;
+  height: 51px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardImage img {
+  width: 24px;
+  height: 24px;
+}
+.templateCardCaption {
+  color: #333758;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+  margin-left: 1.2rem;
+  line-height: 25px;
+  text-transform: capitalize;
+}
+
+.templateCardContent {
+  font-size: 14px;
+  line-height: 20px;
+  color: #455880;
+}
+
+.templateCardTags {
+}
+
+.templateCardTag {
+  color: #f7885e;
+  margin-right: 1rem;
+}
+
+.templateCardMore {
+  margin: 1rem auto auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(auto, auto));
+  column-gap: .35rem;
+}
+
+@media (max-width: 500px) {
+  .templateCard {
+    width: 100%;
+  }
+  .templateCardTag {
+    font-size: 14px;
+  }
+}

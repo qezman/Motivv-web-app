@@ -1,0 +1,11 @@
+.mot-landing-page-bblue{
+    background-color: #13497c;
+    min-height: 100vh;
+    display:flex;
+    align-items:center;
+}
+
+.minh{
+    min-height: 400px;
+    border-radius: 16px;
+}

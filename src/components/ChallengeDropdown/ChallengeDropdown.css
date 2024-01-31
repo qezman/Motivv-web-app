@@ -1,0 +1,40 @@
+.challenge-dropdown {
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 4%;
+  box-shadow: 0px 4px 12px rgba(37, 41, 45, 0.2);
+  transition: transform 0.35s ease-out;
+  z-index: 9999999;
+  background: white;
+}
+.challenge-dropdown.hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.challenge-dropdown.pressed {
+  opacity: 1;
+  transform: translateY(10px);
+}
+.challenge-dropdown--item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 50px;
+  cursor: pointer;
+}
+.challenge-dropdown--item p {
+  margin-bottom: 0;
+}
+.challenge-dropdown--item:hover {
+  background: #f0f0f0;
+}
+.challenge-dropdown--svg {
+  margin: 0 8%;
+}
+.challenge-dropdown--svg svg {
+  width: 25px;
+  height: 25px;
+}

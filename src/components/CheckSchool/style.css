@@ -1,0 +1,100 @@
+.mot-check-school {
+  background: #F5F5F5;
+  padding: 125px 0 80px;
+}
+.challenge-label.l-green {
+  background: rgba(131, 185, 0, 0.3);
+  color: #08694A;
+}
+.mot-check-school__hword {
+  font-weight: 700;
+  font-size: 2.9rem;
+  text-align: center;
+  color: #134A7C;
+  width: 80%;
+  margin-bottom: 1.8rem;
+}
+
+.mot-check-school__htext {
+  width: 47%;
+  text-align: center;
+}
+
+.mot-check-school .explore-btn {
+  color: #13497c;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 10px;
+  margin-top: 20px;
+  border: 2px solid #13497c;
+}
+
+.mot-cs-btn:hover,
+.mot-cs-btn:focus,
+.mot-cs-btn:active {
+  border: 0 !important;
+  background-color: #13497c !important;
+  color: white !important;
+}
+
+.mot-check-school__features {
+  margin-top: 8rem;
+}
+.mot-check-school__imageHolder {
+  display: flex;
+  justify-content: center;
+  height: 195px;
+}
+
+.mot-check-school__imageHolder img {
+    width: 270px;
+    height: 100%;
+}
+
+.mot-check-school__writings {
+  padding: .75rem 2.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.mot-check-school__header {
+  font-weight: 700;
+  font-family: Rubik;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #212020;
+  width: 80%;
+  align-self: center;
+}
+
+.mot-check-school__text {
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  line-height: 21px;
+  color: #000000;
+}
+
+@media (max-width: 500px) {
+  .mot-check-school__hword {
+    font-size: 1.6rem;
+    width: 80%;
+    text-align: left;
+  }
+  .mot-check-school__features {
+    width: 95%;
+    margin: 8rem 0 0;
+  }
+  .mot-check-school__htext {
+    text-align: left;
+    width: 80%;
+  }
+  .mot-check-school a {
+    align-self: flex-start;
+    padding-left: 2.5rem;
+  }
+}

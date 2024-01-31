@@ -1,0 +1,26 @@
+.study__plans__section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 30px 150px;
+    background-color: #f8f7fc;
+}
+
+.study__plans__section__heading h1 {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #134a7c;
+}
+
+.study__plans__section__heading p {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #131313;
+}

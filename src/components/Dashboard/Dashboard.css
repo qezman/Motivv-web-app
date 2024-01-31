@@ -1,0 +1,57 @@
+.dashboard-blue {
+  background-color: #13497c;
+}
+.bts-db-options-wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 128px);
+  flex: 3;
+  /* overflow-x: auto !important; */
+  /* overflow-y: hidden !important; */
+  max-width: 730px;
+}
+
+.bts-db-options-wrapper a {
+  text-decoration: none;
+  padding: 8px 0;
+  color: #fff;
+  position: relative !important;
+}
+
+.bts-db-options-wrapper a:hover {
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.05);
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+
+.current::after {
+  content: " ";
+  border-bottom: 4px solid #fff;
+  position: absolute;
+  bottom: -5px;
+  right: 36px;
+  left: 36px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+@media screen and (max-width: 991px) {
+  .bts-db-options-wrapper {
+    overflow-x: scroll !important;
+    grid-template-columns: repeat(6, 120px);
+    max-width: 780px;
+  }
+
+  .p-left {
+    padding: 0 10px 0;
+  }
+
+  .mot-db-overflow {
+    overflow-x: hidden;
+  }
+}
+@media screen and (max-width: 504px) {
+  .bts-db-options-wrapper {
+    max-width: 300px !important;
+  }
+}

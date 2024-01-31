@@ -1,0 +1,23 @@
+.bts-history-wrapper{
+    display: flex;
+    padding: 5px 0px;
+}
+
+.bts-history-wrapper span{
+    min-width: 130px;
+    width: 25%;
+}
+
+.bts-history-list span{
+    min-width: 130px;
+    width: 25%;
+    padding: 15px 0px 5px;
+    color: #134A7C;
+}
+
+
+@media screen and (max-width: 575px) { 
+    .scroll{
+        overflow-x: scroll;
+    }
+}

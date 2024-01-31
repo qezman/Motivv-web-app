@@ -1,0 +1,110 @@
+.mot-vetted-section{
+    padding: 150px 0 150px;
+}
+
+.mot-vetted-section-header{
+    color: #13497C;
+    font-size: 3.8rem;
+    line-height: 3.9rem;
+    font-weight: 700;
+}
+
+.mot-access-section-caption {
+    width: 77% !important;
+}
+
+.mot-explore-input-section{
+    padding-top: 30px;
+}
+
+.mot-explore-input-section form input{
+    padding: 10px 5px;
+    width: 80%;
+    border: 0;
+    border-bottom: 2px solid #5e5e5e;
+}
+
+.w-80{
+    width: 80%;
+}
+
+.mot-explore-input-section form input:focus{
+    outline: 0;
+    color: #3C3C3C;
+    border-bottom: 2px solid #13497C;
+    transition: .5s ease-in;
+}
+
+.mot-explore-input-section form button,
+.explore-btn{
+    color: #FFFFFF;
+    background-color: #13497C;
+    outline: none;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border: 2px solid #13497C;
+}
+
+.mot-explore-input-section form button:hover{
+    color: #13497C;
+    background-color: #FFFFFF;
+    box-shadow: none;
+    transition: .2s ease-in;
+}
+
+@media screen and (max-width: 700px){
+    .mot-placeholder-card{
+        display: inline-block;
+        width: auto;
+        padding: 0;
+    }
+    .mot-vetted-card{
+        width: 70%;
+        display: flex;
+        margin: 0 auto;
+        padding-bottom: 50px;
+    }
+    .mot-vetted-section{
+        padding: 75px 0 75px;
+    }
+    .mot-access-section-caption {
+        width: 90%;
+    }
+    .mot-explore-input-section form input {
+        padding: 10px 5px;
+        width: 100%;
+        border: 0;
+        border-bottom: 2px solid #5e5e5e;
+    }
+    .mot-explore-input-section form button, .explore-btn {
+        color: #FFFFFF;
+        background-color: #13497C;
+        outline: none;
+        border: none;
+        padding: 10px 40px;
+        border-radius: 8px;
+        margin-top: 10px;
+        border: 2px solid #13497C;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 760px){
+    .mot-access-section-header{
+        margin-top: 50px;
+    }
+    #vetted-image{
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .mot-access-section-header {
+        color: #13497C;
+        font-size: 2.1rem !important;
+        line-height: 2.3rem !important;
+        font-weight: 700;
+    }
+}

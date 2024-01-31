@@ -1,0 +1,70 @@
+.otp-container {
+  margin-left: 20px;
+}
+
+.verify-email {
+  font-family: DM Sans;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34px;
+  letter-spacing: 0em;
+  /* text-align: center; */
+  margin-top: 92px;
+}
+.input {
+  border: none;
+  border-bottom: 1px solid black;
+  width: 250px;
+  padding: 5px 0;
+  color: #bbb;
+}
+.otp-bottom-text {
+  font-size: 10px;
+  color: #134A7C;
+}
+button {
+  border-radius: 10px;
+  background: #134a7c;
+  box-shadow: 0px 4px 70px 0px rgba(19, 74, 124, 0.2);
+  color: white;
+}
+.left-margin {
+  margin-left: 20px;
+  /* text-align: center; */
+}
+
+@media only screen and (min-width: 760px) {
+  .verify-email {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .otp-container {
+    margin-left: 141px;
+  }
+  .left-margin {
+    margin-top: 22px;
+  }
+  button {
+    margin-top: 5px;
+  }
+  .otp-bottom-text {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .input {
+    font-size: 20px;
+    width: 564px;
+  }
+  button {
+    font-size: 24px;
+    padding: 8px 50px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .otp-container {
+    margin-left: 541px;
+  }
+  .input {
+    width: 400px;
+  }
+}

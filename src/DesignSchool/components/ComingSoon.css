@@ -1,0 +1,219 @@
+.mot-coming-container {
+  background: #134A7C;
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+}
+.mot-school-navbar {
+  max-width: 87%;
+  margin: 30px auto;
+}
+.mot-school-nav {
+  width: 22%;
+  justify-content: center;
+}
+.sm-mot-school-nav {
+  display: none;
+}
+.coming-soon_btn {
+  background: linear-gradient(311.23deg, #256CAD -9.07%, rgba(37, 108, 173, 0) 105.76%);
+  border: 1px solid #0F4374;
+  width: 390px;
+  height: 65px;
+  border-radius: 56px;
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 45px;
+}
+.coming-soon_btn:focus,
+.coming-soon_btn:hover {
+  background: white;
+  border: 1px solid #256CAD;
+  color: #256CAD;
+  outline: none;
+}
+.coming-soon_btn:hover > .coming-soon_svg {
+  margin-left: 20px;
+}
+.coming-soon_btn:hover > .coming-soon_svg path,
+.coming-soon_btn:focus > .coming-soon_svg path {
+  fill: #256CAD;
+}
+.mot-school-coming__btn {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: .75rem 1.25rem;
+  cursor: pointer;
+  color: black;
+}
+.mot-school-link {
+  cursor: pointer;
+}
+.mot-school-link  svg {
+  margin-left: .8rem;
+}
+.mot-school-coming__btn a {
+  color: inherit;
+  font-weight: 700;
+}
+.mot-school-hero {
+  max-width: 1350px;
+  margin: 35px auto 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+}
+.mot-school-hero h3 {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.mot-school-hero p {
+  font-weight: 700;
+  font-size: 40px;
+  text-align: center;
+  width: 60%;
+}
+.coming-soon--form {
+  max-width: 1350px;
+  margin: 10px auto 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.coming-soon--form p {
+  text-transform: capitalize;
+  font-size: 1.25rem;
+}
+.mot-dsc-coming__input,
+.mot-dsc-coming__input:focus,
+.mot-dsc-coming__input:active {
+  background: transparent !important;
+  border: 0;
+  outline: none;
+  border-bottom: 1px solid #FFFFFF;
+  color: #FFFFFF;
+  box-shadow: none;
+  border-radius: 0
+}
+.coming-soon_svg {
+  margin-left: 18px;
+}
+.text-orange {
+  color: #F89707;
+  font-weight: 700;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 142.4%;
+  color: #FFF2DF;
+  margin-left: -35%;
+}
+
+.mot-school-bottom-overlay {
+  width: 100vw;
+  position: relative;
+}
+.mot-school-bottom-overlay::before {
+  content: '';
+  height: 105%;
+  width: 100%;
+  position: absolute;
+  top: -1px;
+  background: linear-gradient(180deg, #134A7C 0%, rgba(19, 74, 124, 0.65) 100%);
+}
+.mot-school-bottom-overlay img {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes slide-through {
+  from {
+    transform-origin: right;
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 500px) {
+  .brand-logo {
+    height: 50px;
+  }
+  .brand-name {
+    font-size: 16px;
+  }
+  .mot-school-hero {
+    height: 45vh;
+  }
+  .mot-school-coming__btn {
+    padding: .65rem .85rem;
+  }
+  .mot-school-nav {
+    display: none;
+  }
+  .sm-mot-school-nav {
+    display: block;
+    position: relative;
+    order: 2;
+  }
+  .mot-school-hero h3 {
+    font-size: 1rem
+  }
+  .mot-school-hero p {
+    font-size: 24px;
+    width: 95%;
+  }
+  .coming-soon--form {
+    margin-top: 10%;
+  }
+  .coming-soon--form p {
+    text-align: center;
+    font-size: 1rem;
+    width: 80%;
+  }
+  .coming-soon--formGroup {
+    width: 85% !important;
+  }
+  .coming-soon_btn {
+    width: 80%;
+    height: 50px;
+    font-size: 18px;
+    margin-top: 25px;
+  }
+  .mot-school-bottom-overlay {
+    height: 15vh;
+  }
+}
+
+@media (max-width: 1100px) {
+  .mot-school-navbar {
+    max-width: 95%;
+    flex-wrap: nowrap !important;
+  }
+  .mot-school-bottom-overlay {
+    object-fit: contain;
+  }
+  .mot-school-bottom-overlay img {
+    height: 100%;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 1100px) {
+  .brand-logo {
+    height: 50px;
+  }
+  .mot-school-hero p {
+    font-size: 28px;
+  }
+  .mot-school-nav {
+    width: 30%;
+  }
+}

@@ -1,0 +1,178 @@
+.motFormItem {
+    margin-bottom: 24px;
+}
+
+.motFormItem:nth-child(5) {
+    margin-bottom: 10px;
+}
+
+.motFormLabel {
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: capitalize;
+    margin-bottom: 8px;
+    color: #333758;
+}
+
+.motTemplateToolCheckbox {
+    display: flex;
+    align-items: center;
+    user-select: none;
+    margin-top: 16px;
+}
+
+.motTemplateToolInputCheckbox {
+    opacity: 0;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+}
+
+.motTemplateCheck {
+    pointer-events: none;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 100px;
+    background-color: transparent;
+    border: 2px solid #134a71;
+    box-shadow: 0px 0px 0px 0px #134a71 inset;
+    transition: all cubic-bezier(0, 1.05, 0.72, 1.07);
+}
+
+.motTemplateCheck::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 4;
+    position: absolute;
+    transform: scale(0);
+    background-size: 50%;
+    background-image: url('../../../assets/checkmark.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    transition-delay: 0.2s !important;
+    transition: all 0.1s cubic-bezier(0, 1.05, 0.72, 1.07);
+}
+
+.motTemplateToolInputCheckbox:checked~.motTemplateCheck {
+    border: none;
+    box-shadow: 0px 0px 0px 15px #134a71 inset;
+}
+
+.motTemplateToolInputCheckbox:checked~.motTemplateCheck::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.motTemplateCheckLabel {
+    margin-left: 20px;
+    text-transform: capitalize;
+    font-size: 16px;
+    line-height: 21px;
+    color: #455880;
+    vertical-align: middle;
+    margin-bottom: 0;
+}
+
+.motFormButton {
+    display: flex;
+    justify-content: center;
+}
+
+.motCustomFileInput {
+    display: block;
+}
+
+.motCustomFileInput::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.motCustomFileArea {
+    display: flex;
+    position: relative;
+}
+
+.motCustomFileInput {
+    opacity: 0;
+    outline: none;
+    white-space: nowrap;
+}
+
+.motFileCustom {
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 24px;
+    color: #134A7C;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px 27px;
+    width: 186px;
+    height: 48px;
+    background: #D1E1F0;
+    border: 1px solid #A6BCD0;
+    border-radius: 10px;
+}
+
+.motFileCustom span {
+    border-right: 1px solid #134A7C;
+    padding-right: 12px;
+    margin-right: 9%;
+}
+
+.motCustomFileInput {
+    position: absolute;
+    z-index: 20;
+    cursor: pointer;
+    height: 48px;
+}
+
+.motCustomFileArea:hover>.motFileCustom {
+    background: #134A7C;
+    border: none;
+    color: white;
+}
+
+.motCustomFileArea:hover>.motFileCustom>span {
+    border-right: 1px solid #fff;
+}
+
+.motCustomFileArea:hover>.motFileCustom>span>svg path {
+    fill: white;
+}
+
+.motFileNameAreaNull {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #AAAAAA;
+}
+
+.motFileNameAreaActive {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #455880;
+}
+
+@media (max-width: 500px) {
+    .motCustomFileInput {
+        width: 100%;
+    }
+    .motFileCustom {
+        width: 150px;
+        padding: 10px;
+    }
+}

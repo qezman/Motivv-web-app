@@ -1,0 +1,44 @@
+{
+    "designChallenges": [
+        {
+            "id": "h090j0f02rj",
+            "challengeName": "Paystack Redesign",
+            "challengeDescription": "Hi! I’m currently running a digital solutions agency and a client of mine who owns an e-payment platform wants his website redesigned like that of paystack. So the challenges he’s facing presently are blah blah blah",
+            "challenge_attempts": 20,
+            "challenge_track": "UI / UX",
+            "challenge_industry": " Fintech"
+        },
+        {
+            "id": "9hnfh0f9h9",
+            "challengeName": "Paystack Redesign",
+            "challengeDescription": "Hi! I’m currently running a digital solutions agency and a client of mine who owns an e-payment platform wants his website redesigned like that of paystack. So the challenges he’s facing presently are blah blah blah",
+            "challenge_attempts": 20,
+            "challenge_track": "UI / UX",
+            "challenge_industry": " Fintech"
+        },
+        {
+            "id": "n99fh9f09h",
+            "challengeName": "Paystack Redesign",
+            "challengeDescription": "Hi! I’m currently running a digital solutions agency and a client of mine who owns an e-payment platform wants his website redesigned like that of paystack. So the challenges he’s facing presently are blah blah blah",
+            "challenge_attempts": 20,
+            "challenge_track": "Graphic Design",
+            "challenge_industry": "Education"
+        },
+        {
+            "id": "h090jt43t42rj",
+            "challengeName": "Paystack Redesign",
+            "challengeDescription": "Hi! I’m currently running a digital solutions agency and a client of mine who owns an e-payment platform wants his website redesigned like that of paystack. So the challenges he’s facing presently are blah blah blah",
+            "challenge_attempts": 20,
+            "challenge_track": "Branding",
+            "challenge_industry": "Food"
+        },
+        {
+            "id": "h09afdfwe2rj",
+            "challengeName": "Paystack Redesign",
+            "challengeDescription": "Hi! I’m currently running a digital solutions agency and a client of mine who owns an e-payment platform wants his website redesigned like that of paystack. So the challenges he’s facing presently are blah blah blah",
+            "challenge_attempts": 20,
+            "challenge_track": "Illustration",
+            "challenge_industry": "Health"
+        }
+    ]
+}

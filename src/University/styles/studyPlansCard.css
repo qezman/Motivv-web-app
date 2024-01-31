@@ -1,0 +1,189 @@
+.study__plans__section__card__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  gap: 2rem;
+  margin: 80px 0 40px;
+}
+.study__plans__section__card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 369px;
+  height: 590px;
+  padding: 20px 10px 0px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.study__plans__section__card__input {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.study__plans__section__card__input input {
+  height: 24px;
+  width: 24px;
+}
+.study__plans__section__card__input__free,
+.study__plans__section__card__input__premium {
+  width: 369px;
+  height: 169px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.third__study__plans__card {
+  background-color: #134a7c;
+}
+.third__study__plans__card .study__plans__section__sub h2 span,
+.third__study__plans__card .study__plans__section__sub h2,
+.third__study__plans__card .study__plans__section__sub p,
+.third__study__plans__card .study__plans__section__card__first__sub h4,
+.third__study__plans__card .study__plans__section__card__first__sub p,
+.third__study__plans__card .study__plans__section__card__second__sub p {
+  color: #fff;
+}
+
+.study__plans__section__sub h2 span {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 21px;
+  text-align: center;
+  color: #134a7c;
+}
+.study__plans__section__sub h2 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  text-align: center;
+  color: #646f78;
+}
+.study__plans__section__sub p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  text-align: center;
+  color: #131313;
+}
+.study__plans__section__card__sub__section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  background: rgba(19, 74, 124, 0.06);
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 50px 20px;
+}
+.study__plans__section__card__input__free__tag,
+.study__plans__section__card__input__premium__tag {
+  position: absolute;
+  top: 1.2rem;
+  transform: rotate(45deg);
+  right: -9rem;
+  padding: 5px 30px;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.transaction__tooltip button {
+  border: none;
+  background-color: transparent;
+}
+.transaction__tooltip p {
+  font-size: 0.75rem;
+}
+.transaction__tooltip__image {
+  width: 16px;
+  height: 16px;
+  /* margin-left: 7px;
+  margin-top: -12px; */
+}
+.transaction__tooltip__image img {
+  width: 100%;
+  height: 100%;
+}
+.no__name__no {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.no__name {
+  width: 10px;
+  height: 10px;
+  margin-right: 8px;
+  margin-top: -2px;
+}
+#root
+  > div.study__plans__section
+  > div.study__plans__section__plans
+  > div
+  > div.card.study__plans__section__card.third__study__plans__card
+  > div.study__plans__section__card__sub__section
+  > div.study__plans__section__card__first__sub
+  > div:nth-child(2)
+  > div {
+  width: 20px;
+}
+.study__plans__section__card__second__sub > div.no__name > img,
+.study__plans__section__card__second__sub > div.no__name > img {
+  width: 10px;
+  height: 10px;
+}
+.no__name img {
+  height: 100%;
+  width: 100%;
+}
+.transaction__tooltip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.study__plans__section__card__second__sub {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.study__plans__section__card__input__premium__tag {
+  background: #f89707;
+}
+.study__plans__section__card__input__free__tag {
+  background: #134a7c;
+}
+.study__plans__section__card__first__sub {
+  margin-bottom: 60px;
+  border-bottom: 1px solid #cfd3d8;
+  width: 100%;
+}
+.study__plans__section__card__first__sub h4 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+  color: #131313;
+}
+.study__plans__section__card__first__sub p,
+.study__plans__section__card__second__sub p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #131313;
+}
+
+@media (max-width: 768px) {
+  .study__plans__section__card__container {
+    display: grid;
+    grid-gap: 2rem;
+    gap: 2rem;
+    margin: 80px auto 40px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .study__plans__section__card {
+    width: 355px;
+  }
+}

@@ -1,0 +1,56 @@
+.mot-challenge-card {
+    display: grid;
+    grid-template-columns: 8% 1fr;
+    font-family: 'Rubik';
+    place-items: flex-start;
+    box-shadow: 0px 5px 10px -2.5px rgba(0, 0, 0, 0.04);
+    border-radius: 10px;
+    padding: 1.05rem 1.5rem;
+    transition: .35s ease-out .85ms;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.mot-challenge-card:hover {
+    cursor: pointer;
+    transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    transform-style: preserve-3d;
+    box-shadow: 0px 5px 10px -2.5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 40px -10px rgb(0 0 0 / 18%);
+}
+.challenge-details-name {
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 1.45rem;
+}
+.challenge-details-description {
+    line-height: 24px;
+    font-size: 14px;
+}
+.challenge-details-description * {
+  font-size: 14px !important;
+  color: rgba(5,6,15,0.6);
+}
+.mot-challenge-info-items {
+    justify-content: space-between;
+    align-items: center;
+}
+.mot-challenge-info-items p {
+    color: #727177;
+    font-size: 13px;
+}
+.mot-challenge-link {
+    background: #134A7C;
+    padding: .65rem .85rem;
+    border-radius: 10px;
+    color: white;
+    font-weight: 300;
+}
+.mot-challenge-link a {
+    color: inherit;
+    font-size: 13px;
+}
+
+@media (max-width: 500px) {
+  .mot-challenge-info-items p {
+    font-size: 12px;
+  }
+}

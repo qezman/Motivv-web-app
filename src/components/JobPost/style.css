@@ -1,0 +1,53 @@
+.mot-job-post-con {
+  background-color: #fff;
+  padding: 150px 0 150px;
+}
+.mot-job-post .button1 {
+  color: #13497c;
+  background-color: #ffffff;
+  outline: none;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 8px;
+  margin-top: 20px;
+  border: 2px solid #13497c;
+}
+
+.mot-job-post .button1:hover {
+  color: #fff;
+  background-color: #13497c;
+  box-shadow: none;
+  transition: 0.2s ease-in;
+}
+
+.mot-job-post .button2 {
+  color: #ffffff;
+  background-color: #13497c;
+  outline: none;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 8px;
+  margin-top: 20px;
+  border: 2px solid #13497c;
+}
+
+.mot-job-post .button2:hover {
+  color: #13497c;
+  background-color: #ffffff;
+  box-shadow: none;
+  transition: 0.2s ease-in;
+}
+.mot-job-post-con svg {
+  width: 100%;
+}
+.job-post-new {
+  background: #f9cccc;
+  border-radius: 16px;
+  padding: 8px 16px;
+  color: #e62424;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 22px;
+  width: fit-content;
+}

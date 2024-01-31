@@ -1,0 +1,35 @@
+.mot-profile-avatar{
+    height: 80px;
+}
+
+.mot-profile-card{
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 10px;
+    padding: 15px 5px;
+}
+
+.mot-username{
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    font-weight: bold;
+    color: #000;
+}
+
+.med-text{
+    font-size: .8rem;
+    line-height: 1rem;
+    color: #000;
+}
+
+.mot-skills-section{
+    margin-top: 10px;
+}
+
+.push-left{
+    margin-left: 30px;
+}
+
+.push-left a{
+    text-decoration: none;
+}

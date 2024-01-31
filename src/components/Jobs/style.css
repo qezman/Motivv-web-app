@@ -1,0 +1,43 @@
+.mot-jobs-list {
+    background: white;
+    min-height: 100vh;
+    padding: 4.25rem .85rem;
+}
+.location-dropdown {
+    width: 100%;
+    height: 49px;
+    border-radius: 10px;
+    font-weight: 700;
+    color: #BDBDBD;
+
+}
+.mot-inputs {
+    padding: .45rem 0.75rem;
+}
+.job-type-dropdown {
+    width: 100%;
+    height: 49px;
+    font-weight: 700;
+    border-radius: 10px;
+    background: #ECF1F5;
+    color: #134A7C;
+    border: 0;
+    outline: 0;
+}
+.mot-keyword-search {
+    width:100%;
+    height: 49px;
+    border-radius: 10px;
+    border: 1px solid #BDBDBD;
+    color: #BDBDBD;
+    font-weight: 700;
+    outline: 0;
+    padding: .45rem 1.85rem;
+}
+.location-dropdown:focus {
+    color: inherit;
+}
+.job-type-dropdown:focus {
+    background-color: #ECF1F5;
+    color: #134A7C;
+}

@@ -1,0 +1,186 @@
+.mot-challenge-edit-title,
+.mot-challenge-edit-title:focus,
+.mot-challenge-edit-title:active {
+  border: 0;
+  outline: 0;
+  font-weight: 700;
+  font-size: 2.2rem;
+  box-shadow: none;
+  padding: 0;
+}
+.mot-challenge-edit-title::placeholder {
+  color: #8d96a0;
+  font-size: 2.2rem;
+}
+.row-one {
+  max-height: 8rem;
+}
+.mot-create-challenge-btn-inverse,
+.mot-create-challenge-btn-inverse:hover,
+.mot-create-challenge-btn-inverse:focus {
+  border: 2px solid #134a7c;
+  padding: 0.25rem;
+  box-sizing: border-box;
+  width: 150px;
+  height: 45px;
+  filter: drop-shadow(0px 4px 70px rgba(19, 74, 124, 0.2));
+  border-radius: 10px;
+  background: white;
+  color: #134a7c;
+  font-weight: 700;
+}
+.mot-main-challenge-edit {
+  border: 0;
+  min-height: 100vh;
+  border-top: 0.5px solid #b8c0c8;
+  border-radius: 0;
+  padding-top: 1.35rem;
+  width: 100%;
+}
+.mot-main-challenge-edit:hover,
+.mot-main-challenge-edit:focus {
+  border: 0;
+  border-top: 0.5px solid #b8c0c8;
+  outline: 0;
+  box-shadow: none;
+}
+.mot-challenge-details {
+  width: 100%;
+}
+.mot-challenge-dropdown-section {
+  min-height: 80vh;
+  border: 0.5px solid #b8c0c8;
+  padding: 0.45rem 1.25rem;
+}
+.track-dropdown,
+.industry-dropdown,
+.deadline-input {
+  border: 0;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.8);
+  border-radius: 0;
+}
+.track-dropdown:focus,
+.track-dropdown:active,
+.industry-dropdown:active,
+.industry-dropdown:focus,
+.deadline-input:focus,
+.deadline-input:active {
+  border: 0;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.8);
+  border-radius: 0;
+  box-shadow: none;
+}
+.mot-challenge-dropdown-label {
+  font-weight: 600;
+  font-size: 18px;
+}
+.modal-content {
+  min-height: 90vh;
+  border-radius: 24px;
+}
+.modal-90h .modal-content {
+  background: white !important;
+}
+.mot-challenge-edit-modal {
+  font-family: Rubik;
+  font-family: Rubik;
+  padding: 2rem 4.5rem;
+}
+.mot-challenge-edit-modal p {
+  color: #929197;
+  font-size: 16px;
+  font-weight: 300;
+}
+.mot-preview-modal-top {
+  width: fit-content;
+  justify-content: space-between;
+}
+.mot-challenge-edit-modal-top {
+  font-size: 14px;
+  margin-right: 0.95rem;
+}
+.mot-challenge-edit-modal-top label {
+  font-weight: 600;
+  color: #212020;
+}
+.mot-challenge-edit-modal-top p {
+  color: #b8c0c8;
+}
+.mot-change-btn {
+  border: 1px solid #134a7c;
+  border-radius: 16px;
+  color: #134a7c;
+  padding: 0.15rem 0.55rem;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.25s ease-in;
+  transform-origin: top;
+}
+.mot-change-btn:hover,
+.mot-change-btn:focus {
+  background: #134a7c;
+  color: white;
+}
+.mot-preview-action-buttons {
+  bottom: 10%;
+  right: 4%;
+}
+.mot-preview-action-buttons > * {
+  font-size: 16px;
+}
+.mot-preview-action-buttons .mot-create-challenge-btn,
+.mot-preview-action-buttons .mot-create-challenge-btn:hover,
+.mot-preview-action-buttons .mot-create-challenge-btn:focus {
+  width: 125px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  transition: 0.45s ease-in-out;
+  transform-origin: left;
+  font-size: 16px;
+}
+.mot-preview-action-buttons .mot-create-challenge-btn:hover,
+.mot-preview-action-buttons .mot-create-challenge-btn:focus {
+  background: white;
+  border: 1.5px solid #134a7c;
+  color: #134a7c;
+  font-size: 16px;
+}
+.mot-create-challenge-btn-white,
+.mot-create-challenge-btn-white:focus,
+.mot-create-challenge-btn-white:hover {
+  color: #212020;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+@media (max-width: 500px) {
+  .mot-preview-modal-top {
+    width: 100%;
+  }
+  .mot-challenge-edit-modal-top {
+    align-items: baseline;
+  }
+  .mot-challenge-edit-modal-top label {
+    font-size: 13px;
+  }
+  .mot-challenge-edit-modal-top p {
+    font-size: 13px;
+  }
+  .mot-change-btn {
+    font-size: 12px;
+    padding: 0.1rem 0.4rem;
+  }
+}
+
+.tag-container {
+  padding: 2px 4px;
+  background: #eeffc4;
+  border-radius: 3px;
+  margin-right: 7px;
+  font-size: 8px;
+  color: #83b900;
+  display: flex;
+  align-items: center;
+}

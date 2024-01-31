@@ -1,0 +1,18 @@
+.challenge-h3 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 26px;
+  color: #212020;
+  margin-bottom: 52px;
+}
+
+.user {
+  font-weight: 700;
+}
+
+.challengePic {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+}

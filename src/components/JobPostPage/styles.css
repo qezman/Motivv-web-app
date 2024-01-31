@@ -1,0 +1,177 @@
+.mot-upload-image {
+  height: 70px;
+}
+
+.mot-form-container {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.mot-form-wrapper {
+  border: 1px solid #656565;
+  border-radius: 10px;
+  padding: 40px;
+}
+
+.mot-form-hint {
+  border: 0;
+  justify-content: center;
+  margin: 10px;
+  width: 90%;
+}
+
+.mot-form-job-input:hover,
+.mot-form-job-input:active,
+.mot-form-job-input:focus {
+  outline: none !important;
+}
+
+.center-input {
+  text-align: center;
+}
+
+.mot-form-hint {
+  font-size: 0.7rem;
+  font-style: italic;
+  color: #134a7c;
+  opacity: 0.7;
+  padding-top: 8px;
+  margin: 0;
+}
+
+.mot-apply-form {
+  padding-top: 5px;
+  padding-left: 20px;
+}
+
+.mot-apply-form div input,
+.mot-apply-form div select {
+  border: none;
+  border-bottom: 1px solid #656565;
+  width: 100%;
+  margin-top: 10px;
+  outline: 0;
+  padding: 10px 1px 4px;
+}
+
+.mot-apply-form-submit {
+  color: #ffffff;
+  background-color: #13497c;
+  outline: none;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 8px;
+  margin-top: 20px;
+  border: 2px solid #13497c;
+}
+
+.mot-apply-form-submit:hover {
+  color: #13497c;
+  background-color: #ffffff;
+  box-shadow: none;
+  transition: 0.2s ease-in;
+}
+.cursor {
+  cursor: pointer;
+}
+
+.skill-input {
+  width: initial !important;
+  background: #fff2df !important;
+  font-size: 18;
+  margin-top: 0;
+  border: none !important;
+  padding: 0;
+}
+
+.bod-rad input {
+  text-align: center;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  margin: 0 16px !important;
+}
+.text-price {
+  font-size: 16px;
+  padding: 8px;
+  font-weight: 800;
+}
+.not-text:hover {
+  opacity: 0.8;
+}
+.price-input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 10px;
+  background: #d7d7d7;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 25px;
+  width: 25px;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  background: #134a7c;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+.disabled-btn {
+  background-color: #fff !important;
+  color: #134a7c !important;
+  cursor: not-allowed;
+}
+.disabled-btn:hover {
+  color: #134a7c !important;
+  background-color: #fff !important;
+}
+.price-border {
+  border: 2px solid #134a7c !important;
+}
+
+.edit-profile {
+  color: #134a7c;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid #fff;
+  font-size: 0.8rem;
+}
+
+.edit-profile:hover {
+  background: none;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.5s ease-in;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+@media screen and (max-width: 800px) {
+  .mot-apply-form {
+    padding: 40px;
+    margin: 0;
+    overflow-x: hidden;
+  }
+  .mot-profile-card2 {
+    margin: 0 18px !important;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .mot-apply-top {
+    padding: 0;
+  }
+
+  .mot-apply-form {
+    padding: 0;
+    margin: 20px;
+  }
+}

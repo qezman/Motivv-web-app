@@ -1,0 +1,192 @@
+.mot-explore-list-container {
+  padding: 50px 0 100px;
+  margin: 0;
+}
+
+.d-style {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #bdbdbd;
+  border: 2px solid #ecf1f5;
+  border-radius: 8px;
+}
+
+.mot-explore-categories {
+  padding-bottom: 40px;
+}
+
+.mh-355 {
+  min-height: 355px;
+}
+
+.mot-avatar {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
+
+.mot-explore-categories span:last-child {
+  margin-left: 20px;
+}
+
+.mot-explore-card {
+  border: 1px solid #bdbdbd;
+  border-radius: 7px;
+  padding: 10px 20px;
+  width: 100%;
+}
+
+.mot-rating-container span {
+  font-weight: 700;
+}
+
+.active {
+  font-weight: 700;
+  color: #134a7c;
+  background-color: #ecf1f5;
+  border: 0 solid #134a7c;
+  border-radius: 8px;
+}
+
+.skill {
+  padding: 10px;
+  background-color: #fff2df;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  margin: 2px;
+}
+
+.amount {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.mot-upgrade-text {
+  font-size: 3rem;
+  line-height: 3.1rem;
+  font-weight: 700;
+}
+
+.mot-unlock-button {
+  outline: 0;
+  text-decoration: none;
+  background-color: #134a7c;
+  color: #ffffff;
+  padding: 10px 40px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px #13497c6b;
+}
+
+.mot-unlock-button:hover {
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: none;
+  transition: 0.2s ease-in;
+}
+
+.mot-profile-card-wrapper {
+  margin-top: 40px;
+}
+
+.block {
+  display: block;
+  text-align: center;
+}
+
+.block button {
+  margin-top: 15px;
+  font-size: 0.8rem;
+  border: 2px solid #134a7c;
+  background-color: #134a7c;
+  padding: 5px 25px;
+  border-radius: 5px;
+  color: #ffffff;
+  outline: none;
+}
+
+.block button:hover {
+  color: #134a7c;
+  background-color: #fff;
+  transition: 0.2s ease-in;
+}
+
+.mot-profile-card-wrapper .mot-profile-card {
+  border: 1px solid #bdbdbd;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.portfolio-link {
+  margin-top: 15px;
+  text-decoration: none;
+  color: #134a7c;
+}
+
+.portfolio-link:hover {
+  margin-top: 15px;
+  text-decoration: none;
+  color: #134a7c;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.display-name {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.fd {
+  opacity: 0.4;
+}
+
+.scroll-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.search-input {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  border: 2px solid #ecf1f5;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.search-input:active,
+.search-input:focus {
+  outline: none !important;
+  border: 2px solid #134a7c;
+  transition: 0.5s ease-in;
+}
+
+.sticky-inner-wrapper {
+  z-index: 1212121212;
+  background-color: #fff;
+  padding-top: 32px;
+}
+
+@media screen and (max-width: 700px) {
+  .mot-profile-card {
+    margin: 0px 30px;
+  }
+}
+
+.dFade {
+  height: 50%;
+  bottom: 0;
+  z-index: 111;
+  background: #fff;
+  opacity: 0.8;
+}

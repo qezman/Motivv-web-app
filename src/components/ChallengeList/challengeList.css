@@ -1,0 +1,98 @@
+.mot-challenge-section--list {
+  max-width: 1300px;
+}
+.welcome-user {
+  font-size: 1.86rem;
+  font-weight: 400;
+}
+.text-bold {
+  font-family: Rubik;
+  font-weight: 700;
+}
+.brief-amount {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.mot-dsl--select {
+  max-width: 78%;
+}
+.mot-dsl--select-item {
+  padding: 0;
+  padding-left: .45rem;
+}
+.track-type-dropdown,
+.industry-type-dropdown,
+.track-type-dropdown:hover,
+.industry-type-dropdown:hover,
+.track-type-dropdown:active,
+.industry-type-dropdown:active,
+.track-type-dropdown:focus,
+.industry-type-dropdown:focus {
+  text-transform: capitalize;
+  border: 0.7px solid #cdd0d3;
+  background: #f4f4f4;
+  font-family: DM Sans;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #aaaaaa;
+  border-radius: 10px;
+  width: 100%;
+  height: 50px;
+  box-shadow: none;
+}
+.track-type-dropdown:hover,
+.industry-type-dropdown:hover,
+.track-type-dropdown:active,
+.industry-type-dropdown:active,
+.track-type-dropdown:focus,
+.industry-type-dropdown:focus {
+  border-style: solid;
+  border-color: #134a7c;
+  color: #212529;
+  background: transparent;
+}
+.track-type-dropdown:hover,
+.industry-type-dropdown:hover {
+  border-width: 1px;
+}
+.track-type-dropdown:active,
+.industry-type-dropdown:active,
+.track-type-dropdown:focus,
+.industry-type-dropdown:focus {
+  border-width: 1.8px;
+}
+.mot-challengeList {
+  margin: 1.56rem 0;
+  /*padding-left: 0.5rem;*/
+}
+@media (max-width: 500px) {
+  .mot-challenge-section--list {
+    padding-left: 0.35rem;
+  }
+  .mot-challengeList {
+    padding-left: 0;
+  }
+  .welcome-user {
+    font-size: 1.5rem;
+  }
+  .mot-challenge-edit-modal {
+    padding: 0 1rem !important;
+  }
+  .mot-challenge-edit-modal-top p {
+    font-size: 14px;
+  }
+  .mot-change-btn {
+    font-size: 12px;
+  }
+  .mot-dsl--select {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .mot-challenge-section--list {
+    max-width: 100%;
+    padding: 0;
+    padding-left: .45rem;
+  }
+}

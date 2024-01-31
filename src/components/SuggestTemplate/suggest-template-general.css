@@ -1,0 +1,131 @@
+.mot-go-back-click {
+    width: fit-content;
+    margin-left: 7.5rem;
+    margin-top: 3rem;
+    cursor: pointer;
+    text-transform: capitalize;
+    color: #134A7C;
+    font-weight: 500;
+}
+
+.mot-suggest-template {
+    max-width: 70vw;
+}
+
+.mot-suggest-template__intro {
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4.5rem;
+}
+
+.mot-suggest-template__intro h1 {
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 64px;
+    color: #333758;
+}
+
+.mot-suggest-template__intro p {
+    margin-top: 0.5rem;
+    width: 68%;
+    font-size: 18px;
+    line-height: 27px;
+    color: #455880;
+}
+
+.mot-dsc-hero__textarea:placeholder {
+    font-family: DM Sans;
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 18px;
+    color: #aaaaaa;
+}
+
+.mot-dsc-hero__textarea {
+    background: #f4f4f4;
+    border: 0.7px solid #cdd0d3;
+    height: 78px;
+}
+
+.mot-dsc-hero__textarea,
+.mot-dsc-hero__textarea:hover,
+.mot-dsc-hero__textarea:active,
+.mot-dsc-hero__textarea:focus {
+    font-family: DM Sans;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #aaaaaa;
+    border-radius: 10px;
+    width: 95%;
+    box-shadow: none;
+}
+
+.mot-dsc-hero__textarea:hover,
+.mot-dsc-hero__textarea:focus,
+.mot-dsc-hero__textarea:active {
+    border-style: solid;
+    border-color: #134a7c;
+    color: #212529;
+    background: transparent;
+}
+
+.mot-dsc-hero__textarea:hover {
+    border-width: 1px;
+}
+
+.mot-dsc-hero__textarea:focus,
+.mot-dsc-hero__textarea:active {
+    border-width: 1.8px;
+}
+
+.mot-template-suggest__form {
+    max-width: 50%;
+}
+
+.mot-template-submit-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 216px;
+    height: 50px;
+    border: 0;
+    outline: none;
+    background: #134a7c;
+    border-radius: 24px;
+}
+
+.mot-template-submit-btn span {
+    margin-right: 10px;
+}
+
+.mot-or-text {
+    font-size: 13px;
+    line-height: 24px;
+    text-transform: capitalize;
+    color: #333758;
+    text-align: center;
+}
+
+@media (max-width: 800px) {
+    .mot-suggest-template {
+        max-width: 87vw;
+    }
+    .mot-suggest-template__intro h1 {
+        font-size: 20px;
+    }
+    .mot-suggest-template__intro p {
+        font-size: 14px;
+        width: 100%;
+        margin-top: 0;
+    }
+    .mot-go-back-click {
+        margin-left: 1.5rem;
+    }
+    .mot-template-suggest__form {
+        max-width: 100%;
+    }
+}

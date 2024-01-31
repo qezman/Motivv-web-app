@@ -1,0 +1,18 @@
+.rounded-cover{
+    border-radius: 50%;
+    background-color: #fff;
+    height:82px;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    width:82px;
+}
+
+.loader-gif{
+    height: 100vh;
+    width: 100vw;
+}
+
+.fs-42{
+    font-size: 42px;
+}

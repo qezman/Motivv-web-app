@@ -1,0 +1,95 @@
+.mot-ad--container {
+  background: #F7F2EB;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: 490px;
+}
+.mot-ad--container::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(247, 242, 235, 0.2);
+  border: 1px solid #F7F2EB;
+  border-radius: 8px;
+  transform: rotate(-5.19deg);
+  z-index: -1;
+}
+.mot-ad--container h3 {
+  font-family: DM Sans;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  color: #212020;
+  text-transform: capitalize;
+  width: 65%;
+  margin-bottom: 1.15rem;
+}
+.ad--image_placholder {
+  height: 180px;
+  padding: 0 30px;
+}
+.mot-ad--container .challenge-label {
+  margin: 1.2rem 0;
+}
+.challenge-label {
+  background: rgba(248, 151, 7, 0.2);
+  border-radius: 16px;
+  padding: 4px 20px;
+  color: #F89707;
+  font-family: Rubik;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 22px;
+  width: fit-content;
+}
+.coming-btn {
+  border: 1.5px solid #212020;
+  filter: drop-shadow(0px 4px 70px rgba(19, 74, 124, 0.2));
+  border-radius: 10px;
+  color: #212020;
+  background: transparent;
+  padding: 0.5rem 1.9rem;
+  outline: none;
+  box-shadow: none;
+}
+.mot-ad--container p {
+  font-size: 13px;
+  padding: 0 7%;
+}
+.mot-ad-btn {
+  width: 155px;
+  height: 45px;
+  font-size: 14px;
+  font-weight: 700;
+  background: #134A7C;
+  border: 0;
+  outline: none;
+  box-shadow: 0px 4px 70px rgb(19 74 124 / 20%);
+  border-radius: 10px;
+}
+.mot-ad-btn:hover,
+.mot-ad-btn:focus,
+.mot-ad-btn:active {
+  background-color: transparent !important;
+  color: #134A7C !important;
+  border: 0.75px solid #134A7C !important;
+  outline: none;
+  box-shadow: none;
+}
+@media (max-width: 800px) {
+  .mot-ad--container {
+    padding: 0;
+  }
+  .ad--image_placholder {
+    padding: 0;
+  }
+  .mot-ad--container h3 {
+    width: 80%;
+  }
+}

@@ -1,0 +1,171 @@
+.styled-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #134a7c;
+    text-align: center;
+}
+
+.btn-nav {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 10px 23.5px;
+    color: #131313;
+    font-weight: 500;
+}
+
+.white {
+    color: white;
+}
+
+.styled-header>div {
+    width: 50%;
+    padding: 100px 0px;
+    color: white;
+    font-weight: bold;
+}
+
+.styled-header>div>h1 {
+    color: white;
+    font-weight: bold;
+}
+
+.style-button {
+    background: linear-gradient( 311.23deg, #256cad -9.07%, rgba(37, 108, 173, 0) 105.76%);
+    border: 1px solid #0f4374;
+    border-radius: 56px;
+    margin-top: 20px;
+    color: white;
+    padding: 23px 65px;
+}
+
+button {
+    outline: none;
+    border: none;
+    padding: 5px 20px;
+}
+
+button:active {
+    outline: 0px;
+    border: none;
+    padding: 5px 20px;
+}
+
+.ds-flex {
+    display: flex;
+}
+
+.bg-black {
+    background-color: black;
+    color: white;
+    padding-top: 100px;
+}
+
+.bg-brand {
+    height: 100%;
+}
+
+.styleDiv {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    flex-direction: column;
+}
+
+.styleContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.bg-branding {
+    width: 50%;
+    height: 50vh;
+    background: url("../assets/Branding.jpg");
+    background-position: center;
+    color: white;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.bg-UI {
+    width: 50%;
+    height: 50vh;
+    background: url("../assets/UI.jpg");
+    background-position: center;
+    color: white;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.bg-graphic {
+    width: 50%;
+    height: 50vh;
+    background: url("../assets/Illustration.png");
+    background-position: center;
+    color: white;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.bg-art {
+    width: 50%;
+    height: 50vh;
+    background: url("../assets/Art.png");
+    background-position: center;
+    color: white;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+#root>div:nth-child(3)>div>div>div>div:nth-child(n) {
+    height: 286px;
+    width: 255px;
+}
+
+.ds-inline-res {
+    display: flex;
+}
+
+@media (max-width: 760px) {
+    .styleContainer {
+        flex-direction: column;
+        width: 100%;
+    }
+    .bg-branding,
+    .bg-graphic,
+    .bg-UI,
+    .bg-art {
+        width: 100%;
+    }
+    .sm-mb-50vh {
+        margin-bottom: 50vh;
+    }
+    .styled-header>div {
+        width: 100%;
+        padding: 100px 20px;
+    }
+    .sm-none {
+        display: none;
+    }
+    .ds-inline-res {
+        flex-direction: column;
+    }
+    #root>div:nth-child(3)>div>div>div>div:nth-child(n) {
+        height: 186px;
+        width: 155px;
+    }
+}

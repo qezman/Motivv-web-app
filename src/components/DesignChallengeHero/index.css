@@ -1,0 +1,169 @@
+.mot-designChallenge-section {
+  max-width: 1300px;
+  padding: 2rem 0;
+  overflow-x: hidden;
+}
+.design-job a {
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.design-job a:hover,
+.design-job a:focus,
+.design-job a:active {
+  color: #fff;
+}
+.mot-design-jobs-button {
+  color: #fff;
+  border: 2px solid #134a7c;
+  background: #134a7c;
+  padding: 12px 30px;
+  border-radius: 10px;
+  outline: 0;
+  position: relative;
+}
+.mot-design-jobs-button:hover,
+.mot-design-jobs-button:focus,
+.mot-design-jobs-button:active {
+  box-shadow: 0px 4px 30px rgba(227, 233, 241, 0.7);
+}
+.mot-design-jobs-button.form-submit {
+  width: 250px;
+}
+.mot-design-jobs-button:hover,
+.mot-design-jobs-button.form-submit:hover,
+.mot-design-jobs-button.form-submit:focus,
+.mot-design-jobs-button.form-submit:active {
+  color: #134a7c !important;
+  outline: none;
+  background: white;
+  border: 2px solid #134a7c;
+}
+.wand {
+  fill: #fff;
+}
+.mot-design-jobs-button:hover .wand {
+  fill: #134a7c;
+}
+/*design challenge hero text*/
+.mot-dsc-hero__text {
+  margin-top: 6rem;
+  margin-bottom: 4rem;
+}
+.mot-design-hero-header {
+  color: #13497c;
+  font-size: 2.9rem;
+  font-weight: 700;
+  width: 90%;
+}
+.mot-dsc-hero__subheader {
+  margin-top: 0.15rem;
+  width: 53%;
+  line-height: 27px;
+}
+/*design challenge hero registration form*/
+.mot-dsc-form {
+  padding: 20px 0 20px;
+}
+.mot-dsc-hero__challengeForm {
+  background: #ffffff;
+  box-shadow: 0px 4px 30px rgba(227, 233, 241, 0.7);
+  border-radius: 8px;
+}
+.mot-dsc-hero__input:placeholder {
+  font-family: DM Sans;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 18px;
+  color: #aaaaaa;
+}
+.mot-dsc-hero__input {
+  background: #f4f4f4;
+  border: 0.7px solid #cdd0d3;
+}
+.mot-dsc-hero__input,
+.mot-dsc-hero__input:hover,
+.mot-dsc-hero__input:active,
+.mot-dsc-hero__input:focus {
+  font-family: DM Sans;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #aaaaaa;
+  border-radius: 10px;
+  width: 95%;
+  height: 50px;
+  box-shadow: none;
+}
+.mot-dsc-hero__input:hover,
+.mot-dsc-hero__input:focus,
+.mot-dsc-hero__input:active {
+  border-style: solid;
+  border-color: #134a7c;
+  color: #212529;
+  background: transparent;
+}
+.mot-dsc-hero__input:hover {
+  border-width: 1px;
+}
+.mot-dsc-hero__input:focus,
+.mot-dsc-hero__input:active {
+  border-width: 1.8px;
+}
+.design-job-lines {
+  position: absolute;
+  top: -16px;
+  right: -19px;
+}
+@media (max-width: 500px) {
+  .mot-dsc-form {
+    flex-direction: column;
+  }
+  .mot-dsc-hero__input {
+    margin-bottom: 1.4rem;
+  }
+}
+@media (max-width: 850px) {
+  .mot-design-hero-header {
+    font-size: 1.39rem;
+    line-height: 2rem;
+  }
+  .mot-dsc-hero__subheader {
+    width: 90%;
+  }
+  .design-job-lines {
+    position: absolute;
+    right: -21px;
+    top: -17px;
+  }
+}
+@media (min-width: 500px) and (max-width: 850px) {
+  .form-submit {
+    padding: 0 0 0 0;
+    height: 52px;
+    padding-top: 2px;
+    padding-bottom: 0;
+    font-size: 12px;
+  }
+  .mot-dsc-insider__two {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+    max-width: 100%;
+  }
+}
+@media (max-width: 1100px) {
+  .mot-designChallenge-section {
+    padding: 1rem 2rem;
+  }
+}
+@media (min-width: 850px) and (max-width: 1100px) {
+  .form-submit {
+    font-size: 14px;
+  }
+}
+
+.pb7rem {
+  padding-bottom: 7rem;
+}

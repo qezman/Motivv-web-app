@@ -1,0 +1,43 @@
+.mot-challenge-success-modal {
+  padding: 2rem 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.modal-65h {
+  min-height: 65vh;
+}
+.success-svg-placholder {
+  width: 20%;
+  height: 50%;
+  background: #134A7C;
+  border-radius: 50%;
+  padding: 2rem;
+  width: 10%;
+height: 25%;
+padding: 0.95rem;
+}
+.success-svg-placholder svg path{
+  fill: white
+}
+.success-modal-two h2 {
+  font-weight: 700;
+}
+@media (max-width: 500px) {
+  .mot-challenge-success-modal {
+    padding: 2rem;
+  }
+  .success-svg-placholder {
+    width: 60%;
+    height: 50%;
+    padding: 2rem;
+  }
+  .success-svg-placholder svg{
+    width: 100%;
+    height: 100%;
+  }
+}

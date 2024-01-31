@@ -1,0 +1,68 @@
+.mot-challenge-con {
+  background-color: rgba(19, 74, 124, 0.12);
+  padding: 100px 0 100px;
+}
+.mot-challenge button {
+  color: #ffffff;
+  background-color: #13497c;
+  outline: none;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 8px;
+  margin-top: 20px;
+  border: 2px solid #13497c;
+}
+
+.mot-challenge button:hover {
+  color: #13497c;
+  background-color: rgba(19, 74, 124, 0.12);
+  box-shadow: none;
+  transition: 0.2s ease-in;
+}
+.mot-challenge-con svg {
+  width: 100%;
+}
+.challenge-new {
+  background: #f9cccc;
+  border-radius: 16px;
+  padding: 8px 16px;
+  color: #e62424;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 22px;
+  width: fit-content;
+}
+.element {
+  animation: drop 8s ease forwards;
+  animation-iteration-count: infinite;
+  z-index: 111;
+}
+
+.element:nth-child(2),
+.element:nth-child(4),
+.element:nth-child(9) {
+  animation: drop 10s ease forwards !important;
+  animation-delay: 2s;
+}
+
+.element:nth-child(3),
+.element:nth-child(5),
+.element:nth-child(7) {
+  animation: drop 12s ease forwards !important;
+}
+
+@keyframes drop {
+  0% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  70% {
+    /* opacity: 0.5; */
+    /* transform: translateY(15px); */
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}

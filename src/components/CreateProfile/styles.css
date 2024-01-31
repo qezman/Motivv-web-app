@@ -1,0 +1,36 @@
+.mot-create-profile-con {
+    background: white;
+    padding: 150px 0;
+    text-align: center;
+}
+.title-big {
+    font-weight: 700;
+    font-size: 3.2rem;
+}
+.mot-profile-create-btn {
+    background: #134A7C;
+    border-radius: 10px;
+    color: white;
+    width: 220px;
+    height: 45px;
+    margin-top: 15px;
+    font-size: 13px;
+    font-weight: 700;
+    border: 2px solid #134A7C;
+    padding: 8px 30px;        
+    outline: none;
+    line-height: 25px;
+    box-shadow: 0px 4px 70px rgba(19, 74, 124, 0.2);
+    backdrop-filter: blur(0.15px);
+}
+.mot-profile-create-btn a {
+    color: inherit;
+    text-transform: none;
+}
+
+@media (max-width: 500px) {
+    .title-big {
+        font-size: 1.5rem;
+        line-height: 1.5em;
+    }
+}

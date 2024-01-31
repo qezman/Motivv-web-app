@@ -1,0 +1,64 @@
+.mot-designChallenge-section{
+  padding: 60px 0;
+}
+
+.mot-dsc-advertise {
+  max-width: 1180px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.mot-dsc-advertise-contents {
+  background: url('../../assets/bg-design-school.png');
+  height: 350px;
+  background-repeat: no-repeat;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+}
+.challenge-label.green {
+  color: #066144;
+  background: rgba(131, 185, 0, 0.74);
+  font-weight: 400;
+}
+.mot-dsc-advertise-contents h3 {
+  font-weight: 700;
+}
+.advertise-coming-btn {
+  border: 3px solid #ffffff;
+  box-shadow: 0px 4px 70px rgba(19, 74, 124, 0.2);
+  filter: drop-shadow(0px 4px 70px rgba(19, 74, 124, 0.2));
+  border-radius: 10px;
+  height: 48px;
+  background: transparent;
+  color: white;
+  width: 200px;
+}
+@media (max-width: 850px) {
+  .img-one {
+    display: none;
+  }
+}
+@media (max-width: 850px) {
+  .mot-dsc-subscribe {
+    height: 450px;
+  }
+  .mot-dsc-subscribe__header {
+    font-size: 2rem;
+  }
+  .mot-dsc-advertise-contents {
+    min-height: 350px;
+    background-size: cover;
+    padding: 20px 0;
+    height: auto;
+    width: 100%;
+  }
+  .mot-dsc-advertise-contents h3 {
+    font-size: 1.25rem;
+  }
+}
