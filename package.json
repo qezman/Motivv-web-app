@@ -30,6 +30,7 @@
     "react-slick": "^0.26.1",
     "react-stickynode": "^3.0.3",
     "slick-carousel": "^1.8.1",
+    "vercel": "^33.4.1",
     "yarn": "^1.22.21"
   },
   "scripts": {
