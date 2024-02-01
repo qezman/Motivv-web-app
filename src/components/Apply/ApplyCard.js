@@ -130,7 +130,8 @@ export default function ApplyCard() {
       if (input.link.includes("http")) {
         linkk = input.link;
       } else {
-        linkk = `https://${input.link}`;
+        // linkk = `https://${input.link}`;
+        linkk = '127.0.0.1:3000/api/designers/'
       }
       // setLoading(true);
       if (

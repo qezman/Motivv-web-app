@@ -9,5 +9,4 @@ export function ValidateEmail(mail) {
   return false;
 }
 
-// export const URL = "https://www.motivv.co/api";
-export const URL = 'https://project-ip-cam.fly.dev/upload'
+export const URL = "https://www.motivv.co/api";
