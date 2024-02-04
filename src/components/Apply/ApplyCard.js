@@ -5,16 +5,13 @@ import { Typeahead } from "react-bootstrap-typeahead";
 import axios from "axios";
 import Fade from "react-reveal/Fade";
 import { URL } from "../../constants";
-
 let upload =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594422865/upload_sncmdm.png";
 let edit =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594654144/Motivv/Vector_tnnrwv.png";
 let close =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594654144/Motivv/ion_close-circle_xsgnnq.png";
-
 const url = `${URL}/`;
-
 export default function ApplyCard() {
   const [editActive, setEditActive] = useState(true);
   const [total, setTotal] = useState("");
@@ -130,8 +127,7 @@ export default function ApplyCard() {
       if (input.link.includes("http")) {
         linkk = input.link;
       } else {
-        // linkk = `https://${input.link}`;
-        linkk = '127.0.0.1:3000/api/designers/'
+        linkk = `https://${input.link}`;
       }
       // setLoading(true);
       if (
@@ -157,7 +153,6 @@ export default function ApplyCard() {
         setLoading(false);
       } else {
         let formData = new FormData();
-        console.log('FormData:', formData)
         formData.append("name", input.name);
         formData.append("link", linkk);
         formData.append("headline", title[0]);
@@ -176,7 +171,6 @@ export default function ApplyCard() {
               "content-type": "multipart/form-data",
             },
           });
-          console.log('Server response:', res.data)
           if (res.data.success === 1) {
             setError(true);
             setErrorValue(res.data.msg);
@@ -276,7 +270,9 @@ export default function ApplyCard() {
   }, [endPriceRange, startPriceRange]);
   return (
     <Col className="p-0 m-0" md={!editActive ? 4 : 3}>
-      <form className="mot-apply-form">
+      <form 
+      onSubmit={handleSubmit}
+      className="mot-apply-form">
         <div className="mot-profile-card-wrapper mt-0">
           <h5 className="text-center mb-5 mot-form-title ">
             Customize your Card
@@ -342,7 +338,6 @@ export default function ApplyCard() {
                     alt=""
                     className="mot-upload-image"
                   />
-
                   {!editActive && (
                     <p className="mot-form-hint w-100 text-center">
                       choose an avatar
