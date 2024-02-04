@@ -9,4 +9,5 @@ export function ValidateEmail(mail) {
   return false;
 }
 
-export const URL = "https://www.motivv.co/api";
+// export const URL = "https://www.motivv.co/api";
+export const URL = "http://backend-production-fc84.up.railway.app/api/designers";

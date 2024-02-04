@@ -1,0 +1,121 @@
+.icon-text {
+  display: flex;
+  /* justify-items: center; */
+  align-items: center;
+  /* justify-content: center; */
+  font-size: 14px;
+  color: white;
+  gap: 4px;
+  margin-top: 10px;
+}
+.left-section {
+  background: #134a7c;
+  padding: 20px;
+  width: 150px;
+}
+.container-component {
+  display: flex;
+  /* justify-content: center; */
+  background: #f4f4f4;
+}
+.motivv-logo {
+  /* padding-left: 12px; */
+  width: 70px;
+}
+.search-cont {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid #c4c4c4;
+  padding: 0 10px 0 -2px;
+  margin: 10px 5px;
+  background: #fafafa;
+  width: 200px;
+}
+.bar-icon {
+  display: flex;
+}
+.bar button{
+  text-decoration: none;
+  outline: none;
+  background: #c4c4c4;
+}
+.search-input {
+  border: none;
+  /* width: 20px; */
+}
+.pending-text {
+  font-size: 18px;
+  text-align: center;
+  color: #696F79;
+  padding: 10px 0;
+}
+/* style={{width: "60px", display:"flex", justifyContent: "center", alignItems: "center"}} */
+.info-image {
+  width: 60px;
+  /* display: flex;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  align-content: center; */
+}
+
+.info-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7.977px;
+  background: #f9f9f9;
+  box-shadow: 1px 1px 2px 0px #d2dbe4;
+  margin: 20px;
+  padding: 10px;
+}
+.info-name {
+  font-weight: 700;
+  padding: 10px 0 0 0;
+}
+.info-role {
+  font-style: italic;
+  font-size: 14px;
+}
+.info-tools {
+  display: flex;
+  gap: 5px;
+}
+.tool {
+  border-radius: 7.977px;
+  /* width: 50px; */
+  text-align: center;
+  padding: 5px 8px;
+  background: rgba(246, 180, 82, 0.19);
+  color: #8F8F8F;
+}
+.info-para {
+  color: #656565;
+}
+.info-rate {
+  font-weight: 500;
+}
+.view-btn {
+  font-size: 18px;
+  color: #134A7C;
+}
+.approve-reject {
+  display: flex;
+  gap: 10px;
+}
+.search-icons {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+.left-section.active {
+  /* width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999; */
+}
