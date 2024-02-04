@@ -36,6 +36,7 @@ import University from "./University/index";
 import Verification from "./components/OtpEdit/Verification.js";
 
 import AdminApproved from "./admin/AdminApproved/AdminApproved.js";
+import Pending from "./admin/Pending/Pending.js"
 
 function App() {
   const user = useContext(UserContext);
@@ -68,7 +69,9 @@ function App() {
             path="/business-template/suggest"
             component={SuggestTemplate}
           />
+
           <Route exact path="/approved" component={AdminApproved}/>
+          <Route exact path="/pending" component={Pending}/>
 
           <PrivateRoute
             user={challengeUser}
