@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Pending.css";
 import { Icons } from "./PendingData";
 import { Modal, Button } from "react-bootstrap";
@@ -7,15 +7,7 @@ import { information } from "./PendingData";
 
 const Pending = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [leftSectionActive, setLeftSectionActive] = useState(true);
-
-  const handleRightSectionClick = () => {
-    setLeftSectionActive(false);
-  };
-
-  const handleLeftSectionClick = () => {
-    setLeftSectionActive(true);
-  };
+  
 
   // Filter items based on the search query
   // const filteredItems = items.filter((items) =>
@@ -31,6 +23,8 @@ const Pending = () => {
   return (
     <section className="container-component">
       {/* toggle bar */}
+
+
       <article className="left-section">
         <div className="bar-icon">
           <img className="motivv-logo" src={"/assets/motivv-logo.png"} />
@@ -42,11 +36,11 @@ const Pending = () => {
 
         {Icons.map((item) => {
           return (
-            <div key={item.id}>
+            <div key={item.id} className="icon-with-texts">
               <div className="icon-text">
                 {/* <img className="icons" src={item.icon} /> */}
-                <p>{item.icon}</p>
-                <p>{item.name}</p>
+                <p className="icons">{item.icon}</p>
+                <p className="icon-names">{item.name}</p>
               </div>
             </div>
           );
@@ -54,7 +48,7 @@ const Pending = () => {
       </article>
       
 
-      <article className="right-section">
+      <article className={"right-section"}>
         <section className="search-icons">
           <div className="search-cont">
             <input
@@ -103,7 +97,7 @@ const Pending = () => {
                     transform="translate(0 0.5)"
                   />
                 </clipPath>
-              </defs>
+              </defs>31954520029
             </svg>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -122,15 +116,18 @@ const Pending = () => {
               />
             </svg>
 
-            <button className="bar">
+
+
+            {/* <button className="bar">
               <FaBars />
-            </button>
+            </button> */}
+            
           </div>
         </section>
 
         <h1 className="pending-text">Pending Talents</h1>
 
-        <div>
+        <div className="grid-card">
           {information.map((item) => {
             return (
               <div className="info-cont" key={item.id}>
@@ -148,8 +145,8 @@ const Pending = () => {
                 <p className="info-rate">NGN: {item.rate}</p>
                 <p className="view-btn">View Portfolio</p>
                 <div className="approve-reject">
-                  <button>Approve</button>
-                  <button>Reject</button>
+                  <button className="apv-btn">Approve</button>
+                  <button className="rjt-btn">Reject</button>
                 </div>
               </div>
             );

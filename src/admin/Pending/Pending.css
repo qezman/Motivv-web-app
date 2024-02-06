@@ -11,7 +11,8 @@
 .left-section {
   background: #134a7c;
   padding: 20px;
-  width: 150px;
+  width: 100%;
+  /* display: none; */
 }
 .container-component {
   display: flex;
@@ -36,7 +37,7 @@
 .bar-icon {
   display: flex;
 }
-.bar button{
+.bar button {
   text-decoration: none;
   outline: none;
   background: #c4c4c4;
@@ -48,17 +49,19 @@
 .pending-text {
   font-size: 18px;
   text-align: center;
-  color: #696F79;
+  color: #696f79;
   padding: 10px 0;
 }
-/* style={{width: "60px", display:"flex", justifyContent: "center", alignItems: "center"}} */
 .info-image {
-  width: 60px;
-  /* display: flex;
-  justify-items: center;
-  align-items: center;
-  justify-content: center;
-  align-content: center; */
+  width: 30px;
+}
+
+.grid-card {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  /* gap: 16px; */
+  max-width: 100%;
+  margin: auto;
 }
 
 .info-cont {
@@ -70,41 +73,60 @@
   background: #f9f9f9;
   box-shadow: 1px 1px 2px 0px #d2dbe4;
   margin: 20px;
-  padding: 10px;
+  padding: 20px 0;
 }
 .info-name {
   font-weight: 700;
   padding: 10px 0 0 0;
+  font-size: 10px;
 }
 .info-role {
   font-style: italic;
-  font-size: 14px;
+  font-size: 8px;
 }
 .info-tools {
   display: flex;
-  gap: 5px;
+  gap: 3px;
 }
 .tool {
   border-radius: 7.977px;
   /* width: 50px; */
   text-align: center;
-  padding: 5px 8px;
+  padding: 3px 6px;
   background: rgba(246, 180, 82, 0.19);
-  color: #8F8F8F;
+  color: #8f8f8f;
+  font-size: 8px;
 }
 .info-para {
   color: #656565;
+  font-size: 10px;
+  width: 180px;
+  text-align: center;
 }
 .info-rate {
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 10px;
+  margin: -4px 0 6px 0;
 }
 .view-btn {
-  font-size: 18px;
-  color: #134A7C;
+  font-size: 12px;
+  color: #134a7c;
 }
 .approve-reject {
   display: flex;
   gap: 10px;
+  font-size: 8px;
+}
+
+.apv-btn {
+  width: 60px;
+  padding: 4px 6px;
+  font-size: 12px;
+}
+.rjt-btn {
+  width: 60px;
+  padding: 4px 6px;
+  font-size: 12px;
 }
 .search-icons {
   display: flex;
@@ -118,4 +140,145 @@
   top: 0;
   left: 0;
   z-index: 999; */
+}
+@media (max-width: 320px) {
+  .left-section {
+    display: none;
+  }
+
+  .right-section.expanded {
+    margin-left: 0;
+  }
+}
+@media only screen and (min-width: 760px) {
+  .left-section {
+    background: #134a7c;
+    padding: 20px;
+    width: 250px;
+    /* display: none; */
+  }
+  .pending-text {
+    font-size: 24px;
+  }
+
+  .grid-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* gap: 16px; */
+    justify-items: center;
+    align-items: center;
+  }
+
+  .icon-names {
+    font-size: 18px;
+  }
+
+  .icon-with-texts {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    padding: 10px;
+  }
+  .right-section {
+    width: full;
+  }
+  .apv-btn {
+    width: 80px;
+    padding: 2px 4px;
+    font-size: 12px;
+  }
+  .rjt-btn {
+    width: 80px;
+  }
+  .info-image {
+    width: 60px;
+  }
+  .info-name {
+    font-size: 12px;
+  }
+  .info-role {
+    font-size: 10px;
+  }
+  .tool {
+    font-size: 10px;
+  }
+  .info-para {
+    font-size: 12px;
+    width: 270px;
+  }
+  .info-rate {
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .view-btn {
+    font-size: 13px;
+  }
+
+  .apv-btn {
+    padding: 4px 6px;
+    font-size: 14px;
+  }
+  .rjt-btn {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .grid-card {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .apv-btn {
+    padding: 2px 4px;
+    font-size: 12px;
+  }
+  .info-cont {
+    /* padding: 35px; */
+  }
+  .info-image {
+    width: 60px;
+  }
+  .info-name {
+    font-size: 18px;
+  }
+  .info-role {
+    font-size: 16px;
+  }
+  .tool {
+    font-size: 12px;
+  }
+  .info-para {
+    font-size: 16px;
+    width: 270px;
+  }
+  .info-rate {
+    font-size: 14px;
+    font-weight: 900;
+  }
+  .view-btn {
+    font-size: 15px;
+  }
+
+  .apv-btn {
+    padding: 6px;
+    font-size: 15px;
+    width: 100px;
+  }
+  .rjt-btn {
+    font-size: 15px;
+    width: 100px;
+    padding: 6px;
+  }
+  .right-section {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 1800px) {
+  .info-cont {
+    padding: 40px;
+  }
 }
