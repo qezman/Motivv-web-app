@@ -1,10 +1,7 @@
 .icon-text {
   display: flex;
-  /* justify-items: center; */
   align-items: center;
-  /* justify-content: center; */
   font-size: 14px;
-  color: white;
   gap: 4px;
   margin-top: 10px;
 }
@@ -12,30 +9,42 @@
   background: #134a7c;
   padding: 20px;
   width: 100%;
-  /* display: none; */
+}
+.icon-with-texts:hover,
+.icon-with-texts:focus {
+  background-color: #fff !important;
+  color: #134a7c !important;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.icon-with-texts.focused {
+  background-color: #fff !important;
+  color: #134a7c !important;
+  cursor: pointer;
 }
 .container-component {
   display: flex;
-  /* justify-content: center; */
   background: #f4f4f4;
 }
 .motivv-logo {
-  /* padding-left: 12px; */
   width: 70px;
 }
 .search-cont {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   border-radius: 10px;
   border: 1px solid #c4c4c4;
-  padding: 0 10px 0 -2px;
-  margin: 10px 5px;
+  padding: 10px 20px;
+  margin: 12px;
   background: #fafafa;
-  width: 200px;
 }
 .bar-icon {
   display: flex;
+}
+.right-icons {
+  display: flex;
+  margin: 0 12px;
 }
 .bar button {
   text-decoration: none;
@@ -44,6 +53,7 @@
 }
 .search-input {
   border: none;
+  color: #bbbbbb;
   /* width: 20px; */
 }
 .pending-text {
@@ -122,26 +132,25 @@
   width: 60px;
   padding: 4px 6px;
   font-size: 12px;
+  outline: none;
+  border: none;
 }
 .rjt-btn {
   width: 60px;
   padding: 4px 6px;
   font-size: 12px;
+  color: #F66D6D;
+  border: 1px solid #F66D6D;
+  background-color: transparent;
 }
 .search-icons {
   display: flex;
+  /* justify-content: space-between; */
   justify-items: center;
   align-items: center;
+  gap: 40px;
 }
-.left-section.active {
-  /* width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999; */
-}
-@media (max-width: 320px) {
+@media (max-width: 500px) {
   .left-section {
     display: none;
   }
@@ -149,21 +158,49 @@
   .right-section.expanded {
     margin-left: 0;
   }
+  .mobile-header {
+    background: #134a7c;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    color: white;
+  }
+  .mot-logo {
+    width: 100px;
+  }
 }
 @media only screen and (min-width: 760px) {
   .left-section {
     background: #134a7c;
     padding: 20px;
-    width: 250px;
-    /* display: none; */
+    width: 300px;
+  }
+  .search-cont {
+    display: flex;
+    align-items: center;
+    gap: 300px;
+    border-radius: 10px;
+    border: 1px solid #c4c4c4;
+    padding: 10px 20px;
+    margin: 12px;
+    background: #fafafa;
+  }
+  .motivv-logo {
+    width: 120px;
+  }
+  .mobile-header {
+    display: none;
   }
   .pending-text {
+    display: flex;
+    padding: 12px;
     font-size: 24px;
   }
 
   .grid-card {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     /* gap: 16px; */
     justify-items: center;
     align-items: center;
@@ -233,9 +270,6 @@
     padding: 2px 4px;
     font-size: 12px;
   }
-  .info-cont {
-    /* padding: 35px; */
-  }
   .info-image {
     width: 60px;
   }
@@ -280,5 +314,8 @@
 @media only screen and (min-width: 1800px) {
   .info-cont {
     padding: 40px;
+  }
+  .pending-text {
+    display: flex;
   }
 }

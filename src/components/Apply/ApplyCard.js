@@ -118,59 +118,142 @@ export default function ApplyCard() {
     return isValid;
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   if (validateForm()) {
+  //     setLoading(true);
+
+  //     let linkk;
+  //     if (input.link.includes("http")) {
+  //       linkk = input.link;
+  //     } else {
+  //       linkk = `https://${input.link}`;
+  //     }
+  //     // setLoading(true);
+  //     if (
+  //       !input.name ||
+  //       !input.email ||
+  //       !input.phone ||
+  //       !input.phoneCode ||
+  //       !input.link ||
+  //       !input.image ||
+  //       title.length === 0
+  //     ) {
+  //       setError(true);
+  //       setErrorValue("Please fill all required fields");
+  //       setLoading(false);
+  //     } else if (
+  //       skill1.length === 0 &&
+  //       skill2.length === 0 &&
+  //       skill3.length === 0 &&
+  //       skill4.length === 0
+  //     ) {
+  //       setError(true);
+  //       setErrorValue("Pick at least a skill");
+  //       setLoading(false);
+  //     } else {
+  //       let formData = new FormData();
+  //       formData.append("name", input.name);
+  //       formData.append("link", linkk);
+  //       formData.append("headline", title[0]);
+  //       formData.append("email", input.email);
+  //       formData.append("phone", input.phoneCode + input.phone);
+  //       formData.append("startprice", startTotal);
+  //       formData.append("endprice", total);
+  //       if (skill1.length > 0) formData.append("skill1", skill1[0]);
+  //       if (skill2.length > 0) formData.append("skill2", skill2[0]);
+  //       if (skill3.length > 0) formData.append("skill3", skill3[0]);
+  //       if (skill4.length > 0) formData.append("skill4", skill4[0]);
+  //       formData.append("picture", input.image);
+  //       try {
+  //         const res = await axios.post(url, formData, {
+  //           headers: {
+  //             "content-type": "multipart/form-data",
+  //           },
+  //         });
+  //         if (res.data.success === 1) {
+  //           setError(true);
+  //           setErrorValue(res.data.msg);
+  //           setTotal("");
+  //           setStartTotal("");
+  //           setEndPriceRange(0);
+  //           setStartPriceRange(0);
+  //           setEditActive(true);
+  //           setInput({
+  //             name: "",
+  //             skill1: "",
+  //             skill2: "",
+  //             skill3: "",
+  //             skill4: "",
+  //             email: "",
+  //             phone: "",
+  //             link: "",
+  //             phoneCode: "",
+  //             image: null,
+  //           });
+  //           setTitle([]);
+  //           setLoading(false);
+  //           setImageUrl(upload);
+  //         } else {
+  //           setError(true);
+  //           setErrorValue(res.data.msg);
+  //           setLoading(false);
+  //         }
+  //       } catch (error) {
+  //         console.error("Form submission error:", error);
+  //         console.error("Detailed error response:", error.response);
+  //         setError(true);
+  //         setErrorValue("An error occurred during form submission");
+  //         setLoading(false);
+  //       }
+  //     }
+  //   } else {
+  //     console.log("Form validation failed");
+  //   }
+  // };
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
     if (validateForm()) {
       setLoading(true);
-
-      let linkk;
-      if (input.link.includes("http")) {
-        linkk = input.link;
-      } else {
-        linkk = `https://${input.link}`;
-      }
-      // setLoading(true);
-      if (
-        !input.name ||
-        !input.email ||
-        !input.phone ||
-        !input.phoneCode ||
-        !input.link ||
-        !input.image ||
-        title.length === 0
-      ) {
+  
+      let linkk = input.link.includes("http") ? input.link : `https://${input.link}`;
+  
+      if (!input.name || !input.email || !input.phone || !input.phoneCode || !input.link || !input.image || title.length === 0) {
         setError(true);
-        setErrorValue("Please fill all required fields");
+        setErrorValue("Please fill in all required fields");
         setLoading(false);
-      } else if (
-        skill1.length === 0 &&
-        skill2.length === 0 &&
-        skill3.length === 0 &&
-        skill4.length === 0
-      ) {
+      } else if (skill1.length === 0 && skill2.length === 0 && skill3.length === 0 && skill4.length === 0) {
         setError(true);
-        setErrorValue("Pick at least a skill");
+        setErrorValue("Pick at least one skill");
         setLoading(false);
       } else {
-        let formData = new FormData();
-        formData.append("name", input.name);
-        formData.append("link", linkk);
-        formData.append("headline", title[0]);
-        formData.append("email", input.email);
-        formData.append("phone", input.phoneCode + input.phone);
-        formData.append("startprice", startTotal);
-        formData.append("endprice", total);
-        if (skill1.length > 0) formData.append("skill1", skill1[0]);
-        if (skill2.length > 0) formData.append("skill2", skill2[0]);
-        if (skill3.length > 0) formData.append("skill3", skill3[0]);
-        if (skill4.length > 0) formData.append("skill4", skill4[0]);
-        formData.append("picture", input.image);
         try {
-          const res = await axios.post(url, formData, {
+          const requestData = {
+            name: input.name,
+            link: linkk,
+            headline: title[0],
+            email: input.email,
+            phone: input.phoneCode + input.phone,
+            startprice: startTotal,
+            endprice: total,
+            skill1: skill1.length > 0 ? skill1[0] : null,
+            skill2: skill2.length > 0 ? skill2[0] : null,
+            skill3: skill3.length > 0 ? skill3[0] : null,
+            skill4: skill4.length > 0 ? skill4[0] : null,
+            picture: input.image,
+          };
+  
+          console.log("JSON Request Data:", requestData);
+  
+          const res = await axios.post(url, requestData, {
             headers: {
-              "content-type": "multipart/form-data",
+              "Content-Type": "application/json",
             },
           });
+  
           if (res.data.success === 1) {
             setError(true);
             setErrorValue(res.data.msg);
@@ -201,6 +284,7 @@ export default function ApplyCard() {
           }
         } catch (error) {
           console.error("Form submission error:", error);
+          console.error("Detailed error response:", error.response);
           setError(true);
           setErrorValue("An error occurred during form submission");
           setLoading(false);
@@ -210,6 +294,8 @@ export default function ApplyCard() {
       console.log("Form validation failed");
     }
   };
+  
+
   useEffect(() => {
     setTimeout(() => {
       setError(false);
@@ -270,9 +356,7 @@ export default function ApplyCard() {
   }, [endPriceRange, startPriceRange]);
   return (
     <Col className="p-0 m-0" md={!editActive ? 4 : 3}>
-      <form 
-      onSubmit={handleSubmit}
-      className="mot-apply-form">
+      <form className="mot-apply-form">
         <div className="mot-profile-card-wrapper mt-0">
           <h5 className="text-center mb-5 mot-form-title ">
             Customize your Card
