@@ -1,34 +1,32 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Icons } from "./PendingData";
+import { Icons } from "./Pending/PendingData";
 import { Modal, Button } from "react-bootstrap";
-import { FaBars, FaBell, FaSearch } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 
 const SideBar = () => {
-    const [searchQuery, setSearchQuery] = useState("");
-    const [focusedIndex, setFocusedIndex] = useState(null);
-    const listRef = useRef();
-  
-    const handleItemFocus = (index) => {
-      setFocusedIndex(index);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [focusedIndex, setFocusedIndex] = useState(null);
+  const listRef = useRef();
+
+  const handleItemFocus = (index) => {
+    setFocusedIndex(index);
+  };
+
+  const handleScroll = () => {
+    const scrollOffset = listRef.current.scrollTop;
+    const itemHeight = 50;
+    const newIndex = Math.floor(scrollOffset / itemHeight);
+    setFocusedIndex(newIndex);
+  };
+
+  useEffect(() => {
+    const listElement = listRef.current;
+    listElement.addEventListener("scroll", handleScroll);
+
+    return () => {
+      listElement.removeEventListener("scroll", handleScroll);
     };
-  
-    const handleScroll = () => {
-      const scrollOffset = listRef.current.scrollTop;
-      const itemHeight = 50; // Adjust this based on your item height
-      const newIndex = Math.floor(scrollOffset / itemHeight);
-      setFocusedIndex(newIndex);
-    };
-  
-    useEffect(() => {
-      // Attach scroll event listener to the list
-      const listElement = listRef.current;
-      listElement.addEventListener("scroll", handleScroll);
-  
-      // Clean up the event listener on component unmount
-      return () => {
-        listElement.removeEventListener("scroll", handleScroll);
-      };
-    }, []);
+  }, []);
   return (
     <section>
       <section className="mobile-header">
@@ -40,9 +38,6 @@ const SideBar = () => {
           <div className="bar-icon">
             <img className="motivv-logo" src={"/assets/motivv-logo.png"} />
 
-            {/* <button className="bar">
-            <FaBars />
-          </button> */}
           </div>
 
           {Icons.map((item, index) => {
@@ -57,11 +52,10 @@ const SideBar = () => {
                 style={{
                   backgroundColor:
                     index === focusedIndex ? "#ffffff" : "transparent",
-                  color: index === focusedIndex ? "#0074cc" : "#ffffff", // Adjust the colors
+                  color: index === focusedIndex ? "#0074cc" : "#ffffff",
                 }}
               >
                 <div className="icon-text">
-                  {/* <img className="icons" src={item.icon} /> */}
                   <p className="icons">{item.icon}</p>
                   <p className="icon-names">{item.name}</p>
                 </div>
@@ -73,4 +67,4 @@ const SideBar = () => {
     </section>
   );
 };
-export default SideBar
+export default SideBar;

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Container, Row, Col, Modal, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
@@ -49,6 +49,7 @@ export default function LandingPage() {
   const { show, setShow } = useContext(UserContext);
 
   const onHide = () => {
+    console.log("Hiding modal...");
     setShow(false);
     Cookies.set("show-modal", "true");
   };
@@ -63,8 +64,13 @@ export default function LandingPage() {
       >
         <Modal.Body className="p-4">
           <div className="px-3 py-4 mb-4">
-            <h4 className="mb-3 font-weight-bolder">What’s new</h4>
-            <p>
+            <div className="pop-up-headers ">
+              <h4 className="mb-3 font-weight-bolder">What’s new</h4>
+              <Modal.Header className="close-btn-container" onClick={onHide}>
+                <p className="close-btn">x</p>
+              </Modal.Header>
+            </div>
+            <p className="pop-up-para">
               Our first release was solely connecting prospective clients to
               vetted designers. Our new update brings much more than that!
             </p>
@@ -75,7 +81,7 @@ export default function LandingPage() {
               <img className="mr-2" src={party} alt="" />
               <div>
                 <h5 className="font-weight-bold">Design Challenge</h5>
-                <p>
+                <p className="pop-up-para">
                   We’ve made it possible for designers to get hands on real
                   design briefs to leverage their skills and build a better
                   portfolio show-proof.
@@ -88,7 +94,7 @@ export default function LandingPage() {
               <img className="mr-2" src={post} alt="" />
               <div>
                 <h5 className="font-weight-bold">Post Jobs</h5>
-                <p>
+                <p className="pop-up-para">
                   Now, clients can post jobs with ease and find excellent
                   designers. All without paying anything for job posting.
                 </p>

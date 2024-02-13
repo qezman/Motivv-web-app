@@ -9,6 +9,7 @@ export const UserProvider = (props) => {
   const [show, setShow] = useState(false);
   useEffect(() => {
     let show = Cookies.get("show-modal");
+    console.log("Show value from cookie:", show)
     if (show) return;
     else {
       setTimeout(() => setShow(true), 4000);
