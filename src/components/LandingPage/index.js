@@ -111,13 +111,40 @@ export default function LandingPage() {
       <div className="mot-landing-page-blue">
         <div className="mot-explore-page">
           <Container className="m-auto">
-            <Row className="justify-content-center position-relative">
+            <Row className="">
               <Col md={10}>
-                <div>
-                  <Link to="/">
-                    <img src={Logo} alt="" className="logo" />
-                  </Link>
-                </div>
+                <section className="flex-header">
+                  <div>
+                    <Link to="/">
+                      <img src={Logo} alt="" className="logo" />
+                    </Link>
+                  </div>
+                  <div className="nav-link">
+                    <li>
+                      <a href="/">Home</a>
+                    </li>
+                    <li>
+                      <a href="/designers">Designers</a>
+                    </li>
+                    <li>
+                      <a href="/jobs">Jobs</a>
+                    </li>
+                    <li>
+                      <a href="/design-challenge">Design Challenge</a>
+                    </li>
+                    <li>
+                      <a href="/resources">Resources</a>
+                    </li>
+                    <li>
+                      <a href="/university">University</a>
+                    </li>
+                  </div>
+                  <div className="post-job">
+                    <Link to="/post-job" className="post-job-text">
+                      <img src={postImg} alt="" className="mr-2" /> Post Job
+                    </Link>
+                  </div>
+                </section>
                 <Row className="pt-5">
                   <Col md={8} className="mot-text-color mot-text-center">
                     <Fade delay={1000} duration={500} bottom>
@@ -220,11 +247,6 @@ export default function LandingPage() {
                   </Col>
                 </Row>
               </Col>
-              <div className="post-job">
-                <Link to="/post-job" className="mot-post-button">
-                  <img src={postImg} alt="" className="mr-2" /> Post Job
-                </Link>
-              </div>
             </Row>
           </Container>
         </div>
