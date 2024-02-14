@@ -17,7 +17,7 @@ export default function ApplyCard() {
   const [total, setTotal] = useState("");
   const [startTotal, setStartTotal] = useState("");
   const [imageUrl, setImageUrl] = useState(upload);
-  const [endPriceRange, setEndPriceRange] = useState(0);
+  const [endPriceRange, setEndPriceRange] = useState(55);
   const [startPriceRange, setStartPriceRange] = useState(0);
   const [selectedPrice, setSelectedPrice] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -120,12 +120,12 @@ export default function ApplyCard() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     if (validateForm()) {
       setLoading(true);
-  
-      console.log('Submitting form...');
-  
+
+      console.log("Submitting form...");
+
       // Simulating form data for JSONPlaceholder
       const fakeFormData = {
         name: input.name,
@@ -139,44 +139,47 @@ export default function ApplyCard() {
         skill3: skill3.length > 0 ? skill3[0] : null,
         skill4: skill4.length > 0 ? skill4[0] : null,
       };
-  
+
       try {
-        console.log('Simulating POST request to JSONPlaceholder...');
+        console.log("Simulating POST request to JSONPlaceholder...");
         // Simulate a POST request to JSONPlaceholder
-        const response = await axios.post('https://jsonplaceholder.typicode.com/posts', fakeFormData);
-  
+        const response = await axios.post(
+          "https://jsonplaceholder.typicode.com/posts",
+          fakeFormData
+        );
+
         if (response.status === 201) {
           // Successfully submitted data (simulated)
           setError(true);
-          setErrorValue('Application was successful! Check your e-mail for more info.');
+          setErrorValue(
+            "Application was successful! Check your e-mail for more info."
+          );
         } else {
           setError(true);
-          setErrorValue('Failed to submit data. Please try again.');
+          setErrorValue("Failed to submit data. Please try again.");
         }
-  
+
         setLoading(false);
-        console.log('Form submission completed.');
+        console.log("Form submission completed.");
       } catch (error) {
-        console.error('Form submission error:', error);
+        console.error("Form submission error:", error);
         setError(true);
-        setErrorValue('An error occurred during form submission');
+        setErrorValue("An error occurred during form submission");
         setLoading(false);
       }
     } else {
-      console.log('Form validation failed');
+      console.log("Form validation failed");
     }
   };
-  
-  
- 
+
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
-  
+
   //   if (validateForm()) {
   //     setLoading(true);
-  
+
   //     let linkk = input.link.includes("http") ? input.link : `https://${input.link}`;
-  
+
   //     if (!input.name || !input.email || !input.phone || !input.phoneCode || !input.link || !input.image || title.length === 0) {
   //       setError(true);
   //       setErrorValue("Please fill in all required fields");
@@ -201,15 +204,15 @@ export default function ApplyCard() {
   //           skill4: skill4.length > 0 ? skill4[0] : null,
   //           picture: input.image,
   //         };
-  
+
   //         console.log("JSON Request Data:", requestData);
-  
+
   //         const res = await axios.post(url, requestData, {
   //           headers: {
   //             "Content-Type": "application/json",
   //           },
   //         });
-  
+
   //         if (res.data.success === 1) {
   //           setError(true);
   //           setErrorValue(res.data.msg);
@@ -250,7 +253,6 @@ export default function ApplyCard() {
   //     console.log("Form validation failed");
   //   }
   // };
-  
 
   useEffect(() => {
     setTimeout(() => {
@@ -264,19 +266,12 @@ export default function ApplyCard() {
     tmp.splice(i - 1, 1);
     return tmp.join("");
   };
+
   const formatAmount = (price) => {
     let increasedPrice;
     let newIncreasedPrice;
-    if (price.toString().length === 4) {
-      increasedPrice = price
-        .toString()
-        .replace(/(\d{1})/g, "$1,")
-        .replace(/(^\s+|\s+$)/, "");
-      newIncreasedPrice = increasedPrice
-        .removeCharAt(4)
-        .removeCharAt(5)
-        .removeCharAt(6);
-    } else if (price.toString().length === 5) {
+
+    if (price.toString().length === 5) {
       increasedPrice = price
         .toString()
         .replace(/(\d{2})/g, "$1,")
@@ -299,17 +294,45 @@ export default function ApplyCard() {
         .removeCharAt(8)
         .removeCharAt(9)
         .removeCharAt(10);
+    } else if (price.toString().length === 8) {
+      increasedPrice = price
+        .toString()
+        .replace(/(\d{2})/g, "$1,")
+        .replace(/(^\s+|\s+$)/, "");
+      newIncreasedPrice = increasedPrice
+        .removeCharAt(4)
+        .removeCharAt(5)
+        .removeCharAt(6)
+        .removeCharAt(9)
+        .removeCharAt(10)
+        .removeCharAt(11);
     }
+
     return newIncreasedPrice;
   };
+
   useEffect(() => {
-    let price = 50000 + parseInt(endPriceRange) * 2500;
+    let price = 10000 + parseInt(endPriceRange) * 9000;
     let formattedEndPrice = formatAmount(price);
-    let price2 = 5000 + parseInt(startPriceRange) * 450;
+
+    let price2 = 10000 + parseInt(startPriceRange) * 9000;
     let formattedStartPrice = formatAmount(price2);
+
+    // Ensure the prices are within the desired range (10,000 to 500,000)
+    if (price > 500000) {
+      price = 500000;
+      formattedEndPrice = formatAmount(price);
+    }
+
+    if (price2 > 500000) {
+      price2 = 500000;
+      formattedStartPrice = formatAmount(price2);
+    }
+
     setTotal(formattedEndPrice);
     setStartTotal(formattedStartPrice);
   }, [endPriceRange, startPriceRange]);
+
   return (
     <Col className="p-0 m-0" md={!editActive ? 4 : 3}>
       <form className="mot-apply-form">

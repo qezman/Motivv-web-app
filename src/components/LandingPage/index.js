@@ -130,7 +130,7 @@ export default function LandingPage() {
                       <a href="/jobs">Jobs</a>
                     </li>
                     <li>
-                      <a href="/design-challenge">Design Challenge</a>
+                      <a href="/challenges">Design Challenge</a>
                     </li>
                     <li>
                       <a href="/resources">Resources</a>
