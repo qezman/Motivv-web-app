@@ -199,16 +199,26 @@ export default function ApplyCard() {
           // const avatarData = createAvatar(cloudinaryUrl);
 
           const requestData = {
+            // name: input.name,
+            // email: input.email,
+
+            // skill1: skill1.length > 0 ? skill1[0] : null,
+            // skill2: skill2.length > 0 ? skill2[0] : null,
+            // price: parseInt(total, 10),
+            // price: total,
+            // phone: input.phoneCode + input.phone,
+            // portfolio: linkk,
+            // avattar: avatarData,
+
             name: input.name,
             email: input.email,
-
             skill1: skill1.length > 0 ? skill1[0] : null,
             skill2: skill2.length > 0 ? skill2[0] : null,
-            // price: parseInt(total, 10),
+            skill3: skill3.length > 0 ? skill3[0] : null,
+            skill4: skill4.length > 0 ? skill4[0] : null,
             price: total,
             phone: input.phoneCode + input.phone,
             portfolio: linkk,
-            // avattar: avatarData,
 
             // name: input.name,
             // avatar:
@@ -271,7 +281,6 @@ export default function ApplyCard() {
           }
         } catch (error) {
           console.error("Form submission error:", error);
-          console.error('Error uploading avatar to Cloudinary:', error);
           console.error("Detailed error response:", error.response);
           setError(true);
           setErrorValue("An error occurred during form submission");
