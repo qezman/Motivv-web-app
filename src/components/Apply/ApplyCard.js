@@ -5,6 +5,7 @@ import { Typeahead } from "react-bootstrap-typeahead";
 import axios from "axios";
 import Fade from "react-reveal/Fade";
 import { URL } from "../../constants";
+
 let upload =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594422865/upload_sncmdm.png";
 let edit =
@@ -13,12 +14,18 @@ let close =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594654144/Motivv/ion_close-circle_xsgnnq.png";
 const url = `${URL}/`;
 
-const createAvatar = (image) => {
-  return {
-    Url: image,
-    cloudinaryId: "jf7buhcyax3j1y9dln7s",
-  };
-};
+// cloudinary.config({
+//   cloud_name: "dr0tgora5",
+//   api_key: "551275462432698",
+//   api_secret: "jbqequNWMCfUhXN1m9dpCrpwPJg",
+// });
+
+// const createAvatar = (image) => {
+//   return {
+//     Url: image,
+//     cloudinaryId: "jf7buhcyax3j1y9dln7s",
+//   };
+// };
 
 export default function ApplyCard() {
   const [editActive, setEditActive] = useState(true);
@@ -159,30 +166,39 @@ export default function ApplyCard() {
         setLoading(false);
       } else {
         try {
+          // "avatar":{
+          // "Url": "https://res.cloudinary.com/dygdcssuz/image/upload/v1707241588/jf7buhcyax3j1y9dln7s.png",
+          // "cloudinaryId": "jf7buhcyax3j1y9dln7s"avatar:{
+          //   Url: input.image,
+          //   cloudinaryId: "jf7buhcyax3j1y9dln7s"
+          //   },
 
-            // "avatar":{
-            // "Url": "https://res.cloudinary.com/dygdcssuz/image/upload/v1707241588/jf7buhcyax3j1y9dln7s.png",
-            // "cloudinaryId": "jf7buhcyax3j1y9dln7s"avatar:{
-            //   Url: input.image,
-            //   cloudinaryId: "jf7buhcyax3j1y9dln7s"
-            //   },
-        
-            // },
-            // "name": "lawal",
-            // "email":"laltvddf963655@gmail.com",
-            // "skill1":"oje",
-            // "skill2":"yet",
-            // "skill3":"yety",
-            // "skill4":"yetc",
-            // "price":"300",
-            // "phone":"08032674757",
-            // "portfolio":"https://github.com/Dev-Teelaw/vidly"
-        
-        
-        
+          // },
+          // "name": "lawal",
+          // "email":"laltvddf963655@gmail.com",
+          // "skill1":"oje",
+          // "skill2":"yet",
+          // "skill3":"yety",
+          // "skill4":"yetc",
+          // "price":"300",
+          // "phone":"08032674757",
+          // "portfolio":"https://github.com/Dev-Teelaw/vidly"
+
+          // const cloudinaryResponse = await cloudinary.v2.uploader.upload(
+          //   imageUrl,
+          //   {
+          //     folder: "avatars",
+          //     public_id: "avatar_" + Date.now(),
+          //   }
+          // );
+
+          // Extract the Cloudinary URL from the response
+          // const cloudinaryUrl = cloudinaryResponse.secure_url;
+
+          // Continue with the rest of the form submission
+          // const avatarData = createAvatar(cloudinaryUrl);
 
           const requestData = {
-
             name: input.name,
             email: input.email,
 
@@ -192,6 +208,7 @@ export default function ApplyCard() {
             price: total,
             phone: input.phoneCode + input.phone,
             portfolio: linkk,
+            // avattar: avatarData,
 
             // name: input.name,
             // avatar:
@@ -254,6 +271,7 @@ export default function ApplyCard() {
           }
         } catch (error) {
           console.error("Form submission error:", error);
+          console.error('Error uploading avatar to Cloudinary:', error);
           console.error("Detailed error response:", error.response);
           setError(true);
           setErrorValue("An error occurred during form submission");

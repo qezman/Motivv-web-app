@@ -12,6 +12,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "buffer": "^6.0.3",
+    "cloudinary": "^2.0.0",
     "gsap": "^3.6.1",
     "js-cookie": "^2.2.1",
     "levenary": "^1.1.1",
@@ -31,6 +32,7 @@
     "react-slick": "^0.26.1",
     "react-stickynode": "^3.0.3",
     "slick-carousel": "^1.8.1",
+    "stream-http": "^3.2.0",
     "vercel": "^33.4.1",
     "yarn": "^1.22.21"
   },

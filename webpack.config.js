@@ -6,5 +6,6 @@ module.exports = {
     filename: 'bundle.js',  // Output file name
     path: path.resolve(__dirname, 'dist'),  // Output directory
   },
+  
   // Other webpack configurations...
 };
