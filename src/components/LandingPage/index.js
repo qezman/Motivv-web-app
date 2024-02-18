@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Container, Row, Col, Modal, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
@@ -52,6 +52,23 @@ export default function LandingPage() {
     console.log("Hiding modal...");
     setShow(false);
     Cookies.set("show-modal", "true");
+  };
+
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleDropdownClick = () => {
+    setIsDropdownVisible(!isDropdownVisible);
+  };
+  const toggleDropdown = () => {
+    setIsDropdownVisible(!isDropdownVisible);
+  };
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
   };
   return (
     <>
@@ -126,9 +143,32 @@ export default function LandingPage() {
                     <li>
                       <a href="/designers">Designers</a>
                     </li>
-                    <li>
+
+                    <li className="jobs">
                       <a href="/jobs">Jobs</a>
+                      <img
+                        style={{
+                          marginLeft: "10px",
+                          cursor: "pointer",
+                          transform: isDropdownVisible
+                            ? "rotate(180deg)"
+                            : "rotate(0deg)",
+                        }}
+                        src="/assets/dropdown.svg"
+                        alt="dropdown"
+                        onClick={toggleDropdown}
+                      />
+                      {isDropdownVisible && (
+                        <div className="dropdown-texts">
+                          <ul>
+                            <li className="menu-text-one">Post a job</li>
+                            <div />
+                            <li className="menu-text">Find jobs</li>
+                          </ul>
+                        </div>
+                      )}
                     </li>
+
                     <li>
                       <a href="/challenges">Design Challenge</a>
                     </li>
@@ -139,11 +179,17 @@ export default function LandingPage() {
                       <a href="/university">University</a>
                     </li>
                   </div>
-                  <div className="post-job">
-                    <Link to="/post-job" className="post-job-text">
+
+
+
+                  <div className={`post-job ${isHovered ? 'hovered' : ''}`}>
+                    <Link to="/post-job" className="post-job-text" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                       <img src={postImg} alt="" className="mr-2" /> Post Job
                     </Link>
                   </div>
+
+
+                  
                 </section>
                 <Row className="pt-5">
                   <Col md={8} className="mot-text-color mot-text-center">

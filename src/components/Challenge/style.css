@@ -3,8 +3,8 @@
   padding: 100px 0 100px;
 }
 .mot-challenge button {
-  color: #ffffff;
-  background-color: #13497c;
+  color: #13497c;
+  /* background-color: #13497c; */
   outline: none;
   border: none;
   padding: 10px 40px;
@@ -12,13 +12,21 @@
   margin-top: 20px;
   border: 2px solid #13497c;
 }
-
+.share-and-build {
+  margin-top: 20px;
+}
+.explore-btn {
+  font-size: 16px;
+  background: transparent;
+}
 .mot-challenge button:hover {
-  color: #13497c;
-  background-color: rgba(19, 74, 124, 0.12);
+  color: #ffffff;
+  /* background-color: rgba(19, 74, 124, 0.12); */
+  background: #13497c;
   box-shadow: none;
   transition: 0.2s ease-in;
 }
+
 .mot-challenge-con svg {
   width: 100%;
 }
@@ -64,5 +72,36 @@
   100% {
     opacity: 0;
     transform: translateY(40px);
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .share-and-build {
+    margin-top: 42px;
+  }
+  .both-topics {
+    width: 350px;
+    margin-left: -50px;
+  }
+  .mot-challenge.con {
+    display: flex;
+    flex-direction: column;
+  }
+  .mot-challenge button {
+    margin-left: 30px;
+  }
+  .mot-user-placeholders.rm-sd-p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mot-user-placeholders.rm-sd-p img {
+    width: 100%; /* Set the width to 100% or adjust as needed */
+    max-width: 400px; /* Adjust the maximum width as needed */
+  }
+  .user-text h4{
+    font-size: 64px !important;
+    font-weight: 700;
   }
 }

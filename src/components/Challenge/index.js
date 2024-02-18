@@ -39,13 +39,13 @@ export default function Challenge() {
                 </Fade>
               </Col>
               <Col md={9}>
-                <div className="d-flex mt-3">
+                <div className="both-topics mt-3">
                   <div className="d-flex">
                     <div className="">
                       <img src={arrow} alt="" />
                     </div>
                     <div className="pl-3">
-                      <h4 className="user-text font-weight-bold">
+                      <h4 style={{fontSize: "18px"}} className="user-text font-weight-bold">
                         Extensive Design Brief Set
                       </h4>
                       <h6 className="user-text">
@@ -54,12 +54,13 @@ export default function Challenge() {
                       </h6>
                     </div>
                   </div>
-                  <div className="d-flex">
+
+                  <div className="share-and-build d-flex">
                     <div className="">
                       <img src={arrow} alt="" />
                     </div>
                     <div className="pl-3">
-                      <h4 className="user-text font-weight-bold">
+                      <h4 style={{fontSize: "18px"}} className="user-text font-weight-bold">
                         Share and build your portfolio
                       </h4>
                       <h6 className="user-text">

@@ -207,7 +207,7 @@ export default function Vetted({ props }) {
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Enter your email address"
+                        placeholder="Input email to book a designer"
                         className=""
                       />
                       <div>
@@ -216,11 +216,13 @@ export default function Vetted({ props }) {
                           style={{
                             opactiy: loading ? "0.7" : "1",
                             cursor: loading ? "not-allowed" : "pointer",
+                            fontSize: "14px",
+                            fontWeight: "500"
                           }}
                           onClick={handleSubmit}
                           type="submit"
                         >
-                          Proceed to explore
+                          Book a designer
                         </button>
                         {error && (
                           <div className="mt-2 w-80">

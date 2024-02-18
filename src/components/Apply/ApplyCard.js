@@ -133,6 +133,171 @@ export default function ApplyCard() {
     return isValid;
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   if (validateForm()) {
+  //     setLoading(true);
+
+  //     let linkk = input.link.includes("http")
+  //       ? input.link
+  //       : `https://${input.link}`;
+
+  //     if (
+  //       !input.name ||
+  //       !input.email ||
+  //       !input.phone ||
+  //       !input.phoneCode ||
+  //       !input.link ||
+  //       !input.image ||
+  //       title.length === 0
+  //     ) {
+  //       setError(true);
+  //       setErrorValue("Please fill in all required fields");
+  //       setLoading(false);
+  //     } else if (
+  //       skill1.length === 0 &&
+  //       skill2.length === 0 &&
+  //       skill3.length === 0 &&
+  //       skill4.length === 0
+  //     ) {
+  //       setError(true);
+  //       setErrorValue("Pick at least one skill");
+  //       setLoading(false);
+  //     } else {
+  //       try {
+  //         // "avatar":{
+  //         // "Url": "https://res.cloudinary.com/dygdcssuz/image/upload/v1707241588/jf7buhcyax3j1y9dln7s.png",
+  //         // "cloudinaryId": "jf7buhcyax3j1y9dln7s"avatar:{
+  //         //   Url: input.image,
+  //         //   cloudinaryId: "jf7buhcyax3j1y9dln7s"
+  //         //   },
+
+  //         // },post(url, requestData, {
+  //         //   headers: {
+  //         //     "Content-Type": "application/json",
+  //         //   },
+  //         // });
+  //         // "name": "lawal",
+  //         // "email":"laltvddf963655@gmail.com",
+  //         // "skill1":"oje",
+  //         // "skill2":"yet",
+  //         // "skill3":"yety",
+  //         // "skill4":"yetc",
+  //         // "price":"300",
+  //         // "phone":"08032674757",
+  //         // "portfolio":"https://github.com/Dev-Teelaw/vidly"
+
+  //         // const cloudinaryResponse = await cloudinary.v2.uploader.upload(
+  //         //   imageUrl,
+  //         //   {
+  //         //     folder: "avatars",
+  //         //     public_id: "avatar_" + Date.now(),
+  //         //   }
+  //         // );
+
+  //         // Extract the Cloudinary URL from the response
+  //         // const cloudinaryUrl = cloudinaryResponse.secure_url;
+
+  //         // Continue with the rest of the form submission
+  //         // const avatarData = createAvatar(cloudinaryUrl);
+
+  //         const requestData = {
+  //           // name: input.name,
+  //           // email: input.email,
+
+  //           // skill1: skill1.length > 0 ? skill1[0] : null,
+  //           // skill2: skill2.length > 0 ? skill2[0] : null,
+  //           // price: parseInt(total, 10),
+  //           // price: total,
+  //           // phone: input.phoneCode + input.phone,
+  //           // portfolio: linkk,
+  //           // avattar: avatarData,
+
+  //           name: input.name,
+  //           email: input.email,
+  //           skill1: skill1.length > 0 ? skill1[0] : null,
+  //           skill2: skill2.length > 0 ? skill2[0] : null,
+  //           skill3: skill3.length > 0 ? skill3[0] : null,
+  //           skill4: skill4.length > 0 ? skill4[0] : null,
+  //           price: total,
+  //           // price: parseInt(total, 10),
+  //           // price: parseInt(total.replace(/,/g, ""), 10),
+  //           phone: input.phoneCode + input.phone,
+  //           portfolio: linkk,
+
+  //           // name: input.name,
+  //           // avatar:
+  //           // "https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435Ec",
+
+  //           // link: linkk,
+  //           // headline: title[0],
+  //           // email: input.email,
+  //           // phone: input.phoneCode + input.phone,avatar:{
+  //           //   Url: input.image,
+  //           //   cloudinaryId: "jf7buhcyax3j1y9dln7s"
+  //           //   },
+  //           // startprice: startTotal,
+  //           // endprice: total,
+  //           // price: "300",
+
+  //           // skill1: skill1.length > 0 ? skill1[0] : null,
+  //           // skill2: skill2.length > 0 ? skill2[0] : null,
+  //           // skill3: skill3.length > 0 ? skill3[0] : null,
+  //           // skill4: skill4.length > 0 ? skill4[0] : null,
+  //           // picture: input.image,
+  //           // portfolio: "https://github.com/Dev-Teelaw/vidly",
+  //         };
+
+  //         console.log("JSON Request Data:", requestData);
+
+  //         const res = await axios.post(url, requestData, {
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //           },
+  //         });
+
+  //         if (res.data.success === 1) {
+  //           setError(true);
+  //           setErrorValue(res.data.msg);
+  //           setTotal("");
+  //           setStartTotal("");
+  //           setEndPriceRange(0);
+  //           setStartPriceRange(0);
+  //           setEditActive(true);
+  //           setInput({
+  //             name: "",
+  //             skill1: "",
+  //             skill2: "",
+  //             skill3: "",
+  //             skill4: "",
+  //             email: "",
+  //             phone: "",
+  //             link: "",
+  //             phoneCode: "",
+  //             image: null,
+  //           });
+  //           setTitle([]);
+  //           setLoading(false);
+  //           setImageUrl(upload);
+  //         } else {
+  //           setError(true);
+  //           setErrorValue(res.data.msg);
+  //           setLoading(false);
+  //         }
+  //       } catch (error) {
+  //         console.error("Form submission error:", error);
+  //         console.error("Detailed error response:", error.response);
+  //         setError(true);
+  //         setErrorValue("An error occurred during form submission");
+  //         setLoading(false);
+  //       }
+  //     }
+  //   } else {
+  //     console.log("Form validation failed");
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -165,95 +330,35 @@ export default function ApplyCard() {
         setErrorValue("Pick at least one skill");
         setLoading(false);
       } else {
+        const requestData = {
+          name: input.name,
+          email: input.email,
+          skill1: skill1.length > 0 ? skill1[0] : null,
+          skill2: skill2.length > 0 ? skill2[0] : null,
+          skill3: skill3.length > 0 ? skill3[0] : null,
+          skill4: skill4.length > 0 ? skill4[0] : null,
+          price: total,
+          phone: input.phoneCode + input.phone,
+          portfolio: linkk,
+        };
+
+        console.log("Form data to be submitted:", requestData);
+
         try {
-          // "avatar":{
-          // "Url": "https://res.cloudinary.com/dygdcssuz/image/upload/v1707241588/jf7buhcyax3j1y9dln7s.png",
-          // "cloudinaryId": "jf7buhcyax3j1y9dln7s"avatar:{
-          //   Url: input.image,
-          //   cloudinaryId: "jf7buhcyax3j1y9dln7s"
-          //   },
-
-          // },
-          // "name": "lawal",
-          // "email":"laltvddf963655@gmail.com",
-          // "skill1":"oje",
-          // "skill2":"yet",
-          // "skill3":"yety",
-          // "skill4":"yetc",
-          // "price":"300",
-          // "phone":"08032674757",
-          // "portfolio":"https://github.com/Dev-Teelaw/vidly"
-
-          // const cloudinaryResponse = await cloudinary.v2.uploader.upload(
-          //   imageUrl,
-          //   {
-          //     folder: "avatars",
-          //     public_id: "avatar_" + Date.now(),
-          //   }
-          // );
-
-          // Extract the Cloudinary URL from the response
-          // const cloudinaryUrl = cloudinaryResponse.secure_url;
-
-          // Continue with the rest of the form submission
-          // const avatarData = createAvatar(cloudinaryUrl);
-
-          const requestData = {
-            // name: input.name,
-            // email: input.email,
-
-            // skill1: skill1.length > 0 ? skill1[0] : null,
-            // skill2: skill2.length > 0 ? skill2[0] : null,
-            // price: parseInt(total, 10),
-            // price: total,
-            // phone: input.phoneCode + input.phone,
-            // portfolio: linkk,
-            // avattar: avatarData,
-
-            name: input.name,
-            email: input.email,
-            skill1: skill1.length > 0 ? skill1[0] : null,
-            skill2: skill2.length > 0 ? skill2[0] : null,
-            skill3: skill3.length > 0 ? skill3[0] : null,
-            skill4: skill4.length > 0 ? skill4[0] : null,
-            price: total,
-            phone: input.phoneCode + input.phone,
-            portfolio: linkk,
-
-            // name: input.name,
-            // avatar:
-            // "https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435Ec",
-
-            // link: linkk,
-            // headline: title[0],
-            // email: input.email,
-            // phone: input.phoneCode + input.phone,avatar:{
-            //   Url: input.image,
-            //   cloudinaryId: "jf7buhcyax3j1y9dln7s"
-            //   },
-            // startprice: startTotal,
-            // endprice: total,
-            // price: "300",
-
-            // skill1: skill1.length > 0 ? skill1[0] : null,
-            // skill2: skill2.length > 0 ? skill2[0] : null,
-            // skill3: skill3.length > 0 ? skill3[0] : null,
-            // skill4: skill4.length > 0 ? skill4[0] : null,
-            // picture: input.image,
-            // portfolio: "https://github.com/Dev-Teelaw/vidly",
-          };
-
-          console.log("JSON Request Data:", requestData);
-
           const res = await axios.post(url, requestData, {
             headers: {
               "Content-Type": "application/json",
             },
           });
 
-          if (res.data.success === 1) {
+          console.log("Inside the block");
+          console.log("Response from the server:", res);
+
+          if (res.status === 201 && res.data.message) {
             setError(true);
-            setErrorValue(res.data.msg);
+            setErrorValue(
+              "Application was successful! Check your e-mail for more info."
+            );
             setTotal("");
             setStartTotal("");
             setEndPriceRange(0);
@@ -276,7 +381,9 @@ export default function ApplyCard() {
             setImageUrl(upload);
           } else {
             setError(true);
-            setErrorValue(res.data.msg);
+            setErrorValue(
+              res.data.message ? res.data.message.msg : "Unknown error"
+            );
             setLoading(false);
           }
         } catch (error) {
@@ -346,29 +453,32 @@ export default function ApplyCard() {
         .removeCharAt(11);
     }
 
-    return newIncreasedPrice;
+    return price.toLocaleString();
   };
 
   useEffect(() => {
-    let price = 10000 + parseInt(endPriceRange) * 9000;
-    let formattedEndPrice = formatAmount(price);
+    // Calculate prices based on the selected ranges
+    let endPrice = 10000 + parseInt(endPriceRange) * 9000;
+    let startPrice = 10000 + parseInt(startPriceRange) * 9000;
 
-    let price2 = 10000 + parseInt(startPriceRange) * 9000;
-    let formattedStartPrice = formatAmount(price2);
+    // Ensure prices are within the desired range (10,000 to 500,000)
+    endPrice = Math.min(endPrice, 500000);
+    startPrice = Math.min(startPrice, 500000);
 
-    // Ensure the prices are within the desired range (10,000 to 500,000)
-    if (price > 500000) {
-      price = 500000;
-      formattedEndPrice = formatAmount(price);
-    }
+    console.log("endPrice:", endPrice);
+    console.log("startPrice:", startPrice);
+    // Format the prices
+    const formattedEndPrice = formatAmount(endPrice);
+    const formattedStartPrice = formatAmount(startPrice);
 
-    if (price2 > 500000) {
-      price2 = 500000;
-      formattedStartPrice = formatAmount(price2);
-    }
+    console.log("formattedEndPrice:", formattedEndPrice);
+    console.log("formattedStartPrice:", formattedStartPrice);
 
+    // Set the state with the formatted prices
     setTotal(formattedEndPrice);
+    // setTotal(formatAmount(endPrice))
     setStartTotal(formattedStartPrice);
+    // setStartTotal(formatAmount(startPrice))
   }, [endPriceRange, startPriceRange]);
 
   return (

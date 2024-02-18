@@ -55,6 +55,54 @@
 .mot-landing-cards {
   padding-top: 150px;
 }
+.jobs {
+  position: relative;
+}
+.dropdown-texts {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  background: #fff;
+  color: #535c65;
+  font-size: 16px;
+  padding: 8px 20px;
+  margin-top: 10px;
+  width: 150px; /* Set the width of the dropdown container */
+  box-sizing: border-box;
+}
+.dropdown-texts ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%; /* Make the list fill the width of the container */
+}
+.dropdown-texts li {
+  cursor: pointer;
+  padding: 0px;
+  width: 100%;
+  box-sizing: border-box;
+}
+/* .menu-text li:hover {
+  display: block;
+  background: #f0f0f0;
+  width: 100%;
+  padding: 4px 20px;
+  margin: 20px 0;
+} */
+.menu-text-one {
+  display: flex;
+  width: 123px;
+  height: 40px;
+  padding: 12px 16px;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 0px 123px;
+}
+.dropdown-texts li:hover {
+  background: #f0f0f0;
+  padding: 4px 20px;
+}
 
 .pop-up-para {
   text-align: justify;
@@ -79,6 +127,15 @@
   border-radius: 1000%;
   cursor: pointer;
 }
+.post-job {
+  background-color: transparent;
+  border: 1px solid white;
+}
+.post-job.hovered {
+  background: #101c46;
+  outline: none;
+  border: none;
+}
 
 /* .post-job {
   display: none;
@@ -94,8 +151,8 @@
 
   .post-job {
     border-radius: 10px;
-    background: #1e3178;
-    padding: 15px;
+    /* background: #1e3178;
+    padding: 15px; */
     margin-top: -20px;
   }
 }
@@ -151,8 +208,8 @@
     padding: 0;
   }
   .post-job {
-    border-radius: 10px;
-    background: #1e3178;
+    /* border-radius: 10px; */
+    /* background: #1e3178; */
     padding: 15px;
   }
   .post-job-text {
@@ -196,8 +253,8 @@
     padding: 0;
   }
   .post-job {
-    border-radius: 10px;
-    background: #1e3178;
+    /* border-radius: 10px;
+    background: #1e3178; */
     padding: 15px;
   }
   .post-job-text {
@@ -239,21 +296,21 @@
     display: inline;
     margin-right: 15px; /* Adjust the spacing between items */
   }
-  
+
   .nav-link a {
     text-decoration: none;
     color: #fff; /* Adjust the link color */
     cursor: pointer; /* Add pointer cursor */
   }
-  
+
   .nav-link a:hover {
     text-decoration: underline; /* Add underline on hover if desired */
   }
-  
+
   .post-job {
-    border-radius: 10px;
+    /* border-radius: 10px;
     background: #1e3178;
-    padding: 15px;
+    padding: 15px; */
   }
   .post-job-text {
     color: white !important;
@@ -357,7 +414,7 @@
   }
   .post-job {
     border-radius: 10px;
-    background: #1e3178;
+    /* background: #1e3178; */
     padding: 15px;
     margin-top: 40px;
   }
@@ -369,11 +426,10 @@
     display: inline;
     margin-right: 15px; /* Adjust the spacing between items */
   }
-  
+
   .nav-link a {
     text-decoration: none;
     color: #fff; /* Adjust the link color */
     cursor: pointer; /* Add pointer cursor */
   }
-  
 }

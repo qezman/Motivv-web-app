@@ -123,7 +123,7 @@ export default function JobPostPage() {
           <Col md={8} sm={12}>
             <div className="px-md-5">
               <h6 className="black-text mx-md-3 pb-3 font-weight-bold small-texts">
-                Tell us about your job.............
+                Tell us about your job
               </h6>
             </div>
             <Row className="mt-4">
