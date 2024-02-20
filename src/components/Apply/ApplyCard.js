@@ -5,6 +5,7 @@ import { Typeahead } from "react-bootstrap-typeahead";
 import axios from "axios";
 import Fade from "react-reveal/Fade";
 import { URL } from "../../constants";
+import Axios from "axios";
 
 let upload =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594422865/upload_sncmdm.png";
@@ -13,19 +14,6 @@ let edit =
 let close =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594654144/Motivv/ion_close-circle_xsgnnq.png";
 const url = `${URL}/`;
-
-// cloudinary.config({
-//   cloud_name: "dr0tgora5",
-//   api_key: "551275462432698",
-//   api_secret: "jbqequNWMCfUhXN1m9dpCrpwPJg",
-// });
-
-// const createAvatar = (image) => {
-//   return {
-//     Url: image,
-//     cloudinaryId: "jf7buhcyax3j1y9dln7s",
-//   };
-// };
 
 export default function ApplyCard() {
   const [editActive, setEditActive] = useState(true);
@@ -44,6 +32,7 @@ export default function ApplyCard() {
   const [skill4, setSkill4] = useState([]);
   const [error, setError] = useState(false);
   const [errorValue, setErrorValue] = useState("");
+  const [imageSelected, setImageSelected] = useState("");
 
   const allTitles = [
     "Graphic Designer",
@@ -132,171 +121,34 @@ export default function ApplyCard() {
 
     return isValid;
   };
+  const uploadImage = () => {
+  // Check if image is selected
+  if (!imageSelected) {
+    console.error("No image selected");
+    return;
+  }
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
+  const formData = new FormData();
+  formData.append("file", imageSelected);
 
-  //   if (validateForm()) {
-  //     setLoading(true);
+  formData.append("upload_preset", "dghwzyoj");
 
-  //     let linkk = input.link.includes("http")
-  //       ? input.link
-  //       : `https://${input.link}`;
-
-  //     if (
-  //       !input.name ||
-  //       !input.email ||
-  //       !input.phone ||
-  //       !input.phoneCode ||
-  //       !input.link ||
-  //       !input.image ||
-  //       title.length === 0
-  //     ) {
-  //       setError(true);
-  //       setErrorValue("Please fill in all required fields");
-  //       setLoading(false);
-  //     } else if (
-  //       skill1.length === 0 &&
-  //       skill2.length === 0 &&
-  //       skill3.length === 0 &&
-  //       skill4.length === 0
-  //     ) {
-  //       setError(true);
-  //       setErrorValue("Pick at least one skill");
-  //       setLoading(false);
-  //     } else {
-  //       try {
-  //         // "avatar":{
-  //         // "Url": "https://res.cloudinary.com/dygdcssuz/image/upload/v1707241588/jf7buhcyax3j1y9dln7s.png",
-  //         // "cloudinaryId": "jf7buhcyax3j1y9dln7s"avatar:{
-  //         //   Url: input.image,
-  //         //   cloudinaryId: "jf7buhcyax3j1y9dln7s"
-  //         //   },
-
-  //         // },post(url, requestData, {
-  //         //   headers: {
-  //         //     "Content-Type": "application/json",
-  //         //   },
-  //         // });
-  //         // "name": "lawal",
-  //         // "email":"laltvddf963655@gmail.com",
-  //         // "skill1":"oje",
-  //         // "skill2":"yet",
-  //         // "skill3":"yety",
-  //         // "skill4":"yetc",
-  //         // "price":"300",
-  //         // "phone":"08032674757",
-  //         // "portfolio":"https://github.com/Dev-Teelaw/vidly"
-
-  //         // const cloudinaryResponse = await cloudinary.v2.uploader.upload(
-  //         //   imageUrl,
-  //         //   {
-  //         //     folder: "avatars",
-  //         //     public_id: "avatar_" + Date.now(),
-  //         //   }
-  //         // );
-
-  //         // Extract the Cloudinary URL from the response
-  //         // const cloudinaryUrl = cloudinaryResponse.secure_url;
-
-  //         // Continue with the rest of the form submission
-  //         // const avatarData = createAvatar(cloudinaryUrl);
-
-  //         const requestData = {
-  //           // name: input.name,
-  //           // email: input.email,
-
-  //           // skill1: skill1.length > 0 ? skill1[0] : null,
-  //           // skill2: skill2.length > 0 ? skill2[0] : null,
-  //           // price: parseInt(total, 10),
-  //           // price: total,
-  //           // phone: input.phoneCode + input.phone,
-  //           // portfolio: linkk,
-  //           // avattar: avatarData,
-
-  //           name: input.name,
-  //           email: input.email,
-  //           skill1: skill1.length > 0 ? skill1[0] : null,
-  //           skill2: skill2.length > 0 ? skill2[0] : null,
-  //           skill3: skill3.length > 0 ? skill3[0] : null,
-  //           skill4: skill4.length > 0 ? skill4[0] : null,
-  //           price: total,
-  //           // price: parseInt(total, 10),
-  //           // price: parseInt(total.replace(/,/g, ""), 10),
-  //           phone: input.phoneCode + input.phone,
-  //           portfolio: linkk,
-
-  //           // name: input.name,
-  //           // avatar:
-  //           // "https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435Ec",
-
-  //           // link: linkk,
-  //           // headline: title[0],
-  //           // email: input.email,
-  //           // phone: input.phoneCode + input.phone,avatar:{
-  //           //   Url: input.image,
-  //           //   cloudinaryId: "jf7buhcyax3j1y9dln7s"
-  //           //   },
-  //           // startprice: startTotal,
-  //           // endprice: total,
-  //           // price: "300",
-
-  //           // skill1: skill1.length > 0 ? skill1[0] : null,
-  //           // skill2: skill2.length > 0 ? skill2[0] : null,
-  //           // skill3: skill3.length > 0 ? skill3[0] : null,
-  //           // skill4: skill4.length > 0 ? skill4[0] : null,
-  //           // picture: input.image,
-  //           // portfolio: "https://github.com/Dev-Teelaw/vidly",
-  //         };
-
-  //         console.log("JSON Request Data:", requestData);
-
-  //         const res = await axios.post(url, requestData, {
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //           },
-  //         });
-
-  //         if (res.data.success === 1) {
-  //           setError(true);
-  //           setErrorValue(res.data.msg);
-  //           setTotal("");
-  //           setStartTotal("");
-  //           setEndPriceRange(0);
-  //           setStartPriceRange(0);
-  //           setEditActive(true);
-  //           setInput({
-  //             name: "",
-  //             skill1: "",
-  //             skill2: "",
-  //             skill3: "",
-  //             skill4: "",
-  //             email: "",
-  //             phone: "",
-  //             link: "",
-  //             phoneCode: "",
-  //             image: null,
-  //           });
-  //           setTitle([]);
-  //           setLoading(false);
-  //           setImageUrl(upload);
-  //         } else {
-  //           setError(true);
-  //           setErrorValue(res.data.msg);
-  //           setLoading(false);
-  //         }
-  //       } catch (error) {
-  //         console.error("Form submission error:", error);
-  //         console.error("Detailed error response:", error.response);
-  //         setError(true);
-  //         setErrorValue("An error occurred during form submission");
-  //         setLoading(false);
-  //       }
-  //     }
-  //   } else {
-  //     console.log("Form validation failed");
-  //   }
-  // };
+  Axios.post("https://api.cloudinary.com/v1_1/dr0tgora5/image/upload", formData)
+    .then((response) => {
+      console.log(response);
+     
+      setImageUrl(prevImageUrl => response.data.secure_url);
+    })
+    .catch((error) => {
+      console.error("Error uploading image:", error);
+      if (error.response) {
+        console.error("Error response data:", error.response.data);
+        if (error.response.data.error) {
+          console.error("Cloudinary error:", error.response.data.error.message);
+        }
+      }
+    });
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -314,7 +166,7 @@ export default function ApplyCard() {
         !input.phone ||
         !input.phoneCode ||
         !input.link ||
-        !input.image ||
+        !imageSelected || // Check if an image is selected
         title.length === 0
       ) {
         setError(true);
@@ -330,55 +182,38 @@ export default function ApplyCard() {
         setErrorValue("Pick at least one skill");
         setLoading(false);
       } else {
-        const requestData = {
-          name: input.name,
-          email: input.email,
-          skill1: skill1.length > 0 ? skill1[0] : null,
-          skill2: skill2.length > 0 ? skill2[0] : null,
-          skill3: skill3.length > 0 ? skill3[0] : null,
-          skill4: skill4.length > 0 ? skill4[0] : null,
-          price: total,
-          phone: input.phoneCode + input.phone,
-          portfolio: linkk,
-        };
-
-        console.log("Form data to be submitted:", requestData);
-
         try {
+          // Upload the image and get the URL
+          const imageUrl = await uploadImage();
+
+          // Continue with the form submission using the imageUrl
+          const requestData = {
+            name: input.name,
+            email: input.email,
+            skill1: skill1.length > 0 ? skill1[0] : null,
+            skill2: skill2.length > 0 ? skill2[0] : null,
+            skill3: skill3.length > 0 ? skill3[0] : null,
+            skill4: skill4.length > 0 ? skill4[0] : null,
+            price: total,
+            phone: input.phoneCode + input.phone,
+            portfolio: linkk,
+            image: imageUrl, // Add the imageUrl to the requestData
+          };
+
+          console.log("Form data to be submitted:", requestData);
+
           const res = await axios.post(url, requestData, {
             headers: {
               "Content-Type": "application/json",
             },
           });
 
-          console.log("Inside the block");
-          console.log("Response from the server:", res);
-
           if (res.status === 201 && res.data.message) {
             setError(true);
             setErrorValue(
               "Application was successful! Check your e-mail for more info."
             );
-            setTotal("");
-            setStartTotal("");
-            setEndPriceRange(0);
-            setStartPriceRange(0);
-            setEditActive(true);
-            setInput({
-              name: "",
-              skill1: "",
-              skill2: "",
-              skill3: "",
-              skill4: "",
-              email: "",
-              phone: "",
-              link: "",
-              phoneCode: "",
-              image: null,
-            });
-            setTitle([]);
-            setLoading(false);
-            setImageUrl(upload);
+            // ... (rest of your code)
           } else {
             setError(true);
             setErrorValue(
@@ -398,6 +233,322 @@ export default function ApplyCard() {
       console.log("Form validation failed");
     }
   };
+
+  // const handleSubmit = async (e) => {
+    //   e.preventDefault();
+  
+    //   if (validateForm()) {
+    //     setLoading(true);
+  
+    //     let linkk = input.link.includes("http")
+    //       ? input.link
+    //       : `https://${input.link}`;
+  
+    //     if (
+    //       !input.name ||
+    //       !input.email ||
+    //       !input.phone ||
+    //       !input.phoneCode ||
+    //       !input.link ||
+    //       !input.image ||
+    //       title.length === 0
+    //     ) {
+    //       setError(true);
+    //       setErrorValue("Please fill in all required fields");
+    //       setLoading(false);
+    //     } else if (
+    //       skill1.length === 0 &&
+    //       skill2.length === 0 &&
+    //       skill3.length === 0 &&
+    //       skill4.length === 0
+    //     ) {
+    //       setError(true);
+    //       setErrorValue("Pick at least one skill");
+    //       setLoading(false);
+    //     } else {
+    //       try {
+    //         // "avatar":{
+    //         // "Url": "https://res.cloudinary.com/dygdcssuz/image/upload/v1707241588/jf7buhcyax3j1y9dln7s.png",
+    //         // "cloudinaryId": "jf7buhcyax3j1y9dln7s"avatar:{
+    //         //   Url: input.image,
+    //         //   cloudinaryId: "jf7buhcyax3j1y9dln7s"
+    //         //   },
+  
+    //         // },post(url, requestData, {
+    //         //   headers: {
+    //         //     "Content-Type": "application/json",
+    //         //   },
+    //         // });
+    //         // "name": "lawal",
+    //         // "email":"laltvddf963655@gmail.com",
+    //         // "skill1":"oje",
+    //         // "skill2":"yet",
+    //         // "skill3":"yety",
+    //         // "skill4":"yetc",
+    //         // "price":"300",
+    //         // "phone":"08032674757",
+    //         // "portfolio":"https://github.com/Dev-Teelaw/vidly"
+  
+    //         // const cloudinaryResponse = await cloudinary.v2.uploader.upload(
+    //         //   imageUrl,
+    //         //   {
+    //         //     folder: "avatars",
+    //         //     public_id: "avatar_" + Date.now(),
+    //         //   }
+    //         // );
+  // const handleSubmit = async (e) => {
+    //   e.preventDefault();
+  
+    //   if (validateForm()) {
+    //     setLoading(true);
+  
+    //     let linkk = input.link.includes("http")
+    //       ? input.link
+    //       : `https://${input.link}`;
+  
+    //     if (
+    //       !input.name ||
+    //       !input.email ||
+    //       !input.phone ||
+    //       !input.phoneCode ||
+    //       !input.link ||
+    //       !input.image ||
+    //       title.length === 0
+    //     ) {
+    //       setError(true);
+    //       setErrorValue("Please fill in all required fields");
+    //       setLoading(false);
+    //     } else if (
+    //       skill1.length === 0 &&
+    //       skill2.length === 0 &&
+    //       skill3.length === 0 &&
+    //       skill4.length === 0
+    //     ) {
+    //       setError(true);
+    //       setErrorValue("Pick at least one skill");
+    //       setLoading(false);
+    //     } else {
+    //       try {
+    //         // "avatar":{
+    //         // "Url": "https://res.cloudinary.com/dygdcssuz/image/upload/v1707241588/jf7buhcyax3j1y9dln7s.png",
+    //         // "cloudinaryId": "jf7buhcyax3j1y9dln7s"avatar:{
+    //         //   Url: input.image,
+    //         //   cloudinaryId: "jf7buhcyax3j1y9dln7s"
+    //         //   },
+  
+    //         // },post(url, requestData, {
+    //         //   headers: {
+    //         //     "Content-Type": "application/json",
+    //         //   },
+    //         // });
+    //         // "name": "lawal",
+    //         // "email":"laltvddf963655@gmail.com",
+    //         // "skill1":"oje",
+    //         // "skill2":"yet",
+    //         // "skill3":"yety",
+    //         // Extract the Cloudinary URL from the response
+    //         // const cloudinaryUrl = cloudinaryResponse.secure_url;
+  
+    //         // Continue with the rest of the form submission
+    //         // const avatarData = createAvatar(cloudinaryUrl);
+  
+    //         const requestData = {
+    //           // name: input.name,
+    //           // email: input.email,
+  
+    //           // skill1: skill1.length > 0 ? skill1[0] : null,
+    //           // skill2: skill2.length > 0 ? skill2[0] : null,
+    //           // price: parseInt(total, 10),
+    //           // price: total,
+    //           // phone: input.phoneCode + input.phone,
+    //           // portfolio: linkk,
+    //           // avattar: avatarData,
+  
+    //           name: input.name,
+    //           email: input.email,
+    //           skill1: skill1.length > 0 ? skill1[0] : null,
+    //           skill2: skill2.length > 0 ? skill2[0] : null,
+    //           skill3: skill3.length > 0 ? skill3[0] : null,
+    //           skill4: skill4.length > 0 ? skill4[0] : null,
+    //           price: total,
+    //           // price: parseInt(total, 10),
+    //           // price: parseInt(total.replace(/,/g, ""), 10),
+    //           phone: input.phoneCode + input.phone,
+    //           portfolio: linkk,
+  
+    //           // name: input.name,
+    //           // avatar:
+    //           // "https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435Ec",
+  
+    //           // link: linkk,
+    //           // headline: title[0],
+    //           // email: input.email,
+    //           // phone: input.phoneCode + input.phone,avatar:{
+    //           //   Url: input.image,
+    //           //   cloudinaryId: "jf7buhcyax3j1y9dln7s"
+    //           //   },
+    //           // startprice: startTotal,
+    //           // endprice: total,
+    //           // price: "300",
+  
+    //           // skill1: skill1.length > 0 ? skill1[0] : null,
+    //           // skill2: skill2.length > 0 ? skill2[0] : null,
+    //           // skill3: skill3.length > 0 ? skill3[0] : null,
+    //           // skill4: skill4.length > 0 ? skill4[0] : null,
+    //           // picture: input.image,
+    //           // portfolio: "https://github.com/Dev-Teelaw/vidly",
+    //         };
+  
+    //         console.log("JSON Request Data:", requestData);
+  
+    //         const res = await axios.post(url, requestData, {
+    //           headers: {
+    //             "Content-Type": "application/json",
+    //           },
+    //         });
+  
+    //         if (res.data.success === 1) {
+    //           setError(true);
+    //           setErrorValue(res.data.msg);
+    //           setTotal("");
+    //           setStartTotal("");
+    //           setEndPriceRange(0);
+    //           setStartPriceRange(0);
+    //           setEditActive(true);
+    //           setInput({
+    //             name: "",
+    //             skill1: "",
+    //             skill2: "",
+    //             skill3: "",
+    //             skill4: "",
+    //             email: "",
+    //             phone: "",
+    //             link: "",
+    //             phoneCode: "",
+    //             image: null,
+    //           });
+    //           setTitle([]);
+    //           setLoading(false);
+    //           setImageUrl(upload);
+    //         } else {
+    //           setError(true);
+    //           setErrorValue(res.data.msg);
+    //           setLoading(false);
+    //         }
+    //       } catch (error) {
+    //         console.error("Form submission error:", error);
+    //         console.error("Detailed error response:", error.response);
+    //         setError(true);
+    //         setErrorValue("An error occurred during form submission");
+    //         setLoading(false);
+    //       }
+    //     }
+    //   } else {
+    //     console.log("Form validation failed");
+    //   }
+    // };files[0]
+  
+    // const handleSubmit = async (e) => {
+    //   e.preventDefault();
+  
+    //   if (validateForm()) {
+    //     setLoading(true);
+  
+    //     let linkk = input.link.includes("http")
+    //       ? input.link
+    //       : `https://${input.link}`;
+  
+    //     if (
+    //       !input.name ||
+    //       !input.email ||
+    //       !input.phone ||
+    //       !input.phoneCode ||
+    //       !input.link ||
+    //       !input.image ||
+    //       title.length === 0
+    //     ) {
+    //       setError(true);
+    //       setErrorValue("Please fill in all required fields");
+    //       setLoading(false);
+    //     } else if (
+    //       skill1.length === 0 &&
+    //       skill2.length === 0 &&
+    //       skill3.length === 0 &&
+    //       skill4.length === 0
+    //     ) {
+    //       setError(true);
+    //       setErrorValue("Pick at least one skill");
+    //       setLoading(false);
+    //     } else {
+    //       const requestData = {
+    //         name: input.name,
+    //         email: input.email,
+    //         skill1: skill1.length > 0 ? skill1[0] : null,
+    //         skill2: skill2.length > 0 ? skill2[0] : null,
+    //         skill3: skill3.length > 0 ? skill3[0] : null,
+    //         skill4: skill4.length > 0 ? skill4[0] : null,
+    //         price: total,
+    //         phone: input.phoneCode + input.phone,
+    //         portfolio: linkk,
+    //       };
+  
+    //       console.log("Form data to be submitted:", requestData);
+  
+    //       try {
+    //         const res = await axios.post(url, requestData, {
+    //           headers: {
+    //             "Content-Type": "application/json",
+    //           },
+    //         });
+  
+    //         console.log("Inside the block");
+    //         console.log("Response from the server:", res);
+  
+    //         if (res.status === 201 && res.data.message) {
+    //           setError(true);
+    //           setErrorValue(
+    //             "Application was successful! Check your e-mail for more info."
+    //           );
+    //           setTotal("");
+    //           setStartTotal("");
+    //           setEndPriceRange(0);
+    //           setStartPriceRange(0);
+    //           setEditActive(true);
+    //           setInput({
+    //             name: "",
+    //             skill1: "",
+    //             skill2: "",
+    //             skill3: "",
+    //             skill4: "",
+    //             email: "",
+    //             phone: "",
+    //             link: "",
+    //             phoneCode: "",
+    //             image: null,
+    //           });"avatar": {
+    //           setTitle([]);
+    //           setLoading(false);
+    //           setImageUrl(upload);
+    //         } else {
+    //           setError(true);
+    //           setErrorValue(
+    //             res.data.message ? res.data.message.msg : "Unknown error"
+    //           );
+    //           setLoading(false);
+    //         }
+    //       } catch (error) {
+    //         console.error("Form submission error:", error);
+    //         console.error("Detailed error response:", error.response);
+    //         setError(true);
+    //         setErrorValue("An error occurred during form submission");
+    //         setLoading(false);
+    //       }
+    //     }
+    //   } else {
+    //     console.log("Form validation failed");
+    //   }
+    // };
+  
 
   useEffect(() => {
     setTimeout(() => {
@@ -516,13 +667,28 @@ export default function ApplyCard() {
             </div>
             <div className="pt-2 text-center">
               <div>
-                <div
+                {/* <div
                   className={!editActive ? "cursor" : ""}
                   onClick={() =>
                     !editActive ? imageRef.current.click() : null
                   }
+                > */}
+                {/* <div
+                  className={!editActive ? "cursor" : ""}
+                  onClick={() =>
+                    !editActive ? imageRef.current.click() : null
+                  }
+                > */}
+
+                <div
+                  className={!editActive ? "cursor" : ""}
+                  onClick={() => {
+                    if (!editActive) {
+                      imageRef.current.click();
+                    }
+                  }}
                 >
-                  <input
+                  {/* <input
                     required
                     onChange={(e) => {
                       if (e.target.files && e.target.files[0]) {
@@ -533,6 +699,20 @@ export default function ApplyCard() {
                         reader.readAsDataURL(e.target.files[0]);
                       }
                       setInput({ ...input, image: e.target.files[0] });
+                    }
+                    }
+                    type="file"
+                    ref={imageRef}
+                    name="file"
+                    id=""
+                    hidden="hidden"
+                  /> */}
+                  <input
+                    required
+                    onChange={(e) => {
+                      setImageSelected(e.target.files[0]);
+                      uploadImage();
+
                     }}
                     type="file"
                     ref={imageRef}
