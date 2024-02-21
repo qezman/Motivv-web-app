@@ -38,6 +38,7 @@ import Verification from "./components/OtpEdit/Verification.js";
 import AdminApproved from "./admin/AdminApproved/AdminApproved.js";
 import Pending from "./admin/Pending/Pending.js";
 import ClientsPage from "./admin/Clients/Clients.js";
+import Designers from "./components/DesignersPage/Designers/index.js";
 
 function App() {
   const user = useContext(UserContext);
@@ -58,6 +59,7 @@ function App() {
             path="/challenges?email=:email&username=:username"
             component={DesignChallenge}
           />
+          <Route exact path="/designers" component={Designers} />
           {/* <Route exact path="/challenges" component={NewDesignChallenge} /> */}
           <Route exact path="/challenges" component={DesignChallenge} />
           <Route exact path="/school" component={DesignSchoolComingSoon} />

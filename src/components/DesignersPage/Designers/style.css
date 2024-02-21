@@ -1,0 +1,139 @@
+.navigations {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+/* .navigations > * + * {
+  margin-top: 0;
+} */
+.recommended {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  /* border: 1px solid black; */
+  background: #ecf1f5;
+  width: 180px;
+  margin: 20px;
+  padding: 8px 0;
+}
+
+.icon {
+  width: 24px;
+  height: auto;
+  margin-right: 8px;
+}
+.recommended p {
+  margin: 0;
+  color: #134a7c;
+  /* font-size: 24px; */
+  font-weight: 700;
+}
+.premium {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid #c4c4c4;
+  width: 180px;
+  margin: 20px;
+  padding: 8px 0;
+  font-weight: 700;
+}
+.premium p {
+  margin: 0;
+  color: #bdbdbd;
+  /* font-size: 24px; */
+  font-weight: 700;
+}
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  /* gap: 20px; */
+  border-radius: 10px;
+  border: 1px solid #c4c4c4;
+  width: 180px;
+  /* margin: 20px; */
+  padding: 8px;
+}
+.search p {
+  margin: 0;
+  color: #bdbdbd;
+  /* font-size: 24px; */
+  font-weight: 700;
+}
+
+@media screen and (min-width: 760px) {
+  .navigations {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .recommended {
+    width: 270px;
+    height: 49px;
+    margin: 20px;
+    padding: 8px 0;
+  }
+
+  .icon {
+    width: 24px;
+    height: auto;
+    margin-right: 8px;
+  }
+  .recommended p {
+    font-size: 20px;
+  }
+  .premium {
+    width: 270px;
+    height: 49px;
+  }
+  .premium p {
+    font-size: 20px;
+  }
+  .search {
+    width: 270px;
+    height: 49px;
+    flex-shrink: 0;
+    padding: 8px;
+  }
+  .search p {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .recommended {
+    width: 300px;
+    height: 49px;
+    margin: 20px;
+    padding: 8px 0;
+  }
+
+  .icon {
+    width: 24px;
+    height: auto;
+    margin-right: 8px;
+  }
+  .recommended p {
+    font-size: 24px;
+  }
+  .premium {
+    width: 300px;
+    height: 49px;
+  }
+  .premium p {
+    font-size: 20px;
+  }
+  .search {
+    width: 300px;
+    height: 49px;
+    flex-shrink: 0;
+    padding: 8px;
+  }
+  .search p {
+    font-size: 20px;
+  }
+}

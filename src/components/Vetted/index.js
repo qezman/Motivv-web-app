@@ -33,7 +33,8 @@ let Card10 =
 let Card11 =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594717116/Motivv/New%20folder/Group_59_bqbr6g.png";
 
-  const url = `${URL}/processClient.php/`;
+// const url = `${URL}/processClient.php/`;
+const url = `${URL}/`;
 
 export default function Vetted({ props }) {
   const bannerSettings = {
@@ -53,11 +54,13 @@ export default function Vetted({ props }) {
   const [loading, setLoading] = useState(false);
   const [errorValue, setErrorValue] = useState("");
   const user = useContext(UserContext);
+  const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("handle submit called");
     setLoading(true);
-    
+
     if (!email) {
       setError(true);
       setLoading(false);
@@ -68,8 +71,7 @@ export default function Vetted({ props }) {
       setErrorValue("You have entered an invalid email address!");
     } else {
       try {
-        const response = await axios.get(url, { params: { email } });
-
+        const response = await axios.get(url, { params: { email: email } });
         if (response.data.success === 1) {
           console.log("Worked!!");
           setError(false);
@@ -124,11 +126,13 @@ export default function Vetted({ props }) {
   // };
 
   useEffect(() => {
-    setTimeout(() => {
-      setError(false);
-      setErrorValue("");
-    }, 4000);
-  }, [error]);
+    if (success) {
+      setTimeout(() => {
+        setSuccess(false);
+      }, 4000); // Adjust the timeout duration as needed
+    }
+  }, [success]);
+
   return (
     <div className="mot-vetted-section" id="clients">
       <Container>
@@ -249,22 +253,31 @@ export default function Vetted({ props }) {
                         className=""
                       />
                       <div>
-                        <button
-                          disabled={loading}
-                          style={{
-                            opactiy: loading ? "0.7" : "1",
-                            cursor: loading ? "not-allowed" : "pointer",
-                            fontSize: "14px",
-                            fontWeight: "500"
-                          }}
-                          onClick={handleSubmit}
-                          type="submit"
-                        >
-                          Book a designer
-                        </button>
+                        <Link to="/designers">
+                          <button
+                            disabled={loading}
+                            style={{
+                              opacity: loading ? "0.7" : "1",
+                              cursor: loading ? "not-allowed" : "pointer",
+                              fontSize: "14px",
+                              fontWeight: "500",
+                            }}
+                            onClick={handleSubmit}
+                            type="submit"
+                          >
+                            Book a designer
+                          </button>
+                        </Link>
                         {error && (
                           <div className="mt-2 w-80">
                             <Alert variant="danger">{errorValue}</Alert>
+                          </div>
+                        )}
+                        {success && (
+                          <div className="mt-2 w-80">
+                            <Alert variant="success">
+                              Request successful! Your message here.
+                            </Alert>
                           </div>
                         )}
                       </div>
