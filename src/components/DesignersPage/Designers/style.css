@@ -4,6 +4,9 @@
   align-content: center;
   align-items: center;
 }
+.main-content {
+  margin: 20px 0;
+}
 /* .navigations > * + * {
   margin-top: 0;
 } */
@@ -17,6 +20,24 @@
   width: 180px;
   margin: 20px;
   padding: 8px 0;
+}
+.view-and-arrow {
+  touch-action: manipulation !important;
+  cursor: pointer;
+  user-select: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.view-more-btn {
+  background-color: transparent;
+  color: black;
+  outline: none;
+  user-select: none;
+}
+.view-more-btn:focus {
+  outline: none;
+  appearance: none !important;
 }
 
 .icon {
@@ -71,7 +92,6 @@
   width: 50%;
   margin: auto;
 }
-
 /* .info-cont {
   display: flex;
   flex-direction: column;
@@ -85,6 +105,9 @@
 } */
 
 @media screen and (min-width: 760px) {
+  .main-content {
+    margin: 30px 0;
+  }
   .navigations {
     display: flex;
     flex-direction: row;
@@ -125,7 +148,7 @@
   .card-grid {
     display: flex;
     flex-direction: row;
-    width: 70%;
+    width: 80%;
     flex-wrap: wrap;
     margin: auto;
     /* justify-content: space-between; */
@@ -138,6 +161,10 @@
 }
 
 @media screen and (min-width: 1200px) {
+
+  .main-content {
+    margin: 40px 0;
+  }
   .recommended {
     width: 300px;
     height: 49px;
@@ -172,9 +199,10 @@
   .card-grid {
     display: flex;
     flex-direction: row;
-    width: 90%;
+    width: 95%;
+    /* margin: auto; */
     flex-wrap: wrap;
-    /* margin: 30px; */
+    margin: 30px;
     /* justify-content: space-between; */
   }
   .info-cont {

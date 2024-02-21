@@ -83,7 +83,7 @@ const Designers = () => {
         </div>
 
         {/* main contents */}
-        <section>
+        <section className="main-content">
 
         {/* navigations */}
           <article className="navigations">
@@ -128,6 +128,12 @@ const Designers = () => {
                 </div>
               );
             })}
+          </article>
+
+          <article className="view-and-arrow">
+            <button className="view-more-btn">View more
+            </button>
+            <img src="./assets/double-arrow.png"/>
           </article>
         </section>
 
