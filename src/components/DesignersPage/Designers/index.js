@@ -6,6 +6,7 @@ import Helmet from "../../Helmet/index";
 import { URL } from "../../../constants/index";
 import "./style.css";
 import Footer from "../../Footer/index";
+import { information } from "./designersData";
 
 let Logo =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594310687/Motivv/logo_wwolum.png";
@@ -83,6 +84,8 @@ const Designers = () => {
 
         {/* main contents */}
         <section>
+
+        {/* navigations */}
           <article className="navigations">
             <div className="recommended">
               <img className="icon" src="/assets/star.png" />
@@ -98,6 +101,33 @@ const Designers = () => {
               <img className="icon" src="/assets/Vector.svg" />
               <p>Search</p>
             </div>
+          </article>
+
+          {/* body section */}
+          <article className="card-grid">
+            {information.map((item) => {
+              return (
+                <div className="info-cont" key={item.id}>
+                  <img className="info-image" src={item.Image} />
+                  <h5 className="info-name">{item.name}</h5>
+                  <p className="info-role">{item.role}</p>
+                  <div className="info-tools">
+                    {item.tools.map((tool) => (
+                      <p className="tool" key={item.id}>
+                        {tool}
+                      </p>
+                    ))}
+                  </div>
+                  <p className="info-para">{item.paragraph}</p>
+                  <p className="info-rate">NGN: {item.rate}</p>
+                  <p className="view-btn">View Portfolio</p>
+                  <div className="approve-reject">
+                    <button className="apv-btn">Approve</button>
+                    <button className="rjt-btn">Reject</button>
+                  </div>
+                </div>
+              );
+            })}
           </article>
         </section>
 
