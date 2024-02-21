@@ -33,7 +33,8 @@ let Card10 =
 let Card11 =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594717116/Motivv/New%20folder/Group_59_bqbr6g.png";
 
-const url = `${URL}/processClient.php/`;
+  const url = `${URL}/processClient.php/`;
+
 export default function Vetted({ props }) {
   const bannerSettings = {
     fade: true,
@@ -56,6 +57,7 @@ export default function Vetted({ props }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    
     if (!email) {
       setError(true);
       setLoading(false);
@@ -66,7 +68,7 @@ export default function Vetted({ props }) {
       setErrorValue("You have entered an invalid email address!");
     } else {
       try {
-        const response = await axios.post(url, { email });
+        const response = await axios.get(url, { params: { email } });
 
         if (response.data.success === 1) {
           console.log("Worked!!");
@@ -79,12 +81,48 @@ export default function Vetted({ props }) {
           setErrorValue(response.data.msg);
         }
       } catch (error) {
-        console.error("Error during axios.post:", error);
+        console.error("Error during axios.get:", error);
         setError(true);
         setErrorValue("An error occurred during the request");
+      } finally {
+        setLoading(false);
       }
     }
   };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   if (!email) {
+  //     setError(true);
+  //     setLoading(false);
+  //     setErrorValue("Please fill the Email field");
+  //   } else if (!ValidateEmail(email)) {
+  //     setLoading(false);
+  //     setError(true);
+  //     setErrorValue("You have entered an invalid email address!");
+  //   } else {
+  //     try {
+  //       const response = await axios.post(url, { email });
+
+  //       if (response.data.success === 1) {
+  //         console.log("Worked!!");
+  //         setError(false);
+  //         Cookies.set("user-auth", email, { expires: 1 });
+  //         user.setUser(Cookies.get("user-auth"));
+  //         props.history.push("/explore");
+  //       } else {
+  //         setError(true);
+  //         setErrorValue(response.data.msg);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error during axios.post:", error);
+  //       setError(true);
+  //       setErrorValue("An error occurred during the request");
+  //     }
+  //   }
+  // };
+
   useEffect(() => {
     setTimeout(() => {
       setError(false);

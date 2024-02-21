@@ -5,7 +5,6 @@ import { Typeahead } from "react-bootstrap-typeahead";
 import axios from "axios";
 import Fade from "react-reveal/Fade";
 import { URL } from "../../constants";
-import Axios from "axios";
 
 let upload =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594422865/upload_sncmdm.png";
@@ -15,72 +14,55 @@ let close =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594654144/Motivv/ion_close-circle_xsgnnq.png";
 const url = `${URL}/`;
 
+const allTitles = [
+  "Graphic Designer",
+  "Logo Designer",
+  "Art Designer",
+  "Photo Editor",
+  "Design Freelancer",
+  "Motion Designer",
+  "3D Artist",
+  "Digital Artist",
+  "UI/UX",
+  "Illustrator",
+  "Content Designer",
+  "Visual Identity",
+  "Identity Branding",
+  "Album Cover Designer",
+  "Product Designer",
+];
+const allSkills = [
+  "Photoshop",
+  "Canva",
+  "Adobe XD",
+  "Illustrator",
+  "Affinity",
+  "After Effects",
+  "Premier Pro",
+  "Figma",
+  "InDesign",
+  "CorelDRAW",
+  "Autodesk Maya",
+  "Cinema 4D",
+  "Dreamweaver",
+  "Framer",
+  "InVision studio",
+];
+
 export default function ApplyCard() {
   const [editActive, setEditActive] = useState(true);
+
+  // Form is going to store all the form data
+  const [form, setForm] = React.useState({});
+
   const [total, setTotal] = useState("");
   const [startTotal, setStartTotal] = useState("");
-  const [imageUrl, setImageUrl] = useState(upload);
   const [endPriceRange, setEndPriceRange] = useState(55);
   const [startPriceRange, setStartPriceRange] = useState(0);
   const [selectedPrice, setSelectedPrice] = useState(false);
   const [loading, setLoading] = useState(false);
   const imageRef = useRef(null);
-  const [title, setTitle] = useState([]);
-  const [skill1, setSkill1] = useState([]);
-  const [skill2, setSkill2] = useState([]);
-  const [skill3, setSkill3] = useState([]);
-  const [skill4, setSkill4] = useState([]);
-  const [error, setError] = useState(false);
   const [errorValue, setErrorValue] = useState("");
-  const [imageSelected, setImageSelected] = useState("");
-
-  const [avatarData, setAvatarData] = useState({
-    url: "",
-    cloudinaryId: "",
-  });
-
-  const allTitles = [
-    "Graphic Designer",
-    "Logo Designer",
-    "Art Designer",
-    "Photo Editor",
-    "Design Freelancer",
-    "Motion Designer",
-    "3D Artist",
-    "Digital Artist",
-    "UI/UX",
-    "Illustrator",
-    "Content Designer",
-    "Visual Identity",
-    "Identity Branding",
-    "Album Cover Designer",
-    "Product Designer",
-  ];
-  const allSkills = [
-    "Photoshop",
-    "Canva",
-    "Adobe XD",
-    "Illustrator",
-    "Affinity",
-    "After Effects",
-    "Premier Pro",
-    "Figma",
-    "InDesign",
-    "CorelDRAW",
-    "Autodesk Maya",
-    "Cinema 4D",
-    "Dreamweaver",
-    "Framer",
-    "InVision studio",
-  ];
-  const [input, setInput] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    phoneCode: "",
-    link: "",
-    image: null,
-  });
 
   const [formErrors, setFormErrors] = useState({
     name: "",
@@ -96,67 +78,86 @@ export default function ApplyCard() {
     skill4: "",
   });
 
-  const validateForm = () => {
-    let isValid = true;
-    const newFormErrors = {
-      name: "",
-      email: "",
-      phoneCode: "",
-      phone: "",
-      link: "",
-      image: "",
-      title: "",
-      skill1: "",
-      skill2: "",
-      skill3: "",
-      skill4: "",
-    };
+  const validateForm = React.useCallback((formData) => {
+    const newFormErrors = {};
 
-    if (!input.name) {
+    if (!formData.name) {
       newFormErrors.name = "Please enter your name";
-      isValid = false;
     }
 
-    if (!input.email) {
-      newFormErrors.email = "Please enter a valid email";
-      isValid = false;
+    if (!formData.email) {
+      newFormErrors.email = "Please enter your email address";
     }
+
+    if (!formData.phoneCode) {
+      newFormErrors.phoneCode = "Required.";
+    }
+
+    if (!formData.phone) {
+      newFormErrors.phone = "Please enter your phone number";
+    }
+    if (!formData.link) {
+      newFormErrors.link = "Please enter your portfolio link or previous work.";
+    }
+    if (!formData.avatar) {
+      newFormErrors.avatar = "Please enter a display image";
+    }
+    if (!formData.title) {
+      newFormErrors.title = "Please enter a headline";
+    }
+    if (!formData.skill1 || formData.skill1.length <= 0) {
+      newFormErrors.skill1 = "Please enter skill 1";
+    }
+    if (!formData.skill2 || formData.skill2.length <= 0) {
+      newFormErrors.skill2 = "Please enter skill 2";
+    }
+    if (!formData.skill3 || formData.skill3.length <= 0) {
+      newFormErrors.skill3 = "Please enter skill 3";
+    }
+    if (!formData.skill4 || formData.skill4.length <= 0) {
+      newFormErrors.skill4 = "Please enter skill 4";
+    }
+
+    console.log("FORM ERRORS:", newFormErrors);
 
     setFormErrors(newFormErrors);
 
-    return isValid;
-  };
+    return Object.values(newFormErrors).length <= 0;
+  }, []);
 
-  
-  const uploadImage = () => {
-    // Check if image is selected
-    if (!imageSelected) {
-      console.error("No image selected");
-      return;
-    }
+  const handleInputChange = React.useCallback((name, value) => {
+    setForm((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  }, []);
 
-    const formData = new FormData();
-    formData.append("file", imageSelected);
-    formData.append("upload_preset", "dghwzyoj");
+  // A function to upload the file to cloudinary
+  const uploadImage = React.useCallback(
+    async (imageFile) => {
+      // Check if image is selected
+      if (!imageFile) {
+        console.error("No image selected");
+        return;
+      }
 
-    Axios.post(
-      "https://api.cloudinary.com/v1_1/dr0tgora5/image/upload",
-      formData
-    )
-      .then((response) => {
-        console.log(response);
+      const formData = new FormData();
+      formData.append("file", imageFile);
+      formData.append("upload_preset", "dghwzyoj");
 
-        const imageUrl = response.data.secure_url;
-        const cloudinaryId = response.data.public_id;
+      try {
+        console.log("Uploading image");
+        const response = await axios.post(
+          "https://api.cloudinary.com/v1_1/dr0tgora5/image/upload",
+          formData
+        );
+        const data = response.data;
 
-        setAvatarData({
-          url: imageUrl,
-          cloudinaryId: cloudinaryId,
+        handleInputChange("avatar", {
+          url: data.secure_url,
+          cloudinaryId: data.public_id,
         });
-
-        setImageUrl(imageUrl);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error uploading image:", error);
         if (error.response) {
           console.error("Error response data:", error.response.data);
@@ -167,63 +168,41 @@ export default function ApplyCard() {
             );
           }
         }
-      });
-  };
+      } finally {
+        console.log(
+          "Done uploading image. Dont know successful or failed though"
+        );
+      }
+    },
+    [handleInputChange]
+  );
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = React.useCallback(
+    async (e) => {
+      e.preventDefault();
 
-    if (validateForm()) {
-      setLoading(true);
+      try {
+        setLoading(true);
+        if (form && validateForm(form)) {
+          setLoading(true);
 
-      let linkk = input.link.includes("http")
-        ? input.link
-        : `https://${input.link}`;
+          // let linkk = input.link.includes('http') ? input.link : `https://${input.link}`;
 
-      if (
-        !input.name ||
-        !input.email ||
-        !input.phone ||
-        !input.phoneCode ||
-        !input.link ||
-        !imageSelected || // Check if an image is selected
-        title.length === 0
-      ) {
-        setError(true);
-        setErrorValue("Please fill in all required fields");
-        setLoading(false);
-      } else if (
-        skill1.length === 0 &&
-        skill2.length === 0 &&
-        skill3.length === 0 &&
-        skill4.length === 0
-      ) {
-        setError(true);
-        setErrorValue("Pick at least one skill");
-        setLoading(false);
-      } else {
-        try {
-          // Upload the image and get the URL
-          await uploadImage();
-
-          // Continue with the form submission using the imageUrl
           const requestData = {
-            name: input.name,
-            email: input.email,
-            skill1: skill1.length > 0 ? skill1[0] : null,
-            skill2: skill2.length > 0 ? skill2[0] : null,
-            skill3: skill3.length > 0 ? skill3[0] : null,
-            skill4: skill4.length > 0 ? skill4[0] : null,
-            price: total,
-            phone: input.phoneCode + input.phone,
-            portfolio: linkk,
-            avatar: {
-              url: avatarData.url,
-              cloudinaryId: avatarData.cloudinaryId,
-            },
+            name: form.name,
+            email: form.email,
+            // title: form.title[0],
+            skill1: form.skill1[0],
+            skill2: form.skill2[0],
+            skill3: form.skill3[0],
+            skill4: form.skill4[0],
+            price: startTotal,
+            phone: form.phoneCode + form.phone,
+            portfolio: !form.link.startsWith("http")
+              ? "https://" + form.link
+              : form.link,
+            avatar: form.avatar,
           };
-
-          console.log("Form data to be submitted:", requestData);
 
           const res = await axios.post(url, requestData, {
             headers: {
@@ -232,352 +211,41 @@ export default function ApplyCard() {
           });
 
           if (res.status === 201 && res.data.message) {
-            setError(true);
+            // Log each field before sending the request
+            console.log("Form Data:", requestData);
+
             setErrorValue(
               "Application was successful! Check your e-mail for more info."
             );
-            // ... (rest of your code)
+            setForm({});
+            setEditActive((prevState) => !prevState);
           } else {
-            setError(true);
             setErrorValue(
               res.data.message ? res.data.message.msg : "Unknown error"
             );
             setLoading(false);
           }
-        } catch (error) {
-          console.error("Form submission error:", error);
-          console.error("Detailed error response:", error.response);
-          setError(true);
-          setErrorValue("An error occurred during form submission");
-          setLoading(false);
+        } else {
+          console.log("Form validation failed");
         }
+      } catch (error) {
+        console.error("Form submission error:", error);
+        console.error("Detailed error response:", error.response);
+        setErrorValue(
+          String(
+            typeof error.response.data === "string"
+              ? error.response.data
+              : error.response.data?.message ||
+                  "An error occurred during form submission"
+          )
+        );
+      } finally {
+        setLoading(false);
       }
-    } else {
-      console.log("Form validation failed");
-    }
-  };
+    },
+    [startTotal, form, validateForm]
+  );
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   if (validateForm()) {
-  //     setLoading(true);
-
-  //     let linkk = input.link.includes("http")
-  //       ? input.link
-  //       : `https://${input.link}`;
-
-  //     if (
-  //       !input.name ||
-  //       !input.email ||
-  //       !input.phone ||
-  //       !input.phoneCode ||
-  //       !input.link ||
-  //       !input.image ||
-  //       title.length === 0
-  //     ) {
-  //       setError(true);
-  //       setErrorValue("Please fill in all required fields");
-  //       setLoading(false);
-  //     } else if (
-  //       skill1.length === 0 &&
-  //       skill2.length === 0 &&
-  //       skill3.length === 0 &&
-  //       skill4.length === 0
-  //     ) {
-  //       setError(true);
-  //       setErrorValue("Pick at least one skill");
-  //       setLoading(false);
-  //     } else {
-  //       try {
-  //         // "avatar":{
-  //         // "Url": "https://res.cloudinary.com/dygdcssuz/image/upload/v1707241588/jf7buhcyax3j1y9dln7s.png",
-  //         // "cloudinaryId": "jf7buhcyax3j1y9dln7s"avatar:{
-  //         //   Url: input.image,
-  //         //   cloudinaryId: "jf7buhcyax3j1y9dln7s"
-  //         //   },
-
-  //         // },post(url, requestData, {
-  //         //   headers: {
-  //         //     "Content-Type": "application/json",
-  //         //   },
-  //         // });
-  //         // "name": "lawal",
-  //         // "email":"laltvddf963655@gmail.com",
-  //         // "skill1":"oje",
-  //         // "skill2":"yet",
-  //         // "skill3":"yety",
-  //         // "skill4":"yetc",
-  //         // "price":"300",
-  //         // "phone":"08032674757",
-  //         // "portfolio":"https://github.com/Dev-Teelaw/vidly"
-
-  //         // const cloudinaryResponse = await cloudinary.v2.uploader.upload(
-  //         //   imageUrl,
-  //         //   {
-  //         //     folder: "avatars",
-  //         //     public_id: "avatar_" + Date.now(),
-  //         //   }
-  //         // );
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   if (validateForm()) {
-  //     setLoading(true);
-
-  //     let linkk = input.link.includes("http")
-  //       ? input.link
-  //       : `https://${input.link}`;
-
-  //     if (
-  //       !input.name ||
-  //       !input.email ||
-  //       !input.phone ||
-  //       !input.phoneCode ||
-  //       !input.link ||
-  //       !input.image ||
-  //       title.length === 0
-  //     ) {
-  //       setError(true);
-  //       setErrorValue("Please fill in all required fields");
-  //       setLoading(false);
-  //     } else if (
-  //       skill1.length === 0 &&
-  //       skill2.length === 0 &&
-  //       skill3.length === 0 &&
-  //       skill4.length === 0
-  //     ) {
-  //       setError(true);
-  //       setErrorValue("Pick at least one skill");
-  //       setLoading(false);
-  //     } else {
-  //       try {
-  //         // "avatar":{
-  //         // "Url": "https://res.cloudinary.com/dygdcssuz/image/upload/v1707241588/jf7buhcyax3j1y9dln7s.png",
-  //         // "cloudinaryId": "jf7buhcyax3j1y9dln7s"avatar:{
-  //         //   Url: input.image,
-  //         //   cloudinaryId: "jf7buhcyax3j1y9dln7s"
-  //         //   },
-
-  //         // },post(url, requestData, {
-  //         //   headers: {
-  //         //     "Content-Type": "application/json",
-  //         //   },
-  //         // });
-  //         // "name": "lawal",
-  //         // "email":"laltvddf963655@gmail.com",
-  //         // "skill1":"oje",
-  //         // "skill2":"yet",
-  //         // "skill3":"yety",
-  //         // Extract the Cloudinary URL from the response
-  //         // const cloudinaryUrl = cloudinaryResponse.secure_url;
-
-  //         // Continue with the rest of the form submission
-  //         // const avatarData = createAvatar(cloudinaryUrl);
-
-  //         const requestData = {
-  //           // name: input.name,
-  //           // email: input.email,
-
-  //           // skill1: skill1.length > 0 ? skill1[0] : null,
-  //           // skill2: skill2.length > 0 ? skill2[0] : null,
-  //           // price: parseInt(total, 10),
-  //           // price: total,
-  //           // phone: input.phoneCode + input.phone,
-  //           // portfolio: linkk,
-  //           // avattar: avatarData,
-
-  //           name: input.name,
-  //           email: input.email,
-  //           skill1: skill1.length > 0 ? skill1[0] : null,
-  //           skill2: skill2.length > 0 ? skill2[0] : null,
-  //           skill3: skill3.length > 0 ? skill3[0] : null,
-  //           skill4: skill4.length > 0 ? skill4[0] : null,
-  //           price: total,
-  //           // price: parseInt(total, 10),
-  //           // price: parseInt(total.replace(/,/g, ""), 10),
-  //           phone: input.phoneCode + input.phone,
-  //           portfolio: linkk,
-
-  //           // name: input.name,
-  //           // avatar:
-  //           // "https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435Ec",
-
-  //           // link: linkk,
-  //           // headline: title[0],
-  //           // email: input.email,
-  //           // phone: input.phoneCode + input.phone,avatar:{
-  //           //   Url: input.image,
-  //           //   cloudinaryId: "jf7buhcyax3j1y9dln7s"
-  //           //   },
-  //           // startprice: startTotal,
-  //           // endprice: total,
-  //           // price: "300",
-
-  //           // skill1: skill1.length > 0 ? skill1[0] : null,
-  //           // skill2: skill2.length > 0 ? skill2[0] : null,
-  //           // skill3: skill3.length > 0 ? skill3[0] : null,
-  //           // skill4: skill4.length > 0 ? skill4[0] : null,
-  //           // picture: input.image,
-  //           // portfolio: "https://github.com/Dev-Teelaw/vidly",
-  //         };
-
-  //         console.log("JSON Request Data:", requestData);
-
-  //         const res = await axios.post(url, requestData, {
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //           },
-  //         });
-
-  //         if (res.data.success === 1) {
-  //           setError(true);
-  //           setErrorValue(res.data.msg);
-  //           setTotal("");
-  //           setStartTotal("");
-  //           setEndPriceRange(0);
-  //           setStartPriceRange(0);
-  //           setEditActive(true);
-  //           setInput({
-  //             name: "",
-  //             skill1: "",
-  //             skill2: "",
-  //             skill3: "",
-  //             skill4: "",
-  //             email: "",
-  //             phone: "",
-  //             link: "",
-  //             phoneCode: "",
-  //             image: null,
-  //           });
-  //           setTitle([]);
-  //           setLoading(false);
-  //           setImageUrl(upload);
-  //         } else {
-  //           setError(true);
-  //           setErrorValue(res.data.msg);
-  //           setLoading(false);
-  //         }
-  //       } catch (error) {
-  //         console.error("Form submission error:", error);
-  //         console.error("Detailed error response:", error.response);
-  //         setError(true);
-  //         setErrorValue("An error occurred during form submission");
-  //         setLoading(false);
-  //       }
-  //     }
-  //   } else {
-  //     console.log("Form validation failed");
-  //   }
-  // };files[0]
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   if (validateForm()) {
-  //     setLoading(true);
-
-  //     let linkk = input.link.includes("http")
-  //       ? input.link
-  //       : `https://${input.link}`;
-
-  //     if (
-  //       !input.name ||
-  //       !input.email ||
-  //       !input.phone ||
-  //       !input.phoneCode ||
-  //       !input.link ||
-  //       !input.image ||
-  //       title.length === 0
-  //     ) {
-  //       setError(true);
-  //       setErrorValue("Please fill in all required fields");
-  //       setLoading(false);
-  //     } else if (
-  //       skill1.length === 0 &&
-  //       skill2.length === 0 &&
-  //       skill3.length === 0 &&
-  //       skill4.length === 0
-  //     ) {
-  //       setError(true);
-  //       setErrorValue("Pick at least one skill");
-  //       setLoading(false);
-  //     } else {
-  //       const requestData = {
-  //         name: input.name,
-  //         email: input.email,
-  //         skill1: skill1.length > 0 ? skill1[0] : null,
-  //         skill2: skill2.length > 0 ? skill2[0] : null,
-  //         skill3: skill3.length > 0 ? skill3[0] : null,
-  //         skill4: skill4.length > 0 ? skill4[0] : null,
-  //         price: total,
-  //         phone: input.phoneCode + input.phone,
-  //         portfolio: linkk,
-  //       };
-
-  //       console.log("Form data to be submitted:", requestData);
-
-  //       try {
-  //         const res = await axios.post(url, requestData, {
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //           },
-  //         });
-
-  //         console.log("Inside the block");
-  //         console.log("Response from the server:", res);
-
-  //         if (res.status === 201 && res.data.message) {
-  //           setError(true);
-  //           setErrorValue(
-  //             "Application was successful! Check your e-mail for more info."
-  //           );
-  //           setTotal("");
-  //           setStartTotal("");
-  //           setEndPriceRange(0);
-  //           setStartPriceRange(0);
-  //           setEditActive(true);
-  //           setInput({
-  //             name: "",
-  //             skill1: "",
-  //             skill2: "",
-  //             skill3: "",
-  //             skill4: "",
-  //             email: "",
-  //             phone: "",
-  //             link: "",
-  //             phoneCode: "",
-  //             image: null,
-  //           });"avatar": {
-  //           setTitle([]);
-  //           setLoading(false);
-  //           setImageUrl(upload);
-  //         } else {
-  //           setError(true);
-  //           setErrorValue(
-  //             res.data.message ? res.data.message.msg : "Unknown error"
-  //           );
-  //           setLoading(false);
-  //         }
-  //       } catch (error) {
-  //         console.error("Form submission error:", error);
-  //         console.error("Detailed error response:", error.response);
-  //         setError(true);
-  //         setErrorValue("An error occurred during form submission");
-  //         setLoading(false);
-  //       }
-  //     }
-  //   } else {
-  //     console.log("Form validation failed");
-  //   }
-  // };
-
-  useEffect(() => {
-    setTimeout(() => {
-      setError(false);
-      setErrorValue("");
-    }, 8000);
-  }, [error]);
   // eslint-disable-next-line
   String.prototype.removeCharAt = function (i) {
     var tmp = this.split("");
@@ -656,7 +324,7 @@ export default function ApplyCard() {
 
   return (
     <Col className="p-0 m-0" md={!editActive ? 4 : 3}>
-      <form className="mot-apply-form">
+      <form onSubmit={handleSubmit} className="mot-apply-form">
         <div className="mot-profile-card-wrapper mt-0">
           <h5 className="text-center mb-5 mot-form-title ">
             Customize your Card
@@ -689,19 +357,6 @@ export default function ApplyCard() {
             </div>
             <div className="pt-2 text-center">
               <div>
-                {/* <div
-                  className={!editActive ? "cursor" : ""}
-                  onClick={() =>
-                    !editActive ? imageRef.current.click() : null
-                  }
-                > */}
-                {/* <div
-                  className={!editActive ? "cursor" : ""}
-                  onClick={() =>
-                    !editActive ? imageRef.current.click() : null
-                  }
-                > */}
-
                 <div
                   className={!editActive ? "cursor" : ""}
                   onClick={() => {
@@ -710,30 +365,14 @@ export default function ApplyCard() {
                     }
                   }}
                 >
-                  {/* <input
-                    required
-                    onChange={(e) => {
-                      if (e.target.files && e.target.files[0]) {
-                        let reader = new FileReader();
-                        reader.onload = (e) => {
-                          setImageUrl(e.target.result);
-                        };
-                        reader.readAsDataURL(e.target.files[0]);
-                      }
-                      setInput({ ...input, image: e.target.files[0] });
-                    }
-                    }
-                    type="file"
-                    ref={imageRef}
-                    name="file"
-                    id=""
-                    hidden="hidden"
-                  /> */}
                   <input
                     required
                     onChange={(e) => {
-                      setImageSelected(e.target.files[0]);
-                      uploadImage();
+                      // Get the file from the target
+                      const imageFile = e.target.files[0];
+
+                      // upload the file to cloudinary
+                      uploadImage(imageFile);
                     }}
                     type="file"
                     ref={imageRef}
@@ -746,7 +385,7 @@ export default function ApplyCard() {
                     height="72px"
                     width="72px"
                     style={{ borderRadius: "72px" }}
-                    src={imageUrl}
+                    src={form?.avatar?.url || upload}
                     alt=""
                     className="mot-upload-image"
                   />
@@ -768,9 +407,9 @@ export default function ApplyCard() {
                         placeholder="Display Name"
                         className="mt-0 p-0 text-center"
                         maxLength="10"
-                        value={input.name}
+                        value={form?.name || ""}
                         onChange={(e) =>
-                          setInput({ ...input, name: e.target.value })
+                          handleInputChange("name", e.target.value)
                         }
                       />
                     </Fade>
@@ -788,14 +427,16 @@ export default function ApplyCard() {
                       id="headline"
                       labelKey="headline"
                       className="mt-0 p-0 border-0 text-center bod-rad"
-                      onChange={setTitle}
+                      onChange={(selected) =>
+                        handleInputChange("title", selected)
+                      }
                       required
                       multiple={false}
                       options={allTitles.sort((item1, item2) =>
                         item1 > item2 ? 1 : -1
                       )}
                       placeholder="Job Headline"
-                      selected={title}
+                      selected={form?.title || []}
                     />
                   </div>
                 ) : (
@@ -810,14 +451,16 @@ export default function ApplyCard() {
                     id="skill1"
                     labelKey="skill1"
                     className="mt-0 p-0 border-0 text-center bod-rad"
-                    onChange={setSkill1}
+                    onChange={(selected) =>
+                      handleInputChange("skill1", selected)
+                    }
                     required
                     multiple={false}
                     options={allSkills.sort((item1, item2) =>
                       item1 > item2 ? 1 : -1
                     )}
                     placeholder="Skill 1"
-                    selected={skill1}
+                    selected={form?.skill1 || []}
                   />
                 ) : (
                   <span className="skill smaller-texts">Photoshop</span>
@@ -828,14 +471,16 @@ export default function ApplyCard() {
                     id="skill1"
                     labelKey="skill2"
                     className="mt-0 p-0 border-0 text-center bod-rad"
-                    onChange={setSkill2}
+                    onChange={(selected) =>
+                      handleInputChange("skill2", selected)
+                    }
                     required
                     multiple={false}
                     options={allSkills.sort((item1, item2) =>
                       item1 > item2 ? 1 : -1
                     )}
                     placeholder="Skill 2"
-                    selected={skill2}
+                    selected={form?.skill2 || []}
                   />
                 ) : (
                   <span className="skill smaller-texts">Illustrator</span>
@@ -847,14 +492,16 @@ export default function ApplyCard() {
                     id="skill3"
                     labelKey="skill3"
                     className="mt-0 p-0 border-0 text-center bod-rad"
-                    onChange={setSkill3}
+                    onChange={(selected) =>
+                      handleInputChange("skill3", selected)
+                    }
                     required
                     multiple={false}
                     options={allSkills.sort((item1, item2) =>
                       item1 > item2 ? 1 : -1
                     )}
                     placeholder="Skill 3"
-                    selected={skill3}
+                    selected={form?.skill3 || []}
                   />
                 ) : (
                   <span className="skill smaller-texts">Adobe XD</span>
@@ -865,14 +512,16 @@ export default function ApplyCard() {
                     id="skill4"
                     labelKey="skill4"
                     className="mt-0 p-0 border-0 text-center bod-rad"
-                    onChange={setSkill4}
+                    onChange={(selected) =>
+                      handleInputChange("skill4", selected)
+                    }
                     required
                     multiple={false}
                     options={allSkills.sort((item1, item2) =>
                       item1 > item2 ? 1 : -1
                     )}
                     placeholder="Skill 4"
-                    selected={skill4}
+                    selected={form?.skill4 || []}
                   />
                 ) : (
                   <span className="skill smaller-texts">Figma</span>
@@ -932,9 +581,9 @@ export default function ApplyCard() {
                       required
                       placeholder="Enter valid email"
                       className="mt-0 text-center p-0"
-                      value={input.email}
+                      value={form?.email || ""}
                       onChange={(e) =>
-                        setInput({ ...input, email: e.target.value })
+                        handleInputChange("email", e.target.value)
                       }
                     />
                   </div>
@@ -953,9 +602,9 @@ export default function ApplyCard() {
                         className="mt-0 text-center p-0"
                         required
                         maxLength="3"
-                        value={input.phoneCode}
+                        value={form?.phoneCode || ""}
                         onChange={(e) =>
-                          setInput({ ...input, phoneCode: e.target.value })
+                          handleInputChange("phoneCode", e.target.value)
                         }
                       />
                     </div>
@@ -966,9 +615,9 @@ export default function ApplyCard() {
                         className="mt-0 text-center p-0"
                         required
                         maxLength="10"
-                        value={input.phone}
+                        value={form?.phone || ""}
                         onChange={(e) =>
-                          setInput({ ...input, phone: e.target.value })
+                          handleInputChange("phone", e.target.value)
                         }
                       />
                     </div>
@@ -986,9 +635,9 @@ export default function ApplyCard() {
                       placeholder="Portfolio Link or Link to previous work"
                       required
                       className="mt-0 text-center p-0"
-                      value={input.link}
+                      value={form?.link || ""}
                       onChange={(e) =>
-                        setInput({ ...input, link: e.target.value })
+                        handleInputChange("link", e.target.value)
                       }
                     />
                   </div>
@@ -998,12 +647,11 @@ export default function ApplyCard() {
               </div>
             </div>
           </div>
-          {!editActive && (
+          {!editActive && form?.avatar && (
             <span className="block">
               <button
                 disabled={loading}
                 className={loading ? "disabled-btn" : ""}
-                onClick={handleSubmit}
                 type="submit"
               >
                 Submit
@@ -1020,7 +668,7 @@ export default function ApplyCard() {
               )}
             </span>
           )}
-          {error && (
+          {errorValue && (
             <div className="mt-2 w-100">
               <Alert
                 variant={
