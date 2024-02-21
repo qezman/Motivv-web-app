@@ -21,6 +21,11 @@
   margin: 20px;
   padding: 8px 0;
 }
+
+.view-btn {
+  padding: 10px 0 0 0;
+}
+
 .view-and-arrow {
   touch-action: manipulation !important;
   cursor: pointer;
@@ -34,6 +39,7 @@
   color: black;
   outline: none;
   user-select: none;
+  font-weight: 700;
 }
 .view-more-btn:focus {
   outline: none;
@@ -157,19 +163,28 @@
     flex: 0 1 calc(33.33% - 20px);
     margin: 10px;
     box-sizing: border-box;
+    padding: 20px 0;
+  }
+  .view-and-arrow {
+    margin: 20px 0 100px 0;
   }
 }
 
 @media screen and (min-width: 1200px) {
-
+  .navigations {
+    display: flex;
+    gap: 150px;
+  }
   .main-content {
     margin: 40px 0;
   }
   .recommended {
-    width: 300px;
-    height: 49px;
-    margin: 20px;
-    padding: 8px 0;
+    display: flex;
+    /* justify-content: space-between; */
+    justify-items: center;
+    align-items: center;
+    padding: 10px 150px;
+    gap: 15px;
   }
 
   .icon {
@@ -181,14 +196,15 @@
     font-size: 24px;
   }
   .premium {
-    width: 300px;
-    height: 49px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
   }
   .premium p {
     font-size: 20px;
   }
   .search {
-    width: 300px;
+    width: 700px;
     height: 49px;
     flex-shrink: 0;
     padding: 8px;
@@ -209,5 +225,9 @@
     flex: 0 1 calc(25% - 20px);
     margin: 10px;
     box-sizing: border-box;
+  }
+
+  .view-and-arrow {
+    margin: 68px 0 116px 0;
   }
 }

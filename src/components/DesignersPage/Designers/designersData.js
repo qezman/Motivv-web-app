@@ -8,7 +8,7 @@ export const information = [
       tools: ["Figma", "Sketch", "Miro"],
       paragraph:
         "Segun is a skilled product designer who has worked at CloudX for 3 year",
-      rate: "500/hr",
+      rate: "5000 - 250,000",
     },
     {
       id: "2",
@@ -18,7 +18,7 @@ export const information = [
       tools: ["Figma", "Sketch", "Miro"],
       paragraph:
         "Segun is a skilled product designer who has worked at CloudX for 3 year",
-      rate: "500/hr",
+      rate: "5000 - 250,000",
     },
     {
       id: "3",
@@ -28,7 +28,7 @@ export const information = [
       tools: ["Figma", "Sketch", "Miro"],
       paragraph:
         "Segun is a skilled product designer who has worked at CloudX for 3 year",
-      rate: "500/hr",
+      rate: "5000 - 250,000",
     },
     {
       id: "4",
@@ -38,7 +38,7 @@ export const information = [
       tools: ["Figma", "Sketch", "Miro"],
       paragraph:
         "Segun is a skilled product designer who has worked at CloudX for 3 year",
-      rate: "500/hr",
+      rate: "5000 - 250,000",
     },
     {
       id: "5",
@@ -48,7 +48,7 @@ export const information = [
       tools: ["Figma", "Sketch", "Miro"],
       paragraph:
         "Segun is a skilled product designer who has worked at CloudX for 3 year",
-      rate: "500/hr",
+      rate: "5000 - 250,000",
     },
     {
       id: "6",
@@ -58,7 +58,7 @@ export const information = [
       tools: ["Figma", "Sketch", "Miro"],
       paragraph:
         "Segun is a skilled product designer who has worked at CloudX for 3 year",
-      rate: "500/hr",
+      rate: "5000 - 250,000",
     },
     {
       id: "7",
@@ -68,7 +68,7 @@ export const information = [
       tools: ["Figma", "Sketch", "Miro"],
       paragraph:
         "Segun is a skilled product designer who has worked at CloudX for 3 year",
-      rate: "500/hr",
+      rate: "5000 - 250,000",
     },
     {
       id: "8",
@@ -78,7 +78,7 @@ export const information = [
       tools: ["Figma", "Sketch", "Miro"],
       paragraph:
         "Segun is a skilled product designer who has worked at CloudX for 3 year",
-      rate: "500/hr",
+      rate: "5000 - 250,000",
     },
     {
       id: "9",
@@ -88,7 +88,7 @@ export const information = [
       tools: ["Figma", "Sketch", "Miro"],
       paragraph:
         "Segun is a skilled product designer who has worked at CloudX for 3 year",
-      rate: "500/hr",
+      rate: "5000 - 250,000",
     },
     {
       id: "10",
@@ -98,7 +98,7 @@ export const information = [
       tools: ["Figma", "Sketch", "Miro"],
       paragraph:
         "Segun is a skilled product designer who has worked at CloudX for 3 year",
-      rate: "500/hr",
+      rate: "5000 - 250,000",
     },
     {
       id: "11",
@@ -108,7 +108,7 @@ export const information = [
       tools: ["Figma", "Sketch", "Miro"],
       paragraph:
         "Segun is a skilled product designer who has worked at CloudX for 3 year",
-      rate: "500/hr",
+      rate: "5000 - 250,000",
     },
     {
       id: "12",
@@ -118,7 +118,7 @@ export const information = [
       tools: ["Figma", "Sketch", "Miro"],
       paragraph:
         "Segun is a skilled product designer who has worked at CloudX for 3 year",
-      rate: "500/hr",
+      rate: "5000 - 250,000",
     },
   
     {
@@ -129,7 +129,7 @@ export const information = [
       tools: ["Figma", "Sketch", "Miro"],
       paragraph:
         "Segun is a skilled product designer who has worked at CloudX for 3 year",
-      rate: "500/hr",
+      rate: "5000 - 250,000",
     },
   
     {
@@ -140,7 +140,7 @@ export const information = [
       tools: ["Figma", "Sketch", "Miro"],
       paragraph:
         "Segun is a skilled product designer who has worked at CloudX for 3 year",
-      rate: "500/hr",
+      rate: "5000 - 250,000",
     },
   
     {
@@ -151,7 +151,7 @@ export const information = [
       tools: ["Figma", "Sketch", "Miro"],
       paragraph:
         "Segun is a skilled product designer who has worked at CloudX for 3 year",
-      rate: "500/hr",
+      rate: "5000 - 250,000",
     },
   
     {
@@ -162,6 +162,6 @@ export const information = [
       tools: ["Figma", "Sketch", "Miro"],
       paragraph:
         "Segun is a skilled product designer who has worked at CloudX for 3 year",
-      rate: "500/hr",
+      rate: "5000 - 250,000",
     },
   ];

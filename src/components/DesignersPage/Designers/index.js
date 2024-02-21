@@ -84,8 +84,7 @@ const Designers = () => {
 
         {/* main contents */}
         <section className="main-content">
-
-        {/* navigations */}
+          {/* navigations */}
           <article className="navigations">
             <div className="recommended">
               <img className="icon" src="/assets/star.png" />
@@ -119,21 +118,16 @@ const Designers = () => {
                     ))}
                   </div>
                   <p className="info-para">{item.paragraph}</p>
-                  <p className="info-rate">NGN: {item.rate}</p>
+                  <p className="info-rate">Rate: NGN {item.rate}</p>
                   <p className="view-btn">View Portfolio</p>
-                  <div className="approve-reject">
-                    <button className="apv-btn">Approve</button>
-                    <button className="rjt-btn">Reject</button>
-                  </div>
                 </div>
               );
             })}
           </article>
 
           <article className="view-and-arrow">
-            <button className="view-more-btn">View more
-            </button>
-            <img src="./assets/double-arrow.png"/>
+            <button className="view-more-btn">View more</button>
+            <img src="./assets/double-arrow.png" />
           </article>
         </section>
 
