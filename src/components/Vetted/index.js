@@ -254,13 +254,13 @@ export default function Vetted({ props }) {
                           <Alert variant="danger">{errorValue}</Alert>
                         </div>
                       )}
-                      {success && (
+                      {/* {success && (
                         <div className="mt-2 w-80">
                           <Alert variant="success">
                             Request successful! You are being redirected...
                           </Alert>
                         </div>
-                      )}
+                      )} */}
                     </div>
                   </form>
                 </div>
