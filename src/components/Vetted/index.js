@@ -9,6 +9,7 @@ import Fade from "react-reveal";
 import "./styles.css";
 import { URL } from "../../constants";
 import { ValidateEmail } from "../../constants";
+import { useHistory } from "react-router-dom";
 
 let VettedCard =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594318728/Motivv/Vetted_card_vms1pd.png";
@@ -37,6 +38,7 @@ let Card11 =
 const url = `${URL}/`;
 
 export default function Vetted({ props }) {
+  const history = useHistory();
   const bannerSettings = {
     fade: true,
     infinite: true,
@@ -53,6 +55,7 @@ export default function Vetted({ props }) {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorValue, setErrorValue] = useState("");
+  const [userPrompt, setUserPrompt] = useState("");
   const user = useContext(UserContext);
   const [success, setSuccess] = useState(false);
 
@@ -72,15 +75,23 @@ export default function Vetted({ props }) {
     } else {
       try {
         const response = await axios.get(url, { params: { email: email } });
-        if (response.data.success === 1) {
+        console.log("Response from server:", response);
+        console.log("Response data:", response.data);
+
+        if (response.data.length > 0) {
           console.log("Worked!!");
           setError(false);
           Cookies.set("user-auth", email, { expires: 1 });
           user.setUser(Cookies.get("user-auth"));
-          props.history.push("/explore");
+          setUserPrompt("Request successful! Redirecting...");
+          setSuccess(true);
+
+          setTimeout(() => {
+            props.history.push("/designers");
+          }, 3000);
         } else {
           setError(true);
-          setErrorValue(response.data.msg);
+          setErrorValue("No designers found for the given email");
         }
       } catch (error) {
         console.error("Error during axios.get:", error);
@@ -92,46 +103,18 @@ export default function Vetted({ props }) {
     }
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   if (!email) {
-  //     setError(true);
-  //     setLoading(false);
-  //     setErrorValue("Please fill the Email field");
-  //   } else if (!ValidateEmail(email)) {
-  //     setLoading(false);
-  //     setError(true);
-  //     setErrorValue("You have entered an invalid email address!");
-  //   } else {
-  //     try {
-  //       const response = await axios.post(url, { email });
-
-  //       if (response.data.success === 1) {
-  //         console.log("Worked!!");
-  //         setError(false);
-  //         Cookies.set("user-auth", email, { expires: 1 });
-  //         user.setUser(Cookies.get("user-auth"));
-  //         props.history.push("/explore");
-  //       } else {
-  //         setError(true);
-  //         setErrorValue(response.data.msg);
-  //       }
-  //     } catch (error) {
-  //       console.error("Error during axios.post:", error);
-  //       setError(true);
-  //       setErrorValue("An error occurred during the request");
-  //     }
-  //   }
-  // };
-
   useEffect(() => {
     if (success) {
-      setTimeout(() => {
+      console.log("Request successful! Redirecting...");
+      const redirectTimeout = setTimeout(() => {
         setSuccess(false);
-      }, 4000); // Adjust the timeout duration as needed
+        setUserPrompt("");
+        history.push("/designers");
+      }, 3000);
+
+      return () => clearTimeout(redirectTimeout);
     }
-  }, [success]);
+  }, [success, history]);
 
   return (
     <div className="mot-vetted-section" id="clients">
@@ -242,52 +225,44 @@ export default function Vetted({ props }) {
                   requirements. Check creative’s portfolio, negotiate and hire.
                 </div>
                 <div className="mot-explore-input-section">
-                  {!user.user && (
-                    <form action="">
-                      <input
-                        type="email"
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Input email to book a designer"
-                        className=""
-                      />
-                      <div>
-                        <Link to="/designers">
-                          <button
-                            disabled={loading}
-                            style={{
-                              opacity: loading ? "0.7" : "1",
-                              cursor: loading ? "not-allowed" : "pointer",
-                              fontSize: "14px",
-                              fontWeight: "500",
-                            }}
-                            onClick={handleSubmit}
-                            type="submit"
-                          >
-                            Book a designer
-                          </button>
-                        </Link>
-                        {error && (
-                          <div className="mt-2 w-80">
-                            <Alert variant="danger">{errorValue}</Alert>
-                          </div>
-                        )}
-                        {success && (
-                          <div className="mt-2 w-80">
-                            <Alert variant="success">
-                              Request successful! Your message here.
-                            </Alert>
-                          </div>
-                        )}
-                      </div>
-                    </form>
-                  )}
-                  {user.user && (
-                    <Link to="/explore">
-                      <button className="explore-btn">Explore Talents</button>
-                    </Link>
-                  )}
+                  <form action="">
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Input email to book a designer"
+                      className=""
+                    />
+                    <div>
+                      <button
+                        disabled={loading}
+                        style={{
+                          opacity: loading ? "0.7" : "1",
+                          cursor: loading ? "not-allowed" : "pointer",
+                          fontSize: "14px",
+                          fontWeight: "500",
+                        }}
+                        onClick={handleSubmit}
+                        type="submit"
+                      >
+                        Book a designer
+                      </button>
+
+                      {error && (
+                        <div className="mt-2 w-80">
+                          <Alert variant="danger">{errorValue}</Alert>
+                        </div>
+                      )}
+                      {success && (
+                        <div className="mt-2 w-80">
+                          <Alert variant="success">
+                            Request successful! Your message here.
+                          </Alert>
+                        </div>
+                      )}
+                    </div>
+                  </form>
                 </div>
               </Col>
             </Row>
