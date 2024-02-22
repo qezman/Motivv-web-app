@@ -14,6 +14,24 @@ let arrow =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594397277/arrow_w_l9x24r.png";
 
 const Designers = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isRotated, setIsRotated] = useState(false);
+
+  const filteredInformation = information.filter(
+    (item) =>
+      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.role.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.tools.some((tool) =>
+        tool.toLowerCase().includes(searchQuery.toLowerCase())
+      ) ||
+      item.paragraph.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.rate.toString().includes(searchQuery)
+  );
+
+  const toggleRotation = () => {
+    setIsRotated(!isRotated);
+  };
+
   return (
     <>
       <Helmet
@@ -98,37 +116,45 @@ const Designers = () => {
 
             <div className="search">
               <img className="icon" src="/assets/Vector.svg" />
-              <p>Search</p>
+              <input
+                className="search-bar"
+                type="text"
+                placeholder="Search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
             </div>
           </article>
 
           {/* body section */}
           <article className="card-grid">
-            {information.map((item, index) => {
-              return (
-                <div className="info-cont" key={index}>
-                  <img className="info-image" src={item.Image} />
-                  <h5 className="info-name">{item.name}</h5>
-                  <p className="info-role">{item.role}</p>
-                  <div className="info-tools">
-                    {item.tools.map((tool, index) => (
-                      <p className="tool" key={`${item.id}-${index}`}>
-                        {tool}
-                      </p>
-                    ))}
-                  </div>
-
-                  <p className="info-para">{item.paragraph}</p>
-                  <p className="info-rate">Rate: NGN {item.rate}</p>
-                  <p className="view-btn">View Portfolio</p>
+            {filteredInformation.map((item, index) => (
+              <div className="info-cont" key={index}>
+                <img className="info-image" src={item.Image} alt={item.name} />
+                <h5 className="info-name">{item.name}</h5>
+                <p className="info-role">{item.role}</p>
+                <div className="info-tools">
+                  {item.tools.map((tool, toolIndex) => (
+                    <p className="tool" key={`${item.id}-${toolIndex}`}>
+                      {tool}
+                    </p>
+                  ))}
                 </div>
-              );
-            })}
+                <p className="info-para">{item.paragraph}</p>
+                <p className="info-rate">Rate: NGN {item.rate}</p>
+                <p className="view-btn">View Portfolio</p>
+              </div>
+            ))}
           </article>
 
           <article className="view-and-arrow">
-            <button className="view-more-btn">View more</button>
-            <img src="./assets/double-arrow.png" />
+            <p className="view-more-btn">View more</p>
+            <p
+              className={`double-arrow ${isRotated ? "rotated" : ""}`}
+              onClick={toggleRotation}
+            >
+              >>
+            </p>
           </article>
         </section>
 

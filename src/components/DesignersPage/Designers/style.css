@@ -23,28 +23,33 @@
 }
 
 .view-btn {
-  padding: 10px 0 0 0;
+  /* padding: 10px 0 0 0; */
+  cursor: pointer;
 }
 
 .view-and-arrow {
-  touch-action: manipulation !important;
   cursor: pointer;
-  user-select: none !important;
   display: flex;
   align-items: center;
+  justify-items: center;
   justify-content: center;
 }
 .view-more-btn {
-  background-color: transparent;
   color: black;
-  outline: none;
-  user-select: none;
   font-weight: 700;
 }
-.view-more-btn:focus {
+.double-arrow {
+  transform: rotate(90deg);
+  font-weight: 700;
+  transition: transform 0.3s ease;
+}
+.rotated {
+  transform: rotate(270deg);
+}
+/* .view-more-btn:focus {
   outline: none;
   appearance: none !important;
-}
+} */
 
 .icon {
   width: 24px;
@@ -74,41 +79,36 @@
   /* font-size: 24px; */
   font-weight: 700;
 }
+.search-bar {
+  border: none;
+  outline: none;
+  color: #bdbdbd;
+  font-weight: 700;
+}
 .search {
   display: flex;
   align-items: center;
   justify-content: start;
-  /* gap: 20px; */
   border-radius: 10px;
-  border: 1px solid #c4c4c4;
+  border: 1px solid #bdbdbd;
+  outline: none;
   width: 180px;
   /* margin: 20px; */
   padding: 8px;
 }
 .search p {
   margin: 0;
-  color: #bdbdbd;
+  /* color: #bdbdbd; */
   /* font-size: 24px; */
-  font-weight: 700;
+  /* font-weight: 700; */
 }
 
 .card-grid {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 80%;
   margin: auto;
 }
-/* .info-cont {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 7.977px;
-  background: #f9f9f9;
-  box-shadow: 1px 1px 2px 0px #d2dbe4;
-  margin: 20px;
-  padding: 20px 0;
-} */
 
 @media screen and (min-width: 760px) {
   .main-content {
@@ -170,10 +170,28 @@
   }
 }
 
+@media screen and (min-width: 760px) {
+  .card-grid {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    flex-wrap: wrap;
+    margin: auto;
+    /* justify-content: space-between; */
+  }
+  .info-cont {
+    flex: 0 1 calc(33.33% - 20px);
+    margin: 10px;
+    box-sizing: border-box;
+  }
+}
+
 @media screen and (min-width: 1200px) {
   .navigations {
     display: flex;
-    gap: 150px;
+    justify-content: space-between;
+    margin: 30px;
+    /* gap: 60px; */
   }
   .main-content {
     margin: 40px 0;
@@ -185,6 +203,7 @@
     align-items: center;
     padding: 10px 150px;
     gap: 15px;
+    /* width: 500px; */
   }
 
   .icon {
@@ -204,7 +223,7 @@
     font-size: 20px;
   }
   .search {
-    width: 700px;
+    width: 500px;
     height: 49px;
     flex-shrink: 0;
     padding: 8px;
@@ -215,10 +234,10 @@
   .card-grid {
     display: flex;
     flex-direction: row;
-    width: 95%;
+    width: 97%;
     /* margin: auto; */
     flex-wrap: wrap;
-    margin: 30px;
+    margin: 20px;
     /* justify-content: space-between; */
   }
   .info-cont {
