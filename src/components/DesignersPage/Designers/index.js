@@ -104,19 +104,20 @@ const Designers = () => {
 
           {/* body section */}
           <article className="card-grid">
-            {information.map((item) => {
+            {information.map((item, index) => {
               return (
-                <div className="info-cont" key={item.id}>
+                <div className="info-cont" key={index}>
                   <img className="info-image" src={item.Image} />
                   <h5 className="info-name">{item.name}</h5>
                   <p className="info-role">{item.role}</p>
                   <div className="info-tools">
-                    {item.tools.map((tool) => (
-                      <p className="tool" key={item.id}>
+                    {item.tools.map((tool, index) => (
+                      <p className="tool" key={`${item.id}-${index}`}>
                         {tool}
                       </p>
                     ))}
                   </div>
+
                   <p className="info-para">{item.paragraph}</p>
                   <p className="info-rate">Rate: NGN {item.rate}</p>
                   <p className="view-btn">View Portfolio</p>
