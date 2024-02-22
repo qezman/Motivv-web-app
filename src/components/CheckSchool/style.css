@@ -79,6 +79,10 @@
   color: #000000;
 }
 
+.explore-btn:hover {
+  background: #0a2640 !important;
+}
+
 @media (max-width: 500px) {
   .mot-check-school__hword {
     font-size: 1.6rem;

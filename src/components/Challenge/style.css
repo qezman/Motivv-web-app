@@ -19,6 +19,9 @@
   font-size: 16px;
   background: transparent;
 }
+.explore-btn:hover {
+  background: #0c3053 !important;
+}
 .mot-challenge button:hover {
   color: #ffffff;
   /* background-color: rgba(19, 74, 124, 0.12); */

@@ -236,6 +236,7 @@ export default function Vetted({ props }) {
                     />
                     <div>
                       <button
+                        className="book-a-designer"
                         disabled={loading}
                         style={{
                           opacity: loading ? "0.7" : "1",

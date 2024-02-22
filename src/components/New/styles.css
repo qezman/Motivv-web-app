@@ -69,10 +69,11 @@
 }
 
 .mot-apply-as-designer button:hover {
-  background-color: #13497c;
+  background-color: #092540;
   color: #fff2df;
   transition: 0.2s ease-in;
   text-decoration: none;
+  /* border: none; */
 }
 
 .mot-apply-placeholder {

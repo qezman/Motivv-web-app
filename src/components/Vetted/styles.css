@@ -28,6 +28,12 @@
     width: 80%;
 }
 
+.book-a-designer:hover{
+    background: #082743 !important;
+    color: white !important;
+    transition: 0.1s ease-in-out;
+}
+
 .mot-explore-input-section form input:focus{
     outline: 0;
     color: #3C3C3C;

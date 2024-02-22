@@ -65,32 +65,38 @@ const Designers = () => {
                           <img src={arrow} alt="" />
                         </div>
                         <div className="pl-3">
-                          Input your name and Job Headline
+                          Select preferred talent
                         </div>
                       </div>
                       <div className="white-text pt-2 d-flex">
                         <div>
                           <img src={arrow} alt="" />
                         </div>
-                        <div className="pl-3">Upload your avatar</div>
+                        <div className="pl-3">Generate talent profile snapshot</div>
                       </div>
                       <div className="white-text pt-2 d-flex">
                         <div>
                           <img src={arrow} alt="" />
                         </div>
-                        <div className="pl-3">Include your portfolio link</div>
+                        <div className="pl-3">Connet to our admin</div>
                       </div>
                       <div className="white-text pt-2 d-flex">
                         <div>
                           <img src={arrow} alt="" />
                         </div>
-                        <div className="pl-3">Add your preferred software</div>
+                        <div className="pl-3">Get talent contact</div>
                       </div>
                       <div className="white-text pt-2 d-flex">
                         <div>
                           <img src={arrow} alt="" />
                         </div>
-                        <div className="pl-3">Gain approval</div>
+                        <div className="pl-3">Continue with negotiation</div>
+                      </div>
+                      <div className="white-text pt-2 d-flex">
+                        <div>
+                          <img src={arrow} alt="" />
+                        </div>
+                        <div className="pl-3">Hire creative</div>
                       </div>
                     </Col>
                   </Row>

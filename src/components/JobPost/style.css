@@ -51,3 +51,6 @@
   line-height: 22px;
   width: fit-content;
 }
+.explore-btn:hover {
+  color: white !important;
+}
