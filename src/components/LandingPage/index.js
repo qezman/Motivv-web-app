@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Container, Row, Col, Modal, Card } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import Fade from "react-reveal";
 import party from "../../assets/party.svg";
 import post from "../../assets/post.svg";
 import postImg from "../../assets/magic.svg";
+import JobPostPage from "../../pages/JobPostPage";
+import Modal from "react-modal";
 
 import "./styles.css";
 import { UserContext } from "../UserContext";
@@ -46,6 +48,12 @@ export default function LandingPage() {
     dots: "none",
   };
 
+  const [hoveredOn, setHoveredOn] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [input, setInput] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [errorValue, setErrorValue] = useState("");
   const { show, setShow } = useContext(UserContext);
 
   const onHide = () => {
@@ -70,6 +78,17 @@ export default function LandingPage() {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+
+  const handlePostJobClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  document.body.style.overflow = isModalOpen ? "hidden" : "auto";
+
   return (
     <>
       <Modal
@@ -180,16 +199,51 @@ export default function LandingPage() {
                     </li>
                   </div>
 
-
-
-                  <div className={`post-job ${isHovered ? 'hovered' : ''}`}>
-                    <Link to="/post-job" className="post-job-text" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                  <div className={`post-job ${isHovered ? "hovered" : ""}`}>
+                    <Link
+                      // to="/post-job"
+                      className="post-job-text"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                      onClick={handlePostJobClick}
+                    >
                       <img src={postImg} alt="" className="mr-2" /> Post Job
                     </Link>
                   </div>
 
-
-                  
+                  {/*modal content  */}
+                  <Modal
+                    isOpen={isModalOpen}
+                    onRequestClose={handleCloseModal}
+                    className="custom-modal"
+                    overlayClassName="custom-modal-overlay"
+                    shouldCloseOnOverlayClick={false}
+                    shouldCloseOnEsc={false}
+                    onAfterClose={() => (document.body.style.overflow = "auto")}
+                  >
+                    <article className="custom-modal-content">
+                      {/* <div className="custom-modal-flex"> */}
+                        <div className="custom-modal-header">
+                          <h6 className="tell-us">Tell us about your job</h6>
+                          <p
+                            style={{
+                              color: "black",
+                              fontWeight: "700",
+                              cursor: "pointer",
+                              fontSize: "24px",
+                              padding: "4px"
+                            }}
+                            onClick={handleCloseModal}
+                          >
+                            x
+                          </p>
+                        </div>
+                        <div className="custom-modal-body">
+                          <JobPostPage />
+                        </div>
+                      {/* </div> */}
+                    </article>
+                  </Modal>
                 </section>
                 <Row className="pt-5">
                   <Col md={8} className="mot-text-color mot-text-center">

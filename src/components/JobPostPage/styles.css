@@ -154,6 +154,29 @@ a {
   text-decoration: none !important;
 }
 
+.container-modal {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+}
+.modal-cont {
+  /* max-width: 320px; */
+
+  max-width: 100vw;
+  width: 100%;
+  /* margin: auto; */
+  display: flex;
+  flex-direction: column;
+  /* margin: auto; */
+  /* max-width: 100% !important; */
+  /* height: auto; */
+}
+@media screen and (max-width: 760px) {
+  .placeholder-text {
+    font-size: 24px !important;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .mot-apply-form {
     padding: 40px;
@@ -174,4 +197,6 @@ a {
     padding: 0;
     margin: 20px;
   }
+  
 }
+

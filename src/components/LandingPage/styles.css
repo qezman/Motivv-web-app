@@ -137,9 +137,131 @@
   border: none;
 }
 
-/* .post-job {
-  display: none;
-} */
+@media (max-width: 320px) {
+  .custom-modal {
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    margin: -100px 60px 0 0;
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    position: relative;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+  }
+  .custom-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.custom-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-modal-header {
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: center;
+  align-items: center;
+  /* padding-right: 30px; */
+}
+.custom-modal-body {
+  padding: 20px;
+}
+
+.tell-us {
+  font-size: 16px;
+}
+
+@media (min-width: 760px) {
+  .custom-modal {
+    background: #fff;
+    padding: 20px;
+    margin: auto;
+    border-radius: 4px;
+    outline: none; /* Remove the default focus outline */
+    /* max-width: 100%; */
+    /* width: 320px; */
+    position: relative;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* margin-left: 100px; */
+  }
+  .custom-modal-content {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* margin: 0 300px; */
+    width: 50vw;
+    margin: auto;
+    height: 100vh;
+    /* max-width: 200vw; */
+    /* width: 200%; */
+  }
+  .custom-modal-flex {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+  }
+
+
+  .custom-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .tell-us {
+    font-size: 24px;
+    font-weight: 700;
+    /* margin-left: 37.5%; */
+    /* margin-top: 30px; */
+    /* margin-bottom: -50px; */
+  }
+}
+
+@media (min-width: 1000px) {
+  .custom-modal-content {
+    height: 85vh;
+  }
+  .custom-modal-body {
+    margin-left: 15%;
+  }
+
+  .custom-modal-content > * {
+    margin-bottom: -50px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .tell-us {
+    font-size: 24px;
+    font-weight: 700;
+    margin-left: 35%;
+    margin-top: 50px;
+  }
+  .custom-modal-flex > * {
+    margin-bottom: -80px;
+  }
+}
 
 @media only screen and (max-width: 500px) {
   .nav-link {
