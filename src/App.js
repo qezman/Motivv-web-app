@@ -39,6 +39,7 @@ import AdminApproved from "./admin/AdminApproved/AdminApproved.js";
 import Pending from "./admin/Pending/Pending.js";
 import ClientsPage from "./admin/Clients/Clients.js";
 import Designers from "./components/DesignersPage/Designers/index.js";
+import NewApplyCard from "./components/ApplyNew/NewApplyCard.js";
 
 function App() {
   const user = useContext(UserContext);
@@ -49,6 +50,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/apply" component={Apply} />
+          <Route exact path="/newapply" component={NewApplyCard} />
           <Route exact path="/jobs" component={JobsPage} />
           <Route exact path="/post-job" component={JobPostPage} />
           <Route exact path="/update/:id/:phone/:email" component={Update} />

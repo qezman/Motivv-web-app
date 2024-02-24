@@ -1,0 +1,140 @@
+form {
+  margin: 40px 0;
+}
+
+.details-text {
+  font-size: 24px;
+  padding: 12px 0;
+  text-align: center;
+  font-weight: 600;
+}
+.upload-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.upload-icon p {
+  color: #134a7c;
+  font-size: 12px;
+  padding: 10px 0 0 0;
+}
+.imageItem {
+  width: 80px;
+  margin: auto;
+}
+.input-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 0;
+}
+.parameters {
+  margin: 0 20px;
+}
+input {
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 6px 0;
+  outline: none;
+}
+.sub-text {
+  color: #134a7c;
+  font-size: 12px;
+}
+.submit-btn {
+  margin: 6px 20px;
+}
+.skills-and-dropdown {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 760px) {
+  .parameters {
+    margin: 0;
+  }
+  .flex-content {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 10px;
+  }
+  .details-text {
+    display: flex;
+    margin-left: 60px;
+  }
+  .upload-icon p {
+    font-size: 18px;
+  }
+  .upload-icon {
+    margin-top: 60px;
+  }
+  input {
+    font-size: 20px;
+  }
+  .sub-text {
+    font-size: 18px;
+  }
+  .input-name {
+    padding: 8px 0;
+  }
+  .submit-btn {
+    display: flex;
+    width: 155px;
+    height: 43px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+  }
+  .parameters-and-button {
+    margin-top: 100px;
+  }
+  .sub-text {
+    margin-top: 0px;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .details-text {
+    display: flex;
+    margin-left: 50px;
+  }
+  input {
+    width: 700px;
+  }
+  input {
+    width: 700px;
+  }
+
+  .parameters-and-button {
+    margin-top: 100px;
+  }
+}
+@media screen and (min-width: 1200px) and (max-width: 2000px) {
+  .upload-icon {
+    margin-top: 60px;
+  }
+}
+
+/* @media screen and (min-width: 1200px) and (max-width: 2000px) { */
+/* .details-text {
+    display: flex;
+    margin-left: 10%;
+  } */
+/* } */
+
+/* @media screen and (min-width: 1400px) {
+  .details-text {
+    display: flex;
+    margin-left: 140px;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .details-text {
+    display: flex;
+    margin-left: 520px;
+  }
+} */
