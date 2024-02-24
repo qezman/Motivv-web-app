@@ -36,6 +36,7 @@ let Card11 =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594717116/Motivv/New%20folder/Group_59_bqbr6g.png";
 
 export default function LandingPage() {
+  const styles = window.innerWidth >= 760 ? { color: "white" } : {};
   const bannerSettings = {
     fade: true,
     infinite: true,
@@ -81,6 +82,7 @@ export default function LandingPage() {
 
   const handlePostJobClick = () => {
     setIsModalOpen(true);
+    setIsDropdownVisible(false);
   };
 
   const handleCloseModal = () => {
@@ -146,208 +148,227 @@ export default function LandingPage() {
       </Modal>
       <div className="mot-landing-page-blue">
         <div className="mot-explore-page">
-          <Container className="m-auto">
-            <Row className="">
-              <Col md={10}>
-                <section className="flex-header">
-                  <div>
-                    <Link to="/">
-                      <img src={Logo} alt="" className="logo" />
-                    </Link>
+          <section className="flex-headers">
+            <div>
+              <Link to="/">
+                <img src={Logo} alt="" className="logo" />
+              </Link>
+            </div>
+            <div className="nav-links">
+              <li>
+                <a style={styles} href="/">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a style={styles} href="/designers">
+                  Designers
+                </a>
+              </li>
+
+              <li className="jobs">
+                <a style={styles} href="/jobs">
+                  Jobs
+                </a>
+                <img
+                  style={{
+                    marginLeft: "10px",
+                    cursor: "pointer",
+                    transform: isDropdownVisible
+                      ? "rotate(180deg)"
+                      : "rotate(0deg)",
+                  }}
+                  src="/assets/dropdown.svg"
+                  alt="dropdown"
+                  onClick={toggleDropdown}
+                />
+                {isDropdownVisible && (
+                  <div className="dropdown-texts">
+                    <ul>
+                      <li
+                        onClick={handlePostJobClick}
+                        className="menu-text-one"
+                      >
+                        Post a job
+                      </li>
+                      <div />
+                      <Link to={""}>
+                        <li className="menu-text">Find jobs</li>
+                      </Link>
+                    </ul>
                   </div>
-                  <div className="nav-link">
-                    <li>
-                      <a href="/">Home</a>
-                    </li>
-                    <li>
-                      <a href="/designers">Designers</a>
-                    </li>
+                )}
+              </li>
 
-                    <li className="jobs">
-                      <a href="/jobs">Jobs</a>
-                      <img
-                        style={{
-                          marginLeft: "10px",
-                          cursor: "pointer",
-                          transform: isDropdownVisible
-                            ? "rotate(180deg)"
-                            : "rotate(0deg)",
-                        }}
-                        src="/assets/dropdown.svg"
-                        alt="dropdown"
-                        onClick={toggleDropdown}
-                      />
-                      {isDropdownVisible && (
-                        <div className="dropdown-texts">
-                          <ul>
-                            <li className="menu-text-one">Post a job</li>
-                            <div />
-                            <li className="menu-text">Find jobs</li>
-                          </ul>
-                        </div>
-                      )}
-                    </li>
+              <li>
+                <a style={styles} href="/challenges">
+                  Design Challenge
+                </a>
+              </li>
+              <li>
+                <a style={styles} href="/resources">
+                  Resources
+                </a>
+              </li>
+              <li>
+                <a style={styles} href="/university">
+                  University
+                </a>
+              </li>
+            </div>
 
-                    <li>
-                      <a href="/challenges">Design Challenge</a>
-                    </li>
-                    <li>
-                      <a href="/resources">Resources</a>
-                    </li>
-                    <li>
-                      <a href="/university">University</a>
-                    </li>
-                  </div>
+            <div className={`post-job-btn ${isHovered ? "hovered" : ""}`}>
+              <Link
+                // to="/post-job"
+                className="post-job-text"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                onClick={handlePostJobClick}
+              >
+                <img src={postImg} alt="" className="post-job-text mr-2" /> Post
+                Job
+              </Link>
+            </div>
 
-                  <div className={`post-job ${isHovered ? "hovered" : ""}`}>
-                    <Link
-                      // to="/post-job"
-                      className="post-job-text"
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                      onClick={handlePostJobClick}
-                    >
-                      <img src={postImg} alt="" className="mr-2" /> Post Job
-                    </Link>
-                  </div>
-
-                  {/*modal content  */}
-                  <Modal
-                    isOpen={isModalOpen}
-                    onRequestClose={handleCloseModal}
-                    className="custom-modal"
-                    overlayClassName="custom-modal-overlay"
-                    shouldCloseOnOverlayClick={false}
-                    shouldCloseOnEsc={false}
-                    onAfterClose={() => (document.body.style.overflow = "auto")}
+            {/*modal content  */}
+            <Modal
+              isOpen={isModalOpen}
+              onRequestClose={handleCloseModal}
+              className="custom-modal"
+              overlayClassName="custom-modal-overlay"
+              shouldCloseOnOverlayClick={false}
+              shouldCloseOnEsc={false}
+              onAfterClose={() => (document.body.style.overflow = "auto")}
+            >
+              <article className="custom-modal-content">
+                {/* <div className="custom-modal-flex"> */}
+                <div className="custom-modal-header">
+                  <h6 className="tell-us">Tell us about your job</h6>
+                  <p
+                    style={{
+                      color: "black",
+                      fontWeight: "700",
+                      cursor: "pointer",
+                      fontSize: "24px",
+                      padding: "4px",
+                    }}
+                    onClick={handleCloseModal}
                   >
-                    <article className="custom-modal-content">
-                      {/* <div className="custom-modal-flex"> */}
-                        <div className="custom-modal-header">
-                          <h6 className="tell-us">Tell us about your job</h6>
-                          <p
-                            style={{
-                              color: "black",
-                              fontWeight: "700",
-                              cursor: "pointer",
-                              fontSize: "24px",
-                              padding: "4px"
-                            }}
-                            onClick={handleCloseModal}
-                          >
-                            x
-                          </p>
-                        </div>
-                        <div className="custom-modal-body">
-                          <JobPostPage />
-                        </div>
-                      {/* </div> */}
-                    </article>
-                  </Modal>
-                </section>
-                <Row className="pt-5">
-                  <Col md={8} className="mot-text-color mot-text-center">
-                    <Fade delay={1000} duration={500} bottom>
-                      <h1 className="mot-catch-phrase">
-                        We connect prospective clients to vetted designers.
-                      </h1>
-                    </Fade>
-                    <Fade delay={1800} duration={1500} bottom>
-                      <h6 className="pt-3 pb-4 white-texts small-texts mot-catch-phrase-sub">
-                        Connect with the best designers in the industry – Engage
-                        with clients and Get hired by creating a profile with us
-                      </h6>
-                    </Fade>
-                    <Fade bottom>
+                    x
+                  </p>
+                </div>
+                <div className="custom-modal-body">
+                  <JobPostPage />
+                </div>
+                {/* </div> */}
+              </article>
+            </Modal>
+          </section>
+
+          <Container className="m-auto">
+            <div className="connect-and-card">
+              <Row className="pt-5">
+                <Col md={8} className="mot-text-color mot-text-center">
+                  <Fade delay={1000} duration={500} bottom>
+                    <h1 className="mot-catch-phrase">
+                      We connect prospective clients to vetted designers.
+                    </h1>
+                  </Fade>
+                  <Fade delay={1800} duration={1500} bottom>
+                    <h6 className="pt-3 pb-4 white-texts small-texts mot-catch-phrase-sub">
+                      Connect with the best designers in the industry – Engage
+                      with clients and Get hired by creating a profile with us
+                    </h6>
+                  </Fade>
+                  {/* <Fade bottom>
                       <div>
                         <Link to="/apply" className="mot-apply-button">
                           Create a Profile Card
                         </Link>
                       </div>
-                    </Fade>
-                  </Col>
-                  <Col
-                    md={4}
-                    className="justify-content-center d-none d-md-block"
-                  >
-                    <Fade delay={5000} className="">
-                      <Slider {...bannerSettings}>
-                        <div>
-                          <img
-                            src={Card1}
-                            alt="placeholder card"
-                            className="mot-placeholder-image"
-                          />
-                        </div>
-                        <div>
-                          <img
-                            src={Card2}
-                            alt="placeholder card"
-                            className="mot-placeholder-image"
-                          />
-                        </div>
-                        <div>
-                          <img
-                            src={Card3}
-                            alt="placeholder card"
-                            className="mot-placeholder-image"
-                          />
-                        </div>
-                        <div>
-                          <img
-                            src={Card5}
-                            alt="placeholder card"
-                            className="mot-placeholder-image"
-                          />
-                        </div>
-                        <div>
-                          <img
-                            src={Card6}
-                            alt="placeholder card"
-                            className="mot-placeholder-image"
-                          />
-                        </div>
-                        <div>
-                          <img
-                            src={Card7}
-                            alt="placeholder card"
-                            className="mot-placeholder-image"
-                          />
-                        </div>
-                        <div>
-                          <img
-                            src={Card8}
-                            alt="placeholder card"
-                            className="mot-placeholder-image"
-                          />
-                        </div>
-                        <div>
-                          <img
-                            src={Card9}
-                            alt="placeholder card"
-                            className="mot-placeholder-image"
-                          />
-                        </div>
-                        <div>
-                          <img
-                            src={Card10}
-                            alt="placeholder card"
-                            className="mot-placeholder-image"
-                          />
-                        </div>
-                        <div>
-                          <img
-                            src={Card11}
-                            alt="placeholder card"
-                            className="mot-placeholder-image"
-                          />
-                        </div>
-                      </Slider>
-                    </Fade>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
+                    </Fade> */}
+                </Col>
+                <Col
+                  md={4}
+                  className="mot-card-right justify-content-center d-none d-md-block"
+                >
+                  <Fade delay={5000} className="">
+                    <Slider {...bannerSettings}>
+                      <div>
+                        <img
+                          src={Card1}
+                          alt="placeholder card"
+                          className="mot-placeholder-image"
+                        />
+                      </div>
+                      <div>
+                        <img
+                          src={Card2}
+                          alt="placeholder card"
+                          className="mot-placeholder-image"
+                        />
+                      </div>
+                      <div>
+                        <img
+                          src={Card3}
+                          alt="placeholder card"
+                          className="mot-placeholder-image"
+                        />
+                      </div>
+                      <div>
+                        <img
+                          src={Card5}
+                          alt="placeholder card"
+                          className="mot-placeholder-image"
+                        />
+                      </div>
+                      <div>
+                        <img
+                          src={Card6}
+                          alt="placeholder card"
+                          className="mot-placeholder-image"
+                        />
+                      </div>
+                      <div>
+                        <img
+                          src={Card7}
+                          alt="placeholder card"
+                          className="mot-placeholder-image"
+                        />
+                      </div>
+                      <div>
+                        <img
+                          src={Card8}
+                          alt="placeholder card"
+                          className="mot-placeholder-image"
+                        />
+                      </div>
+                      <div>
+                        <img
+                          src={Card9}
+                          alt="placeholder card"
+                          className="mot-placeholder-image"
+                        />
+                      </div>
+                      <div>
+                        <img
+                          src={Card10}
+                          alt="placeholder card"
+                          className="mot-placeholder-image"
+                        />
+                      </div>
+                      <div>
+                        <img
+                          src={Card11}
+                          alt="placeholder card"
+                          className="mot-placeholder-image"
+                        />
+                      </div>
+                    </Slider>
+                  </Fade>
+                </Col>
+              </Row>
+            </div>
           </Container>
         </div>
       </div>

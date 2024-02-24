@@ -114,3 +114,34 @@
         font-weight: 700;
     }
 }
+
+@media screen and (max-width: 1024px){
+    .mot-vetted-section {
+        width: 95%;
+        margin: auto;
+    }
+    .mot-vetted-text{
+        margin-left: 50px;
+    }
+    .mot-text-color {
+        margin-top: 20px;
+    }
+}
+@media screen and (min-width: 1400px){
+    .mot-vetted-section {
+        width: 95%;
+        margin: auto;
+    }
+    .mot-vetted-text{
+        margin-left: 80px;
+    }
+    .mot-text-color {
+        margin-top: -40px;
+    }
+    .mot-access-section-header{
+        width: 60% !important;
+    }
+    .mot-access-section-caption{
+        width: 70% !important;
+    }
+}

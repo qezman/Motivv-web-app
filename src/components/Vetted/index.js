@@ -216,7 +216,7 @@ export default function Vetted({ props }) {
                 </Fade>
               </Col>
 
-              <Col md={6} className="">
+              <Col md={6} className="mot-vetted-text">
                 <h1 className="mot-access-section-header">
                   Already vetted designers for your work
                 </h1>

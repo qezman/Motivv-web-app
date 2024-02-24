@@ -10,6 +10,10 @@ let girl = 'https://res.cloudinary.com/denw9euui/image/upload/v1594369493/Motivv
 let arrow = 'https://res.cloudinary.com/denw9euui/image/upload/v1594379270/Motivv/arrow_p0wwhj.png';
 
 export default function index() {
+
+    const styles = window.innerWidth >= 760 ? { fontSize: "18px" } : {};
+    const secondStyles = window.innerWidth >= 760 ? { paddingTop: "18px" } : {};
+
     return (
         <div className="mot-users-container" id="user">
             <Container>
@@ -29,34 +33,34 @@ export default function index() {
                                         How to use motivv <br/>
                                         as a client
                                     </h1>
-                                    <div className="d-flex">
+                                    <div style={secondStyles} className="d-flex">
                                         <div><img src={arrow} alt=""/></div>
                                         <div className="">
-                                            <h6 className="user-text pl-3">
+                                            <h6 style={styles} className="user-text pl-3">
                                                 Enter you email to explore design talents  
                                             </h6>           
                                         </div>
                                     </div>
-                                    <div className="d-flex">
+                                    <div style={secondStyles} className="d-flex">
                                         <div><img src={arrow} alt=""/></div>
                                         <div className="">
-                                            <h6 className="user-text pl-3">
+                                            <h6 style={styles} className="user-text pl-3">
                                                 Recommended profiles are vetted designers and premium profiles are elite professional to be hired.
                                             </h6>           
                                         </div>
                                     </div>
-                                    <div className="d-flex">
+                                    <div style={secondStyles} className="d-flex">
                                         <div><img src={arrow} alt=""/></div>
                                         <div className="">
-                                            <h6 className="user-text pl-3">
+                                            <h6 style={styles} className="user-text pl-3">
                                                 Negotiation is done between the you and the designer. Our purpose is to connect you two.                                        
                                             </h6>           
                                         </div>
                                     </div>
-                                    <div className="d-flex">
+                                    <div style={secondStyles} className="d-flex">
                                         <div><img src={arrow} alt=""/></div>
                                         <div className="">
-                                            <h6 className="user-text pl-3">
+                                            <h6 style={styles} className="user-text pl-3">
                                             The designers profiles are approved by our admins, just so you know that they pass through sorting before approval.                                            </h6>           
                                         </div>
                                     </div>
@@ -75,34 +79,34 @@ export default function index() {
                                         How to use motivv <br/>
                                         as a designer
                                     </h1>
-                                    <div className="d-flex">
+                                    <div style={secondStyles} className="d-flex">
                                         <div><img src={arrow} alt=""/></div>
                                         <div className="">
-                                            <h6 className="user-text pl-3">
+                                            <h6 style={styles} className="user-text pl-3">
                                                 Create a profile with us by submitting your well arranged portfolio link.                                            
                                             </h6>           
                                         </div>
                                     </div>
-                                    <div className="d-flex">
+                                    <div style={secondStyles} className="d-flex">
                                         <div><img src={arrow} alt=""/></div>
                                         <div className="">
-                                            <h6 className="user-text pl-3">
+                                            <h6 style={styles} className="user-text pl-3">
                                                 We will rate you by what we see – and approve your profile if you are worthy. 
                                             </h6>           
                                         </div>
                                     </div>
-                                    <div className="d-flex">
+                                    <div style={secondStyles} className="d-flex">
                                         <div><img src={arrow} alt=""/></div>
                                         <div className="">
-                                            <h6 className="user-text pl-3">
+                                            <h6 style={styles} className="user-text pl-3">
                                                 Set your valued fee according to how much you charge per project 
                                             </h6>           
                                         </div>
                                     </div>
-                                    <div className="d-flex">
+                                    <div style={secondStyles} className="d-flex">
                                         <div><img src={arrow} alt=""/></div>
                                         <div className="">
-                                            <h6 className="user-text pl-3">
+                                            <h6 style={styles} className="user-text pl-3">
                                                 Negotiation is done between you and the clients. PS: make sure you don’t get underpaid from what you provided.
                                             </h6>           
                                         </div>

@@ -13,6 +13,14 @@
   border: 2px solid #13497c;
 }
 
+.cont-container {
+  display: flex;
+}
+
+.mot-access-header {
+  color: #134a7c;
+  font-weight: 700;
+}
 .mot-job-post .button1:hover {
   color: #fff;
   background-color: #13497c;
@@ -53,4 +61,11 @@
 }
 .explore-btn:hover {
   color: white !important;
+}
+
+@media screen and (max-width: 760px) {
+  .mot-access-header {
+    color: #134a7c;
+    font-weight: 700;
+  }
 }
