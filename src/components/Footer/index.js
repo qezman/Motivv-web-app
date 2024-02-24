@@ -19,6 +19,7 @@ let Mailto = "mailto:hello@motivv.co";
 let Heart =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594685437/Motivv/heart_c8ufkp.png";
 export default function index() {
+  const footLinkText = window.innerWidth >= 760 ? { fontSize: "18px" } : {};
   return (
     <div className="mot-landing-page-blue">
       <div className="mot-footer-container">
@@ -28,23 +29,23 @@ export default function index() {
               <a href="/">
                 <img src={Logo} alt="" className="logo" />
               </a>
-              <h6 className="white-text pt-4">
-                Made with <img src={Heart} alt="Heart" /> by Aorthar
+              <h6 style={footLinkText} className="white-text pt-4">
+                Designed with <img src={Heart} alt="Heart" /> by Aorthar
               </h6>
             </Col>
             <Col md={3} className="mot-footer-links">
-              <div className="mt-2">
+              <div style={footLinkText} className="mt-2">
                 <HashLink
                   smooth
-                  to="/#clients"
+                  to="/jobs"
                   scroll={(el) =>
                     el.scrollIntoView({ behavior: "smooth", block: "end" })
                   }
                 >
-                  Clients
+                  Jobs
                 </HashLink>
               </div>
-              <div className="mt-2">
+              <div style={footLinkText} className="mt-2">
                 <HashLink
                   smooth
                   to="/#creatives"
@@ -55,7 +56,7 @@ export default function index() {
                   Designers
                 </HashLink>
               </div>
-              <div className="mt-2">
+              <div style={footLinkText} className="mt-2">
                 <HashLink
                   smooth
                   to="/#user"
@@ -66,7 +67,18 @@ export default function index() {
                   How it works
                 </HashLink>
               </div>
-              <div className="mt-4">
+              <div style={footLinkText} className="mt-2">
+                <HashLink
+                  smooth
+                  to="/#user"
+                  scroll={(el) =>
+                    el.scrollIntoView({ behavior: "smooth", block: "end" })
+                  }
+                >
+                  Partner with us
+                </HashLink>
+              </div>
+              {/* <div className="mt-4">
                 <div className="mt-2">
                   <Link to="/apply">Create a Profile Card</Link>
                 </div>
@@ -76,25 +88,25 @@ export default function index() {
                 <div className="mt-2">
                   <Link to="/jobs">View Jobs</Link>
                 </div>
-              </div>
+              </div> */}
             </Col>
             <Col md={3} className="mot-footer-links">
-              <div className="mt-2">
+              <div style={footLinkText} className="mt-2">
                 <a href={TheTeam} target="_blank" rel="noopener noreferrer">
                   The Team
                 </a>
               </div>
-              <div className="mt-2">
+              <div style={footLinkText} className="mt-2">
                 <a href={Courses} target="_blank" rel="noopener noreferrer">
                   Buy a Course
                 </a>
               </div>
-              <div className="mt-2">
+              <div style={footLinkText} className="mt-2">
                 <a href={Mailto} target="_black" rel="noopener noreferrer">
                   Contact us
                 </a>
               </div>
-              <div className="mt-4">
+              {/* <div className="mt-4">
                 <div className="mt-2">
                   <Link to="/challenges">Design Challenge</Link>
                 </div>
@@ -104,16 +116,17 @@ export default function index() {
                 <div className="mt-2">
                   <Link to="/business-template">Business Templates</Link>
                 </div>
-              </div>
+              </div> */}
             </Col>
             <Col md={3} className="mot-footer-links white-text">
-              <div className="mt-2">
+              <div style={footLinkText} className="mt-2">
                 <a href="/">Terms and Conditions</a>
               </div>
-              <div className="mt-2">
+              <div style={footLinkText} className="mt-2">
                 <span className="white-text">Connect with Us –</span>
                 <a href={TwitterLink} target="_blank" rel="noopener noreferrer">
                   <img
+                    style={footLinkText}
                     src={Twitter}
                     alt="social icons"
                     className="social-icon"
@@ -121,24 +134,24 @@ export default function index() {
                 </a>
                 <a href={IGLink} target="_blank" rel="noopener noreferrer">
                   <img
+                    style={footLinkText}
                     src={Instagram}
                     alt="social icons"
                     className="social-icon"
                   />
                 </a>
               </div>
-              <div className="mt-2">
+              <div style={footLinkText} className="mt-2">
                 <a href={Mailto} target="_black">
-                  Partner with us
+                  Hire Developer
                 </a>
               </div>
             </Col>
           </Row>
           <div>
-            <div className="justify-content-center text-center white-text copy-text">
-              Copyright © {new Date().getFullYear()} The Motivv Community
-              <br />
-              All Rights Reserved
+            <div style={footLinkText} className="justify-content-center text-center white-text copy-text">
+              Copyright © {new Date().getFullYear()} The Motivv Community. All
+              Rights Reserved
             </div>
           </div>
         </Container>

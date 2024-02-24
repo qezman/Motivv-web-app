@@ -167,7 +167,7 @@ export default function LandingPage() {
               </li>
 
               <li className="jobs">
-                <a style={styles} href="/jobs">
+                <a style={styles}>
                   Jobs
                 </a>
                 <img
@@ -192,7 +192,7 @@ export default function LandingPage() {
                         Post a job
                       </li>
                       <div />
-                      <Link to={""}>
+                      <Link to={"/jobs"}>
                         <li className="menu-text">Find jobs</li>
                       </Link>
                     </ul>
