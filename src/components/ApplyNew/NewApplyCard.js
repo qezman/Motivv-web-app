@@ -511,7 +511,7 @@ export default function NewApplyCard() {
                 )}
               </div>
 
-              {/* <div>
+              <div>
                 {editActive ? (
                   <Fade>
                     <div className="skills-and-dropdown">
@@ -548,12 +548,10 @@ export default function NewApplyCard() {
                     <p>""</p>
                   </Fade>
                 )}
-              </div> */}
-
-
+              </div>
             </div>
 
-            {/* <div>
+            <div>
               {editActive ? (
                 <Fade>
                   <div className="combined-input">
@@ -590,7 +588,7 @@ export default function NewApplyCard() {
                   <p>""</p>
                 </Fade>
               )}
-            </div> */}
+            </div>
 
             <button
               className="submit-btn"
