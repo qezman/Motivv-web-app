@@ -75,9 +75,6 @@ select {
   .upload-icon {
     margin-top: 60px;
   }
-  .sub-text {
-    visibility: ${editActive ? 'visible' : 'hidden'};
-  }
   
   input {
     font-size: 20px;
@@ -127,23 +124,3 @@ select {
   }
 }
 
-/* @media screen and (min-width: 1200px) and (max-width: 2000px) { */
-/* .details-text {
-    display: flex;
-    margin-left: 10%;
-  } */
-/* } */
-
-/* @media screen and (min-width: 1400px) {
-  .details-text {
-    display: flex;
-    margin-left: 140px;
-  }
-}
-
-@media screen and (min-width: 2000px) {
-  .details-text {
-    display: flex;
-    margin-left: 520px;
-  }
-} */
