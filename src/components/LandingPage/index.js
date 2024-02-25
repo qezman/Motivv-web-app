@@ -280,13 +280,6 @@ export default function LandingPage() {
                       with clients and Get hired by creating a profile with us
                     </h6>
                   </Fade>
-                  {/* <Fade bottom>
-                      <div>
-                        <Link to="/apply" className="mot-apply-button">
-                          Create a Profile Card
-                        </Link>
-                      </div>
-                    </Fade> */}
                 </Col>
                 <Col
                   md={4}
