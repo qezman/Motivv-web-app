@@ -34,22 +34,10 @@ let Card10 =
 let Card11 =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594717116/Motivv/New%20folder/Group_59_bqbr6g.png";
 
-// const url = `${URL}/processClient.php/`;
 const url = `${URL}/`;
 
 export default function Vetted({ props }) {
   const history = useHistory();
-  const bannerSettings = {
-    fade: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    arrows: false,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 500,
-    dots: "none",
-  };
 
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
@@ -58,6 +46,7 @@ export default function Vetted({ props }) {
   const [userPrompt, setUserPrompt] = useState("");
   const user = useContext(UserContext);
   const [success, setSuccess] = useState(false);
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -117,159 +106,307 @@ export default function Vetted({ props }) {
   }, [success, history]);
 
   return (
-    <div className="mot-vetted-section" id="clients">
-      <Container>
-        <Row>
-          <Col md={12}>
-            <Row className="justify-content-md-center">
-              <Col
-                md={4}
-                className="mot-text-color d-none d-sm-none d-md-block"
-              >
-                <img
-                  src={VettedCard}
-                  alt="placeholder card"
-                  className="mot-placeholder-image "
-                />
-              </Col>
-              <Col
-                md={4}
-                className="mot-text-color d-block d-sm-block d-md-none"
-              >
-                <Fade
-                  delay={5000}
-                  className="mot-placeholder-image"
-                  id="vetted"
-                >
-                  <Slider {...bannerSettings}>
-                    <div>
-                      <img
-                        src={Card1}
-                        alt="placeholder card"
-                        className="mot-placeholder-image"
-                      />
-                    </div>
-                    <div>
-                      <img
-                        src={Card2}
-                        alt="placeholder card"
-                        className="mot-placeholder-image"
-                      />
-                    </div>
-                    <div>
-                      <img
-                        src={Card3}
-                        alt="placeholder card"
-                        className="mot-placeholder-image"
-                      />
-                    </div>
-                    <div>
-                      <img
-                        src={Card5}
-                        alt="placeholder card"
-                        className="mot-placeholder-image"
-                      />
-                    </div>
-                    <div>
-                      <img
-                        src={Card6}
-                        alt="placeholder card"
-                        className="mot-placeholder-image"
-                      />
-                    </div>
-                    <div>
-                      <img
-                        src={Card7}
-                        alt="placeholder card"
-                        className="mot-placeholder-image"
-                      />
-                    </div>
-                    <div>
-                      <img
-                        src={Card8}
-                        alt="placeholder card"
-                        className="mot-placeholder-image"
-                      />
-                    </div>
-                    <div>
-                      <img
-                        src={Card9}
-                        alt="placeholder card"
-                        className="mot-placeholder-image"
-                      />
-                    </div>
-                    <div>
-                      <img
-                        src={Card10}
-                        alt="placeholder card"
-                        className="mot-placeholder-image"
-                      />
-                    </div>
-                    <div>
-                      <img
-                        src={Card11}
-                        alt="placeholder card"
-                        className="mot-placeholder-image"
-                      />
-                    </div>
-                  </Slider>
-                </Fade>
-              </Col>
+    <section className="cont-section">
+      {/* card */}
+      <section className="card-section">
+        <article className="card-item">
+          <img
+            className="persona-img"
+            src="../assets/folawiyo.png"
+            alt="thumbnail"
+          />
+          <p className="name">Folawiyo Oluwasegun</p>
+          <div className="role-and-icon">
+            <p className="role">Product Designer</p>
+            <span>
+              <img src="../assets/verified.png" />
+            </span>
+          </div>
+          <div className="skills">
+            <p id="skill">Figma</p>
+            <p id="skill">Sketch</p>
+            <p id="skill">Miro</p>
+          </div>
+          <p className="description">
+            Segun is a skilled product designer who has worked at CloudX for 3
+            years
+          </p>
+          <p className="rate">Rate: NGN 500/hr</p>
+          <p className="view-port-btn">View Portfolio</p>
+        </article>
+      </section>
 
-              <Col md={6} className="mot-vetted-text">
-                <h1 className="mot-access-section-header">
-                  Already vetted designers for your work
-                </h1>
-                <div className="pt-4 small-texts mot-access-section-caption">
-                  We enlist and recommend designers that meet your skill
-                  requirements. Check creative’s portfolio, negotiate and hire.
-                </div>
-                <div className="mot-explore-input-section">
-                  <form action="">
-                    <input
-                      type="email"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Input email to book a designer"
-                      className=""
-                    />
-                    <div>
-                      <button
-                        className="book-a-designer"
-                        disabled={loading}
-                        style={{
-                          opacity: loading ? "0.7" : "1",
-                          cursor: loading ? "not-allowed" : "pointer",
-                          fontSize: "14px",
-                          fontWeight: "500",
-                        }}
-                        onClick={handleSubmit}
-                        type="submit"
-                      >
-                        Book a designer
-                      </button>
+      {/* texts */}
+      <section className="next-section">
+        <h1 className="vetted-text">Already vetted designers for your work</h1>
+        <p className="next-para">
+          We enlist and recommend designers that meet your skill requrements.
+          <br />
+          Check creative’s portfolio, negotiate and hire.
+        </p>
+        <form className="form-input" action="">
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Input email to book a designer"
+            className="book-designer-input"
+          />
+          <div>
+            <button
+              className="book-a-designer-btn"
+              disabled={loading}
+              style={{
+                opacity: loading ? "0.7" : "1",
+                cursor: loading ? "not-allowed" : "pointer",
+                fontSize: "14px",
+                fontWeight: "500",
+              }}
+              onClick={handleSubmit}
+              type="submit"
+            >
+              Book a designer
+            </button>
 
-                      {error && (
-                        <div className="mt-2 w-80">
-                          <Alert variant="danger">{errorValue}</Alert>
-                        </div>
-                      )}
-                      {/* {success && (
-                        <div className="mt-2 w-80">
-                          <Alert variant="success">
-                            Request successful! You are being redirected...
-                          </Alert>
-                        </div>
-                      )} */}
-                    </div>
-                  </form>
-                </div>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+            {error && (
+              <div className="mt-2 w-80">
+                <Alert variant="danger">{errorValue}</Alert>
+              </div>
+            )}
+          </div>
+        </form>
+      </section>
+    </section>
   );
 }
+
+// export default function Vetted({ props }) {
+//   const history = useHistory();
+//   const bannerSettings = {
+//     fade: true,
+//     infinite: true,
+//     speed: 500,
+//     slidesToShow: 1,
+//     arrows: false,
+//     slidesToScroll: 1,
+//     autoplay: true,
+//     autoplaySpeed: 500,
+//     dots: "none",
+//   };
+
+//   const [email, setEmail] = useState("");
+//   const [error, setError] = useState(false);
+//   const [loading, setLoading] = useState(false);
+//   const [errorValue, setErrorValue] = useState("");
+//   const [userPrompt, setUserPrompt] = useState("");
+//   const user = useContext(UserContext);
+//   const [success, setSuccess] = useState(false);
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     console.log("handle submit called");
+//     setLoading(true);
+
+//     if (!email) {
+//       setError(true);
+//       setLoading(false);
+//       setErrorValue("Please fill the Email field");
+//     } else if (!ValidateEmail(email)) {
+//       setLoading(false);
+//       setError(true);
+//       setErrorValue("You have entered an invalid email address!");
+//     } else {
+//       try {
+//         const response = await axios.get(url, { params: { email: email } });
+//         console.log("Response from server:", response);
+//         console.log("Response data:", response.data);
+
+//         if (response.data.length > 0) {
+//           console.log("Worked!!");
+//           setError(false);
+//           Cookies.set("user-auth", email, { expires: 1 });
+//           user.setUser(Cookies.get("user-auth"));
+//           setUserPrompt("Request successful! Redirecting...");
+//           setSuccess(true);
+
+//           setTimeout(() => {
+//             props.history.push("/designers");
+//           }, 3000);
+//         } else {
+//           setError(true);
+//           setErrorValue("No designers found for the given email");
+//         }
+//       } catch (error) {
+//         console.error("Error during axios.get:", error);
+//         setError(true);
+//         setErrorValue("An error occurred during the request");
+//       } finally {
+//         setLoading(false);
+//       }
+//     }
+//   };
+
+//   useEffect(() => {
+//     if (success) {
+//       console.log("Request successful! Redirecting...");
+//       const redirectTimeout = setTimeout(() => {
+//         setSuccess(false);
+//         setUserPrompt("");
+//         history.push("/designers");
+//       }, 3000);
+
+//       return () => clearTimeout(redirectTimeout);
+//     }
+//   }, [success, history]);
+
+//   return (
+//     <div className="mot-vetted-section" id="clients">
+//       <Container>
+//         <Row>
+//           <Col md={12}>
+//             <Row className="justify-content-md-center">
+//               <Col
+//                 md={4}
+//                 className="mot-text-color d-none d-sm-none d-md-block"
+//               >
+//                 <img
+//                   src={VettedCard}
+//                   alt="placeholder card"
+//                   className="mot-placeholder-image "
+//                 />
+//               </Col>
+//               <Col
+//                 md={4}
+//                 className="mot-text-color d-block d-sm-block d-md-none"
+//               >
+//                 <Fade
+//                   delay={5000}
+//                   className="mot-placeholder-image"
+//                   id="vetted"
+//                 >
+//                   <Slider {...bannerSettings}>
+//                     <div>
+//                       <img
+//                         src={Card1}
+//                         alt="placeholder card"
+//                         className="mot-placeholder-image"
+//                       />
+//                     </div>
+//                     <div>
+//                       <img
+//                         src={Card2}
+//                         alt="placeholder card"
+//                         className="mot-placeholder-image"
+//                       />
+//                     </div>
+//                     <div>
+//                       <img
+//                         src={Card3}
+//                         alt="placeholder card"
+//                         className="mot-placeholder-image"
+//                       />
+//                     </div>
+//                     <div>
+//                       <img
+//                         src={Card5}
+//                         alt="placeholder card"
+//                         className="mot-placeholder-image"
+//                       />
+//                     </div>
+//                     <div>
+//                       <img
+//                         src={Card6}
+//                         alt="placeholder card"
+//                         className="mot-placeholder-image"
+//                       />
+//                     </div>
+//                     <div>
+//                       <img
+//                         src={Card7}
+//                         alt="placeholder card"
+//                         className="mot-placeholder-image"
+//                       />
+//                     </div>
+//                     <div>
+//                       <img
+//                         src={Card8}
+//                         alt="placeholder card"
+//                         className="mot-placeholder-image"
+//                       />
+//                     </div>
+//                     <div>
+//                       <img
+//                         src={Card9}
+//                         alt="placeholder card"
+//                         className="mot-placeholder-image"
+//                       />
+//                     </div>
+//                     <div>
+//                       <img
+//                         src={Card10}
+//                         alt="placeholder card"
+//                         className="mot-placeholder-image"
+//                       />
+//                     </div>
+//                     <div>
+//                       <img
+//                         src={Card11}
+//                         alt="placeholder card"
+//                         className="mot-placeholder-image"
+//                       />
+//                     </div>
+//                   </Slider>
+//                 </Fade>
+//               </Col>
+
+//               <Col md={6} className="mot-vetted-text">
+//                 <h1 className="mot-access-section-header">
+//                   Already vetted designers for your work
+//                 </h1>
+//                 <div className="pt-4 small-texts mot-access-section-caption">
+//                   We enlist and recommend designers that meet your skill
+//                   requirements. Check creative’s portfolio, negotiate and hire.
+//                 </div>
+//                 <div className="mot-explore-input-section">
+//                   <form action="">
+//                     <input
+//                       type="email"
+//                       required
+//                       value={email}
+//                       onChange={(e) => setEmail(e.target.value)}
+//                       placeholder="Input email to book a designer"
+//                       className=""
+//                     />
+//                     <div>
+//                       <button
+//                         className="book-a-designer"
+//                         disabled={loading}
+//                         style={{
+//                           opacity: loading ? "0.7" : "1",
+//                           cursor: loading ? "not-allowed" : "pointer",
+//                           fontSize: "14px",
+//                           fontWeight: "500",
+//                         }}
+//                         onClick={handleSubmit}
+//                         type="submit"
+//                       >
+//                         Book a designer
+//                       </button>
+
+//                       {error && (
+//                         <div className="mt-2 w-80">
+//                           <Alert variant="danger">{errorValue}</Alert>
+//                         </div>
+//                       )}
+//                     </div>
+//                   </form>
+//                 </div>
+//               </Col>
+//             </Row>
+//           </Col>
+//         </Row>
+//       </Container>
+//     </div>
+//   );
+// }

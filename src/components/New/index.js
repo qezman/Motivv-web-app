@@ -29,7 +29,7 @@ export default function Index() {
       </article>
 
       <section>
-        <article>
+        <article className="img-place-cont">
           <img
             className="image-placeholder"
             src={Placeholder}

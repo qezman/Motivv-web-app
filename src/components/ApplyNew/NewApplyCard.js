@@ -7,6 +7,7 @@ import { URL } from "../../constants/index";
 import "./style.css";
 import Footer from "../Footer/index";
 import Fade from "react-reveal/Fade";
+import Select from "react-select";
 
 let upload =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594422865/upload_sncmdm.png";
@@ -56,6 +57,13 @@ const allSkills = [
   "InVision studio",
 ];
 
+const africanCountryCodes = [
+  { name: "Nigeria", code: "234" },
+  { name: "Ghana", code: "233" },
+  { name: "Kenya", code: "254" },
+  // Add more African countries as needed
+];
+
 export default function NewApplyCard() {
   const [editActive, setEditActive] = useState(true);
 
@@ -70,6 +78,11 @@ export default function NewApplyCard() {
   const [loading, setLoading] = useState(false);
   const imageRef = useRef(null);
   const [errorValue, setErrorValue] = useState("");
+
+  const [selectedSkill, setSelectedSkill] = useState("");
+  const [selectedPhoneCode, setSelectedPhoneCode] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedSkills, setSelectedSkills] = useState([]);
 
   const [formErrors, setFormErrors] = useState({
     name: "",
@@ -143,6 +156,26 @@ export default function NewApplyCard() {
     }));
   }, []);
 
+  const handleSelectChange = (e) => {
+    setSelectedPhoneCode(e.target.value);
+  };
+
+  const handleSkillsInputChange = (e) => {
+    const inputValue = e.target.value;
+
+    // Check if the skill is not already selected and the limit is not reached
+    if (!selectedSkills.includes(inputValue) && selectedSkills.length < 4) {
+      setSelectedSkills([...selectedSkills, inputValue]);
+    }
+  };
+
+  const handleRemoveSkill = (skill) => {
+    const updatedSkills = selectedSkills.filter(
+      (selectedSkill) => selectedSkill !== skill
+    );
+    setSelectedSkills(updatedSkills);
+  };
+
   // A function to upload the file to cloudinary
   const uploadImage = React.useCallback(
     async (imageFile) => {
@@ -202,7 +235,7 @@ export default function NewApplyCard() {
           const requestData = {
             name: form.name,
             email: form.email,
-            // title: form.title[0],
+            title: form.title[0],
             skill1: form.skill1[0],
             skill2: form.skill2[0],
             skill3: form.skill3[0],
@@ -370,35 +403,10 @@ export default function NewApplyCard() {
           <article className="parameters-and-button">
             <div className="parameters">
               {/* Name input */}
+
               <div className="input-name">
-                <input
-                  type="text"
-                  placeholder="Display Name"
-                  value={form?.name || ""}
-                  onChange={(e) =>
-                    handleInputChange("name", e.target.value)
-                  }
-                />
-                <span className="sub-text">
-                  Select your distinctive Job Title
-                </span>
-              </div>
-
-              {/* <div className={`input-name ${!editActive ? "cursor" : ""}`}>
-                <div className="">
-                  <input
-                    type="text"
-                    placeholder="Display Name"
-                    value={form?.name || ""}
-                    onChange={(e) => handleInputChange("name", e.target.value)}
-                  />
-                  <span className="sub-text">A single name will do</span>
-                </div>
-              </div> */}
-
-              {/* <div className={`input-name ${!editActive ? "cursor" : ""}`}>
-                {!editActive ? (
-                  <div className="px-3">
+                {editActive ? (
+                  <Fade>
                     <input
                       type="text"
                       placeholder="Display Name"
@@ -408,100 +416,219 @@ export default function NewApplyCard() {
                       }
                     />
                     <span className="sub-text">A single name will do</span>
-                  </div>
+                  </Fade>
                 ) : (
                   <Fade>
-                    <h3 className="input-name">Display Name</h3>
+                    <p>""</p>
                   </Fade>
                 )}
-              </div> */}
+              </div>
 
-              <div className="input-name">
+              {/* <div className="input-name">
                 <input
                   type="text"
-                  placeholder="Job Headline"
-                  value={form?.title || ""}
-                  onChange={(e) =>
-                    handleInputChange("jobHeadline", e.target.value)
-                  }
+                  placeholder="Display Name"
+                  value={form?.name || ""}
+                  onChange={(e) => handleInputChange("name", e.target.value)}
                 />
                 <span className="sub-text">
                   Select your distinctive Job Title
                 </span>
+              </div> */}
+
+              <div className="input-name">
+                {editActive ? (
+                  <Fade>
+                    <input
+                      type="text"
+                      placeholder="Job Headline"
+                      value={form?.title || ""}
+                      onChange={(e) =>
+                        handleInputChange("title", e.target.value)
+                      }
+                    />
+                    <span className="sub-text">
+                      Select your distinctive Job Title
+                    </span>
+                  </Fade>
+                ) : (
+                  <Fade>
+                    <p>""</p>
+                  </Fade>
+                )}
               </div>
 
               <div className="input-name">
-                <input
-                  type="text"
-                  placeholder="Email Address"
-                  value={form?.email || ""}
-                  onChange={(e) =>
-                    handleInputChange("emailAddress", e.target.value)
-                  }
-                />
-                <span className="sub-text">Enter a valid email address</span>
+                {editActive ? (
+                  <Fade>
+                    <input
+                      type="text"
+                      placeholder="Email Address"
+                      value={form?.email || ""}
+                      onChange={(e) =>
+                        handleInputChange("email", e.target.value)
+                      }
+                    />
+                    <span className="sub-text">
+                      Enter a valid email address
+                    </span>
+                  </Fade>
+                ) : (
+                  <Fade>
+                    <p>""</p>
+                  </Fade>
+                )}
               </div>
 
               <div className="input-name">
-                <input
-                  type="text"
-                  placeholder="Phone Number"
-                  value={form?.phone || ""}
-                  onChange={(e) =>
-                    handleInputChange("phoneNumber", e.target.value)
-                  }
-                />
-                <span className="sub-texphonet">
-                  Preferably your WhatsApp contact
-                </span>
+                {editActive ? (
+                  <Fade>
+                    <input
+                      type="text"
+                      placeholder="Phone Number"
+                      value={form?.phone || ""}
+                      onChange={(e) =>
+                        handleInputChange("phone", e.target.value)
+                      }
+                    />
+                    <span className="sub-text">
+                      Preferably your WhatsApp contact
+                    </span>
+                  </Fade>
+                ) : (
+                  <Fade>
+                    <p>""</p>
+                  </Fade>
+                )}
               </div>
 
               <div className="input-name">
-                <input
-                  type="text"
-                  placeholder="Portfolio Link"
-                  value={form?.link || ""}
-                  onChange={(e) =>
-                    handleInputChange("portfolioLink", e.target.value)
-                  }
-                />
-                <span className="sub-text">
-                  Google Drive, Behance, Linktree, Disha, Instagram
-                </span>
+                {editActive ? (
+                  <Fade>
+                    <input
+                      type="text"
+                      placeholder="Portfolio Link"
+                      value={form?.link || ""}
+                      onChange={(e) =>
+                        handleInputChange("link", e.target.value)
+                      }
+                    />
+                    <span className="sub-text">
+                      Google Drive, Behance, Linktree, Disha, Instagram
+                    </span>
+                  </Fade>
+                ) : (
+                  <Fade>
+                    <p>""</p>
+                  </Fade>
+                )}
               </div>
 
-              <div className="input-name">
-                <div className="skills-and-dropdown">
-                  <input
-                    style={{ width: "100%" }}
-                    type="text"
-                    placeholder="Skills e.g Adobe XD"
-                    value={form?.allSkills || ""}
-                    onChange={(e) =>
-                      handleInputChange("skills", [e.target.value])
-                    }
-                  />
-                  <img src="/assets/arrow-down.png" alt="Dropdown arrow" />
-                </div>
-                <span className="sub-text">
-                  Only four skills set is allowed for display purpose
-                </span>
-              </div>
-
-              <div className="input-name">
-                <input
-                  type="text"
-                  placeholder="NGN"
-                  value={form?.phoneCode || ""}
-                  onChange={(e) =>
-                    handleInputChange("projectPrice", e.target.value)
-                  }
-                />
-                <span className="sub-text">
-                  Your project based price determines your category
-                </span>
+              <div>
+                {editActive ? (
+                  <Fade>
+                    <div className="skills-and-dropdown">
+                      <input
+                        type="text"
+                        placeholder="Skills e.g Adobe XD"
+                        style={{ width: "100%" }}
+                        value={selectedSkills.join(", ")}
+                        onChange={handleInputChange}
+                        list="skillOptions"
+                      />
+                      <datalist id="skillOptions">
+                        {allSkills.map((skill, index) => (
+                          <option key={index} value={skill} />
+                        ))}
+                      </datalist>
+                    </div>
+                    <div className="selected-skills">
+                      {selectedSkills.map((skill, index) => (
+                        <div key={index} className="selected-skill">
+                          {skill}
+                          <span onClick={() => handleRemoveSkill(skill)}>
+                            x
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                    <span className="sub-text">
+                      Only four skills are allowed for display purposes
+                    </span>
+                  </Fade>
+                ) : (
+                  <Fade>
+                    <p>""</p>
+                  </Fade>
+                )}
               </div>
             </div>
+
+            <div>
+              {editActive ? (
+                <Fade>
+                  <div className="combined-input">
+                    <div className="dropdown-container">
+                      <select
+                        style={{ width: "20%" }}
+                        value={selectedPhoneCode}
+                        onChange={handleSelectChange}
+                      >
+                        <option placeholder="" value="" disabled hidden>
+                          Select Country
+                        </option>
+                        {africanCountryCodes.map((country, index) => (
+                          <option key={index} value={country.code}>
+                            {country.name} (+{country.code})
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <input
+                      className="input-name"
+                      type="text"
+                      placeholder="NGN"
+                      value={selectedPhoneCode}
+                      onChange={handleInputChange}
+                    />
+                    {/* <img src="/assets/arrow-down.png" alt="Dropdown arrow" /> */}
+                  </div>
+                  <span className="sub-text">
+                    Your project-based price determines your category
+                  </span>
+                </Fade>
+              ) : (
+                <Fade>
+                  <p>""</p>
+                </Fade>
+              )}
+            </div>
+            {/* <div className="input-name">
+              {editActive ? (
+                <Fade>
+                  <div className="skills-and-dropdown">
+                    <input
+                      style={{ width: "100%" }}
+                      type="text"
+                      placeholder="NGN"
+                      value={form?.phoneCode || ""}
+                      onChange={(e) =>
+                        handleInputChange("phoneCode", [e.target.value])
+                      }
+                    />
+                    <img src="/assets/arrow-down.png" alt="Dropdown arrow" />
+                  </div>
+                  <span className="sub-text">
+                    Your project based price determines your category
+                  </span>
+                </Fade>
+              ) : (
+                <Fade>
+                  <p>""</p>
+                </Fade>
+              )}
+            </div> */}
+
             <button
               className="submit-btn"
               onClick={(e) => handleSubmit(e)}
