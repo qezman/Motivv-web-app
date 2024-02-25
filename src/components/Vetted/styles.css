@@ -1,5 +1,4 @@
-.cont-section {
-}
+
 .card-section {
   border-radius: 8px;
   background: #f9f9f9;
@@ -19,8 +18,6 @@
   align-items: center;
   margin: 20px 0;
   padding: 16px;
-  /* width: 80%; */
-  /* margin: auto; */
 }
 .role-and-icon {
   display: flex;
@@ -85,21 +82,15 @@
   .cont-section {
     display: flex;
     width: 90%;
-    /* gap: 20px; */
     margin: auto;
     align-items: center;
     margin-top: 80px;
     margin-bottom: 80px;
   }
 
-  .card-section {
-  }
-
   .card-item {
     margin: 5px 0;
     padding: 16px;
-    /* width: 80%; */
-    /* margin: auto; */
   }
   #skill {
     border-radius: 8px;
@@ -120,12 +111,6 @@
 @media screen and (min-width: 760px) {
   .cont-section {
     width: 70%;
-    /* margin: auto; */
-  }
-  .persona-img {
-  }
-  .card-section {
-    /* width: 400px; */
   }
   .name {
     font-size: 18px;
@@ -171,15 +156,12 @@
   .book-a-designer-btn {
     font-size: 14px;
   }
-}
+  }
+  
 
 @media screen and (min-width: 1200px) {
-  .cont-section {
-    /* margin-left: 30%; */
-  }
   .card-section {
     width: 350px;
-    /* width: 30%; */
     margin: auto;
   }
   .book-a-designer-btn {
@@ -187,22 +169,16 @@
   }
   .next-para {
     width: 70%;
-    /* margin: auto; */
   }
   .vetted-text {
     width: 356px;
-    /* width: 60%; */
-    /* margin: auto; */
   }
   .next-section {
-    /* margin-left: 20%; */
     display: flex;
     flex-direction: column;
-    /* width: 500px; */
   }
 
   .form-input {
-    /* margin-top: 10px; */
     width: 60%;
     margin-top: 10px;
   }
@@ -212,151 +188,3 @@
     padding: 12px 24px;
   }
 }
-
-/* .mot-vetted-section{
-    padding: 150px 0 150px;
-}
-
-.mot-vetted-section-header{
-    color: #13497C;
-    font-size: 3.8rem;
-    line-height: 3.9rem;
-    font-weight: 700;
-}
-
-.mot-access-section-caption {
-    width: 77% !important;
-}
-
-.mot-explore-input-section{
-    padding-top: 30px;
-}
-
-.mot-explore-input-section form input{
-    padding: 10px 5px;
-    width: 80%;
-    border: 0;
-    border-bottom: 2px solid #5e5e5e;
-}
-
-.w-80{
-    width: 80%;
-}
-
-.book-a-designer:hover{
-    background: #082743 !important;
-    color: white !important;
-    transition: 0.1s ease-in-out;
-}
-
-.mot-explore-input-section form input:focus{
-    outline: 0;
-    color: #3C3C3C;
-    border-bottom: 2px solid #13497C;
-    transition: .5s ease-in;
-}
-
-.mot-explore-input-section form button,
-.explore-btn{
-    color: #FFFFFF;
-    background-color: #13497C;
-    outline: none;
-    border: none;
-    padding: 10px 40px;
-    border-radius: 8px;
-    margin-top: 20px;
-    border: 2px solid #13497C;
-}
-
-.mot-explore-input-section form button:hover{
-    color: #13497C;
-    background-color: #FFFFFF;
-    box-shadow: none;
-    transition: .2s ease-in;
-}
-
-@media screen and (max-width: 700px){
-    .mot-placeholder-card{
-        display: inline-block;
-        width: auto;
-        padding: 0;
-    }
-    .mot-vetted-card{
-        width: 70%;
-        display: flex;
-        margin: 0 auto;
-        padding-bottom: 50px;
-    }
-    .mot-vetted-section{
-        padding: 75px 0 75px;
-    }
-    .mot-access-section-caption {
-        width: 90%;
-    }
-    .mot-explore-input-section form input {
-        padding: 10px 5px;
-        width: 100%;
-        border: 0;
-        border-bottom: 2px solid #5e5e5e;
-    }
-    .mot-explore-input-section form button, .explore-btn {
-        color: #FFFFFF;
-        background-color: #13497C;
-        outline: none;
-        border: none;
-        padding: 10px 40px;
-        border-radius: 8px;
-        margin-top: 10px;
-        border: 2px solid #13497C;
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 760px){
-    .mot-access-section-header{
-        margin-top: 50px;
-    }
-    #vetted-image{
-        display: none !important;
-    }
-}
-
-@media screen and (max-width: 1000px){
-    .mot-access-section-header {
-        color: #13497C;
-        font-size: 2.1rem !important;
-        line-height: 2.3rem !important;
-        font-weight: 700;
-    }
-}
-
-@media screen and (max-width: 1024px){
-    .mot-vetted-section {
-        width: 95%;
-        margin: auto;
-    }
-    .mot-vetted-text{
-        margin-left: 50px;
-    }
-    .mot-text-color {
-        margin-top: 20px;
-    }
-}
-@media screen and (min-width: 1400px){
-    .mot-vetted-section {
-        width: 95%;
-        margin: auto;
-    }
-    .mot-vetted-text{
-        margin-left: 80px;
-    }
-    .mot-text-color {
-        margin-top: -40px;
-    }
-    .mot-access-section-header{
-        width: 60% !important;
-    }
-    .mot-access-section-caption{
-        width: 70% !important;
-    }
-} */
