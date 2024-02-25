@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from "react-bootstrap";
 import './AdContainer.css'
 
-import { ReactComponent as ImageAdvertise } from '../../assets/group-5.svg'
+import { ReactComponent as ImageAdvertise } from '../../assets/group-6.svg'
 
 export const AdContainer = () => {
   return (
