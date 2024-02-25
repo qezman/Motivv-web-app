@@ -423,18 +423,6 @@ export default function NewApplyCard() {
                 )}
               </div>
 
-              {/* <div className="input-name">
-                <input
-                  type="text"
-                  placeholder="Display Name"
-                  value={form?.name || ""}
-                  onChange={(e) => handleInputChange("name", e.target.value)}
-                />
-                <span className="sub-text">
-                  Select your distinctive Job Title
-                </span>
-              </div> */}
-
               <div className="input-name">
                 {editActive ? (
                   <Fade>
@@ -523,7 +511,7 @@ export default function NewApplyCard() {
                 )}
               </div>
 
-              <div>
+              {/* <div>
                 {editActive ? (
                   <Fade>
                     <div className="skills-and-dropdown">
@@ -560,10 +548,12 @@ export default function NewApplyCard() {
                     <p>""</p>
                   </Fade>
                 )}
-              </div>
+              </div> */}
+
+
             </div>
 
-            <div>
+            {/* <div>
               {editActive ? (
                 <Fade>
                   <div className="combined-input">
@@ -600,7 +590,7 @@ export default function NewApplyCard() {
                   <p>""</p>
                 </Fade>
               )}
-            </div>
+            </div> */}
 
             <button
               className="submit-btn"
