@@ -1,4 +1,4 @@
-form {
+.newform {
   margin: 40px 0;
 }
 
@@ -50,10 +50,10 @@ input {
   justify-content: space-between;
 
 }
-select {
+/* select {
   background: none;
   border: none;
-}
+} */
 
 @media screen and (min-width: 760px) {
   .parameters {

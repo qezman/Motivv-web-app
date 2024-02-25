@@ -364,7 +364,7 @@ export default function NewApplyCard() {
         </div>
       </article>
 
-      <form onSubmit={handleSubmit}>
+      <form className="new-form" onSubmit={handleSubmit}>
         <section className="flex-content">
           <section className="text-and-upload">
             <h3 className="details-text">Enter your details</h3>
@@ -590,7 +590,6 @@ export default function NewApplyCard() {
                       value={selectedPhoneCode}
                       onChange={handleInputChange}
                     />
-                    {/* <img src="/assets/arrow-down.png" alt="Dropdown arrow" /> */}
                   </div>
                   <span className="sub-text">
                     Your project-based price determines your category
@@ -602,31 +601,6 @@ export default function NewApplyCard() {
                 </Fade>
               )}
             </div>
-            {/* <div className="input-name">
-              {editActive ? (
-                <Fade>
-                  <div className="skills-and-dropdown">
-                    <input
-                      style={{ width: "100%" }}
-                      type="text"
-                      placeholder="NGN"
-                      value={form?.phoneCode || ""}
-                      onChange={(e) =>
-                        handleInputChange("phoneCode", [e.target.value])
-                      }
-                    />
-                    <img src="/assets/arrow-down.png" alt="Dropdown arrow" />
-                  </div>
-                  <span className="sub-text">
-                    Your project based price determines your category
-                  </span>
-                </Fade>
-              ) : (
-                <Fade>
-                  <p>""</p>
-                </Fade>
-              )}
-            </div> */}
 
             <button
               className="submit-btn"
