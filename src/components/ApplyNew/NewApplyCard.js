@@ -7,7 +7,6 @@ import { URL } from "../../constants/index";
 import "./style.css";
 import Footer from "../Footer/index";
 import Fade from "react-reveal/Fade";
-import Select from "react-select";
 
 let upload =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594422865/upload_sncmdm.png";
