@@ -78,6 +78,7 @@ export default function ApplyCard() {
     skill4: "",
   });
 
+
   const validateForm = React.useCallback((formData) => {
     const newFormErrors = {};
 

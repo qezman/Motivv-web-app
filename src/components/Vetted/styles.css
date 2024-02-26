@@ -68,6 +68,8 @@
   font-size: 18px;
   font-weight: 400;
   padding: 10px 0;
+  border: none;
+  border-bottom: 1px solid black;
 }
 
 .book-a-designer-btn {
