@@ -54,7 +54,7 @@ export default function index() {
                       </div>
                       <div className="text-padding">
                         <h6 style={styles} className="user-text pl-3">
-                          Enter you email to explore design talents
+                          Enter you email to explore design talents.
                         </h6>
                       </div>
                     </div>
@@ -143,7 +143,7 @@ export default function index() {
                       <div className="">
                         <h6 style={styles} className="user-text pl-3">
                           Set your valued fee according to how much you charge
-                          per project
+                          by month/project.
                         </h6>
                       </div>
                     </div>
@@ -153,9 +153,8 @@ export default function index() {
                       </div>
                       <div className="">
                         <h6 style={styles} className="user-text pl-3">
-                          Negotiation is done between you and the clients. PS:
-                          make sure you don’t get underpaid from what you
-                          provided.
+                          Negotiation is done between you and clients. PS: make
+                          sure you don’t get underpaid from what you provided.
                         </h6>
                       </div>
                     </div>

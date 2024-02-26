@@ -119,7 +119,7 @@ export default function Vetted({ props }) {
           <div className="role-and-icon">
             <p className="role">Product Designer</p>
             <span>
-              <img src="../assets/verified.png" />
+              <img className="verified-icon" src="../assets/verified.png" />
             </span>
           </div>
           <div className="skills">
@@ -153,7 +153,7 @@ export default function Vetted({ props }) {
             placeholder="Input email to book a designer"
             className="book-designer-input"
           />
-          <div>
+          <div className="book-a-designer-cont">
             <button
               className="book-a-designer-btn"
               disabled={loading}

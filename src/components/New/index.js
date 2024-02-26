@@ -22,7 +22,7 @@ export default function Index() {
           story!
         </p>
         <div className="apply-btn">
-          <Link to="/apply">
+          <Link to="/newapply">
             <button className="app-btn">Apply as a designer</button>
           </Link>
         </div>

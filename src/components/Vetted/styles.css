@@ -168,28 +168,70 @@
     align-items: center;
     gap: 50px;
   }
-  
 
   .cont-section > * {
     /* margin: 0;
     padding: 0; */
   }
 
+  .persona-img {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+  }
+  .name {
+    font-size: 12.809px;
+    line-height: 142.4%; /* 18.24px */
+  }
   .card-item {
     border-radius: 8px;
     background: #f9f9f9;
     box-shadow: 1px 1px 2px 0px #d2dbe4;
     width: 240px;
-    height: 350px;
+    height: 330px;
     flex-shrink: 0;
+  }
+  .role {
+    font-size: 10.407px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 142.4%; /* 14.82px */
+  }
+  .role-and-icon {
+    display: flex;
+    align-items: start;
+  }
+  .verified-icon {
+    margin-bottom: 8px;
+  }
+  .description {
+    color: #656565;
+    text-align: center;
+    font-size: 11.2px;
+    font-weight: 400;
+    line-height: 142.4%; /* 15.949px */
   }
   .form-input {
     width: 100%;
   }
+  .book-a-designer-cont {
+    display: flex;
+    width: 230px;
+    height: 43px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    margin-top: 17px;
+  }
   .book-a-designer-btn {
-font-size: 14px;
-  height: 50px;
-  /* width: 200px; */
-  
+    color: #fff;
+    /* font-family: Montserrat; */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; /* 128.571% */
+    padding: 48px auto;
+
   }
 }
