@@ -639,6 +639,9 @@ export default function NewApplyCard() {
   const [form, setForm] = React.useState({});
 
   const [selectedSkills, setSelectedSkills] = useState([]);
+  const [alertMessage, setAlertMessage] = useState('');
+  const maxSkills = 4;
+
 
   const handleSkillChange = (e) => {
     const selectedOptions = Array.from(
@@ -646,10 +649,21 @@ export default function NewApplyCard() {
       (option) => option.value
     );
 
-    // Limit the selected skills to a maximum of 4
-    const limitedSelectedSkills = selectedOptions.slice(0, 4);
+    // Check if adding new skills exceeds the maximum allowed
+     // Check if adding new skills exceeds the maximum allowed
+     if (selectedSkills.length + selectedOptions.length > maxSkills) {
+      setAlertMessage(`You can select up to ${maxSkills} skills.`);
+      setTimeout(() => setAlertMessage(''), 3000); // Clear alert after 3 seconds
+      return;
+    }
 
-    setSelectedSkills(limitedSelectedSkills);
+    // Combine new selection with existing selected skills
+    const updatedSelectedSkills = [...selectedSkills, ...selectedOptions];
+
+    // Log the selected skills
+    console.log("Selected Skills:", updatedSelectedSkills);
+
+    setSelectedSkills(updatedSelectedSkills);
   };
 
   const existingStyles =
