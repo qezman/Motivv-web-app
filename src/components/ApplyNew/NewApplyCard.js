@@ -639,9 +639,8 @@ export default function NewApplyCard() {
   const [form, setForm] = React.useState({});
 
   const [selectedSkills, setSelectedSkills] = useState([]);
-  const [alertMessage, setAlertMessage] = useState('');
+  const [alertMessage, setAlertMessage] = useState("");
   const maxSkills = 4;
-
 
   const handleSkillChange = (e) => {
     const selectedOptions = Array.from(
@@ -650,10 +649,9 @@ export default function NewApplyCard() {
     );
 
     // Check if adding new skills exceeds the maximum allowed
-     // Check if adding new skills exceeds the maximum allowed
-     if (selectedSkills.length + selectedOptions.length > maxSkills) {
+    if (selectedSkills.length + selectedOptions.length > maxSkills) {
       setAlertMessage(`You can select up to ${maxSkills} skills.`);
-      setTimeout(() => setAlertMessage(''), 3000); // Clear alert after 3 seconds
+      setTimeout(() => setAlertMessage(""), 3000); // Clear alert after 3 seconds
       return;
     }
 
@@ -1147,6 +1145,12 @@ export default function NewApplyCard() {
                     </p>
 
                     <div>Selected Skills: {selectedSkills.join(", ")}</div>
+                    {/* Display alert message */}
+                    {alertMessage && (
+                      <div className="alert alert-danger mt-2" role="alert">
+                        {alertMessage}
+                      </div>
+                    )}
                   </div>
                 </div>
 

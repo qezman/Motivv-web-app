@@ -133,10 +133,10 @@ export default function Vetted({ props }) {
           </p>
           <p className="rate">Rate: NGN 500/hr</p>
           <p className="view-port-btn">View Portfolio</p>
-        </article>
-      </section>
+        </article> 
 
-      {/* texts */}
+
+        {/* texts */}
       <section className="next-section">
         <h1 className="vetted-text">Already vetted designers for your work</h1>
         <p className="next-para">
@@ -177,6 +177,9 @@ export default function Vetted({ props }) {
           </div>
         </form>
       </section>
+      </section>
+
+      
     </section>
   );
 }

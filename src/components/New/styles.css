@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: start;
+  width: 50% !important;
 }
 .header-text {
   font-weight: 700;
@@ -15,11 +16,14 @@
 }
 
 .apply-btn button {
-  padding: 10px 20px;
-  background: transparent;
-  color: #134a7c;
+  display: flex;
+  width: 155px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
   border-radius: 10px;
-  border: 1px solid #134a7c;
 }
 .apply-btn button:hover {
   background: #0c2945;
@@ -45,7 +49,7 @@
   }
   .apply-btn button {
     font-size: 16px;
-    padding: 18px;
+    height: 43px;
   }
   .header-text {
     font-size: 36px;
@@ -142,6 +146,7 @@
   }
   .apply-btn button {
     font-size: 16px;
+    width: 200px;
   }
   .header-text {
     font-size: 48px;
@@ -182,6 +187,7 @@
     flex-shrink: 0;
     margin-top: 130px;
     margin-bottom: 130px;
+    margin-right: 550px;
   }
   .header-text {
     width: 550px;

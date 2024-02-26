@@ -9,8 +9,8 @@
 
 .mot-user-guide {
   padding-top: 80px;
-  width: 446px;
-  height: 564px;
+  width: 300px;
+  height: auto;
   flex-shrink: 0;
 }
 
@@ -25,9 +25,14 @@
 
 .mot-user-guide2 {
   padding-bottom: 50px;
-  width: 446px;
-  height: 564px;
+  width: 300px;
+  height: auto;
   flex-shrink: 0;
+}
+
+.arrow-and-sometexts {
+  display: flex;
+  align-items: center;
 }
 
 .user-text {
@@ -95,5 +100,50 @@
   }
   .user-text {
     padding: 10px 0;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .mot-user-guide {
+    padding-top: 30px;
+    width: 400px;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  .mot-user-guide2 {
+    padding-top: 30px;
+    width: 400px;
+    height: auto;
+    flex-shrink: 0;
+  }
+  .arrow-and-sometexts {
+    display: flex;
+    align-items: center;
+  }
+  .mot-user-placeholders {
+    margin-top: 60px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .mot-user-guide {
+    width: 440px;
+    height: 564px;
+  }
+
+  .mot-user-guide2 {
+    width: 440px;
+    height: 564px;
+  }
+  .arrow-and-sometexts {
+    display: flex;
+    align-items: center;
+  }
+  .both-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 27px !important;
   }
 }

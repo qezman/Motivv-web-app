@@ -148,6 +148,8 @@ export default function LandingPage() {
       </Modal>
       <div className="mot-landing-page-blue">
         <div className="mot-explore-page">
+
+        {/* nav section */}
           <section className="flex-headers">
             <div>
               <Link to="/">
