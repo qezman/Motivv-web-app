@@ -690,102 +690,48 @@ export default function NewApplyCard() {
     price: "",
   });
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setError(false);
-  //   setErrorValue("Please fill all required fields");
-  //   setLoading(true);
-  //   if (
-  //     !input.displayName ||
-  //     !input.jobHeadline ||
-  //     !input.email ||
-  //     !input.phone ||
-  //     !input.portfolio ||
-  //     !input.skills ||
-  //     !input.countryCode
-  //   ) {
-  //     setError(true);
-  //     setErrorValue("Please fill all required fields");
-  //     setLoading(false);
-  //   } else {
-  //     let formData = new FormData();
-  //     formData.append("displayName", input.displayName);
-  //     formData.append("jobHeadline", input.jobHeadline);
-  //     formData.append("email", input.email);
-  //     formData.append("phone", input.phone);
-  //     formData.append("portfolio", input.portfolio);
-  //     formData.append("company", input.image);
-  //     formData.append("skills", input.skills);
-  //     formData.append("countryCode", input.countryCode);
-  //     axios
-  //       .post(url, formData, {
-  //         headers: {
-  //           "content-type": "multipart/form-data",
-  //         },
-  //       })
-  //       .then((res) => {
-  //         if (res.data.success === 1) {
-  //           setError(true);
-  //           setErrorValue(res.data.msg);
-  //           setInput({
-  //             companyName: "",
-  //             title: "",
-  //             email: "",
-  //             location: "",
-  //             jobType: "",
-  //             image: null,
-  //             instructions: "",
-  //           });
-  //           setLoading(false);
-  //           setImageUrl(upload);
-  //         } else {
-  //           setError(true);
-  //           setErrorValue(res.data.msg);
-  //           setLoading(false);
-  //         }
-  //       });
-  //   }
-  // };
+  const validateForm = React.useCallback(
+    (formData) => {
+      const newFormErrors = {};
 
-  const validateForm = React.useCallback((formData) => {
-    const newFormErrors = {};
+      if (!formData.displayName) {
+        newFormErrors.displayName = "Please enter your name";
+      }
 
-    if (!formData.displayName) {
-      newFormErrors.name = "Please enter your name";
-    }
+      if (!formData.jobHeadline) {
+        newFormErrors.email = "Please enter your Job Title";
+      }
 
-    if (!formData.jobHeadline) {
-      newFormErrors.email = "Please enter your Job Title";
-    }
+      // if (!formData.phoneCode) {
+      //   newFormErrors.phoneCode = "Required.";
+      // }
 
-    if (!formData.phoneCode) {
-      newFormErrors.phoneCode = "Required.";
-    }
+      if (!formData.phone) {
+        newFormErrors.phone = "Please enter your phone number";
+      }
 
-    if (!formData.phone) {
-      newFormErrors.phone = "Please enter your phone number";
-    }
+      if (!formData.portfolio) {
+        newFormErrors.portfolio =
+          "Please enter your portfolio link or previous work";
+      }
+      if (!selectedSkills || selectedSkills.length === 0) {
+        newFormErrors.skills = "Please enter your skills";
+      }
+      if (!formData.avatar) {
+        newFormErrors.avatar = "Please enter a display image";
+      }
+      if (!formData.price) {
+        newFormErrors.price = "Please enter a price";
+      }
 
-    if (!formData.portfolio) {
-      newFormErrors.portfolio =
-        "Please enter your portfolio link or previous work";
-    }
-    if (!formData.skills) {
-      newFormErrors.skills = "Please enter your skills";
-    }
-    if (!formData.avatar) {
-      newFormErrors.avatar = "Please enter a display image";
-    }
-    if (!formData.price) {
-      newFormErrors.price = "Please enter a price";
-    }
+      console.log("FORM ERRORS:", newFormErrors);
 
-    console.log("FORM ERRORS:", newFormErrors);
+      setFormErrors(newFormErrors);
 
-    setFormErrors(newFormErrors);
-
-    return Object.values(newFormErrors).length <= 0;
-  }, []);
+      return Object.values(newFormErrors).length <= 0;
+    },
+    [selectedSkills]
+  );
 
   const handleInputChange = React.useCallback((name, value) => {
     setForm((prevState) => ({
@@ -793,6 +739,21 @@ export default function NewApplyCard() {
       [name]: value,
     }));
   }, []);
+
+  // const handleInputChange = React.useCallback((name, value) => {
+  //   if (name === 'skills') {
+  //     // Update the skills field in the formErrors object
+  //     setFormErrors((prevErrors) => ({
+  //       ...prevErrors,
+  //       skills: value.length > 0 ? '' : 'Please enter your skills',
+  //     }));
+  //   }
+
+  //   setForm((prevState) => ({
+  //     ...prevState,
+  //     [name]: value,
+  //   }));
+  // }, [setFormErrors]);
 
   // A function to upload the file to cloudinary
   const uploadImage = React.useCallback(
@@ -848,19 +809,22 @@ export default function NewApplyCard() {
         if (form && validateForm(form)) {
           setLoading(true);
 
-          // let linkk = input.link.includes('http') ? input.link : `https://${input.link}`;
+          // Log form data before sending the request
+          console.log("Form Data Before Request:", form);
+
+          // Add console.log here
+          console.log("Uploading image");
 
           const requestData = {
-            displayName: form.displayName,
+            name: form.displayName,
             email: form.email,
-            jobHeadline: form.jobHeadline[0],
-            phone: form.phoneCode + form.phone,
-            price: form.price,
-            portfolio: !form.link.startsWith("http")
-              ? "https://" + form.link
-              : form.link,
+            skill1: selectedSkills,
+            phone: form.phone,
+            portfolio: !form.portfolio.startsWith("http")
+              ? "https://" + form.portfolio
+              : form.portfolio,
             avatar: form.avatar,
-            skills: form.formErrors.skills,
+            // Add additional fields if needed
           };
 
           const res = await axios.post(url, requestData, {
@@ -902,7 +866,7 @@ export default function NewApplyCard() {
         setLoading(false);
       }
     },
-    [form, validateForm]
+    [form, validateForm, selectedSkills]
   );
 
   return (
