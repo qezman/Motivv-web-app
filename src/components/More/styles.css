@@ -34,15 +34,17 @@
 @media screen and (min-width: 1024px) {
   .more-text {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    /* flex-direction: column; */
+    /* justify-content: center; */
     /* width: 829px; */
     height: 138px;
     /* margin: auto; */
     width: 829px;
   }
   .btn-cont {
-  display: flex;
-  justify-content: center;
+    width: 100%;
+    margin: auto;
+  /* display: flex;
+  justify-content: center; */
 }
 }
