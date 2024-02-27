@@ -13,7 +13,7 @@
   border: 2px solid #13497c;
 }
 
-.cont-container  {
+.cont-container {
   display: flex;
 }
 
@@ -67,5 +67,21 @@
   .mot-access-header {
     color: #134a7c;
     font-weight: 700;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .mot-access-header {
+    width: 500px;
+    height: 161px;
+    flex-shrink: 0;
+  }
+  .tap-into-text {
+    width: 497px;
+    height: 88px;
+    padding-top: 0px !important;
+  }
+  .hire-cont {
+    margin-top: 16px !important;
   }
 }

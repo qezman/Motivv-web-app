@@ -26,7 +26,7 @@ export default function JobPost() {
             </Fade>
             <h6
               style={textStyle}
-              className="pt-3 small-texts black-text"
+              className="tap-into-text pt-3 small-texts black-text"
             >
               Tap into our huge community of qualified candidates who are
               searching for their next role. Post jobs online, and get your job
@@ -37,7 +37,7 @@ export default function JobPost() {
                 <img className="mr-2" src={check} alt="motivv check" />
                 <span>Post a job</span>
               </div>
-              <div className="d-flex mt-2">
+              <div className="hire-cont d-flex mt-2">
                 <img className="mr-2" src={check} alt="motivv check" />
                 <span>Hire great talents </span>
               </div>
@@ -45,8 +45,7 @@ export default function JobPost() {
             <div className="mot-job-post justify-content-between">
               <Link className="mr-3" to="/post-job">
                 <button className="explore-btn button1">
-                  <span className="font-weight-bold">Post a Job - </span>
-                  It’s free
+                  <span className="font-weight-bold">Post Job</span>
                 </button>
               </Link>
               <Link to="/jobs">

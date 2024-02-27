@@ -73,8 +73,12 @@ export default function Challenge() {
         </div>
 
         <div>
+          {/* <Fade duration={300} delay={1000}>
+            <ImageSvg style={{ width: "500px", height: "500px" }} />
+          </Fade> */}
+
           <Fade duration={300} delay={1000}>
-          <ImageSvg style={{ width: '500px', height: '500px' }} />
+            <img src="/assets/three-cards.svg" />
           </Fade>
         </div>
       </article>

@@ -30,6 +30,14 @@
   transition: 0.2s ease-in;
 }
 
+.mot-challenge {
+  display: flex;
+  width: 200px;
+  /* height: 43px; */
+  justify-content: center;
+  align-items: center;
+}
+
 .mot-challenge-con svg {
   width: 100%;
 }
@@ -88,18 +96,18 @@
     flex-direction: column;
   }
   .mot-challenge button {
-    margin-left: 30px;
+    /* margin-left: 30px; */
   }
   .animated-img {
     margin-top: 400px !important;
   }
-  .user-text h4{
+  .user-text h4 {
     font-size: 64px !important;
     font-weight: 700;
   }
-  .mot-access-section-header{
+  .mot-access-section-header {
     font-weight: 700;
-    color: #134A7C;
+    color: #134a7c;
   }
   .content-container {
     display: flex;
@@ -109,5 +117,23 @@
     margin: auto;
   }
   .animated-img {
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .mot-access-section-header {
+    width: 500px;
+  }
+  .mot-access-section-caption {
+    width: 400px;
+    height: 54px;
+    flex-shrink: 0;
+  }
+  .explore-btn {
+    color: #134a7c;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; /* 112.5% */
   }
 }
