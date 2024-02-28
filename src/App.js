@@ -40,6 +40,8 @@ import Pending from "./admin/Pending/Pending.js";
 import ClientsPage from "./admin/Clients/Clients.js";
 import Designers from "./components/DesignersPage/Designers/index.js";
 import NewApplyCard from "./components/ApplyNew/NewApplyCard.js";
+import DesignerCard from "./components/DesignerCardPage/index.js";
+import EditProfile from "./components/EditProfile/index.js";
 
 function App() {
   const user = useContext(UserContext);
@@ -56,6 +58,8 @@ function App() {
           <Route exact path="/update/:id/:phone/:email" component={Update} />
           <Route exact path="/Edit" component={Edit} />
           <Route exact path="/verification" component={Verification} />
+          <Route exact path="/designercard" component={DesignerCard} />
+          <Route exact path="/editprofile" component={EditProfile} />
           <Route
             exact
             path="/challenges?email=:email&username=:username"

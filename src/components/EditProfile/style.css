@@ -1,0 +1,84 @@
+.edit-text-cont {
+  margin-top: 60px;
+}
+
+.edit-header {
+  color: #000;
+  text-align: center;
+  font-family: "DM Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 142.4%; /* 34.176px */
+}
+.edit-text-input {
+  color: #bbb;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 142.4%; /* 25.632px */
+  border: none;
+  border-bottom: 1px solid black;
+  width: 200px;
+  padding-bottom: 8px;
+  outline: none;
+}
+.edit-input-cont {
+  /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+  width: 200px;
+  margin: auto;
+}
+.email-text {
+  color: #134a7c;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 142.4%; /* 17.088px */
+  /* width: 100%; */
+  padding-top: 4px;
+  width: 200px;
+}
+.edit-submit-btn {
+  border-radius: 10px;
+  background: #134a7c;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 112.5% */
+  margin-top: 20px;
+  padding: 10px 25px;
+  outline: none;
+  border: none;
+}
+
+.edit-footer {
+  margin-top: 65px;
+}
+
+@media screen and (min-width: 760px) {
+  .edit-text-cont {
+    margin-right: 500px;
+  }
+  .edit-input-cont {
+    width: 500px;
+    margin: auto;
+  }
+  .edit-text-input {
+    font-size: 18px;
+    width: 564px;
+  }
+  .email-text {
+    width: 564px;
+  }
+  .edit-footer {
+    margin-top: 250px;
+  }
+  .edit-submit-btn {
+    padding: 10px 40px;
+  }
+}

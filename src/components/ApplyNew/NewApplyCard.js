@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./styles.css";
 import { URL } from "../../constants";
+import { useHistory } from "react-router-dom";
 
 import Helmet from "../Helmet/index";
+import SuccessModal from "./SuccessModal";
 
 let Logo =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594310687/Motivv/logo_wwolum.png";
@@ -17,6 +19,8 @@ let arrow =
 
 const url = `${URL}`;
 export default function NewApplyCard() {
+  const history = useHistory();
+
   const imageRef = useRef(null);
   const [imageUrl, setImageUrl] = useState(upload);
   const [loading, setLoading] = useState(false);
@@ -25,8 +29,19 @@ export default function NewApplyCard() {
   const [error, setError] = useState(false);
   const [errorValue, setErrorValue] = useState("");
 
+  const [showModal, setShowModal] = useState(false);
+  // const [showModalOnSuccess, setShowModalOnSuccess] = useState(false);
+
+  const handleShowModal = () => {
+    setShowModal(true); // Set showModal to true first
+  };
+
   // Form is going to store all the form data
   const [form, setForm] = React.useState({});
+
+  const clearSkills = () => {
+    setSelectedSkills([]);
+  };
 
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [alertMessage, setAlertMessage] = useState("");
@@ -130,22 +145,6 @@ export default function NewApplyCard() {
     }));
   }, []);
 
-  // const handleInputChange = React.useCallback((name, value) => {
-  //   if (name === 'skills') {
-  //     // Update the skills field in the formErrors object
-  //     setFormErrors((prevErrors) => ({
-  //       ...prevErrors,
-  //       skills: value.length > 0 ? '' : 'Please enter your skills',
-  //     }));
-  //   }
-
-  //   setForm((prevState) => ({
-  //     ...prevState,
-  //     [name]: value,
-  //   }));
-  // }, [setFormErrors]);
-
-  // A function to upload the file to cloudinary
   const uploadImage = React.useCallback(
     async (imageFile) => {
       // Check if image is selected
@@ -224,14 +223,27 @@ export default function NewApplyCard() {
           });
 
           if (res.status === 201 && res.data.message) {
+            handleShowModal();
             // Log each field before sending the request
             console.log("Form Data:", requestData);
+
+            // Open the modal on successful form submission
+            setShowModal(true);
 
             setErrorValue(
               "Application was successful! Check your e-mail for more info."
             );
+
+            // Clear skills after successful submission
+            clearSkills();
+
             setForm({});
             setEditActive((prevState) => !prevState);
+
+            // Automatically redirect to "/designercard" after 3 seconds
+            setTimeout(() => {
+              history.push("/designercard");
+            }, 3000);
           } else {
             setErrorValue(
               res.data.message ? res.data.message.msg : "Unknown error"
@@ -256,7 +268,7 @@ export default function NewApplyCard() {
         setLoading(false);
       }
     },
-    [form, validateForm, selectedSkills]
+    [form, validateForm, selectedSkills, history]
   );
 
   return (
@@ -291,15 +303,15 @@ export default function NewApplyCard() {
                       <div>
                         <img src={arrow} alt="" />
                       </div>
-                      <div className="pl-3">Input your name and Job Headline</div>
+                      <div className="pl-3">
+                        Input your name and Job Headline
+                      </div>
                     </div>
                     <div className="white-text pt-2 d-flex">
                       <div>
                         <img src={arrow} alt="" />
                       </div>
-                      <div className="pl-3">
-                      Upload your avatar
-                      </div>
+                      <div className="pl-3">Upload your avatar</div>
                     </div>
                     <div className="white-text pt-2 d-flex">
                       <div>
@@ -311,7 +323,9 @@ export default function NewApplyCard() {
                       <div>
                         <img src={arrow} alt="" />
                       </div>
-                      <div className="pl-3">Add the applications you are confident at</div>
+                      <div className="pl-3">
+                        Add the applications you are confident at
+                      </div>
                     </div>
                     <div className="white-text pt-2 d-flex">
                       <div>
@@ -588,8 +602,13 @@ export default function NewApplyCard() {
             </Col>
           </Row>
         </Row>
-      </div>
 
+        {/* modal on submission */}
+        <SuccessModal
+          showModal={showModal}
+          onClose={() => setShowModal(false)}
+        />
+      </div>
       <Footer />
     </div>
   );
