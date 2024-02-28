@@ -92,36 +92,6 @@ export default function JobPostPage() {
   };
   return (
     <div className="container-modal">
-      {/* <div className="mot-landing-page-blue">
-        <div className="mot-landing-page">
-          <Container className="m-auto">
-            <Row className="justify-content-center">
-              <Col md={10}>
-                <Row className="px-3 mot-apply-top">
-                  <span>
-                    <Link to="/">
-                      <img src={Logo} alt="" className="logo" />
-                    </Link>
-                  </span>
-                </Row>
-                <Row className="pt-5">
-                  <Col md={8} className="mot-text-color">
-                    <div className="mot-catch-phrase">
-                      Post jobs online, and
-                      <br />
-                      get your job ads seen
-                      <br />
-                      by millions of job
-                      <br />
-                      seekers.
-                    </div>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </Container>
-        </div>
-      </div> */}
 
       <div className="modal-cont my-5">
         <Row className="py-3">

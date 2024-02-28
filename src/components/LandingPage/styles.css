@@ -352,11 +352,11 @@
 }
 @media (min-width: 1024px) {
   .flex-headers {
-    width: 90%;
+    width: 95%;
     margin: auto;
   }
   .nav-links {
-    gap: 10px;
+    gap: 15px;
     font-size: 20px;
   }
   .connect-and-card {
@@ -365,7 +365,7 @@
     padding-top: 80px;
   }
   .mot-catch-phrase {
-    width: 75% !important;
+    width: 100% !important;
   }
   .mot-catch-phrase-sub {
     width: 65% !important;

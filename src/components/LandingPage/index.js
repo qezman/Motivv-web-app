@@ -273,7 +273,7 @@ export default function LandingPage() {
                 <Col md={8} className="mot-text-color mot-text-center">
                   <Fade delay={1000} duration={500} bottom>
                     <h1 className="mot-catch-phrase">
-                      We connect prospective clients to vetted designers.
+                      We connect <br/> prospective clients to <br/> vetted designers.
                     </h1>
                   </Fade>
                   <Fade delay={1800} duration={1500} bottom>

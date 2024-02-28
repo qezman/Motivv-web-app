@@ -18,7 +18,9 @@ export default function JobPost() {
             </Fade>
           </Col>
           <Col className="mot-user-placeholders ">
+            <div className="post-new-cont">
             <span className="job-post-new mb-2 d-block">New</span>
+            </div>
             <Fade>
               <h1 style={textStyle} className="mot-access-header">
                 Put your job in front of millions of candidates. For free!

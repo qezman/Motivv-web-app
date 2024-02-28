@@ -30,6 +30,23 @@
   transition: 0.2s ease-in;
 }
 
+.challenge-new-cont {
+  /* width: 55px;
+  height: 26px;
+  padding: 10px; */
+}
+
+.challenge-new {
+  color: #e52424;
+  font-family: Rubik;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 169.231% */
+  border-radius: 16px;
+  background: #f9cccc;
+}
+
 .mot-challenge {
   display: flex;
   width: 200px;
@@ -90,6 +107,7 @@
   }
   .both-topics {
     width: 350px;
+    margin-top: 55px;
   }
   .mot-challenge.con {
     display: flex;
@@ -121,6 +139,10 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .content-container {
+    display: flex;
+    justify-content: center;
+  }
   .mot-access-section-header {
     width: 500px;
   }
@@ -135,5 +157,21 @@
     font-style: normal;
     font-weight: 500;
     line-height: 18px; /* 112.5% */
+  }
+  .display-img {
+    width: 350px;
+    height: 288.806px;
+    flex-shrink: 0;
+  }
+  .both-topics {
+    margin-top: 55px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .display-img {
+    width: 447.556px;
+    height: 288.806px;
+    flex-shrink: 0;
   }
 }

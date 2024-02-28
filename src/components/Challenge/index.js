@@ -13,7 +13,7 @@ export default function Challenge() {
     <section className="mot-challenge-con" id="user">
       <article className="content-container">
         <div>
-          <Col className="mb-3">
+          <Col className="challenge-new-cont mb-3">
             <span className="challenge-new mb-2 d-block">New</span>
             <Fade>
               <h1 className="mot-access-section-header">
@@ -32,7 +32,7 @@ export default function Challenge() {
             </div>
           </Col>
           <Col>
-            <div className="both-topics mt-3">
+            <div className="both-topics">
               <div className="d-flex">
                 <div className="">
                   <img src={arrow} alt="" />
@@ -78,7 +78,7 @@ export default function Challenge() {
           </Fade> */}
 
           <Fade duration={300} delay={1000}>
-            <img src="/assets/three-cards.svg" />
+            <img className="display-img" src="/assets/three-cards.svg" />
           </Fade>
         </div>
       </article>

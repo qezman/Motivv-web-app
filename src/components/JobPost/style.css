@@ -49,14 +49,17 @@
   width: 100%;
 }
 .job-post-new {
-  background: #f9cccc;
-  border-radius: 16px;
-  padding: 8px 16px;
-  color: #e62424;
-  font-style: normal;
-  font-weight: 500;
+  color: #e52424;
+  font-family: Rubik;
   font-size: 13px;
-  line-height: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 169.231% */
+  padding: 10px 16px;
+}
+.post-new-cont {
+  border-radius: 16px;
+  background: #f9cccc;
   width: fit-content;
 }
 .explore-btn:hover {
