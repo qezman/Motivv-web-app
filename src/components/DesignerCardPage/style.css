@@ -37,6 +37,12 @@
   display: flex;
   justify-content: center;
 }
+.prof-img {
+  width: 108.074px;
+  height: 108.074px;
+  flex-shrink: 0;
+  border-radius: 100%;
+}
 .profile-name {
   font-family: "DM Sans";
   font-size: 19.213px;
@@ -58,11 +64,20 @@
   border-radius: 12.008px;
   background: rgba(246, 180, 82, 0.19);
   padding: 4px 12px;
+
+  color: #8f8f8f;
+  font-family: "DM Sans";
+  font-size: 8px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 142.4%; /* 23.94px */
 }
 .profile-tool-cont {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 10px;
+  align-content: center;
+  gap: 6px;
 }
 .profile-paragraph {
   color: #656565;
@@ -104,6 +119,8 @@
     flex-shrink: 0;
   }
   .head-text {
+    align-content: center;
+
     font-size: 32px;
   }
 
@@ -114,10 +131,16 @@
     border-radius: 12.008px;
     background: #f9f9f9;
     box-shadow: 1.5px 1.5px 3px 0px #d2dbe4;
-    width: 360.246px;
+    width: fit-content;
     height: auto;
     flex-shrink: 0;
     margin: auto;
+  }
+  .profile-tool {
+    font-size: 14px;
+  }
+  .profile-tool-cont {
+    gap: 6px;
   }
 }
 
