@@ -43,26 +43,82 @@ export default function Edit() {
 
   const handleOtpSubmit = async () => {
     try {
-      const enteredOtp = otpValues.join(""); // Combine the entered OTP values
-
-      // Verify the entered OTP
-      const verifyResponse = await axios.post(VERIFY_OTP_URL, {
-        otp: enteredOtp,
-        // Add any other necessary data
+      // Extract email parameter from the URL
+      const searchParams = new URLSearchParams(window.location.search);
+      const emailParam = searchParams.get("email");
+  
+      // Use the email parameter as needed
+      console.log("Verifying OTP for email:", emailParam);
+  
+      // Send OTP to the user's email
+      const sendOtpResponse = await axios.post(SEND_OTP_URL, {
+        email: emailParam,
+        // Add any other necessary data for sending OTP
       });
-
-      if (verifyResponse.status === 200) {
-        // OTP verification successful
-        // Redirect to the desired page
-        history.push("/dashboard");
+  
+      if (sendOtpResponse.status === 200) {
+        console.log("OTP sent successfully");
+  
+        // Now you can proceed to handle OTP verification
+        const enteredOtp = otpValues.join("");
+  
+        // Log request details
+        console.log("Request payload:", {
+          email: emailParam,
+          authCode: enteredOtp,
+        });
+  
+        // Verify the entered OTP
+        const verifyResponse = await axios.post(VERIFY_OTP_URL, {
+          email: emailParam,
+          authCode: enteredOtp,
+          // Add any other necessary data for OTP verification
+        });
+  
+        // Check the verification response and handle accordingly
+        if (verifyResponse.status === 200) {
+          // OTP verification successful
+          // Redirect to the desired page
+          history.push("/");
+        } else {
+          // Handle OTP verification failure
+          console.error("OTP verification failed");
+        }
       } else {
-        // Handle OTP verification failure
-        console.error("OTP verification failed");
+        // Handle OTP sending failure
+        console.error("Failed to send OTP");
       }
     } catch (error) {
-      console.error("Error verifying OTP:", error);
+      console.error("Error handling OTP submission:", error);
     }
   };
+  
+
+  // const handleOtpSubmit = async () => {
+  //   try {
+  //     const enteredOtp = otpValues.join("");
+  //     console.log("Entered OTP:", enteredOtp);
+
+  //     const searchParams = new URLSearchParams(window.location.search);
+  //     const emailParam = searchParams.get("email");
+  //     console.log("Verifying OTP for email:", emailParam);
+
+  //     const verifyResponse = await axios.post(VERIFY_OTP_URL, {
+  //       email: emailParam,
+  //       authCode: enteredOtp,
+  //     });
+
+  //     console.log("Verification Response:", verifyResponse);
+
+  //     if (verifyResponse.status === 200) {
+  //       history.push("/dashboard");
+  //     } else {
+  //       console.error("OTP verification failed");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error handling OTP submission:", error);
+  //   }
+  // };
 
   const handleResendCode = async () => {
     try {
@@ -90,8 +146,8 @@ export default function Edit() {
           <h1 className="verify-email">Verify your email</h1>
           <div className="left-margin">
             <p className="otp-bottom-text">
-              An OTP has been sent to <strong>“{emailParam}”</strong> Input the code to
-              login to your account
+              An OTP has been sent to <strong>“{emailParam}”</strong> Input the
+              code to login to your account
             </p>
 
             <div className="otp-input-cont">
