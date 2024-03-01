@@ -17,9 +17,9 @@ export default function EditProfile() {
     e.preventDefault(); //prevent the page from reloading.
     try {
       // Make an API request to save data to the database
-      const response = await axios.post(EDIT_PROFILE_URL, {
-        email,
-        phoneNumber,
+      const response = await axios.put(EDIT_PROFILE_URL, {
+        email: email,
+        // phoneNumber: phoneNumber,
       });
 
       // Check if the save was successful

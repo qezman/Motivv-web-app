@@ -1,76 +1,125 @@
-.otp-container {
-  margin-left: 20px;
-  margin-bottom: 50px;
+.verify-mot-logo {
+  margin: 20px 0 0 20px;
+  width: 100px;
 }
-
 .verify-email {
-  font-family: DM Sans;
+  color: var(--Main-Black, #000);
+  font-family: "DM Sans";
   font-size: 24px;
+  font-style: normal;
   font-weight: 700;
-  line-height: 34px;
-  letter-spacing: 0em;
-  /* text-align: center; */
-  margin-top: 92px;
-}
-.input {
-  border: none;
-  border-bottom: 1px solid black;
-  width: 250px;
-  padding: 5px 0;
-  color: #bbb;
-}
-.input:focus {
-  outline: none; /* Remove the default outline */
-  border-color: #ccc; /* Set border color to the same color or transparent */
-  box-shadow: none;  
+  line-height: normal;
+  margin-top: 160px;
+  text-align: center;
 }
 .otp-bottom-text {
-  font-size: 10px;
-  color: #134A7C;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--Deep-grey, #555);
+  text-align: center;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  /* margin: auto; */
+  padding: 15px 5px;
 }
-button {
+.otp-input-cont {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+.otp-input {
+  width: 30px;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid var(--Border-Grey, #d5d5d5);
+  background: var(--Main-white, #fff);
+
+  color: var(--Deep-grey, #555);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 165%; /* 34.65px */
+}
+.otp-btn-cont {
+  display: flex;
+  width: 155px;
+  height: 43px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
   border-radius: 10px;
   background: #134a7c;
-  box-shadow: 0px 4px 70px 0px rgba(19, 74, 124, 0.2);
-  color: white;
+  margin: auto;
+  margin-top: 15px;
+  outline: none;
 }
-.left-margin {
-  margin-left: 20px;
-  /* text-align: center; */
+.otp-btn-text {
+  background: transparent;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 112.5% */
+  outline: none;
 }
-
+.cannot-find-text {
+  color: #555;
+  text-align: center;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 165%; /* 26.4px */
+  margin-top: 15px;
+}
+.resend-text {
+  color: #134a7c;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 165%;
+  text-decoration-line: underline;
+}
 @media only screen and (min-width: 760px) {
-  .verify-email {
-    font-size: 24px;
-    font-weight: 700;
-  }
-  .otp-container {
-    margin-left: 141px;
-  }
-  .left-margin {
-    margin-top: 22px;
-  }
-  button {
-    margin-top: 5px;
-  }
   .otp-bottom-text {
-    font-size: 18px;
-    font-weight: 400;
+    display: flex;
+    width: 387px;
+    height: 50px;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 15px;
   }
-  .input {
-    font-size: 20px;
-    width: 564px;
+  .verify-mot-logo {
+    display: flex;
+    width: 160px;
+    height: 66px;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+
+    margin: 21px 0 0 119px;
   }
-  button {
-    font-size: 24px;
-    padding: 8px 50px;
+  .otp-input {
+    
+    width: 64px;
+    /* height: 64px; */
+    /* flex-shrink: 0; */
+    /* margin: auto; */
+    /* gap: 0px; */
+  }
+  .otp-input-cont {
+
   }
 }
 @media only screen and (min-width: 1024px) {
-  .otp-container {
-    margin-left: 541px;
-  }
-  .input {
-    width: 400px;
-  }
 }
