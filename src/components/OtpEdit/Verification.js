@@ -16,6 +16,7 @@ let arrow =
 export default function Edit() {
   const history = useHistory();
   const [otpValues, setOtpValues] = useState(["", "", "", "", "", ""]);
+  const [emailParam, setEmailParam] = useState("");
 
   const handleOtpChange = (index, value) => {
     // Copy the current array of otpValues
@@ -27,6 +28,18 @@ export default function Edit() {
     // Update the state with the new array
     setOtpValues(newOtpValues);
   };
+
+  useEffect(() => {
+    // Extract email parameter from the URL
+    const searchParams = new URLSearchParams(window.location.search);
+    const emailFromUrl = searchParams.get("email");
+
+    // Use the email parameter as needed
+    console.log("Email from EditProfile:", emailFromUrl);
+
+    // Store the email parameter in state
+    setEmailParam(emailFromUrl);
+  }, []);
 
   const handleOtpSubmit = async () => {
     try {
@@ -77,7 +90,7 @@ export default function Edit() {
           <h1 className="verify-email">Verify your email</h1>
           <div className="left-margin">
             <p className="otp-bottom-text">
-              An OTP has been sent to “aorthar123”hotmail.com” Input the code to
+              An OTP has been sent to <strong>“{emailParam}”</strong> Input the code to
               login to your account
             </p>
 

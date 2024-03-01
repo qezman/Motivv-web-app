@@ -87,6 +87,7 @@
   font-weight: 700;
   line-height: 165%;
   text-decoration-line: underline;
+  cursor: pointer;
 }
 @media only screen and (min-width: 760px) {
   .otp-bottom-text {

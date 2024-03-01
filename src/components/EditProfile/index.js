@@ -1,16 +1,16 @@
-import { React, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import './style.css';
-import Footer from '../Footer/index';
-import axios from 'axios';
-import { EDIT_PROFILE_URL } from '../../constants';
+import { React, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import "./style.css";
+import Footer from "../Footer/index";
+import axios from "axios";
+import { EDIT_PROFILE_URL } from "../../constants";
 
 export default function EditProfile() {
   const history = useHistory();
 
   // State to manage input values
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   // Function to handle form submission
   const handleSubmit = async (e) => {
@@ -26,13 +26,13 @@ export default function EditProfile() {
       if (response.status === 200) {
         // Redirect to "/otppage" after successful save
         // history.push('/otppage');
-        history.push('/verification');
+        history.push(`/verification?email=${encodeURIComponent(email)}`);
       } else {
-        console.error('Failed to save data to the database');
+        console.error("Failed to save data to the database");
         // Handle error scenario
       }
     } catch (error) {
-      console.error('API request error:', error);
+      console.error("API request error:", error);
       // Handle error scenario
     }
   };
@@ -50,7 +50,7 @@ export default function EditProfile() {
           <p className="edit-header">Edit your Profile</p>
         </div>
 
-        <div style={{ marginTop: '21px' }} className="edit-input-cont">
+        <div style={{ marginTop: "21px" }} className="edit-input-cont">
           <input
             type="text"
             required
@@ -59,7 +59,9 @@ export default function EditProfile() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <p className="email-text">Enter the email you used to create your Profile card</p>
+          <p className="email-text">
+            Enter the email you used to create your Profile card
+          </p>
         </div>
 
         <div style={{ marginTop: '36px' }} className="edit-input-cont">
