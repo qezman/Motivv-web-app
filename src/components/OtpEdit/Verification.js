@@ -83,7 +83,7 @@ export default function Edit() {
 
       if (verifyResponse.status === 200) {
         // Redirect to the desired page after successful OTP verification
-        history.push("/");
+        history.push("/newapply");
       } else {
         console.error("OTP verification failed");
       }
