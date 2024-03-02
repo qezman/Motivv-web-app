@@ -29,13 +29,14 @@
   box-shadow: none;
   transition: 0.2s ease-in;
 }
-
-.challenge-new-cont {
-  /* width: 55px;
-  height: 26px;
-  padding: 10px; */
+.mot-access-section-header {
+  color: #134a7c;
+  font-family: "DM Sans";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 112.042%; /* 53.78px */
 }
-
 .challenge-new {
   color: #e52424;
   font-family: Rubik;
@@ -51,13 +52,19 @@
   display: flex;
   width: 200px;
   /* height: 43px; */
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  /* align-items: center; */
 }
 
 .mot-challenge-con svg {
-  width: 100%;
+  /* width: 100%; */
 }
+
+.display-img {
+  width: 300px;
+  margin-top: 20px;
+}
+
 .challenge-new {
   background: #f9cccc;
   border-radius: 16px;
@@ -102,39 +109,10 @@
 }
 
 @media screen and (min-width: 700px) {
-  .share-and-build {
-    margin-top: 42px;
-  }
-  .both-topics {
-    width: 350px;
-    margin-top: 55px;
-  }
-  .mot-challenge.con {
-    display: flex;
-    flex-direction: column;
-  }
-  .mot-challenge button {
-    /* margin-left: 30px; */
-  }
-  .animated-img {
-    margin-top: 400px !important;
-  }
-  .user-text h4 {
-    font-size: 64px !important;
-    font-weight: 700;
-  }
-  .mot-access-section-header {
-    font-weight: 700;
-    color: #134a7c;
-  }
   .content-container {
     display: flex;
-    /* justify-items: center; */
+    justify-content: center;
     align-items: center;
-    width: 50%;
-    margin: auto;
-  }
-  .animated-img {
   }
 }
 
@@ -142,6 +120,7 @@
   .content-container {
     display: flex;
     justify-content: center;
+    margin: 0 320px;
   }
   .mot-access-section-header {
     width: 500px;
@@ -159,19 +138,23 @@
     line-height: 18px; /* 112.5% */
   }
   .display-img {
-    width: 350px;
-    height: 288.806px;
+    width: 447.556px;
+    height: 306px;
     flex-shrink: 0;
   }
   .both-topics {
     margin-top: 55px;
   }
+  .user-text {
+    width: 317px;
+    flex-shrink: 0;
+  }
 }
 
 @media screen and (min-width: 1200px) {
   .display-img {
-    width: 447.556px;
+    /* width: 447.556px;
     height: 288.806px;
-    flex-shrink: 0;
+    flex-shrink: 0; */
   }
 }

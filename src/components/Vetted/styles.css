@@ -96,18 +96,27 @@
 
 @media screen and (min-width: 760px) {
   .cont-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 50px 0;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* margin: 50px 0; */
   }
 
   .card-item {
-    margin: 5px 0;
-    padding: 16px;
+    /* margin: 5px 0; */
+    /* padding: 16px; */
+    margin-top: 100px;
+    width: 240px;
+    height: 292.8px;
+    flex-shrink: 0;
   }
   .card-section {
-    width: 240px;
+    /* width: 240px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* margin: 50px 0; */
   }
 
   #skill {

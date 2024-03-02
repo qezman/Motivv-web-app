@@ -17,7 +17,7 @@ export default function Challenge() {
             <span className="challenge-new mb-2 d-block">New</span>
             <Fade>
               <h1 className="mot-access-section-header">
-                Become a better designer in 4-weeks!
+                Become a better designer <br/> in 4-weeks!
               </h1>
             </Fade>
             <h6 className="pt-3 small-texts black-text mot-access-section-caption">

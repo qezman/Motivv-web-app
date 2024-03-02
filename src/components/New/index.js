@@ -11,10 +11,11 @@ let Dots =
 
 export default function Index() {
   return (
-    <section className="mot-section">
+    <article className="mot-background-cont">
+      <section className="mot-section">
       <article className="mot-left-cont">
         <h1 className="header-text">
-          Gain access to clients in a single click!
+          Gain access to clients <br/> in a single click!
         </h1>
         <p className="sub-text">
           Getting hired for project gets easy by setting up your profile. Input
@@ -42,44 +43,6 @@ export default function Index() {
         </article>
       </section>
     </section>
+    </article>
   );
 }
-
-// export default function Index() {
-//     return (
-//         <div>
-//             <div className="mot-new-access-section">
-//                 <Container>
-//                     <Row className="">
-//                         <Col className="mot-user-placeholders">
-//                             <Fade>
-//                                 <h1 className="mot-access-section-header">
-//                                     Gain access to clients
-//                                     in a single click!
-//                                 </h1>
-//                                 <p className="mot-access-section-caption">
-//                                     Getting hired for project gets easy by setting your profile.
-//                                     Input your details and start getting gigs. No login processes,
-//                                     No long story!
-//                                 </p>
-//                                 <div className="mot-apply-as-designer">
-//                                     <Link to="/apply">
-//                                         <button type="submit" className="apply-as-designer">Apply as a designer</button>
-//                                     </Link>
-//                                 </div>
-//                             </Fade>
-//                         </Col>
-//                         <Col md={3}>
-//                             <Fade bottom>
-//                                 <img src={Placeholder} alt="placeholder" className="fw-image"/>
-//                             </Fade>
-//                         </Col>
-//                     </Row>
-//                 </Container>
-//             </div>
-//             <Fade bottom duration={100} delay={1000}>
-//                 <img src={Dots} alt="" className="d-dot-patterns"/>
-//             </Fade>
-//         </div>
-//     )
-// }

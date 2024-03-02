@@ -1,4 +1,207 @@
-.mot-job-post-con {
+.section-container {
+  margin: 150px 0;
+}
+.recruit-cont {
+  display: flex;
+  justify-content: center;
+}
+.recruit-img {
+  width: 200px;
+  height: auto;
+  flex-shrink: 0;
+  margin: auto;
+}
+.new-badge-cont {
+  display: flex;
+  width: 55px;
+  height: 26px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.new-badge {
+  color: #e52424;
+  font-family: Rubik;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  padding: 6px 12px;
+
+  border-radius: 16px;
+  background: #f9cccc;
+}
+
+.right-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 40px 10px;
+}
+.topic {
+  color: #134a7c;
+  font-family: "DM Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 112.042%; /* 53.78px */
+}
+
+.sub-text {
+  color: #000;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 142.4%; /* 25.632px */
+}
+.sub-items {
+  display: flex;
+  align-items: center;
+  /* justify-items: center; */
+  padding: 0;
+  gap: 6px;
+}
+.items-content p {
+  /* padding-top: 13px; */
+}
+.check-icon {
+  padding-bottom: 10px;
+}
+.both-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.btn-one-cont {
+  display: flex;
+  height: 43px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid #134a7c;
+  width: 155px;
+}
+.btn-job {
+  background: transparent;
+
+  color: #134a7c;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 112.5% */
+}
+
+.btn-one-cont:hover {
+  background: #0b2844;
+  transition: 0.3s ease-in-out;
+}
+.btn-one-cont:hover p {
+  color: white;
+}
+.btn-two-cont:hover {
+  background: #0b2844;
+  
+  transition: 0.3s ease-in-out;
+}
+.btn-job:hover {
+  color: white;
+}
+
+.btn-two-cont {
+  display: flex;
+  width: 155px;
+  height: 43px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #134a7c;
+}
+.btn-all-jobs {
+  background: transparent;
+  width: auto;
+
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 112.5% */
+}
+@media screen and (min-width: 760px) {
+  .section-container {
+    display: flex;
+    justify-content: center;
+    margin: 150px 20px;
+    gap: 30px;
+  }
+  .topic {
+    padding: 16px 0;
+    width: 300px;
+    font-size: 32px;
+  }
+  .sub-items {
+    display: flex;
+    align-items: center;
+  }
+  .sub-text {
+    width: 350px;
+
+    color: #000;
+    font-family: "DM Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 142.4%;
+  }
+  .both-btns {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+  }
+  .items-content {
+  }
+}
+@media screen and (min-width: 1024px) {
+  .section-container {
+    gap: 50px;
+    margin: 150px 0;
+  }
+  .recruit-img {
+    width: 322px;
+    height: 288px;
+    flex-shrink: 0;
+  }
+  .topic {
+    font-size: 48px;
+    width: 527px;
+    flex-shrink: 0;
+  }
+  .sub-text {
+    width: 497px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .section-container {
+    gap: 107px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .div-cont {
+    margin-right: 190px;
+  }
+}
+
+/* .mot-job-post-con {
   background-color: #fff;
   padding: 150px 0 150px;
 }
@@ -54,7 +257,7 @@
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
-  line-height: 22px; /* 169.231% */
+  line-height: 22px; 
   padding: 10px 16px;
 }
 .post-new-cont {
@@ -87,4 +290,4 @@
   .hire-cont {
     margin-top: 16px !important;
   }
-}
+} */
