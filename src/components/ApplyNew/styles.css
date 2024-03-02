@@ -5,6 +5,9 @@
   line-height: 22px; /* 91.667% */
   padding: 11px 0 12px 0;
 }
+.input-title {
+  color: #000000 !important;
+}
 .para-text {
   color: #8f8f8f;
   text-align: center;
@@ -24,10 +27,6 @@
 .success-icon {
   display: flex;
   justify-content: center;
-  /* width: 115px;
-  height: 115px;
-  flex-shrink: 0;
-  margin: auto; */
 }
 
 .mot-upload-image {

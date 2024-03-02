@@ -4,6 +4,11 @@
   box-shadow: 1px 1px 2px 0px #d2dbe4; */
   /* width: 70%;
   margin: auto; */
+  margin: 40px 0;
+  padding: 16px 22px;
+}
+.persona-img {
+  margin-top: 16px;
 }
 .name {
   font-size: 13px;
@@ -79,6 +84,10 @@
   margin-top: 10px;
   height: 43px;
   font-size: 14px;
+
+  border-radius: 10px;
+  background: #134a7c;
+  color: white;
 }
 .book-a-designer-btn:hover {
   color: white;
@@ -100,6 +109,7 @@
   .card-section {
     width: 240px;
   }
+
   #skill {
     border-radius: 8px;
     background: rgba(246, 180, 82, 0.19);
@@ -153,7 +163,9 @@
   }
 
   .form-input {
-    width: 60%;
+    width: 364px;
+    height: 1px;
+    flex-shrink: 0;
   }
   .book-a-designer-btn {
     font-size: 14px;
@@ -218,7 +230,7 @@
     display: flex;
     width: 230px;
     height: 43px;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     gap: 8px;
     flex-shrink: 0;
@@ -232,6 +244,5 @@
     font-weight: 500;
     line-height: 18px; /* 128.571% */
     padding: 48px auto;
-
   }
 }
