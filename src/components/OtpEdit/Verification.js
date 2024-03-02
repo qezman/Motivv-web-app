@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Alert } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import Helmet from "../Helmet/index";
 
@@ -17,6 +17,8 @@ export default function Edit() {
   const history = useHistory();
   const [otpValues, setOtpValues] = useState(["", "", "", "", "", ""]);
   const [emailParam, setEmailParam] = useState("");
+  const location = useLocation();
+  const [otpSent, setOtpSent] = useState(false);
 
   const handleOtpChange = (index, value) => {
     // Copy the current array of otpValues
@@ -29,6 +31,23 @@ export default function Edit() {
     setOtpValues(newOtpValues);
   };
 
+  const sendOtp = async () => {
+    try {
+      const sendOtpResponse = await axios.post(SEND_OTP_URL, {
+        email: emailParam,
+        // Add any other necessary data for sending OTP
+      });
+
+      if (sendOtpResponse.status === 200) {
+        console.log("OTP sent successfully");
+      } else {
+        console.error("Failed to send OTP");
+      }
+    } catch (error) {
+      console.error("Error sending OTP:", error);
+    }
+  };
+
   useEffect(() => {
     // Extract email parameter from the URL
     const searchParams = new URLSearchParams(window.location.search);
@@ -39,105 +58,66 @@ export default function Edit() {
 
     // Store the email parameter in state
     setEmailParam(emailFromUrl);
+
+    // Check if email is not empty before sending OTP
+    if (emailFromUrl) {
+      // Simulate sending OTP immediately after loading
+      sendOtp();
+    } else {
+      console.error("Email is empty. Cannot send OTP.");
+    }
   }, []);
 
   const handleOtpSubmit = async () => {
     try {
-      // Extract email parameter from the URL
-      const searchParams = new URLSearchParams(window.location.search);
-      const emailParam = searchParams.get("email");
-  
-      // Use the email parameter as needed
-      console.log("Verifying OTP for email:", emailParam);
-  
-      // Send OTP to the user's email
-      const sendOtpResponse = await axios.post(SEND_OTP_URL, {
+      const enteredOtp = otpValues.join("");
+      console.log("Entered OTP:", enteredOtp);
+
+      const verifyResponse = await axios.post(VERIFY_OTP_URL, {
         email: emailParam,
-        // Add any other necessary data for sending OTP
+        authCode: enteredOtp,
+        // Add any other necessary data for OTP verification
       });
-  
-      if (sendOtpResponse.status === 200) {
-        console.log("OTP sent successfully");
-  
-        // Now you can proceed to handle OTP verification
-        const enteredOtp = otpValues.join("");
-  
-        // Log request details
-        console.log("Request payload:", {
-          email: emailParam,
-          authCode: enteredOtp,
-        });
-  
-        // Verify the entered OTP
-        const verifyResponse = await axios.post(VERIFY_OTP_URL, {
-          email: emailParam,
-          authCode: enteredOtp,
-          // Add any other necessary data for OTP verification
-        });
-  
-        // Check the verification response and handle accordingly
-        if (verifyResponse.status === 200) {
-          // OTP verification successful
-          // Redirect to the desired page
-          history.push("/");
-        } else {
-          // Handle OTP verification failure
-          console.error("OTP verification failed");
-        }
+
+      console.log("Verification Response:", verifyResponse);
+
+      if (verifyResponse.status === 200) {
+        // Redirect to the desired page after successful OTP verification
+        history.push("/");
       } else {
-        // Handle OTP sending failure
-        console.error("Failed to send OTP");
+        console.error("OTP verification failed");
       }
     } catch (error) {
       console.error("Error handling OTP submission:", error);
     }
   };
-  
-
-  // const handleOtpSubmit = async () => {
-  //   try {
-  //     const enteredOtp = otpValues.join("");
-  //     console.log("Entered OTP:", enteredOtp);
-
-  //     const searchParams = new URLSearchParams(window.location.search);
-  //     const emailParam = searchParams.get("email");
-  //     console.log("Verifying OTP for email:", emailParam);
-
-  //     const verifyResponse = await axios.post(VERIFY_OTP_URL, {
-  //       email: emailParam,
-  //       authCode: enteredOtp,
-  //     });
-
-  //     console.log("Verification Response:", verifyResponse);
-
-  //     if (verifyResponse.status === 200) {
-  //       history.push("/dashboard");
-  //     } else {
-  //       console.error("OTP verification failed");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error handling OTP submission:", error);
-  //   }
-  // };
 
   const handleResendCode = async () => {
     try {
-      // Send a new OTP to the user's email
-      const resendResponse = await axios.post(SEND_OTP_URL, {
-        // Add any other necessary data
-      });
+      // Check if emailParam is not empty
+      if (emailParam) {
+        // Send a new OTP to the user's email
+        const resendResponse = await axios.post(SEND_OTP_URL, {
+          email: emailParam,
+          // Add any other necessary data
+        });
 
-      if (resendResponse.status === 200) {
-        // OTP resent successfully
-        console.log("OTP resent successfully");
+        if (resendResponse.status === 200) {
+          // OTP resent successfully
+          console.log("OTP resent successfully");
+        } else {
+          // Handle OTP resend failure
+          console.error("Failed to resend OTP");
+        }
       } else {
-        // Handle OTP resend failure
-        console.error("Failed to resend OTP");
+        // Handle the case where emailParam is empty
+        console.error("Email is required for resending OTP");
       }
     } catch (error) {
       console.error("Error resending OTP:", error);
     }
   };
+
   return (
     <>
       <div>
@@ -164,9 +144,19 @@ export default function Edit() {
                 />
               ))}
             </div>
-            <div className="otp-btn-cont">
+            {/* <div className="otp-btn-cont">
               <button onClick={handleOtpSubmit} className="otp-btn-text">
                 Submit
+              </button>
+            </div> */}
+
+            <div className="otp-btn-cont">
+              <button
+                onClick={handleOtpSubmit}
+                className={`otp-btn-text ${otpSent ? "otp-sent" : ""}`}
+                disabled={otpSent} // Disable button after OTP is sent
+              >
+                {otpSent ? "OTP Sent" : "Submit"}
               </button>
             </div>
 

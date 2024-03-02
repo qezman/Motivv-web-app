@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import "./style.css";
 import Footer from "../Footer/index";
 import axios from "axios";
-import { EDIT_PROFILE_URL } from "../../constants";
+import { EDIT_PROFILE_URL, SEND_OTP_URL } from "../../constants";
 
 export default function EditProfile() {
   const history = useHistory();
@@ -11,29 +11,43 @@ export default function EditProfile() {
   // State to manage input values
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-
   // Function to handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault(); //prevent the page from reloading.
+    e.preventDefault(); // prevent the page from reloading.
     try {
       // Make an API request to save data to the database
-      const response = await axios.put(EDIT_PROFILE_URL, {
+      await axios.put(EDIT_PROFILE_URL, {
         email: email,
         // phoneNumber: phoneNumber,
       });
 
-      // Check if the save was successful
-      if (response.status === 200) {
-        // Redirect to "/otppage" after successful save
-        // history.push('/otppage');
-        history.push(`/verification?email=${encodeURIComponent(email)}`);
-      } else {
-        console.error("Failed to save data to the database");
-        // Handle error scenario
-      }
+      // Call sendOtp to initiate OTP sending
+      sendOtp();
+
+      // Redirect to "/verification" after initiating the save
+      history.push(`/verification?email=${encodeURIComponent(email)}`);
     } catch (error) {
       console.error("API request error:", error);
-      // Handle error scenario
+      // Handle error scenario for API requests
+    }
+  };
+
+  // Function to send OTP
+  const sendOtp = async () => {
+    try {
+      // Send OTP to the user's email
+      const sendOtpResponse = await axios.post(SEND_OTP_URL, {
+        email: email,
+        // Add any other necessary data for sending OTP
+      });
+
+      if (sendOtpResponse.status === 200) {
+        console.log("OTP sent successfully");
+      } else {
+        console.error("Failed to send OTP");
+      }
+    } catch (error) {
+      console.error("Error sending OTP:", error);
     }
   };
 
@@ -58,13 +72,14 @@ export default function EditProfile() {
             className="edit-text-input"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            style={{ color: "black" }}
           />
           <p className="email-text">
             Enter the email you used to create your Profile card
           </p>
         </div>
 
-        <div style={{ marginTop: '36px' }} className="edit-input-cont">
+        <div style={{ marginTop: "36px" }} className="edit-input-cont">
           <input
             type="text"
             required
@@ -72,8 +87,11 @@ export default function EditProfile() {
             className="edit-text-input"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
+            style={{ color: "black" }}
           />
-          <p className="email-text">Input the number you used to create your Profile card</p>
+          <p className="email-text">
+            Input the number you used to create your Profile card
+          </p>
           <button className="edit-submit-btn">Submit</button>
         </div>
       </div>
