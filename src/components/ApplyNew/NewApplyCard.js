@@ -9,6 +9,7 @@ import Helmet from "../Helmet/index";
 import SuccessModal from "./SuccessModal";
 import { URL } from "../../constants";
 import { useGlobalContext } from "../../store/contexts";
+import NewApplyCardHead from "./NewApplyCardHead";
 
 let Logo =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594310687/Motivv/logo_wwolum.png";
@@ -291,13 +292,13 @@ export default function NewApplyCard() {
 
   return (
     <div className="container-modal">
-      <Helmet
+      {/* <Helmet
         page="edit"
         title="Edit your Profile Card"
         description="Customize your card,  Input your name and Job Headline, Upload your avatar, Include your portfolio link, Add your preferred software, Gain approval, Create a striking profile and get vetted for your design cause, Motivv | Edit profile"
-      />
+      /> */}
 
-      <div className="mot-landing-page-blue">
+      {/* <div className="mot-landing-page-blue">
         <div className="mot-landing-page">
           <Container className="m-auto">
             <Row className="justify-content-center">
@@ -351,19 +352,15 @@ export default function NewApplyCard() {
                       </div>
                       <div className="pl-3">Gain approval</div>
                     </div>
-                    {/* <div className="white-text pt-2 d-flex">
-                      <div>
-                        <img src={arrow} alt="" />
-                      </div>
-                      <div className="pl-3">Hire creative</div>
-                    </div> */}
                   </Col>
                 </Row>
               </Col>
             </Row>
           </Container>
         </div>
-      </div>
+      </div> */}
+
+      <NewApplyCardHead />
 
       {/* main content */}
       <div className="modal-cont my-5">

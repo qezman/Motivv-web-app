@@ -219,7 +219,7 @@ export default function LandingPage() {
               </li>
             </div>
 
-            <div className={`post-job-btn ${isHovered ? "hovered" : ""}`}>
+            <button className={`post-job-btn ${isHovered ? "hovered" : ""}`}>
               <Link
                 // to="/post-job"
                 className="post-job-text"
@@ -230,7 +230,7 @@ export default function LandingPage() {
                 <img src={postImg} alt="" className="post-job-text mr-2" /> Post
                 Job
               </Link>
-            </div>
+            </button>
 
             {/*modal content  */}
             <Modal

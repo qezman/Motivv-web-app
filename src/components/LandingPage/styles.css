@@ -148,6 +148,8 @@
   border-radius: 10px;
   border: 1px solid #fff;
   padding: 4px;
+  background: transparent;
+  width: auto;
 }
 
 .post-job-btn:hover {
