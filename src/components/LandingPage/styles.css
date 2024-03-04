@@ -159,7 +159,7 @@
   cursor: pointer;
   border: none;
 }
-@media screen and (max-width: 320px) {
+@media (max-width: 320px) {
   .flex-headers {
     display: flex;
     align-items: center;
@@ -186,94 +186,53 @@
     justify-content: center;
     align-items: center;
   }
-  .custom-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .custom-modal-header {
-    display: flex;
-    /* flex-direction: row; */
-    justify-content: center;
-    align-items: center;
-    /* padding-right: 30px; */
-  }
-  .custom-modal-body {
-    padding: 20px;
-  }
-  
-  .tell-us {
-    font-size: 16px;
-  }
+}
 
-  .mot-catch-phrase {
-    font-size: 2rem !important;
-    line-height: 2.3rem !important;
-    width: 100%;
-  }
+.custom-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .mot-catch-phrase-sub {
-    width: 80%;
-  }
+.custom-modal-header {
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: center;
+  align-items: center;
+  /* padding-right: 30px; */
+}
+.custom-modal-body {
+  padding: 20px;
+}
 
-  .mot-apply-button {
-    padding: 8px 20px; /* Adjusted padding for smaller screens */
-  }
-
-  .mot-apply-button:hover {
-    padding: 8px 20px; /* Adjusted padding for smaller screens */
-  }
-
-  .mot-landing-cards {
-    padding-top: 80px; /* Adjusted padding for smaller screens */
-  }
-
-  .jobs {
-    padding-top: 100px; /* Adjusted padding for smaller screens */
-  }
+.tell-us {
+  font-size: 16px;
 }
 
 
-
-@media screen and (min-width: 321px) and (max-width: 500px) {
-  .mot-catch-phrase {
-    font-size: 2.1rem !important;
-    line-height: 2.5rem !important;
-  }
-
-  .mot-catch-phrase-sub {
-    width: 80%;
-  }
-
-  .mot-apply-button {
-    padding: 10px 30px;
-  }
-
-  .mot-apply-button:hover {
-    padding: 10px 30px;
-  }
-
-  .mot-landing-cards {
-    padding-top: 100px;
-  }
-
-  .jobs {
-    padding-top: 120px; /* Adjusted padding for smaller screens */
-  }
+@media screen and (min-width: 321px) and (max-width: 720px) { 
+  .flex-headers {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
 }
+}
+
+/* @media (max-width: 500px) {
   .flex-headers {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 10px;
   }
+} */
 
 @media (min-width: 760px) {
   .custom-modal {

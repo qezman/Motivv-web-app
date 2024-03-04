@@ -67,21 +67,41 @@ export default function Vetted({ props }) {
         console.log("Response from server:", response);
         console.log("Response data:", response.data);
 
-        if (response.data.length > 0) {
-          console.log("Worked!!");
+        console.log("Designers Data:", response.data.data);
+
+
+        // if (response.data.length > 0) {
+        //   console.log("Worked!!");
+        //   setError(false);
+        //   Cookies.set("user-auth", email, { expires: 1 });
+        //   user.setUser(Cookies.get("user-auth"));
+        //   setUserPrompt("Request successful! Redirecting...");
+        //   setSuccess(true);
+
+        //   setTimeout(() => {
+        //     props.history.push("/designers");
+        //   }, 3000);
+        // } else {
+        //   setError(true);
+        //   setErrorValue("No designers found for the given email");
+        // }
+
+        if (response.data.data.length > 0) {
           setError(false);
           Cookies.set("user-auth", email, { expires: 1 });
           user.setUser(Cookies.get("user-auth"));
           setUserPrompt("Request successful! Redirecting...");
           setSuccess(true);
-
+        
           setTimeout(() => {
+            // Redirect to "/designers" after 3 seconds
             props.history.push("/designers");
           }, 3000);
         } else {
           setError(true);
           setErrorValue("No designers found for the given email");
         }
+        
       } catch (error) {
         console.error("Error during axios.get:", error);
         setError(true);
