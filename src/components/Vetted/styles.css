@@ -4,8 +4,11 @@
   box-shadow: 1px 1px 2px 0px #d2dbe4; */
   /* width: 70%;
   margin: auto; */
-  margin: 40px 0;
+  /* margin: 40px 0; */
+  width: 90%;
   padding: 16px 22px;
+  margin: auto;
+  margin-top: 40px;
 }
 .persona-img {
   margin-top: 16px;
@@ -50,6 +53,7 @@
 .description {
   text-align: center;
   font-size: 12px;
+  width: 250px;
 }
 .rate {
   font-weight: 700;
