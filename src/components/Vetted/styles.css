@@ -65,7 +65,7 @@
 }
 .next-section {
   margin: 20px;
-  margin-top: 100px;
+  margin-top: 20px;
 }
 .vetted-text {
   font-size: 24px;
@@ -189,6 +189,12 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .cont-section {
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* gap: 50px; */
+  }
   .card-section {
     display: flex;
     justify-content: center;
