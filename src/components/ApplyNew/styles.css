@@ -189,6 +189,7 @@ a {
   display: flex;
 }
 
+
 @media screen and (max-width: 760px) {
   .input-title::placeholder {
     color: #000; /* Set the placeholder text color to black */

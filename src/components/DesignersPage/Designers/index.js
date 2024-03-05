@@ -3,7 +3,7 @@ import { Container, Row, Col, Alert } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import Helmet from "../../Helmet/index";
-import { URL } from "../../../constants/index";
+import { CREATE_CLIENT } from "../../../constants";
 import "./style.css";
 import Footer from "../../Footer/index";
 import { information } from "./designersData";
@@ -13,9 +13,54 @@ let Logo =
 let arrow =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594397277/arrow_w_l9x24r.png";
 
+  
+// Define your API URL
+const API_URL = "https://backend-production-fc84.up.railway.app/api/client";
+
 const Designers = () => {
+  const [designers, setDesigners] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isRotated, setIsRotated] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  useEffect(() => {
+    // Function to fetch designers from the API
+    const fetchDesigners = async () => {
+      try {
+        const response = await axios.get(`${API_URL}`);
+        setDesigners(response.data);
+        console.log("Designers fetched:", response.data);
+      } catch (error) {
+        console.error("Error fetching designers:", error);
+      }
+    };
+
+    fetchDesigners();
+  }, []); 
+
+  // Filter designers based on the selected category
+  const filteredDesigners = designers.filter((item) => {
+    if (!selectedCategory) {
+      return true; // Show all designers if no category is selected
+    }
+
+    // Customize the condition based on your category logic
+    if (selectedCategory === "Recommended") {
+      return item.isRecommended;
+    } else if (selectedCategory === "Premium Profile") {
+      return item.isPremium;
+    }
+
+    return true;
+  });
+
+  // Function to handle category selection
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+    console.log("Selected category:", category);
+  };
+
+
 
   const filteredInformation = information.filter(
     (item) =>
@@ -110,15 +155,15 @@ const Designers = () => {
         <section className="main-content">
           {/* navigations */}
           <article className="navigations">
-            <div className="recommended">
+            <button onClick={() => handleCategorySelect("Recommended")} className="recommended">
               <img className="icon" src="/assets/star.png" />
               <p>Recommended</p>
-            </div>
+            </button>
 
-            <div className="premium">
+            <button onClick={() => handleCategorySelect("Premium Profile")} className="premium">
               <img className="icon" src="/assets/crown.png" />
               <p>Premium Profile</p>
-            </div>
+            </button>
 
             <div className="search">
               <img className="icon" src="/assets/Vector.svg" />
@@ -134,7 +179,7 @@ const Designers = () => {
 
           {/* body section */}
           <article className="card-grid">
-            {filteredInformation.map((item, index) => (
+            {filteredDesigners.map((item, index) => (
               <div className="info-cont" key={index}>
                 <img className="info-image" src={item.Image} alt={item.name} />
                 <h5 className="info-name">{item.name}</h5>

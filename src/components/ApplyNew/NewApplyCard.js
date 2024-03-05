@@ -94,6 +94,9 @@ export default function NewApplyCard() {
       width: "564px",
       background: "transparent",
     },
+    selectedOption: {
+      background: "blue"
+    }
   };
 
   const removeSelectedSkill = (index) => {

@@ -20,3 +20,6 @@ export const SEND_OTP_URL =
 
 export const VERIFY_OTP_URL =
   "https://backend-production-fc84.up.railway.app/api/designers/validate-otp";
+
+export const CREATE_CLIENT =
+  "https://backend-production-fc84.up.railway.app/api/client";

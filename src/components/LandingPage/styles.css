@@ -323,7 +323,7 @@
   }
   .nav-links {
     gap: 15px;
-    font-size: 20px;
+    font-size: 16px;
   }
   .connect-and-card {
     width: 80%;
@@ -332,6 +332,7 @@
   }
   .mot-catch-phrase {
     width: 100% !important;
+    margin-top: -5px !important;
   }
   .mot-catch-phrase-sub {
     width: 65% !important;
@@ -341,7 +342,7 @@
 @media (min-width: 1200px) {
   .nav-links {
     gap: 30px;
-    font-size: 20px;
+    font-size: 16px;
   }
   .flex-headers {
     width: 85%;
