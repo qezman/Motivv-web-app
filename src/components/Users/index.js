@@ -17,7 +17,7 @@ let arrow =
 export default function index() {
   return (
     <section className="mot-section-container">
-      <div className="both-cont">
+      <div className="cont-two">
         <Fade bottom delay={1000} duration={1000}>
           <div className="mot-gender-cont">
             <img
@@ -46,7 +46,7 @@ export default function index() {
         </article>
       </div>
 
-      <div className="both-cont">
+      <div className="cont-two">
         <Fade bottom delay={1000} duration={1000}>
           <div className="mot-gender-cont">
             <img
@@ -62,7 +62,7 @@ export default function index() {
             <div className="small-text pt-2">Motivv for Creatives</div>
           </div>
         </Fade>
-        <article className="each-item mt-4">
+        <article className="each-item">
           <h2 className="topic-text">
             How to use motivv <br /> as a designer
           </h2>

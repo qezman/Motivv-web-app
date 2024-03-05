@@ -10,8 +10,7 @@
   height: auto;
   flex-shrink: 0;
   border-radius: 20px;
-  padding: 20px;
-
+  padding-left: 10px;
   border-radius: 20px;
   background: #fff;
   box-shadow: 0px 4px 70px 0px rgba(191, 191, 191, 0.14);
@@ -38,9 +37,16 @@
   padding: 0 10px;
 }
 
-.both-cont {
+.cont-one {
   padding: 0 0 0 10px;
+
 }
+.cont-two {
+  padding: 0 0 0 10px;
+  margin-top: 40px;
+}
+
+
 
 .mot-gender-cont {
   padding-left: 10px;
