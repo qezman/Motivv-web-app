@@ -83,20 +83,48 @@ export default function NewApplyCard() {
   const smallTexts = window.innerWidth >= 760 ? { fontSize: "18px" } : {};
   const padBottm = window.innerWidth >= 760 ? { paddingBottom: "10px" } : {};
 
+  const reducedWidth = window.innerWidth <= 760 ? { width: "200px" } : {};
+
   // const inputWidth = window.innerWidth >= 760 ? { width: "1000px" } : {};
+
+  // const styles = {
+  //   ...existingStyles,
+  //   "@media screen and (min-width: 760px)": {
+  //     width: "1000px",
+  //     extendedInput: {
+  //       width: "564px",
+  //       background: "transparent",
+  //     },
+  //   },
+  //   selectedOption: {
+  //     background: "blue"
+  //   }
+  // };
+
+  const formStyles = {
+    "@media screen and (max-width: 759px)": {
+      extendedInput: {
+        ...existingStyles.extendedInput, // Preserve existing styles
+        width: "200px",
+        background: "transparent",
+      },
+    },
+  };
 
   const styles = {
     ...existingStyles,
+    ...formStyles,
+    reducedWidth,
     "@media screen and (min-width: 760px)": {
-      width: "1000px",
+      // width: "1000px",
     },
     extendedInput: {
-      width: "564px",
+      // width: "564px",
       background: "transparent",
     },
     selectedOption: {
-      background: "blue"
-    }
+      background: "blue",
+    },
   };
 
   const removeSelectedSkill = (index) => {
@@ -310,74 +338,6 @@ export default function NewApplyCard() {
 
   return (
     <div className="container-modal">
-      {/* <Helmet
-        page="edit"
-        title="Edit your Profile Card"
-        description="Customize your card,  Input your name and Job Headline, Upload your avatar, Include your portfolio link, Add your preferred software, Gain approval, Create a striking profile and get vetted for your design cause, Motivv | Edit profile"
-      /> */}
-
-      {/* <div className="mot-landing-page-blue">
-        <div className="mot-landing-page">
-          <Container className="m-auto">
-            <Row className="justify-content-center">
-              <Col md={10}>
-                <div>
-                  <Link to="/">
-                    <img src={Logo} alt="" className="logo" />
-                  </Link>
-                </div>
-                <Row className="pt-5">
-                  <Col md={8} className="mot-text-color">
-                    <div className="mot-catch-phrase">
-                      Create a striking <br />
-                      profile and get vetted <br />
-                      for your design cause.
-                    </div>
-                  </Col>
-                  <Col md={4} className="mot-apply-instruction">
-                    <h6 className="white-text small-texts">How it works:</h6>
-                    <div className="white-text pt-2 d-flex">
-                      <div>
-                        <img src={arrow} alt="" />
-                      </div>
-                      <div className="pl-3">
-                        Input your name and Job Headline
-                      </div>
-                    </div>
-                    <div className="white-text pt-2 d-flex">
-                      <div>
-                        <img src={arrow} alt="" />
-                      </div>
-                      <div className="pl-3">Upload your avatar</div>
-                    </div>
-                    <div className="white-text pt-2 d-flex">
-                      <div>
-                        <img src={arrow} alt="" />
-                      </div>
-                      <div className="pl-3">Include your portfolio link</div>
-                    </div>
-                    <div className="white-text pt-2 d-flex">
-                      <div>
-                        <img src={arrow} alt="" />
-                      </div>
-                      <div className="pl-3">
-                        Add the applications you are confident at
-                      </div>
-                    </div>
-                    <div className="white-text pt-2 d-flex">
-                      <div>
-                        <img src={arrow} alt="" />
-                      </div>
-                      <div className="pl-3">Gain approval</div>
-                    </div>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </Container>
-        </div>
-      </div> */}
-
       <NewApplyCardHead />
 
       {/* main content */}

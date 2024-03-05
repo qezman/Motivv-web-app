@@ -81,7 +81,7 @@
     display: flex;
     justify-content: center;
     gap: 34px;
-    align-items: start;
+    align-items: center;
   }
   .mot-catch-phrase {
     width: 542px !important;
@@ -94,5 +94,8 @@
   }
   .create-profile-btn {
     margin-top: 43px;
+  }
+  .create-text-and-btn {
+    margin-top: 60px;
   }
 }
