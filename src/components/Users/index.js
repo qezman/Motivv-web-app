@@ -17,7 +17,7 @@ let arrow =
 export default function index() {
   return (
     <section className="mot-section-container">
-      <div>
+      <div className="both-cont">
         <Fade bottom delay={1000} duration={1000}>
           <div className="mot-gender-cont">
             <img
@@ -46,7 +46,7 @@ export default function index() {
         </article>
       </div>
 
-      <div>
+      <div className="both-cont">
         <Fade bottom delay={1000} duration={1000}>
           <div className="mot-gender-cont">
             <img
