@@ -90,6 +90,21 @@ export default function NewApplyCard() {
     "@media screen and (min-width: 760px)": {
       width: "1000px",
     },
+    extendedInput: {
+      width: "564px",
+      background: "transparent",
+    },
+  };
+
+  const removeSelectedSkill = (index) => {
+    // Create a copy of the selectedSkills array
+    const updatedSelectedSkills = [...selectedSkills];
+
+    // Remove the skill at the specified index
+    updatedSelectedSkills.splice(index, 1);
+
+    // Update the state with the new array of selected skills
+    setSelectedSkills(updatedSelectedSkills);
   };
 
   const [formErrors, setFormErrors] = useState({
@@ -376,7 +391,7 @@ export default function NewApplyCard() {
             <Col md={3}>
               <div className="d-flex justify-content-center flex-column align-items-center">
                 <input
-                  // required
+                  required
                   onChange={(e) => {
                     // Get the file from the target
                     const imageFile = e.target.files[0];
@@ -400,6 +415,17 @@ export default function NewApplyCard() {
                   onClick={() => imageRef.current.click()}
                   className="mot-upload-image cursor"
                 />
+                {/* <img
+                  id="target"
+                  height="72px"
+                  width="72px"
+                  style={{ borderRadius: "72px" }}
+                  src={(form?.avatar && form.avatar.url) || upload}
+                  alt="motivv upload"
+                  onClick={() => imageRef.current.click()}
+                  className="mot-upload-image cursor"
+                /> */}
+
                 <p className="mot-form-hint w-100 text-center">Update avatar</p>
                 <p className="mot-form-hint w-100 text-center">(Optional)</p>
               </div>
@@ -409,7 +435,7 @@ export default function NewApplyCard() {
                 <div className="mb-2 mt-3">
                   <div className="px-3">
                     <input
-                      style={styles}
+                      style={{ styles, ...styles.extendedInput }}
                       // style={styles}
                       type="text"
                       required
@@ -436,11 +462,11 @@ export default function NewApplyCard() {
                 <div className="mb-2 mt-3">
                   <div className="px-3">
                     <input
-                      style={styles}
+                      style={{ styles, ...styles.extendedInput }}
                       type="text"
                       required
                       placeholder="Job Headline"
-                      className="mt-0 p-0"
+                      className="input-title mt-0 p-0"
                       value={form?.jobHeadline || ""}
                       onChange={(e) =>
                         handleInputChange("jobHeadline", e.target.value)
@@ -461,11 +487,11 @@ export default function NewApplyCard() {
                 <div className="mb-2 mt-3">
                   <div className="px-3">
                     <input
-                      style={styles}
+                      style={{ styles, ...styles.extendedInput }}
                       type="email"
                       required
                       placeholder="Email Address"
-                      className="mt-0 p-0"
+                      className="input-title mt-0 p-0"
                       value={form?.email || ""}
                       onChange={(e) =>
                         handleInputChange("email", e.target.value)
@@ -484,11 +510,11 @@ export default function NewApplyCard() {
                 <div className="mb-2 mt-3">
                   <div className="px-3">
                     <input
-                      style={styles}
+                      style={{ styles, ...styles.extendedInput }}
                       type="text"
                       required
                       placeholder="Phone Number"
-                      className="mt-0 p-0"
+                      className="input-title mt-0 p-0"
                       value={form?.phone || ""}
                       onChange={(e) =>
                         handleInputChange("phone", e.target.value)
@@ -507,11 +533,11 @@ export default function NewApplyCard() {
                 <div className="mb-2 mt-3">
                   <div className="px-3">
                     <input
-                      style={styles}
+                      style={{ styles, ...styles.extendedInput }}
                       type="text"
                       required
                       placeholder="Portfolio Link"
-                      className="mt-0 p-0"
+                      className="input-title mt-0 p-0"
                       value={form?.portfolio || ""}
                       onChange={(e) =>
                         handleInputChange("portfolio", e.target.value)
@@ -530,34 +556,112 @@ export default function NewApplyCard() {
 
                 <div className="mb-2 mt-3">
                   <div className="px-3">
+                    {/* Dropdown for selecting skills */}
                     <select
-                      style={styles}
-                      placeholder="Skills e.g Adobe XD"
-                      value={selectedSkills}
+                      style={{ ...styles.extendedInput }}
+                      value=""
                       onChange={handleSkillChange}
+                      className="input-title ml-auto"
                     >
-                      <option value="">Skills e.g Adobe XD</option>
-                      <option value="Photoshop">Photoshop</option>
-                      <option value="Canva">Canva</option>
-                      <option value="Adobe XD">Adobe XD</option>
-                      <option value="Illustrator">Illustrator</option>
-                      <option value="Affinity">Affinity</option>
-                      <option value="After Effects">After Effects</option>
-                      <option value="Premier Pro">Premier Pro</option>
-                      <option value="Figma">Figma</option>
-                      <option value="Affinity">Affinity</option>
-                      <option value="InDesign">InDesign</option>
-                      <option value="Autodesk Maya">Autodesk Maya</option>
-                      <option value="Cinema 4D">Cinema 4D</option>
-                      <option value="Dreamweaver">Dreamweaver</option>
-                      <option value="Framer">Framer</option>
-                      <option value="InVision studio">InVision studio</option>
+                      <option value="" disabled hidden>
+                        {selectedSkills.length > 0
+                          ? "" + selectedSkills.join(", ")
+                          : "Skills e.g Adobe XD"}
+                      </option>
+                      <option
+                        value="Photoshop"
+                        disabled={selectedSkills.includes("Photoshop")}
+                      >
+                        Photoshop
+                      </option>
+                      <option
+                        value="Canva"
+                        disabled={selectedSkills.includes("Canva")}
+                      >
+                        Canva
+                      </option>
+                      <option
+                        value="Illustrator"
+                        disabled={selectedSkills.includes("Illustrator")}
+                      >
+                        Illustrator
+                      </option>
+
+                      <option
+                        value="Affinity"
+                        disabled={selectedSkills.includes("Affinity")}
+                      >
+                        Affinity
+                      </option>
+
+                      <option
+                        value="After Effects"
+                        disabled={selectedSkills.includes("After Effects")}
+                      >
+                        After Effects
+                      </option>
+
+                      <option
+                        value="Premier Pro"
+                        disabled={selectedSkills.includes("Premier Pro")}
+                      >
+                        Premier Pro
+                      </option>
+
+                      <option
+                        value="Figma"
+                        disabled={selectedSkills.includes("Figma")}
+                      >
+                        Figma
+                      </option>
+
+                      <option
+                        value="Indesign"
+                        disabled={selectedSkills.includes("Indesign")}
+                      >
+                        Indesign
+                      </option>
+
+                      <option
+                        value="Autodesk Maya"
+                        disabled={selectedSkills.includes("Autodesk Maya")}
+                      >
+                        Autodesk Maya
+                      </option>
+
+                      <option
+                        value="Cinema 4D"
+                        disabled={selectedSkills.includes("Cinema 4D")}
+                      >
+                        Cinema 4D
+                      </option>
+
+                      <option
+                        value="Dreamweaver"
+                        disabled={selectedSkills.includes("Dreamweaver")}
+                      >
+                        Dreamweaver
+                      </option>
+
+                      <option
+                        value="Framer"
+                        disabled={selectedSkills.includes("Framer")}
+                      >
+                        Framer
+                      </option>
+
+                      <option
+                        value="Invision studio"
+                        disabled={selectedSkills.includes("Invision studio")}
+                      >
+                        Invision studio
+                      </option>
                     </select>
+
                     <p style={smallTexts} className="mot-form-hint w-100">
                       Only four skills set is allowed for display purpose
                     </p>
 
-                    <div>Selected Skills: {selectedSkills.join(", ")}</div>
                     {/* Display alert message */}
                     {alertMessage && (
                       <div className="alert alert-danger mt-2" role="alert">
@@ -570,11 +674,11 @@ export default function NewApplyCard() {
                 <div className="mb-2 mt-3">
                   <div className="px-3">
                     <input
-                      style={styles}
+                      style={{ styles, ...styles.extendedInput }}
                       type="text"
                       required
                       placeholder="NGN"
-                      className="mt-0 p-0"
+                      className="input-title mt-0 p-0"
                       value={form?.price || ""}
                       onChange={(e) =>
                         handleInputChange("price", e.target.value)
@@ -596,7 +700,7 @@ export default function NewApplyCard() {
                     className={loading ? "disabled-btn" : ""}
                     onClick={handleSubmit}
                     type="submit"
-                    style={styles}
+                    // style={styles}
                   >
                     Submit
                   </button>{" "}
