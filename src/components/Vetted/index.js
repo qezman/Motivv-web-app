@@ -46,7 +46,6 @@ export default function Vetted({ props }) {
   const [userPrompt, setUserPrompt] = useState("");
   const user = useContext(UserContext);
   const [success, setSuccess] = useState(false);
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -68,7 +67,6 @@ export default function Vetted({ props }) {
         console.log("Response data:", response.data);
 
         console.log("Designers Data:", response.data.data);
-
 
         // if (response.data.length > 0) {
         //   console.log("Worked!!");
@@ -92,7 +90,7 @@ export default function Vetted({ props }) {
           user.setUser(Cookies.get("user-auth"));
           setUserPrompt("Request successful! Redirecting...");
           setSuccess(true);
-        
+
           setTimeout(() => {
             // Redirect to "/designers" after 3 seconds
             props.history.push("/designers");
@@ -101,7 +99,6 @@ export default function Vetted({ props }) {
           setError(true);
           setErrorValue("No designers found for the given email");
         }
-        
       } catch (error) {
         console.error("Error during axios.get:", error);
         setError(true);
@@ -153,55 +150,52 @@ export default function Vetted({ props }) {
           </p>
           <p className="rate">Rate: NGN 500/hr</p>
           <p className="view-port-btn">View Portfolio</p>
-        </article> 
-
+        </article>
 
         {/* texts */}
-      <section className="next-section">
-        <h1 className="vetted-text">Already vetted designers for your work</h1>
-        <p className="next-para">
-          We enlist and recommend designers that meet your skill requrements.
-          <br />
-          Check creative’s portfolio, negotiate and hire.
-        </p>
-        <form className="form-input" action="">
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Input email to book a designer"
-            className="book-designer-input"
-          />
-          <div className="book-a-designer-cont">
-            <button
-              className="book-a-designer-btn"
-              disabled={loading}
-              style={{
-                opacity: loading ? "0.7" : "1",
-                cursor: loading ? "not-allowed" : "pointer",
-                fontSize: "14px",
-                fontWeight: "500",
-              }}
-              onClick={handleSubmit}
-              type="submit"
-            >
-              Book a designer
-            </button>
+        <section className="next-section">
+          <h1 className="vetted-text">
+            Already vetted designers for your work
+          </h1>
+          <p className="next-para">
+            We enlist and recommend designers that meet your skill requrements.
+            <br />
+            Check creative’s portfolio, negotiate and hire.
+          </p>
+          <form className="form-input" action="">
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Input email to book a designer"
+              className="book-designer-input"
+            />
+            <div className="book-a-designer-cont">
+              <button
+                className="book-a-designer-btn"
+                disabled={loading}
+                style={{
+                  opacity: loading ? "0.7" : "1",
+                  cursor: loading ? "not-allowed" : "pointer",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                }}
+                onClick={handleSubmit}
+                type="submit"
+              >
+                Book a designer
+              </button>
 
-            {error && (
-              <div className="mt-2 w-80">
-                <Alert variant="danger">{errorValue}</Alert>
-              </div>
-            )}
-          </div>
-        </form>
+              {error && (
+                <div className="mt-2 w-80">
+                  <Alert variant="danger">{errorValue}</Alert>
+                </div>
+              )}
+            </div>
+          </form>
+        </section>
       </section>
-
-      
-      </section>
-
-      
     </section>
   );
 }

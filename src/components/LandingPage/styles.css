@@ -159,6 +159,9 @@
   cursor: pointer;
   border: none;
 }
+.flex-headers {
+  margin-top: -50px;
+}
 @media (max-width: 320px) {
   .flex-headers {
     display: flex;
@@ -222,6 +225,26 @@
     justify-content: space-between;
     padding: 0 10px;
   }
+  
+  .post-job-btn {
+    /* padding: 12px; */
+
+    display: flex;
+    width: 155px;
+    height: 43px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+  .post-job-text {
+    color: #fff;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; /* 112.5% */
+  }
+
 }
 
 /* @media screen and (min-width: 321px) and (max-width: 1000px) {
@@ -289,13 +312,26 @@
     align-items: center;
     justify-content: space-between;
     /* padding: 0 20px; */
+    width: 100%;
   }
 
   .post-job-btn {
-    padding: 12px;
+    /* padding: 12px; */
+
+    display: flex;
+    width: 155px;
+    height: 43px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
   }
   .post-job-text {
-    color: white;
+    color: #fff;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; /* 112.5% */
   }
 
   .logo-and-navlinks {
@@ -317,22 +353,25 @@
   .flex-headers {
     display: flex;
     align-items: center;
-    width: 88%;
+    width: 100%;
     padding: 0 30px;
   }
 }
 
-
 @media (max-width: 900px) {
-.nav-links {
-  display: none;
-}
+  .nav-links {
+    display: none;
+  }
+  .flex-headers {
+    width: 100%;
+  }
 }
 
 @media (min-width: 1024px) {
   .flex-headers {
     width: 100%;
     margin: auto;
+    margin-top: -50px;
   }
   .nav-links {
     gap: 15px;
@@ -360,6 +399,7 @@
   .flex-headers {
     width: 85%;
     margin: auto;
+    margin-top: -50px;
   }
   .connect-and-card {
     width: 80%;
