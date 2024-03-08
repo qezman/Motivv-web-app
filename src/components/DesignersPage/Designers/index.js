@@ -1,25 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Alert } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
-import axios from "axios";
-import Helmet from "../../Helmet/index";
-import { CREATE_CLIENT } from "../../../constants";
-import "./style.css";
-import Footer from "../../Footer/index";
-import { information } from "./designersData";
+import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Alert } from 'react-bootstrap';
+import { Link, useHistory } from 'react-router-dom';
+import axios from 'axios';
+import Helmet from '../../Helmet/index';
+import { CREATE_CLIENT } from '../../../constants';
+import './style.css';
+import Footer from '../../Footer/index';
+import { information } from './designersData';
 
-let Logo =
-  "https://res.cloudinary.com/denw9euui/image/upload/v1594310687/Motivv/logo_wwolum.png";
-let arrow =
-  "https://res.cloudinary.com/denw9euui/image/upload/v1594397277/arrow_w_l9x24r.png";
+let Logo = 'https://res.cloudinary.com/denw9euui/image/upload/v1594310687/Motivv/logo_wwolum.png';
+let arrow = 'https://res.cloudinary.com/denw9euui/image/upload/v1594397277/arrow_w_l9x24r.png';
 
-  
 // Define your API URL
-const API_URL = "https://backend-production-fc84.up.railway.app/api/client";
+const API_URL = 'https://backend-production-fc84.up.railway.app/api/designers';
 
 const Designers = () => {
   const [designers, setDesigners] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [isRotated, setIsRotated] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -28,50 +25,73 @@ const Designers = () => {
     const fetchDesigners = async () => {
       try {
         const response = await axios.get(`${API_URL}`);
-        setDesigners(response.data);
-        console.log("Designers fetched:", response.data);
+        console.log('Designers fetched:', response.data);
+        setDesigners(response.data.data);
       } catch (error) {
-        console.error("Error fetching designers:", error);
+        console.error('Error fetching designers:', error);
       }
     };
 
     fetchDesigners();
-  }, []); 
+  }, []);
 
   // Filter designers based on the selected category
-  const filteredDesigners = designers.filter((item) => {
-    if (!selectedCategory) {
-      return true; // Show all designers if no category is selected
-    }
+  const filteredDesigners = React.useMemo(
+    () => {
+      // First filter by the selected category
+      let newDesigners =
+      designers
+      .filter((item) => {
 
-    // Customize the condition based on your category logic
-    if (selectedCategory === "Recommended") {
-      return item.isRecommended;
-    } else if (selectedCategory === "Premium Profile") {
-      return item.isPremium;
-    }
+        if (!selectedCategory) return true;
 
-    return true;
-  });
+        if (item.rating === selectedCategory) return true;
+        return false;
+
+        // // Customize the condition based on your category logic
+        // if (selectedCategory === "Recommended") {
+        //   return item.isRecommended;
+        // } else if (selectedCategory === "Premium Profile") {
+        //   return item.isPremium;
+        // }
+
+        // return true;
+      })
+
+      // if searchQuery
+      if (searchQuery && searchQuery.trim() !== '') {
+        newDesigners = newDesigners.filter(
+          (item) =>
+            item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            item.role?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            item.skill1.some((tool) => tool.toLowerCase().includes(searchQuery.toLowerCase())) ||
+            item.paragraph?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            item.rate?.toString().includes(searchQuery)
+        )
+      }
+
+      return newDesigners
+    }
+      ,
+    [selectedCategory, designers, searchQuery]
+  );
+
+  console.log({ filteredDesigners });
 
   // Function to handle category selection
   const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
-    console.log("Selected category:", category);
+    setSelectedCategory((prevCategory) => (prevCategory === category ? null : category));
+    console.log('Selected category:', category);
   };
 
-
-
-  const filteredInformation = information.filter(
-    (item) =>
-      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.role.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.tools.some((tool) =>
-        tool.toLowerCase().includes(searchQuery.toLowerCase())
-      ) ||
-      item.paragraph.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.rate.toString().includes(searchQuery)
-  );
+  // const filteredInformation = information.filter(
+  //   (item) =>
+  //     item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  //     item.role.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  //     item.tools.some((tool) => tool.toLowerCase().includes(searchQuery.toLowerCase())) ||
+  //     item.paragraph.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  //     item.rate.toString().includes(searchQuery)
+  // );
 
   const toggleRotation = () => {
     setIsRotated(!isRotated);
@@ -109,9 +129,7 @@ const Designers = () => {
                         <div>
                           <img src={arrow} alt="" />
                         </div>
-                        <div className="pl-3">
-                          Select preferred talent
-                        </div>
+                        <div className="pl-3">Select preferred talent</div>
                       </div>
                       <div className="white-text pt-2 d-flex">
                         <div>
@@ -155,18 +173,18 @@ const Designers = () => {
         <section className="main-content">
           {/* navigations */}
           <article className="navigations">
-            <button onClick={() => handleCategorySelect("Recommended")} className="recommended">
-              <img className="icon" src="/assets/star.png" />
+            <button onClick={() => handleCategorySelect('recommended')} className="recommended">
+              <img className="icon" src="/assets/star.png" alt="" />
               <p>Recommended</p>
             </button>
 
-            <button onClick={() => handleCategorySelect("Premium Profile")} className="premium">
-              <img className="icon" src="/assets/crown.png" />
+            <button onClick={() => handleCategorySelect('premium')} className="premium">
+              <img className="icon" src="/assets/crown.png" alt="" />
               <p>Premium Profile</p>
             </button>
 
             <div className="search">
-              <img className="icon" src="/assets/Vector.svg" />
+              <img className="icon" src="/assets/Vector.svg" alt="" />
               <input
                 className="search-bar"
                 type="text"
@@ -181,11 +199,15 @@ const Designers = () => {
           <article className="card-grid">
             {filteredDesigners.map((item, index) => (
               <div className="info-cont" key={index}>
-                <img className="info-image" src={item.Image} alt={item.name} />
+                <img
+                  className="info-image"
+                  src={item.avatar?.url || '/assets/pending-img.png'}
+                  alt={item.name}
+                />
                 <h5 className="info-name">{item.name}</h5>
                 <p className="info-role">{item.role}</p>
                 <div className="info-tools">
-                  {item.tools.map((tool, toolIndex) => (
+                  {item.skill1.map((tool, toolIndex) => (
                     <p className="tool" key={`${item.id}-${toolIndex}`}>
                       {tool}
                     </p>
@@ -199,13 +221,11 @@ const Designers = () => {
           </article>
 
           <article className="view-and-arrow">
-            <p className="view-more-btn">View more</p>
+            <p className="view-more-btn">View more <span>>></span></p>
             <p
-              className={`double-arrow ${isRotated ? "rotated" : ""}`}
+              className={`double-arrow ${isRotated ? 'rotated' : ''}`}
               onClick={toggleRotation}
-            >
-              >>
-            </p>
+            ></p>
           </article>
         </section>
 

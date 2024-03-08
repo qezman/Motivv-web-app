@@ -188,8 +188,8 @@ export default function Vetted({ props }) {
               </button>
 
               {error && (
-                <div className="mt-2 w-80">
-                  <Alert variant="danger">{errorValue}</Alert>
+                <div className="error-cont">
+                  <Alert className="error-text" variant="danger">{errorValue}</Alert>
                 </div>
               )}
             </div>

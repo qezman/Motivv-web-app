@@ -183,8 +183,8 @@
     /* width: 300px; */
   }
   .image-placeholder {
-    width: 453px;
-    height: 471px;
+    width: 350px;
+    height: 400px;
   }
   .dot-cont {
     position: relative;
@@ -273,15 +273,9 @@
 
 /* Large Devices (Desktops) */
 @media (min-width: 1440px) and (max-width: 1919.98px) {
-  body {
-    font-size: 24px;
-  }
 }
 
 @media (min-width: 1920px) {
-  body {
-    font-size: 26px;
-  }
 }
 
 /* @media screen and (min-width: 760px) {
