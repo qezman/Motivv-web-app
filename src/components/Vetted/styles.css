@@ -116,7 +116,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 50px;
     /* margin: 50px 0; */
   }
 
@@ -194,7 +194,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 123px;
   }
 
   .cont-section > * {
