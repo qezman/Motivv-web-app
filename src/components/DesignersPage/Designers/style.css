@@ -3,9 +3,10 @@
   flex-direction: column;
   align-content: center;
   align-items: center;
+  gap: 20px;
 }
 .main-content {
-  margin: 20px 0;
+  margin: 50px 0;
 }
 /* .navigations > * + * {
   margin-top: 0;
@@ -17,8 +18,9 @@
   border-radius: 10px;
   /* border: 1px solid black; */
   background: #ecf1f5;
-  width: 180px;
-  margin: 20px;
+  width: 80%;
+  gap: 10px;
+  /* margin: 20px; */
   padding: 8px 0;
 }
 
@@ -30,11 +32,13 @@
 .view-and-arrow {
   cursor: pointer;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-items: center;
   justify-content: center;
 }
 .view-more-btn {
+  display: flex;
   color: black;
   font-weight: 700;
 }
@@ -68,8 +72,9 @@
   justify-content: center;
   border-radius: 10px;
   border: 1px solid #c4c4c4;
-  width: 180px;
-  margin: 20px;
+  width: 80%;
+  gap: 10px;
+  /* margin: 20px; */
   padding: 8px 0;
   font-weight: 700;
 }
@@ -92,7 +97,7 @@
   border-radius: 10px;
   border: 1px solid #bdbdbd;
   outline: none;
-  width: 180px;
+  width: 80%;
   /* margin: 20px; */
   padding: 8px;
 }
@@ -106,7 +111,8 @@
 .card-grid {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 240.164px;
+  height: auto;
   margin: auto;
 }
 
@@ -132,33 +138,25 @@
     margin-right: 8px;
   }
   .recommended p {
-    font-size: 20px;
+    font-size: 14px;
   }
   .premium {
     width: 270px;
     height: 49px;
   }
   .premium p {
-    font-size: 20px;
+    font-size: 14px;
   }
   .search {
-    width: 270px;
+    width: 250px;
     height: 49px;
     flex-shrink: 0;
     padding: 8px;
   }
   .search p {
-    font-size: 20px;
+    font-size: 14px;
   }
 
-  .card-grid {
-    display: flex;
-    flex-direction: row;
-    width: 80%;
-    flex-wrap: wrap;
-    margin: auto;
-    /* justify-content: space-between; */
-  }
   .info-cont {
     flex: 0 1 calc(33.33% - 20px);
     margin: 10px;
@@ -171,39 +169,116 @@
 }
 
 @media screen and (min-width: 760px) {
+  .navigations {
+    width: 80%;
+    margin: auto;
+  }
+  .recommended {
+    padding: 20px;
+  }
+  .premium {
+    padding: 20px;
+  }
   .card-grid {
+    margin-top: 80px;
+    gap: 52px;
     display: flex;
     flex-direction: row;
     width: 90%;
     flex-wrap: wrap;
-    margin: auto;
-    /* justify-content: space-between; */
+    justify-content: center;
   }
   .info-cont {
-    flex: 0 1 calc(33.33% - 20px);
+    flex: 0 1 calc(25% - 20px);
     margin: 10px;
     box-sizing: border-box;
   }
 }
 
+@media screen and (min-width: 1024px) {
+  .card-grid {
+    margin-top: 80px;
+    /* gap: 52px; */
+    display: flex;
+    flex-direction: row;
+    /* width: 240.164px; */
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* margin: auto; */
+    /* justify-content: space-between; */
+  }
+  .recommended p {
+    font-size: 18px;
+  }
+
+  .premium p {
+    font-size: 18px;
+  }
+  .recommended {
+    padding: 20px;
+  }
+
+  .premium {
+    padding: 20px;
+  }
+
+  .search p {
+    font-size: 18px;
+  }
+  .info-cont {
+    flex: 0 1 calc(20% - 20px);
+    margin: 10px;
+    box-sizing: border-box;
+  }
+}
 @media screen and (min-width: 1200px) {
+  .navigations {
+    gap: 50px;
+  }
+  .info-cont {
+    flex-basis: calc(20% - 20px); /* Adjust as needed for four columns */
+  }
+  .card-grid {
+    width: 75%;
+  }
+  .search {
+    width: 524px;
+  }
+  .recommended {
+    width: 330px;
+  }
+  .recommended p {
+    font-size: 24px;
+  }
+
+  .premium {
+    /* padding: 0 40px; */
+    width: 330px;
+  }
+  .premium p {
+    font-size: 24px;
+  }
+
+  .search p {
+    font-size: 24px;
+  }
+}
+/* @media screen and (min-width: 1200px) {
   .navigations {
     display: flex;
     justify-content: space-between;
     margin: 30px;
-    /* gap: 60px; */
   }
   .main-content {
     margin: 40px 0;
   }
   .recommended {
     display: flex;
-    /* justify-content: space-between; */
     justify-items: center;
     align-items: center;
     padding: 10px 150px;
     gap: 15px;
-    /* width: 500px; */
   }
 
   .icon {
@@ -235,10 +310,8 @@
     display: flex;
     flex-direction: row;
     width: 97%;
-    /* margin: auto; */
     flex-wrap: wrap;
     margin: 20px;
-    /* justify-content: space-between; */
   }
   .info-cont {
     flex: 0 1 calc(25% - 20px);
@@ -249,4 +322,4 @@
   .view-and-arrow {
     margin: 68px 0 116px 0;
   }
-}
+} */

@@ -1,34 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Alert } from 'react-bootstrap';
-import { Link, useHistory } from 'react-router-dom';
-import axios from 'axios';
-import Helmet from '../../Helmet/index';
-import { CREATE_CLIENT } from '../../../constants';
-import './style.css';
-import Footer from '../../Footer/index';
-import { information } from './designersData';
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col, Alert } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
+import Helmet from "../../Helmet/index";
+import { CREATE_CLIENT } from "../../../constants";
+import "./style.css";
+import Footer from "../../Footer/index";
+import { information } from "./designersData";
 
-let Logo = 'https://res.cloudinary.com/denw9euui/image/upload/v1594310687/Motivv/logo_wwolum.png';
-let arrow = 'https://res.cloudinary.com/denw9euui/image/upload/v1594397277/arrow_w_l9x24r.png';
+let Logo =
+  "https://res.cloudinary.com/denw9euui/image/upload/v1594310687/Motivv/logo_wwolum.png";
+let arrow =
+  "https://res.cloudinary.com/denw9euui/image/upload/v1594397277/arrow_w_l9x24r.png";
 
 // Define your API URL
-const API_URL = 'https://backend-production-fc84.up.railway.app/api/designers';
+const API_URL = "https://backend-production-fc84.up.railway.app/api/designers";
 
 const Designers = () => {
   const [designers, setDesigners] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [isRotated, setIsRotated] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [visibleItems, setVisibleItems] = useState(28);
 
   useEffect(() => {
     // Function to fetch designers from the API
     const fetchDesigners = async () => {
       try {
         const response = await axios.get(`${API_URL}`);
-        console.log('Designers fetched:', response.data);
+        console.log("Designers fetched:", response.data);
         setDesigners(response.data.data);
       } catch (error) {
-        console.error('Error fetching designers:', error);
+        console.error("Error fetching designers:", error);
       }
     };
 
@@ -36,52 +39,49 @@ const Designers = () => {
   }, []);
 
   // Filter designers based on the selected category
-  const filteredDesigners = React.useMemo(
-    () => {
-      // First filter by the selected category
-      let newDesigners =
-      designers
-      .filter((item) => {
+  const filteredDesigners = React.useMemo(() => {
+    // First filter by the selected category
+    let newDesigners = designers.filter((item) => {
+      if (!selectedCategory) return true;
 
-        if (!selectedCategory) return true;
+      if (item.rating === selectedCategory) return true;
+      return false;
 
-        if (item.rating === selectedCategory) return true;
-        return false;
+      // // Customize the condition based on your category logic
+      // if (selectedCategory === "Recommended") {
+      //   return item.isRecommended;
+      // } else if (selectedCategory === "Premium Profile") {
+      //   return item.isPremium;
+      // }
 
-        // // Customize the condition based on your category logic
-        // if (selectedCategory === "Recommended") {
-        //   return item.isRecommended;
-        // } else if (selectedCategory === "Premium Profile") {
-        //   return item.isPremium;
-        // }
+      // return true;
+    });
 
-        // return true;
-      })
-
-      // if searchQuery
-      if (searchQuery && searchQuery.trim() !== '') {
-        newDesigners = newDesigners.filter(
-          (item) =>
-            item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            item.role?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            item.skill1.some((tool) => tool.toLowerCase().includes(searchQuery.toLowerCase())) ||
-            item.paragraph?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            item.rate?.toString().includes(searchQuery)
-        )
-      }
-
-      return newDesigners
+    // if searchQuery
+    if (searchQuery && searchQuery.trim() !== "") {
+      newDesigners = newDesigners.filter(
+        (item) =>
+          item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.role?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.skill1.some((tool) =>
+            tool.toLowerCase().includes(searchQuery.toLowerCase())
+          ) ||
+          item.paragraph?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.rate?.toString().includes(searchQuery)
+      );
     }
-      ,
-    [selectedCategory, designers, searchQuery]
-  );
+
+    return newDesigners;
+  }, [selectedCategory, designers, searchQuery]);
 
   console.log({ filteredDesigners });
 
   // Function to handle category selection
   const handleCategorySelect = (category) => {
-    setSelectedCategory((prevCategory) => (prevCategory === category ? null : category));
-    console.log('Selected category:', category);
+    setSelectedCategory((prevCategory) =>
+      prevCategory === category ? null : category
+    );
+    console.log("Selected category:", category);
   };
 
   // const filteredInformation = information.filter(
@@ -97,6 +97,10 @@ const Designers = () => {
     setIsRotated(!isRotated);
   };
 
+  const handleViewMore = () => {
+    // Increment the number of visible items
+    setVisibleItems((prevVisibleItems) => prevVisibleItems + 28);
+  };
   return (
     <>
       <Helmet
@@ -135,7 +139,9 @@ const Designers = () => {
                         <div>
                           <img src={arrow} alt="" />
                         </div>
-                        <div className="pl-3">Generate talent profile snapshot</div>
+                        <div className="pl-3">
+                          Generate talent profile snapshot
+                        </div>
                       </div>
                       <div className="white-text pt-2 d-flex">
                         <div>
@@ -173,12 +179,18 @@ const Designers = () => {
         <section className="main-content">
           {/* navigations */}
           <article className="navigations">
-            <button onClick={() => handleCategorySelect('recommended')} className="recommended">
+            <button
+              onClick={() => handleCategorySelect("recommended")}
+              className="recommended"
+            >
               <img className="icon" src="/assets/star.png" alt="" />
               <p>Recommended</p>
             </button>
 
-            <button onClick={() => handleCategorySelect('premium')} className="premium">
+            <button
+              onClick={() => handleCategorySelect("premium")}
+              className="premium"
+            >
               <img className="icon" src="/assets/crown.png" alt="" />
               <p>Premium Profile</p>
             </button>
@@ -197,11 +209,11 @@ const Designers = () => {
 
           {/* body section */}
           <article className="card-grid">
-            {filteredDesigners.map((item, index) => (
+            {filteredDesigners.slice(0, visibleItems).map((item, index) => (
               <div className="info-cont" key={index}>
                 <img
                   className="info-image"
-                  src={item.avatar?.url || '/assets/pending-img.png'}
+                  src={item.avatar?.url || "/assets/pending-img.png"}
                   alt={item.name}
                 />
                 <h5 className="info-name">{item.name}</h5>
@@ -221,12 +233,17 @@ const Designers = () => {
           </article>
 
           <article className="view-and-arrow">
-            <p className="view-more-btn">View more <span>>></span></p>
+            {visibleItems < filteredDesigners.length && (
+              <div className="view-more-btn" onClick={handleViewMore}>
+                View more <p className="double-arrow">>></p>
+              </div>
+            )}
+          </article>
+
             <p
-              className={`double-arrow ${isRotated ? 'rotated' : ''}`}
+              className={`double-arrow ${isRotated ? "rotated" : ""}`}
               onClick={toggleRotation}
             ></p>
-          </article>
         </section>
 
         <Footer />
