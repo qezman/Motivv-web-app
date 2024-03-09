@@ -35,6 +35,21 @@
   width: 100%;
 }
 
+
+@media screen and (max-width: 425px) { 
+  .white-text {
+    text-align: center;
+  }
+  .mot-footer-links {
+    text-align: center;
+  }
+  .mot-logo {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+}
+
 @media screen and (max-width: 760px) {
   .mot-footer-links div a {
     color: #ffffff !important;

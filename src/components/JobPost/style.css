@@ -106,7 +106,7 @@
 }
 .btn-two-cont:hover {
   background: #0b2844;
-  
+
   transition: 0.3s ease-in-out;
 }
 .btn-job:hover {
@@ -135,6 +135,18 @@
   font-weight: 500;
   line-height: 18px; /* 112.5% */
 }
+
+@media screen and (max-width: 425px) {
+  .topic {
+    text-align: center;
+  }
+  .both-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
 @media screen and (min-width: 760px) {
   .section-container {
     display: flex;
@@ -200,94 +212,3 @@
     margin-right: 190px;
   }
 }
-
-/* .mot-job-post-con {
-  background-color: #fff;
-  padding: 150px 0 150px;
-}
-.mot-job-post .button1 {
-  color: #13497c;
-  background-color: #ffffff;
-  outline: none;
-  border: none;
-  padding: 10px 40px;
-  border-radius: 8px;
-  margin-top: 20px;
-  border: 2px solid #13497c;
-}
-
-.cont-container {
-  display: flex;
-}
-
-.mot-access-header {
-  color: #134a7c;
-  font-weight: 700;
-}
-.mot-job-post .button1:hover {
-  color: #fff;
-  background-color: #13497c;
-  box-shadow: none;
-  transition: 0.2s ease-in;
-}
-
-.mot-job-post .button2 {
-  color: #ffffff;
-  background-color: #13497c;
-  outline: none;
-  border: none;
-  padding: 10px 40px;
-  border-radius: 8px;
-  margin-top: 20px;
-  border: 2px solid #13497c;
-}
-
-.mot-job-post .button2:hover {
-  color: #13497c;
-  background-color: #ffffff;
-  box-shadow: none;
-  transition: 0.2s ease-in;
-}
-.mot-job-post-con svg {
-  width: 100%;
-}
-.job-post-new {
-  color: #e52424;
-  font-family: Rubik;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 22px; 
-  padding: 10px 16px;
-}
-.post-new-cont {
-  border-radius: 16px;
-  background: #f9cccc;
-  width: fit-content;
-}
-.explore-btn:hover {
-  color: white !important;
-}
-
-@media screen and (max-width: 760px) {
-  .mot-access-header {
-    color: #134a7c;
-    font-weight: 700;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .mot-access-header {
-    width: 500px;
-    height: 161px;
-    flex-shrink: 0;
-  }
-  .tap-into-text {
-    width: 497px;
-    height: 88px;
-    padding-top: 0px !important;
-  }
-  .hire-cont {
-    margin-top: 16px !important;
-  }
-} */

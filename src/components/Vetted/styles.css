@@ -95,6 +95,12 @@
   background: #0b2b4a;
 }
 
+@media screen and (max-width: 425px) {
+  .vetted-text {
+    text-align: center;
+  }
+}
+
 @media screen and (min-width: 760px) {
   .cont-section {
     /* display: flex; */

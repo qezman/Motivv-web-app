@@ -55,6 +55,17 @@
   }
 }
 
+@media screen and (max-width: 425px) {
+  .header-text {
+    text-align: center;
+  }
+  .app-btn {
+    display: flex;
+    /* width: 200px; */
+    margin: auto;
+  }
+}
+
 /* Small Devices (Tablets) */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .mot-background-cont {

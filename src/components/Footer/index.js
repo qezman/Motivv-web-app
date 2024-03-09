@@ -26,9 +26,11 @@ export default function index() {
         <Container>
           <Row>
             <Col md={3}>
+              <div className="mot-logo">
               <a href="/">
                 <img src={Logo} alt="" className="logo" />
               </a>
+              </div>
               <h6 style={footLinkText} className="white-text pt-4">
                 Designed with <img src={Heart} alt="Heart" /> by Aorthar
               </h6>

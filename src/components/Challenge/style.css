@@ -116,6 +116,14 @@
   }
 }
 
+@media screen and (max-width: 425px) { 
+  .mot-access-section-header {
+    text-align: center;
+  }
+  .mot-challenge {
+    margin: auto;
+  }
+}
 @media screen and (min-width: 1024px) {
   .content-container {
     display: flex;

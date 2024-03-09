@@ -83,11 +83,20 @@
   background: #0a2640 !important;
 }
 
+@media (max-width: 425px) {
+  .explore-btn {
+    margin: auto;
+  }
+  .mot-cs-btn {
+    background: transparent;
+  }
+}
+
 @media (max-width: 500px) {
   .mot-check-school__hword {
     font-size: 1.6rem;
     width: 80%;
-    text-align: left;
+    text-align: center;
   }
   .mot-check-school__features {
     width: 95%;
@@ -101,7 +110,11 @@
     align-self: flex-start;
     padding-left: 2.5rem;
   }
+  .explore-btn {
+  }
 }
+
+
 
 @media screen and (min-width: 1024px) {
   .mot-check-school__htext {

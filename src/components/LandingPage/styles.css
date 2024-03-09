@@ -218,6 +218,17 @@
   font-size: 16px;
 }
 
+@media screen and (max-width: 425px) {
+.mot-catch-phrase {
+  text-align: center;
+}
+.mot-catch-phrase-sub {
+  text-align: center;
+  margin: auto;
+}
+  
+}
+
 @media screen and (min-width: 321px) and (max-width: 720px) {
   .flex-headers {
     display: flex;
@@ -261,6 +272,16 @@
     padding: 0 10px;
   }
 } */
+
+
+/* @media screen and (min-width: 760px) and (max-width:1200px){ 
+  .mot-catch-phrase {
+    text-align: left;
+  }
+.mot-catch-phrase-sub {
+  text-align: left;
+  margin: 0;
+}} */
 
 @media (min-width: 760px) {
   .custom-modal {
