@@ -64,6 +64,9 @@
     /* width: 200px; */
     margin: auto;
   }
+  .sub-text {
+    text-align: center;
+  }
 }
 
 /* Small Devices (Tablets) */

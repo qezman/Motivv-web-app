@@ -99,6 +99,13 @@
   .vetted-text {
     text-align: center;
   }
+  .next-para {
+    text-align: center;
+  }
+  .book-a-designer-cont {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 @media screen and (min-width: 760px) {

@@ -26,13 +26,12 @@ export default function CheckSchool() {
               </Fade>
               <Fade delay={1000}>
                 <p className="mot-check-school__htext">
-                  Become a professional designer by taking the standard 4-year
-                  Design course
+                Become a professional designer by taking the standard 4-year Design course
                 </p>
               </Fade>
-              <div className="explore-btn">
-                <Link className="mr-3" to="/school">
-                  <button className="button1 mot-cs-btn">
+              <div className="coming-soon-cont">
+                <Link to="/school">
+                  <button className="coming-soon-btn">
                     <span className="font-weight-bold">Coming Soon</span>
                   </button>
                 </Link>

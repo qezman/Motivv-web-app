@@ -148,89 +148,90 @@ export default function LandingPage() {
       </Modal>
       <div className="mot-landing-page-blue">
         <div className="mot-explore-page">
-
-        {/* nav section */}
+          {/* nav section */}
           <section className="flex-headers">
-            <div>
-              <Link to="/">
-                <img src={Logo} alt="" className="logo" />
-              </Link>
+            <div className="logo-links-and-button">
+                <div>
+                  <Link to="/">
+                    <img src={Logo} alt="" className="logo" />
+                  </Link>
+                </div>
+                <div className="nav-links">
+                  <li>
+                    <Link style={styles} to="/">
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link style={styles} to="/designers">
+                      Designers
+                    </Link>
+                  </li>
+
+                  <li className="jobs">
+                    <Link to="/jobs" style={styles}>
+                      Jobs
+                    </Link>
+                    <img
+                      style={{
+                        marginLeft: "10px",
+                        cursor: "pointer",
+                        transform: isDropdownVisible
+                          ? "rotate(180deg)"
+                          : "rotate(0deg)",
+                      }}
+                      src="/assets/dropdown.svg"
+                      alt="dropdown"
+                      onClick={toggleDropdown}
+                    />
+                    {isDropdownVisible && (
+                      <div className="dropdown-texts">
+                        <ul>
+                          <li
+                            onClick={handlePostJobClick}
+                            className="menu-text-one"
+                          >
+                            Post a job
+                          </li>
+                          <div />
+                          <Link to={"/jobs"}>
+                            <li className="menu-text">Find jobs</li>
+                          </Link>
+                        </ul>
+                      </div>
+                    )}
+                  </li>
+
+                  <li>
+                    <Link style={styles} to="/challenges">
+                      Design Challenge
+                    </Link>
+                  </li>
+                  <li>
+                    <Link style={styles} to="/resources">
+                      Resources
+                    </Link>
+                  </li>
+                  <li>
+                    <Link style={styles} to="/university">
+                      University
+                    </Link>
+                  </li>
+                </div>
+
+              <button className={`post-job-btn ${isHovered ? "hovered" : ""}`}>
+                <Link
+                  // to="/post-job"
+                  className="post-job-text"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onClick={handlePostJobClick}
+                >
+                  <img src={postImg} alt="" className="post-job-text mr-2" />{" "}
+                  Post Job
+                </Link>
+              </button>
             </div>
-            <div className="nav-links">
-              <li>
-                <a style={styles} href="/">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a style={styles} href="/designers">
-                  Designers
-                </a>
-              </li>
-
-              <li className="jobs">
-                <a style={styles}>
-                  Jobs
-                </a>
-                <img
-                  style={{
-                    marginLeft: "10px",
-                    cursor: "pointer",
-                    transform: isDropdownVisible
-                      ? "rotate(180deg)"
-                      : "rotate(0deg)",
-                  }}
-                  src="/assets/dropdown.svg"
-                  alt="dropdown"
-                  onClick={toggleDropdown}
-                />
-                {isDropdownVisible && (
-                  <div className="dropdown-texts">
-                    <ul>
-                      <li
-                        onClick={handlePostJobClick}
-                        className="menu-text-one"
-                      >
-                        Post a job
-                      </li>
-                      <div />
-                      <Link to={"/jobs"}>
-                        <li className="menu-text">Find jobs</li>
-                      </Link>
-                    </ul>
-                  </div>
-                )}
-              </li>
-
-              <li>
-                <a style={styles} href="/challenges">
-                  Design Challenge
-                </a>
-              </li>
-              <li>
-                <a style={styles} href="/resources">
-                  Resources
-                </a>
-              </li>
-              <li>
-                <a style={styles} href="/university">
-                  University
-                </a>
-              </li>
-            </div>
-
-            <button className={`post-job-btn ${isHovered ? "hovered" : ""}`}>
-              <Link
-                // to="/post-job"
-                className="post-job-text"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                onClick={handlePostJobClick}
-              >
-                <img src={postImg} alt="" className="post-job-text mr-2" /> Post
-                Job
-              </Link>
-            </button>
 
             {/*modal content  */}
             <Modal
@@ -273,7 +274,8 @@ export default function LandingPage() {
                 <Col md={8} className="mot-text-color mot-text-center">
                   <Fade delay={1000} duration={500} bottom>
                     <h1 className="mot-catch-phrase">
-                      We connect <br/> prospective clients to <br/> vetted designers.
+                      We connect <br /> prospective clients to <br /> vetted
+                      designers.
                     </h1>
                   </Fade>
                   <Fade delay={1800} duration={1500} bottom>

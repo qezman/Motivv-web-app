@@ -20,17 +20,19 @@ export default function index() {
       <div className="cont-two">
         <Fade bottom delay={1000} duration={1000}>
           <div className="mot-gender-cont">
-            <img
-              src={man}
-              alt="placeholder card"
-              className="mot-placeholder-card"
-            />
-            <img
-              src={woman}
-              alt="placeholder card"
-              className="mot-placeholder-card2"
-            />
-            <div className="small-text pt-2">Motivv for Clients</div>
+            <div>
+              <img
+                src={man}
+                alt="placeholder card"
+                className="mot-placeholder-card"
+              />
+              <img
+                src={woman}
+                alt="placeholder card"
+                className="mot-placeholder-card2"
+              />
+            </div>
+            <p className="small-text pt-2">Motivv for Clients</p>
           </div>
         </Fade>
         <article className="each-item">
@@ -49,17 +51,19 @@ export default function index() {
       <div className="cont-two">
         <Fade bottom delay={1000} duration={1000}>
           <div className="mot-gender-cont">
-            <img
-              src={boy}
-              alt="placeholder card"
-              className="mot-placeholder-card"
-            />
-            <img
-              src={girl}
-              alt="placeholder card"
-              className="mot-placeholder-card2"
-            />
-            <div className="small-text pt-2">Motivv for Creatives</div>
+            <div>
+              <img
+                src={boy}
+                alt="placeholder card"
+                className="mot-placeholder-card"
+              />
+              <img
+                src={girl}
+                alt="placeholder card"
+                className="mot-placeholder-card2"
+              />
+            </div>
+            <p className="small-text pt-2">Motivv for Creatives</p>
           </div>
         </Fade>
         <article className="each-item">

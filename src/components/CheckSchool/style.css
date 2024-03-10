@@ -14,13 +14,15 @@
   width: 80%;
   margin-bottom: 1.8rem;
 }
-
+.coming-soon-btn {
+  background: transparent;
+}
 .mot-check-school__htext {
   width: 47%;
   text-align: center;
 }
 
-.mot-check-school .explore-btn {
+.coming-soon-btn {
   color: #13497c;
   background-color: transparent;
   outline: none;
@@ -29,11 +31,37 @@
   border-radius: 10px;
   margin-top: 20px;
   border: 2px solid #13497c;
+
+  /* margin: auto; */
 }
 
-.mot-cs-btn:hover,
+.coming-soon-cont {
+  display: flex;
+  justify-content: center;
+}
+
+.mot-check-school .explore-btn {
+  /* color: #13497c;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 10px;
+  margin-top: 20px;
+  border: 2px solid #13497c; */
+}
+
+/* .mot-cs-btn:hover,
 .mot-cs-btn:focus,
 .mot-cs-btn:active {
+  border: 0 !important;
+  background-color: #13497c !important;
+  color: white !important;
+} */
+
+.coming-soon-btn:hover,
+.coming-soon-btn:focus,
+.coming-soon-btn:active {
   border: 0 !important;
   background-color: #13497c !important;
   color: white !important;
@@ -78,7 +106,9 @@
   line-height: 21px;
   color: #000000;
 }
-
+.explore-btn {
+  background: transparent !important;
+}
 .explore-btn:hover {
   background: #0a2640 !important;
 }
@@ -89,6 +119,12 @@
   }
   .mot-cs-btn {
     background: transparent;
+  }
+  .mot-check-school__htext {
+    text-align: center !important;
+  }
+  .coming-soon-btn {
+    text-align: center;
   }
 }
 
@@ -113,8 +149,6 @@
   .explore-btn {
   }
 }
-
-
 
 @media screen and (min-width: 1024px) {
   .mot-check-school__htext {

@@ -61,7 +61,7 @@
 }
 
 .display-img {
-  width: 300px;
+  width: auto;
   margin-top: 20px;
 }
 
@@ -122,6 +122,14 @@
   }
   .mot-challenge {
     margin: auto;
+  }
+  .mot-access-section-caption {
+    text-align: center;
+  }
+  .display-img {
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
   }
 }
 @media screen and (min-width: 1024px) {
