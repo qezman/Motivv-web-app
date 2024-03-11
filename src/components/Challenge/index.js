@@ -15,7 +15,7 @@ export default function Challenge() {
         <div>
           <Col className="challenge-new-cont mb-3">
             <span className="challenge-new mb-2 d-block">New</span>
-            <Fade>
+            <Fade left delay={1000} duration={1000}>
               <h1 className="mot-access-section-header">
                 Become a better designer <br/> in 4-weeks!
               </h1>

@@ -154,9 +154,11 @@ export default function Vetted({ props }) {
 
         {/* texts */}
         <section className="next-section">
-          <h1 className="vetted-text">
-            Already vetted designers for your work
-          </h1>
+          <Fade bottom delay={1000} duration={1000}>
+            <h1 className="vetted-text">
+              Already vetted designers for your work
+            </h1>
+          </Fade>
           <p className="next-para">
             We enlist and recommend designers that meet your skill requrements.
             <br />
@@ -189,7 +191,9 @@ export default function Vetted({ props }) {
 
               {error && (
                 <div className="error-cont">
-                  <Alert className="error-text" variant="danger">{errorValue}</Alert>
+                  <Alert className="error-text" variant="danger">
+                    {errorValue}
+                  </Alert>
                 </div>
               )}
             </div>

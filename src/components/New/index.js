@@ -14,9 +14,11 @@ export default function Index() {
     <article className="mot-background-cont">
       <section className="mot-section">
         <article className="mot-left-cont">
-          <h1 className="header-text">
-            Gain access to clients <br /> in a single click!
-          </h1>
+          <Fade bottom delay={1000} duration={1000}>
+            <h1 className="header-text">
+              Gain access to clients <br /> in a single click!
+            </h1>
+          </Fade>
           <p className="sub-text">
             Getting hired for project gets easy by setting up your profile.
             Input your details and start getting gigs. No login processes, No

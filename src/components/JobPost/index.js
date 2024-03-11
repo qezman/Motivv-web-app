@@ -6,7 +6,7 @@ import ImageSvg from "./ImageSvg";
 import "./style.css";
 
 export default function JobPost() {
-  // const textStyle = window >= 760 ? { width: "500px" } : {};
+  const textStyle = window >= 760 ? { width: "500px" } : {};
   return (
     <section className="section-container">
       <div className="recruit-cont">
@@ -18,9 +18,11 @@ export default function JobPost() {
           <div className="new-badge-cont">
             <p className="new-badge">New</p>
           </div>
+          <Fade right delay={1000} duration={1000}>
           <p className="topic">
             Put your job in front of millions of candidates. For free!
           </p>
+          </Fade>
           <p className="sub-text">
             Tap into our huge community of qualified candidates who are
             searching for their next role. Post jobs online, and get your job
