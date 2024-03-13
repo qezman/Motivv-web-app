@@ -44,10 +44,11 @@
   border-radius: 10px;
   /* border: 1px solid black; */
   background: #ecf1f5;
-  width: 80%;
+  width: 270px;
   gap: 10px;
   /* margin: 20px; */
   padding: 8px 0;
+  outline: none;
 }
 
 .view-btn {
@@ -98,11 +99,12 @@
   justify-content: center;
   border-radius: 10px;
   border: 1px solid #c4c4c4;
-  width: 80%;
+  width: 270px;
   gap: 10px;
   /* margin: 20px; */
   padding: 8px 0;
   font-weight: 700;
+  outline: none;
 }
 .premium p {
   margin: 0;
@@ -123,7 +125,7 @@
   border-radius: 10px;
   border: 1px solid #bdbdbd;
   outline: none;
-  width: 80%;
+  width: 270px;
   /* margin: 20px; */
   padding: 8px;
 }
