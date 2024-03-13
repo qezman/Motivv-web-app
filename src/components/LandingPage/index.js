@@ -8,6 +8,7 @@ import post from "../../assets/post.svg";
 import postImg from "../../assets/magic.svg";
 import JobPostPage from "../../pages/JobPostPage";
 import Modal from "react-modal";
+import MobileScreenNav from "./MobileScreenNav";
 
 import "./styles.css";
 import { UserContext } from "../UserContext";
@@ -37,6 +38,23 @@ let Card11 =
 
 export default function LandingPage() {
   const styles = window.innerWidth >= 760 ? { color: "white" } : {};
+
+  // const [isMobileScreen, setIsMobileScreen] = useState(
+  //   window.innerWidth <= 425
+  // );
+
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsMobileScreen(window.innerWidth <= 425);
+  //   };
+
+  //   window.addEventListener("resize", handleResize);
+
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
+
   const bannerSettings = {
     fade: true,
     infinite: true,
@@ -151,73 +169,73 @@ export default function LandingPage() {
           {/* nav section */}
           <section className="flex-headers">
             <div className="logo-links-and-button">
-                <div>
-                  <Link to="/">
-                    <img src={Logo} alt="" className="logo" />
+              <div>
+                <Link to="/">
+                  <img src={Logo} alt="" className="logo" />
+                </Link>
+              </div>
+              <div className="nav-links">
+                <li>
+                  <Link style={styles} to="/">
+                    Home
                   </Link>
-                </div>
-                <div className="nav-links">
-                  <li>
-                    <Link style={styles} to="/">
-                      Home
-                    </Link>
-                  </li>
-                  <li>
-                    <Link style={styles} to="/designers">
-                      Designers
-                    </Link>
-                  </li>
+                </li>
+                <li>
+                  <Link style={styles} to="/designers">
+                    Designers
+                  </Link>
+                </li>
 
-                  <li className="jobs">
-                    <Link to="/jobs" style={styles}>
-                      Jobs
-                    </Link>
-                    <img
-                      style={{
-                        marginLeft: "10px",
-                        cursor: "pointer",
-                        transform: isDropdownVisible
-                          ? "rotate(180deg)"
-                          : "rotate(0deg)",
-                      }}
-                      src="/assets/dropdown.svg"
-                      alt="dropdown"
-                      onClick={toggleDropdown}
-                    />
-                    {isDropdownVisible && (
-                      <div className="dropdown-texts">
-                        <ul>
-                          <li
-                            onClick={handlePostJobClick}
-                            className="menu-text-one"
-                          >
-                            Post a job
-                          </li>
-                          <div />
-                          <Link to={"/jobs"}>
-                            <li className="menu-text">Find jobs</li>
-                          </Link>
-                        </ul>
-                      </div>
-                    )}
-                  </li>
+                <li className="jobs">
+                  <Link to="/jobs" style={styles}>
+                    Jobs
+                  </Link>
+                  <img
+                    style={{
+                      marginLeft: "10px",
+                      cursor: "pointer",
+                      transform: isDropdownVisible
+                        ? "rotate(180deg)"
+                        : "rotate(0deg)",
+                    }}
+                    src="/assets/dropdown.svg"
+                    alt="dropdown"
+                    onClick={toggleDropdown}
+                  />
+                  {isDropdownVisible && (
+                    <div className="dropdown-texts">
+                      <ul>
+                        <li
+                          onClick={handlePostJobClick}
+                          className="menu-text-one"
+                        >
+                          Post a job
+                        </li>
+                        <div />
+                        <Link to={"/jobs"}>
+                          <li className="menu-text">Find jobs</li>
+                        </Link>
+                      </ul>
+                    </div>
+                  )}
+                </li>
 
-                  <li>
-                    <Link style={styles} to="/challenges">
-                      Design Challenge
-                    </Link>
-                  </li>
-                  <li>
-                    <Link style={styles} to="/resources">
-                      Resources
-                    </Link>
-                  </li>
-                  <li>
-                    <Link style={styles} to="/university">
-                      University
-                    </Link>
-                  </li>
-                </div>
+                <li>
+                  <Link style={styles} to="/challenges">
+                    Design Challenge
+                  </Link>
+                </li>
+                <li>
+                  <Link style={styles} to="/resources">
+                    Resources
+                  </Link>
+                </li>
+                <li>
+                  <Link style={styles} to="/university">
+                    University
+                  </Link>
+                </li>
+              </div>
 
               <button className={`post-job-btn ${isHovered ? "hovered" : ""}`}>
                 <Link
@@ -267,6 +285,8 @@ export default function LandingPage() {
               </article>
             </Modal>
           </section>
+
+          {/* {!isMobileScreen && <MobileScreenNav />} */}
 
           <Container className="m-auto">
             <div className="connect-and-card">

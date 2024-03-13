@@ -6,6 +6,13 @@ module.exports = {
     filename: 'bundle.js',  // Output file name
     path: path.resolve(__dirname, 'dist'),  // Output directory
   },
+  resolve: {
+    fallback: {
+      // assert: require.resolve("assert/"),
+      stream: require.resolve("stream-browserify")
+    }
+  }
+  
   
   // Other webpack configurations...
 };

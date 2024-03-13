@@ -8,6 +8,32 @@
 .main-content {
   margin: 50px 0;
 }
+
+.explore-head-text {
+  color: #fff2df;
+  font-family: "DM Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  margin-top: 30px;
+  text-align: center;
+}
+.procedures-list {
+  text-align: center;
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 142.4%; /* 25.632px */
+}
+.arrow-and-list {
+  gap: 4px;
+}
+.left-arrow {
+  margin-right: 8px;
+}
 /* .navigations > * + * {
   margin-top: 0;
 } */
@@ -166,6 +192,31 @@
   .view-and-arrow {
     margin: 20px 0 100px 0;
   }
+
+  .left-and-right-cont {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    gap: 36px;
+  }
+  .explore-head-text {
+    width: 542px;
+    font-size: 48px;
+    line-height: 112.042%;
+    text-align: left;
+  }
+  .procedures-list {
+    text-align: left;
+  }
+  .payment-section {
+    /* margin-top: 30px; */
+  }
+  .premium-section {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+  }
+  
 }
 
 @media screen and (min-width: 760px) {
@@ -220,7 +271,9 @@
   }
 
   .premium {
-    padding: 20px;
+    width: 270px;
+    height: 49px;
+    flex-shrink: 0;
   }
 
   .search p {
@@ -230,6 +283,25 @@
     flex: 0 1 calc(20% - 20px);
     margin: 10px;
     box-sizing: border-box;
+  }
+
+  .left-and-right-cont {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+  }
+  .explore-head-text {
+    width: 542px;
+    font-size: 48px;
+    line-height: 112.042%;
+    text-align: left;
+  }
+  .procedures-list {
+    text-align: left;
+  }
+
+  .left-arrow {
+    margin-right: 18px;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -259,7 +331,9 @@
   .premium p {
     font-size: 24px;
   }
-.search {font-size: 24px;}
+  .search {
+    font-size: 24px;
+  }
   .search p {
     font-size: 24px;
   }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Container, Row, Col, Alert } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
@@ -7,6 +7,14 @@ import { CREATE_CLIENT } from "../../../constants";
 import "./style.css";
 import Footer from "../../Footer/index";
 import { information } from "./designersData";
+import PaymentForm from "./PaymentForm";
+
+// import postImg from "/assets/magic.svg";
+import JobPostPage from "../../JobPostPage";
+import Modal from "react-modal";
+
+import { UserContext } from "../../UserContext";
+import Cookies from "js-cookie";
 
 let Logo =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594310687/Motivv/logo_wwolum.png";
@@ -14,30 +22,107 @@ let arrow =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594397277/arrow_w_l9x24r.png";
 
 // Define your API URL
-const API_URL = "https://backend-production-fc84.up.railway.app/api/designers";
+// const API_URL = "https://backend-production-fc84.up.railway.app/api/designers";
+const API_URL = "https://backend-production-fc84.up.railway.app/api/client";
 
 const Designers = () => {
+  const styles = window.innerWidth >= 760 ? { color: "white" } : {};
+
   const [designers, setDesigners] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isRotated, setIsRotated] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  // const [selectedCategory, setSelectedCategory] = useState(null);
   const [visibleItems, setVisibleItems] = useState(28);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [isPaymentFormVisible, setIsPaymentFormVisible] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  const [emailInput, setEmailInput] = useState("");
+
+  const { show, setShow } = useContext(UserContext);
+
+  const onHide = () => {
+    console.log("Hiding modal...");
+    setShow(false);
+    Cookies.set("show-modal", "true");
+  };
+
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleDropdownClick = () => {
+    setIsDropdownVisible(!isDropdownVisible);
+  };
+  const toggleDropdown = () => {
+    setIsDropdownVisible(!isDropdownVisible);
+  };
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  const handlePostJobClick = () => {
+    setIsModalOpen(true);
+    setIsDropdownVisible(false);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  document.body.style.overflow = isModalOpen ? "hidden" : "auto";
+
+  const handleEmailChange = (e) => {
+    setEmailInput(e.target.value);
+  };
 
   useEffect(() => {
-    // Function to fetch designers from the API
-    const fetchDesigners = async () => {
+    // Function to create a new client on the server
+    const createClient = async () => {
       try {
-        const response = await axios.get(`${API_URL}`);
-        console.log("Designers fetched:", response.data);
-        setDesigners(response.data.data);
+        // Check if a client with the same email already exists locally
+        const existingClient = designers.find(
+          (client) => client.email === "example@example.com"
+        );
+
+        if (existingClient) {
+          // Handle the case where the client already exists locally
+          console.log("Client already exists:", existingClient);
+          return;
+        }
+
+        // If the client doesn't exist locally, proceed with the POST request
+        const response = await axios.post(API_URL, {
+          email: "example@example.com", // Replace with the actual email value
+          // Other client data...
+        });
+
+        console.log("Response from server:", response);
+
+        // Check if the response status is 200 (OK) or 201 (Created)
+        if (response.status === 200 || response.status === 201) {
+          console.log("Client created successfully!");
+          // Update the local state with the new client data
+          setDesigners([...designers, response.data.data]);
+          // Redirect or perform any other action after successful creation
+          console.log("Request successful! Redirecting...");
+        } else {
+          console.error(
+            "Failed to create client. Status code:",
+            response.status
+          );
+        }
       } catch (error) {
-        console.error("Error fetching designers:", error);
+        console.error("Error creating client:", error);
       }
     };
 
-    fetchDesigners();
-  }, []);
-
+    createClient();
+  }, [designers]);
   // Filter designers based on the selected category
   const filteredDesigners = React.useMemo(() => {
     // First filter by the selected category
@@ -78,9 +163,19 @@ const Designers = () => {
 
   // Function to handle category selection
   const handleCategorySelect = (category) => {
-    setSelectedCategory((prevCategory) =>
-      prevCategory === category ? null : category
-    );
+    if (category === "premium") {
+      // Perform the action for Premium Profile
+      // For example, show the payment form or navigate to a payment page
+      setIsPaymentFormVisible(true);
+      setSelectedCategory(null);
+    } else {
+      // Handle other categories
+      setIsPaymentFormVisible(false);
+      setSelectedCategory((prevCategory) =>
+        prevCategory === category ? null : category
+      );
+    }
+
     console.log("Selected category:", category);
   };
 
@@ -111,67 +206,165 @@ const Designers = () => {
       <div>
         <div className="mot-landing-page-blue">
           <div className="mot-landing-page">
-            <Container className="m-auto">
-              <Row className="justify-content-center">
-                <Col md={10}>
-                  <div>
-                    <Link to="/">
-                      <img src={Logo} alt="" className="logo" />
+            {/* nav section */}
+            <section className="flex-headers">
+              <div className="logo-links-and-button">
+                <div>
+                  <Link to="/">
+                    <img src={Logo} alt="" className="logo" />
+                  </Link>
+                </div>
+                <div className="nav-links">
+                  <li>
+                    <Link style={styles} to="/">
+                      Home
                     </Link>
+                  </li>
+                  <li>
+                    <Link style={styles} to="/designers">
+                      Designers
+                    </Link>
+                  </li>
+
+                  <li className="jobs">
+                    <Link to="/jobs" style={styles}>
+                      Jobs
+                    </Link>
+                    <img
+                      style={{
+                        marginLeft: "10px",
+                        cursor: "pointer",
+                        transform: isDropdownVisible
+                          ? "rotate(180deg)"
+                          : "rotate(0deg)",
+                      }}
+                      src="/assets/dropdown.svg"
+                      alt="dropdown"
+                      onClick={toggleDropdown}
+                    />
+                    {isDropdownVisible && (
+                      <div className="dropdown-texts">
+                        <ul>
+                          <li
+                            onClick={handlePostJobClick}
+                            className="menu-text-one"
+                          >
+                            Post a job
+                          </li>
+                          <div />
+                          <Link to={"/jobs"}>
+                            <li className="menu-text">Find jobs</li>
+                          </Link>
+                        </ul>
+                      </div>
+                    )}
+                  </li>
+
+                  <li>
+                    <Link style={styles} to="/challenges">
+                      Design Challenge
+                    </Link>
+                  </li>
+                  <li>
+                    <Link style={styles} to="/resources">
+                      Resources
+                    </Link>
+                  </li>
+                  <li>
+                    <Link style={styles} to="/university">
+                      University
+                    </Link>
+                  </li>
+                </div>
+
+                <button
+                  className={`post-job-btn ${isHovered ? "hovered" : ""}`}
+                >
+                  <Link
+                    // to="/post-job"
+                    className="post-job-text"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    onClick={handlePostJobClick}
+                  >
+                    <img
+                      src="../../assets/magic.svg"
+                      alt=""
+                      className="post-job-text mr-2"
+                    />{" "}
+                    Post Job
+                  </Link>
+                </button>
+              </div>
+
+              <section className="left-and-right-cont">
+                <div>
+                  <p className="explore-head-text">
+                    Explore profiles of designers and select your creative
+                    knight.
+                  </p>
+                </div>
+
+                <div className="procedures-list">
+                  <p>How it works:</p>
+                  <p className="arrow-and-list">
+                    <span className="left-arrow">>></span>Select preferred
+                    talent
+                  </p>
+                  <p className="arrow-and-list">
+                    <span className="left-arrow">>></span>Generate talent
+                    profile snapshot
+                  </p>
+                  <p className="arrow-and-list">
+                    <span className="left-arrow">>></span>Connect to our admin
+                  </p>
+                  <p className="arrow-and-list">
+                    <span className="left-arrow">>></span>Get talent contact
+                  </p>
+                  <p className="arrow-and-list">
+                    <span className="left-arrow">>></span>Continue with
+                    negotaition
+                  </p>
+                  <p className="arrow-and-list">
+                    <span className="left-arrow">>></span>Hire Creative
+                  </p>
+                </div>
+              </section>
+
+              {/*modal content  */}
+              <Modal
+                isOpen={isModalOpen}
+                onRequestClose={handleCloseModal}
+                className="custom-modal"
+                overlayClassName="custom-modal-overlay"
+                shouldCloseOnOverlayClick={false}
+                shouldCloseOnEsc={false}
+                onAfterClose={() => (document.body.style.overflow = "auto")}
+              >
+                <article className="custom-modal-content">
+                  {/* <div className="custom-modal-flex"> */}
+                  <div className="custom-modal-header">
+                    <h6 className="tell-us">Tell us about your job</h6>
+                    <p
+                      style={{
+                        color: "black",
+                        fontWeight: "700",
+                        cursor: "pointer",
+                        fontSize: "24px",
+                        padding: "4px",
+                      }}
+                      onClick={handleCloseModal}
+                    >
+                      x
+                    </p>
                   </div>
-                  <Row className="pt-5">
-                    <Col md={8} className="mot-text-color">
-                      <div className="mot-catch-phrase">
-                        Explore profiles of <br />
-                        designers and select <br />
-                        your creative knight.
-                      </div>
-                    </Col>
-                    <Col md={4} className="mot-apply-instruction">
-                      <h6 className="white-text small-texts">How it works:</h6>
-                      <div className="white-text pt-2 d-flex">
-                        <div>
-                          <img src={arrow} alt="" />
-                        </div>
-                        <div className="pl-3">Select preferred talent</div>
-                      </div>
-                      <div className="white-text pt-2 d-flex">
-                        <div>
-                          <img src={arrow} alt="" />
-                        </div>
-                        <div className="pl-3">
-                          Generate talent profile snapshot
-                        </div>
-                      </div>
-                      <div className="white-text pt-2 d-flex">
-                        <div>
-                          <img src={arrow} alt="" />
-                        </div>
-                        <div className="pl-3">Connet to our admin</div>
-                      </div>
-                      <div className="white-text pt-2 d-flex">
-                        <div>
-                          <img src={arrow} alt="" />
-                        </div>
-                        <div className="pl-3">Get talent contact</div>
-                      </div>
-                      <div className="white-text pt-2 d-flex">
-                        <div>
-                          <img src={arrow} alt="" />
-                        </div>
-                        <div className="pl-3">Continue with negotiation</div>
-                      </div>
-                      <div className="white-text pt-2 d-flex">
-                        <div>
-                          <img src={arrow} alt="" />
-                        </div>
-                        <div className="pl-3">Hire creative</div>
-                      </div>
-                    </Col>
-                  </Row>
-                </Col>
-              </Row>
-            </Container>
+                  <div className="custom-modal-body">
+                    <JobPostPage />
+                  </div>
+                  {/* </div> */}
+                </article>
+              </Modal>
+            </section>
           </div>
         </div>
 
@@ -187,13 +380,16 @@ const Designers = () => {
               <p>Recommended</p>
             </button>
 
-            <button
-              onClick={() => handleCategorySelect("premium")}
-              className="premium"
-            >
-              <img className="icon" src="/assets/crown.png" alt="" />
-              <p>Premium Profile</p>
-            </button>
+            <div className="premium-section">
+              <button
+                onClick={() => handleCategorySelect("premium")}
+                className="premium"
+              >
+                <img className="icon" src="/assets/crown.png" alt="" />
+                <p>Premium Profile</p>
+              </button>
+            </div>
+
 
             <div className="search">
               <img className="icon" src="/assets/Vector.svg" alt="" />
@@ -206,6 +402,13 @@ const Designers = () => {
               />
             </div>
           </article>
+
+          
+            <section className="payment-section">
+              {isPaymentFormVisible && (
+                <PaymentForm onClose={() => setIsPaymentFormVisible(false)} />
+              )}
+            </section>
 
           {/* body section */}
           <article className="card-grid">
@@ -240,10 +443,10 @@ const Designers = () => {
             )}
           </article>
 
-            <p
-              className={`double-arrow ${isRotated ? "rotated" : ""}`}
-              onClick={toggleRotation}
-            ></p>
+          <p
+            className={`double-arrow ${isRotated ? "rotated" : ""}`}
+            onClick={toggleRotation}
+          ></p>
         </section>
 
         <Footer />
