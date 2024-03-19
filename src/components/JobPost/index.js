@@ -19,9 +19,9 @@ export default function JobPost() {
             <p className="new-badge">New</p>
           </div>
           <Fade right delay={1000} duration={1000}>
-          <p className="topic">
-            Put your job in front of millions of candidates. For free!
-          </p>
+            <p className="topic">
+              Put your job in front of millions of candidates. For free!
+            </p>
           </Fade>
           <p className="sub-text">
             Tap into our huge community of qualified candidates who are
@@ -33,13 +33,19 @@ export default function JobPost() {
         <div className="div-cont">
           <article className="items-content">
             <div className="sub-items">
-              <img className="check-icon" src="/assets/checked.png" />
-              <p>Post a job</p>
+              <span className="check-and-text">
+                <img className="check-icon" src="/assets/checked.png" />
+                <span>Post a job</span>
+              </span>
+              <p></p>
             </div>
 
-            <div className="sub-items">
-              <img className="check-icon" src="/assets/checked.png" />
-              <p>Hire great talents</p>
+            <div className="sub-items second-item">
+              <span className="check-and-text">
+                <img className="check-icon" src="/assets/checked.png" />
+                <span>Hire great talents</span>
+              </span>
+              <p></p>
             </div>
           </article>
 

@@ -10,18 +10,18 @@
 }
 
 .mot-footer-container {
-  background: url("../../assets/bg.svg");
+  background: url("../../assets/bg.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .mot-footer-links div a {
-  color: #ffffff;
+  color: #fff2df;
   /* padding-top: 20px; */
 }
 
 .mot-footer-links div a:hover {
-  color: #fff2df;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -33,6 +33,10 @@
 .slick-slide img {
   display: block;
   width: 100%;
+}
+
+.copyright-text {
+  color: #fff2df;
 }
 
 
@@ -52,7 +56,7 @@
 
 @media screen and (max-width: 760px) {
   .mot-footer-links div a {
-    color: #ffffff !important;
+    color: #FFF2DF !important;
     margin-top: 80px !important;
   }
   .social-icon {

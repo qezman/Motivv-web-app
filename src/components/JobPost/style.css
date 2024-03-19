@@ -43,10 +43,11 @@
 .topic {
   color: #134a7c;
   font-family: "DM Sans";
-  font-size: 24px;
+  font-size: 32px;
   font-style: normal;
   font-weight: 700;
-  line-height: 112.042%; /* 53.78px */
+  line-height: 112.042%;
+  text-align: center;
 }
 
 .sub-text {
@@ -68,12 +69,20 @@
   /* padding-top: 13px; */
 }
 .check-icon {
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
+}
+
+.check-and-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 .both-btns {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 10px;
+  margin-top: 20px;
 }
 .btn-one-cont {
   display: flex;
@@ -99,15 +108,15 @@
 
 .btn-one-cont:hover {
   background: #0b2844;
-  transition: 0.3s ease-in-out;
+  transition: 0.5s ease-in-out;
+  color: #fff;
 }
 .btn-one-cont:hover p {
   color: white;
 }
 .btn-two-cont:hover {
   background: #0b2844;
-
-  transition: 0.3s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 .btn-job:hover {
   color: white;
@@ -135,19 +144,15 @@
   font-weight: 500;
   line-height: 18px; /* 112.5% */
 }
-
-@media screen and (max-width: 425px) {
-  .topic {
-    text-align: center;
-  }
-  .both-btns {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
+.items-content {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  gap: 12px;
+  /* align-items: center; */
 }
 
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 500px) {
   .section-container {
     display: flex;
     justify-content: center;
@@ -155,13 +160,14 @@
     gap: 30px;
   }
   .topic {
-    padding: 16px 0;
+    padding: 16px 0 0 0;
     width: 300px;
-    font-size: 32px;
+    font-size: 38px;
+    text-align: left;
   }
   .sub-items {
-    display: flex;
-    align-items: center;
+    /* display: flex;
+    align-items: center; */
   }
   .sub-text {
     width: 350px;
@@ -171,7 +177,6 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 142.4%;
   }
   .both-btns {
     display: flex;
@@ -179,6 +184,16 @@
     gap: 25px;
   }
   .items-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 0px;
+    /* align-items: start; */
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .second-item {
+    margin-top: 16px;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -193,11 +208,17 @@
   }
   .topic {
     font-size: 48px;
-    width: 527px;
+    width: 530px;
     flex-shrink: 0;
   }
   .sub-text {
     width: 497px;
+    margin-top: 0;
+  }
+  .items-content {
+    margin-top: -25px;
+    padding-top: 0;
+    gap: 0;
   }
 }
 

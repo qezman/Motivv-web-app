@@ -38,9 +38,15 @@ const Designers = () => {
   const [isPaymentFormVisible, setIsPaymentFormVisible] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
+  const [isRecommendedSelected, setIsRecommendedSelected] = useState(false);
+  const [isPremiumSelected, setIsPremiumSelected] = useState(false);
+
   const [emailInput, setEmailInput] = useState("");
 
   const { show, setShow } = useContext(UserContext);
+
+  const [email, useEmail] = useState("");
+  const [userEmail, setUserEmail] = useState("");
 
   const onHide = () => {
     console.log("Hiding modal...");
@@ -80,50 +86,93 @@ const Designers = () => {
     setEmailInput(e.target.value);
   };
 
+  // useEffect(() => {
+  //   const createClient = async () => {
+  //     try {
+  //       const existingClient = designers.find(
+  //         (client) => client.email === "example@example.com"
+  //       );
+
+  //       if (existingClient) {
+  //         console.log("Client already exists:", existingClient);
+  //         return;
+  //       }
+
+  //       const response = await axios.post(API_URL, {
+  //         email: "example@example.com",
+  //       });
+
+  //       console.log("Response from server:", response);
+
+  //       if (response.status === 200 || response.status === 201) {
+  //         console.log("Client created successfully!");
+  //         setDesigners([...designers, response.data.data]);
+  //         console.log("Request successful! Redirecting...");
+  //       } else {
+  //         console.error(
+  //           "Failed to create client. Status code:",
+  //           response.status
+  //         );
+  //       }
+  //     } catch (error) {
+  //       console.error("Error creating client:", error);
+  //     }
+  //   };
+
+  //   createClient();
+  // }, [designers]);
+
+  // Filter designers based on the selected category
+
   useEffect(() => {
-    // Function to create a new client on the server
-    const createClient = async () => {
+    const fetchUserEmailAndCreateClient = async () => {
       try {
+        // Make an HTTP request to fetch the user's email
+        const response = await axios.get("/api/user/email");
+        const userEmail = response.data.email;
+
+        // Update the state with the user's email
+        setUserEmail(userEmail);
+
         // Check if a client with the same email already exists locally
         const existingClient = designers.find(
-          (client) => client.email === "example@example.com"
+          (client) => client.email === userEmail
         );
 
         if (existingClient) {
-          // Handle the case where the client already exists locally
           console.log("Client already exists:", existingClient);
           return;
         }
 
         // If the client doesn't exist locally, proceed with the POST request
-        const response = await axios.post(API_URL, {
-          email: "example@example.com", // Replace with the actual email value
-          // Other client data...
+        const createResponse = await axios.post(API_URL, {
+          email: userEmail,
         });
 
-        console.log("Response from server:", response);
+        console.log("Response from server:", createResponse);
 
         // Check if the response status is 200 (OK) or 201 (Created)
-        if (response.status === 200 || response.status === 201) {
+        if (createResponse.status === 200 || createResponse.status === 201) {
           console.log("Client created successfully!");
           // Update the local state with the new client data
-          setDesigners([...designers, response.data.data]);
+          setDesigners([...designers, createResponse.data.data]);
           // Redirect or perform any other action after successful creation
           console.log("Request successful! Redirecting...");
         } else {
           console.error(
             "Failed to create client. Status code:",
-            response.status
+            createResponse.status
           );
         }
       } catch (error) {
-        console.error("Error creating client:", error);
+        console.error("Error fetching user email or creating client:", error);
       }
     };
 
-    createClient();
-  }, [designers]);
-  // Filter designers based on the selected category
+    // Call the function to fetch user email and create client when the component mounts
+    fetchUserEmailAndCreateClient();
+  }, []);
+
   const filteredDesigners = React.useMemo(() => {
     // First filter by the selected category
     let newDesigners = designers.filter((item) => {
@@ -161,21 +210,14 @@ const Designers = () => {
 
   console.log({ filteredDesigners });
 
-  // Function to handle category selection
   const handleCategorySelect = (category) => {
-    if (category === "premium") {
-      // Perform the action for Premium Profile
-      // For example, show the payment form or navigate to a payment page
-      setIsPaymentFormVisible(true);
-      setSelectedCategory(null);
-    } else {
-      // Handle other categories
-      setIsPaymentFormVisible(false);
-      setSelectedCategory((prevCategory) =>
-        prevCategory === category ? null : category
-      );
+    // Toggle the state of each category only if it's not already selected
+    if (selectedCategory !== category) {
+      setSelectedCategory(category);
+      setIsRecommendedSelected(category === "recommended");
+      setIsPremiumSelected(category === "premium");
+      setIsPaymentFormVisible(category === "premium");
     }
-
     console.log("Selected category:", category);
   };
 
@@ -374,22 +416,39 @@ const Designers = () => {
           <article className="navigations">
             <button
               onClick={() => handleCategorySelect("recommended")}
-              className="recommended"
+              className={`recommended ${
+                isRecommendedSelected ? "selected" : ""
+              }`}
             >
-              <img className="icon" src="/assets/star.png" alt="" />
+              <img
+                className={`icon ${isRecommendedSelected ? "selected" : ""}`}
+                src={
+                  isRecommendedSelected
+                    ? "/assets/star.png"
+                    : "/assets/recommend-default.png"
+                }
+                alt=""
+              />
               <p>Recommended</p>
             </button>
 
             <div className="premium-section">
               <button
                 onClick={() => handleCategorySelect("premium")}
-                className="premium"
+                className={`premium ${isPremiumSelected ? "selected" : ""}`}
               >
-                <img className="icon" src="/assets/crown.png" alt="" />
+                <img
+                  className={`icon ${isPremiumSelected ? "selected" : ""}`}
+                  src={
+                    isPremiumSelected
+                      ? "/assets/crown-colored.png"
+                      : "/assets/crown.png"
+                  }
+                  alt=""
+                />
                 <p>Premium Profile</p>
               </button>
             </div>
-
 
             <div className="search">
               <img className="icon" src="/assets/Vector.svg" alt="" />
@@ -403,12 +462,14 @@ const Designers = () => {
             </div>
           </article>
 
-          
-            <section className="payment-section">
-              {isPaymentFormVisible && (
-                <PaymentForm onClose={() => setIsPaymentFormVisible(false)} />
-              )}
-            </section>
+          <section className="payment-section">
+            {isPaymentFormVisible && (
+              <PaymentForm
+                userEmail={userEmail}
+                onClose={() => setIsPaymentFormVisible(false)}
+              />
+            )}
+          </section>
 
           {/* body section */}
           <article className="card-grid">

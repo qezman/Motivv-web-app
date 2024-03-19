@@ -40,7 +40,7 @@ export default function Challenge() {
                 <div className="pl-3">
                   <h4
                     style={{ fontSize: "18px" }}
-                    className="user-text font-weight-bold"
+                    className="user-text-topic font-weight-bold"
                   >
                     Extensive Design Brief Set
                   </h4>
@@ -58,7 +58,7 @@ export default function Challenge() {
                 <div className="pl-3">
                   <h4
                     style={{ fontSize: "18px" }}
-                    className="user-text font-weight-bold"
+                    className="user-text-topic font-weight-bold"
                   >
                     Share and build your portfolio
                   </h4>

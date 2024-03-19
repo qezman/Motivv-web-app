@@ -1,3 +1,19 @@
+.applycard-container {
+  position: relative;
+  padding: 10px 5px;
+}
+
+.applycard-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  z-index: -1;
+}
+
 .onboard-arrows {
   transform: rotate(270deg);
 }
@@ -19,7 +35,6 @@
   margin-top: 80px;
 }
 .create-text-and-btn {
-    
 }
 .list-items img {
   margin: 0; /* Reset margin for the img element */
@@ -71,7 +86,23 @@
     align-items: center;
   }
 
-.right-section-cont {
+  /* .applycard-container {
+    position: relative;
+    padding: 10px 5px;
+  } */
+
+  .applycard-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .right-section-cont {
     margin: 0;
   }
 }

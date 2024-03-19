@@ -24,6 +24,7 @@
 .app-btn:hover {
   background: #0c2945;
   color: white;
+  transition: 0.5s ease-in-out;
 }
 .app-btn {
   display: flex;
@@ -45,13 +46,29 @@
   line-height: 18px; /* 128.571% */
 }
 
+
 .placeholder-and-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0;
+}
+.image-placeholder {
+  width: 200px;
+}
+.dots-image {
   display: none;
 }
 
 @media (max-width: 575.98px) {
   .mot-section {
     /* margin-top: 50px; */
+  }
+  .placeholder-and-dot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
   }
 }
 
@@ -96,6 +113,7 @@
   .placeholder-and-dot {
     display: block;
     /* width: 300px; */
+    margin-top: 0px;
   }
   .image-placeholder {
     width: 300px;
@@ -159,11 +177,12 @@
 }
 
 /* Medium Devices (Laptops) */
-@media (min-width: 992px) and (max-width: 1199.98px) {
+@media screen and (min-width: 1024px)  {
   .mot-background-cont {
-    width: 770px;
-    height: auto;
+    width: 747px;
     margin: auto;
+    /* height: auto; */
+    /* margin-left: 60px !important; */
   }
   .header-text {
     width: 550px;
@@ -184,6 +203,7 @@
     flex-shrink: 0;
     margin: 40px 0;
     font-size: 18px;
+    margin-top: 40px !important;
   }
   .mot-section {
     display: flex;
@@ -197,7 +217,7 @@
     /* width: 300px; */
   }
   .image-placeholder {
-    width: 350px;
+    width: 380px;
     height: 400px;
   }
   .dot-cont {
@@ -215,400 +235,20 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 18px; /* 128.571% */
+    line-height: 18px;
+    margin-top: -20px;
   }
 }
 
-@media screen and (min-width: 1200px) {
-  .mot-background-cont {
-    width: 760px;
-    height: 468px;
-    flex-shrink: 0;
-    margin: auto;
-  }
-  .header-text {
-    width: 550px;
-    height: 86px;
-    flex-shrink: 0;
-    margin-top: 80px;
 
-    color: #134a7c;
-    font-family: "DM Sans";
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 112.042%; /* 53.78px */
-  }
-  .mot-left-cont {
-    /* padding: 0;
-    margin: 0; */
-  }
-  .sub-text {
-    width: 391px;
-    height: 86px;
-    flex-shrink: 0;
-    margin: 40px 0;
-    font-size: 18px;
-  }
-  .mot-section {
-    display: flex;
+@media screen and (min-width: 1400px)  { 
+  .mot-background-cont {
+    width: 747px;
+    margin: auto;
     /* height: auto; */
-    height: auto;
-    padding: 0;
-    padding-left: 20px;
-  }
-  .placeholder-and-dot {
-    display: block;
-    /* width: 300px; */
-  }
-  .image-placeholder {
-    width: 453px;
-    height: 471px;
-    flex-shrink: 0;
-  }
-  .dot-cont {
-    position: relative;
-  }
-  .dots-image {
-    position: absolute;
-    top: -60px;
-    right: 250px;
-    width: 500px;
-  }
-  .app-btn {
-    color: #134a7c;
-    font-family: Montserrat;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 18px; /* 128.571% */
-  }
-}
-
-/* Large Devices (Desktops) */
-@media (min-width: 1440px) and (max-width: 1919.98px) {
-}
-
-@media (min-width: 1920px) {
-}
-
-/* @media screen and (min-width: 760px) {
-  .mot-background-cont {
-    margin-top: 100px;
+    /* margin-left: 60px !important; */
   }
   .mot-section {
-    display: flex;
-    align-items: center;
-    width: 550px;
-    height: 300px;
-    flex-shrink: 0;
-    background: rgba(255, 242, 223, 0.5);
-    margin: auto;
-  }
-  .dot-cont {
-    position: relative;
-    width: 200px;
-    margin: auto;
-  }
-  .dots-image {
-    position: absolute;
-    top: -60px;
-    right: 100px;
-  }
-  .image-placeholder {
-    width: 250px;
-    height: 300px;
-    flex-shrink: 0;
+    padding-left: 30px;
   }
 }
-
-@media only screen and (min-width: 500px) and (max-width: 1000px) {
-  .header-text {
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 112.042%;
-  }
-  .placeholder-and-dot {
-    display: block;
-  }
-  .img-place-cont {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    width: 300px;
-    height: 350px;
-    flex-shrink: 0;
-    margin: auto;
-  }
-  .dot-cont {
-    position: relative;
-  }
-  .dots-image {
-  }
-}
-
-
-
-@media screen and (min-width: 1000px) {
-  .mot-background-cont {
-  }
-  .header-text {
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 112.042%;
-  }
-  .mot-section {
-    display: flex;
-    align-items: center;
-    width: 747px;
-    height: 390px;
-    flex-shrink: 0;
-    background: rgba(255, 242, 223, 0.5);
-    margin: auto;
-  }
-
-  .placeholder-and-dot {
-    display: block;
-  }
-  .image-placeholder {
-    width: 350px;
-    height: 390px;
-    flex-shrink: 0;
-  }
-  .dot-cont {
-    position: relative;
-    width: 200px;
-    margin: auto;
-  }
-  .dots-image {
-    position: absolute;
-    top: -60px;
-    right: 150px;
-  }
-}
-
-
-@media screen and (min-width: 1024px) {
-  .sub-text {
-  }
-  .mot-left-cont p {
-    width: 400px;
-  }
- }
-
-@media screen and (min-width: 1200px) {
-  .mot-background-cont {
-    margin-top: 100px;
-  }
-  .mot-section {
-    display: flex;
-    align-items: center;
-    width: 747px;
-    height: 468px;
-    flex-shrink: 0;
-    background: rgba(255, 242, 223, 0.5);
-    margin: auto;
-  }
-
-  .mot-left-cont {
-    margin-top: -50px;
-  }
-
-  .placeholder-and-dot {
-    display: block;
-  }
-  .image-placeholder {
-    width: 453px;
-    height: 471px;
-    flex-shrink: 0;
-  }
-  .dot-cont {
-    position: relative;
-    width: 200px;
-    margin: auto;
-  }
-  .dots-image {
-    position: absolute;
-    top: -60px;
-    right: 150px;
-  }
-} */
-
-/* .mot-section {
-  background: rgba(255, 242, 223, 0.5);
-  padding: 20px 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  width: 100% !important;
-}
-.header-text {
-  font-weight: 700;
-  font-size: 24px;
-  color: #134a7c;
-}
-.sub-text {
-  font-size: 16px;
-}
-
-.apply-btn button {
-  display: flex;
-  width: 200px;
-  height: 43px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-  background: transparent;
-  border-radius: 10px;
-  border: 1px solid #134a7c;
-
-  color: #134a7c;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 18px; 
-}
-.apply-btn button:hover {
-  background: #0c2945;
-  color: white;
-}
-@media screen and (max-width: 500px) {
-  .image-placeholder {
-    display: none;
-  }
-  .dots-image {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 760px) {
-  .mot-section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: auto;
-    margin-top: 100px;
-
-    width: 747px;
-    height: 468px;
-    flex-shrink: 0;
-  }
-  .apply-btn button {
-    font-size: 10px;
-    padding: 10px;
-  }
-  .header-text {
-    font-size: 36px;
-    width: 100% !important;
-  }
-  .sub-text {
-    font-size: 14px;
-  }
-  .image-placeholder {
-    width: 400px;
-    height: 470px;
-    flex-shrink: 0;
-  }
-  .dot-cont {
-    position: relative;
-  }
-  .dots-image {
-    position: absolute;
-    top: -50px;
-    right: 100px;
-
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .mot-section {
-    margin-top: 250px;
-  }
-  .mot-background-cont {
-    width: 747px;
-    height: 468px;
-    flex-shrink: 0;
-    margin: auto;
-  }
-  .image-placeholder {
-    width: 420px;
-    height: 471px;
-    flex-shrink: 0;
-  }
-  .apply-btn button {
-    font-size: 16px;
-    width: 200px;
-  }
-  .header-text {
-    font-size: 36px;
-    width: 400px;
-  }
-  .sub-text {
-    font-size: 18px;
-    width: 390px;
-    padding: 18px 0;
-  }
-  .dot-cont {
-    position: relative;
-  }
-  .dots-image {
-    position: absolute;
-    top: -70px;
-    right: 200px;
-  }
-} */
-
-/* @media screen and (min-width: 1200px) {
-  .mot-background-cont {
-    width: 1000px;
-    margin: auto;
-  }
-  .header-text {
-    width: 550px;
-  }
-  .sub-text {
-    width: 400px;
-    padding: 21px 0;
-  }
-  .dot-cont {
-    position: relative;
-  }
-  .dots-image {
-    position: absolute;
-    top: -70px;
-    justify-items: center;
-
-    right: 300px;
-  }
-  .image-placeholder {
-    width: 500px;
-    height: 500px;
-    flex-shrink: 0;
-  }
-} */
-
-/* @media screen and (min-width: 2000px) {
-  .mot-section {
-    display: flex;
-  }
-
-  .mot-left-cont {
-    padding: 0 0 0 70px;
-  }
-
-  .image-placeholder {
-    width: 600px;
-    height: 700px;
-    flex-shrink: 0;
-  }
-  .dot-cont {
-    position: relative;
-  }
-  .dots-image {
-    position: absolute;
-    top: -40px;
-    right: 40px;
-  }
-} */

@@ -1,0 +1,229 @@
+.bg-img-container {
+  position: relative;
+  padding: 10px 5px;
+}
+
+.bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 662px;
+  flex-shrink: 0;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.logo-img {
+  width: 100px;
+}
+.mot-navlinks {
+  display: block;
+  margin-top: 60px;
+}
+
+.mot-navlinks li {
+  list-style: none;
+  color: white;
+  text-decoration: none;
+  padding: 3px 0;
+  font-size: 16px;
+  text-align: center;
+}
+.mot-navlinks a {
+  color: white;
+  text-decoration: none;
+}
+
+.head-contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  /* padding: 10px 0; */
+  margin-top: 20px;
+}
+
+.dropdown-texts li {
+  padding: 10px;
+  color: var(--N-700, #535c65);
+  font-size: 16px;
+}
+.dropdown-texts li:first-child {
+  margin: 0;
+  transition: padding-top 0.3s ease; /* Add a smooth transition effect for padding-top */
+}
+
+.dropdown-texts li:last-child {
+  padding-bottom: 5px;
+  /* transition: padding-bottom 0.3s ease; */
+}
+
+.dropdown-texts li:first-child:hover {
+  padding-top: 10px; /* Restore top padding on hover for the first item */
+}
+
+.dropdown-texts li:last-child:hover {
+  padding-bottom: 10px; /* Restore bottom padding on hover for the last item */
+}
+.dropdown-texts li:hover {
+  background-color: #e0e0e0; /* Set your desired background color for dropdown items on hover */
+}
+
+.jobs:hover .dropdown-texts {
+  display: block;
+}
+.btn-post-job {
+  background: transparent;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  display: flex;
+  width: 190px;
+  height: 43px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.btn-post-job:hover {
+  background:  #0b2a47;
+  color: white;
+  border: none;
+  transition: 0.4s ease-in-out;
+}
+.post-job-text:hover {
+  color: white;
+}
+.h1-text {
+  text-align: center;
+  color: #fff2df;
+  font-family: "DM Sans";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  margin-top: 10px;
+  padding: 0 15px;
+}
+.connect-text {
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 142.4%;
+  text-align: center;
+  padding: 0 15px;
+  margin-top: 10px;
+}
+.navigation-card {
+  display: none;
+}
+@media screen and (min-width: 375px) {
+  .btn-post-job {
+    width: 125px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .head-contents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+  }
+  .mot-navlinks {
+    display: flex;
+    margin-top: 0;
+    align-items: center;
+    gap: 15px;
+  }
+  .mot-navlinks li {
+    padding: 0;
+    font-size: 14px;
+  }
+  .dropdown-texts li {
+    padding: 10px 0 !important;
+    font-size: 16px;
+  }
+  .navigation-card {
+    display: block;
+    width: 190px;
+    /* height: 200px; */
+    flex-shrink: 0;
+  }
+  .text-and-card {
+    display: flex;
+    justify-content: center;
+    margin-top: 57px;
+    gap: 71px;
+  }
+  .h1-text {
+    text-align: left;
+    font-size: 36px;
+  }
+  .connect-text {
+    font-size: 18px;
+    text-align: left;
+    padding: 0 15px;
+    margin-top: 10px;
+
+    width: 380px;
+    height: 77px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .mot-navlinks li {
+    font-size: 16px;
+  }
+  .head-contents {
+    padding: 0 60px;
+  }
+
+  .mot-navlinks {
+    display: flex;
+    margin-top: 0;
+    align-items: center;
+    gap: 20px;
+  }
+  .logo-img {
+    width: 120px;
+  }
+  .btn-post-job {
+    width: 145px;
+    height: 43px;
+  }
+  .navigation-card {
+    width: 270px;
+    height: 200px;
+  }
+  .text-and-card {
+    display: flex;
+    justify-content: center;
+    margin-top: 57px;
+    gap: 60px;
+  }
+  .h1-text {
+    font-size: 48px;
+  }
+  .connect-text {
+    font-size: 18px;
+    text-align: left;
+    margin-top: 20px;
+    width: 390px;
+    height: 77px;
+    padding: 0 0 0 15px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .head-contents {
+    /* padding: 10px 70px; */
+  }
+
+  .btn-post-job {
+    width: 155px;
+    height: 43px;
+  }
+  .logo-img {
+    width: 140px;
+  }
+}

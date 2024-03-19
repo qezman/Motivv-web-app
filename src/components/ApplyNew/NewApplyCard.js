@@ -378,17 +378,6 @@ export default function NewApplyCard() {
                   onClick={() => imageRef.current.click()}
                   className="mot-upload-image cursor"
                 />
-                {/* <img
-                  id="target"
-                  height="72px"
-                  width="72px"
-                  style={{ borderRadius: "72px" }}
-                  src={(form?.avatar && form.avatar.url) || upload}
-                  alt="motivv upload"
-                  onClick={() => imageRef.current.click()}
-                  className="mot-upload-image cursor"
-                /> */}
-
                 <p className="mot-form-hint w-100 text-center">Update avatar</p>
                 <p className="mot-form-hint w-100 text-center">(Optional)</p>
               </div>

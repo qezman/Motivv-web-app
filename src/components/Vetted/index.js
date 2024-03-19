@@ -123,59 +123,63 @@ export default function Vetted({ props }) {
   }, [success, history]);
 
   return (
-    <section className="cont-section">
-      {/* card */}
-      <section className="card-section">
-        <article className="card-item">
-          <img
-            className="persona-img"
-            src="../assets/folawiyo.png"
-            alt="thumbnail"
-          />
-          <p className="name">Folawiyo Oluwasegun</p>
+    <section className="vetted-cont">
+      {/* vetted card container */}
+      <div className="vetted-card-components">
+        <article className="vetted-card">
+          <img src="/assets/folawiyo.png" />
+          <p className="designer-name">Folawiyo Oluwasegun</p>
           <div className="role-and-icon">
-            <p className="role">Product Designer</p>
-            <span>
-              <img className="verified-icon" src="../assets/verified.png" />
-            </span>
+            <span className="designer-role">Product Designer</span>
+            <img className="icon-verify" src="assets/verified.png" />
           </div>
-          <div className="skills">
-            <p id="skill">Figma</p>
-            <p id="skill">Sketch</p>
-            <p id="skill">Miro</p>
+
+          <div className="skil-verified">
+            <span className="skil">Figma</span>
+            <span className="skil">Sketch</span>
+            <span className="skil">Miro</span>
+            {/* <p>Figma</p>
+            <p>Sketch</p>
+            <p>Miro</p> */}
           </div>
-          <p className="description">
+
+          <p className="skill-desc">
             Segun is a skilled product designer who has worked at CloudX for 3
             years
           </p>
-          <p className="rate">Rate: NGN 500/hr</p>
-          <p className="view-port-btn">View Portfolio</p>
-        </article>
 
-        {/* texts */}
-        <section className="next-section">
-          <Fade bottom delay={1000} duration={1000}>
-            <h1 className="vetted-text">
-              Already vetted designers for your work
-            </h1>
-          </Fade>
-          <p className="next-para">
-            We enlist and recommend designers that meet your skill requrements.
-            <br />
-            Check creative’s portfolio, negotiate and hire.
+          <p className="skil-rate">
+            <span>Rate: </span>
+            <span>NGN 500/hr</span>
           </p>
-          <form className="form-input" action="">
+
+          <button className="skil-button">View Portfolio</button>
+        </article>
+      </div>
+
+      {/* Already vetted text */}
+      <div>
+        <Fade bottom delay={1000} duration={1000}>
+          <p className="already-text">
+            Already vetted <br /> designers for <br /> your work
+          </p>
+        </Fade>
+        <p className="enlist-text">
+          We enlist and recommend designers that meet your skill requrements.
+          Check creative’s portfolio, negotiate and hire.
+        </p>
+        <form className="form-input" action="">
             <input
               type="email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Input email to book a designer"
-              className="book-designer-input"
+              className="input-book-designer"
             />
             <div className="book-a-designer-cont">
               <button
-                className="book-a-designer-btn"
+                className="btn-book-designer"
                 disabled={loading}
                 style={{
                   opacity: loading ? "0.7" : "1",
@@ -198,8 +202,7 @@ export default function Vetted({ props }) {
               )}
             </div>
           </form>
-        </section>
-      </section>
+      </div>
     </section>
   );
 }

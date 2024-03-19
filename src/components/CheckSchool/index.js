@@ -25,15 +25,14 @@ export default function CheckSchool() {
                 </h2>
               </Fade>
               <Fade delay={1000}>
-                <p className="mot-check-school__htext">
-                Become a professional designer by taking the standard 4-year Design course
+                <p className="become-text">
+                  Become a professional designer by taking the standard 4-year
+                  Design course
                 </p>
               </Fade>
-              <div className="coming-soon-cont">
+              <div className="comin-soon-cont">
                 <Link to="/school">
-                  <button className="coming-soon-btn">
-                    <span className="font-weight-bold">Coming Soon</span>
-                  </button>
+                  <button className="comin-soon-btn">Coming Soon</button>
                 </Link>
               </div>
               <Row className="mot-check-school__features">
@@ -49,7 +48,7 @@ export default function CheckSchool() {
                       <h4 className="mot-check-school__header">
                         Curated Design Curriculum
                       </h4>
-                      <p className="mot-check-school__text">
+                      <p className="mot-checkschool-text">
                         New to Design or confused on what to start learning? Our
                         curated curriculum will take you through the basics of
                         design to being a pro at it with the right resources.
@@ -66,7 +65,7 @@ export default function CheckSchool() {
                       <h4 className="mot-check-school__header">
                         Intensive Mentoring Session
                       </h4>
-                      <p className="mot-check-school__text">
+                      <p className="mot-checkschool-text">
                         We provide an amazing mentoring session that gives you a
                         massive push to help you bring about the change you want
                         in your design career.
@@ -86,7 +85,7 @@ export default function CheckSchool() {
                       <h4 className="mot-check-school__header">
                         certificate upon completion
                       </h4>
-                      <p className="mot-check-school__text">
+                      <p className="mot-checkschool-text">
                         Upon successful completion of the curriculum, students
                         will be issued an e-certificate signed by Motivv
                       </p>

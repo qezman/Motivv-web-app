@@ -19,7 +19,8 @@ let Mailto = "mailto:hello@motivv.co";
 let Heart =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594685437/Motivv/heart_c8ufkp.png";
 export default function index() {
-  const footLinkText = window.innerWidth >= 760 ? { fontSize: "18px" } : {};
+  const footLinkText =
+    window.innerWidth >= 760 ? { fontSize: "18px", color: "#fff2df" } : {};
   return (
     <div className="mot-landing-page-blue">
       <div className="mot-footer-container">
@@ -27,9 +28,9 @@ export default function index() {
           <Row>
             <Col md={3}>
               <div className="mot-logo">
-              <a href="/">
-                <img src={Logo} alt="" className="logo" />
-              </a>
+                <a href="/">
+                  <img src={Logo} alt="" className="logo" />
+                </a>
               </div>
               <h6 style={footLinkText} className="white-text pt-4">
                 Designed with <img src={Heart} alt="Heart" /> by Aorthar
@@ -58,7 +59,7 @@ export default function index() {
                   Designers
                 </HashLink>
               </div>
-              <div style={footLinkText} className="mt-2">
+              {/* <div style={footLinkText} className="mt-2">
                 <HashLink
                   smooth
                   to="/#user"
@@ -68,7 +69,7 @@ export default function index() {
                 >
                   How it works
                 </HashLink>
-              </div>
+              </div> */}
               <div style={footLinkText} className="mt-2">
                 <HashLink
                   smooth
@@ -105,7 +106,7 @@ export default function index() {
               </div>
               <div style={footLinkText} className="mt-2">
                 <a href={Mailto} target="_black" rel="noopener noreferrer">
-                  Contact us
+                  Contact Us
                 </a>
               </div>
               {/* <div className="mt-4">
@@ -145,13 +146,16 @@ export default function index() {
               </div>
               <div style={footLinkText} className="mt-2">
                 <a href={Mailto} target="_black">
-                  Hire Developer
+                  Hire Developers!
                 </a>
               </div>
             </Col>
           </Row>
           <div>
-            <div style={footLinkText} className="justify-content-center text-center white-text copy-text">
+            <div
+              style={footLinkText}
+              className="copyright-text justify-content-center text-center copy-text"
+            >
               Copyright © {new Date().getFullYear()} The Motivv Community. All
               Rights Reserved
             </div>

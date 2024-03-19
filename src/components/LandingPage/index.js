@@ -9,6 +9,7 @@ import postImg from "../../assets/magic.svg";
 import JobPostPage from "../../pages/JobPostPage";
 import Modal from "react-modal";
 import MobileScreenNav from "./MobileScreenNav";
+import { debounce } from "lodash";
 
 import "./styles.css";
 import { UserContext } from "../UserContext";
@@ -54,6 +55,19 @@ export default function LandingPage() {
   //     window.removeEventListener("resize", handleResize);
   //   };
   // }, []);
+
+
+  useEffect(() => {
+    const handleResize = debounce(() => {
+      // Your resize handling code here
+    }, 100); // Adjust debounce delay as needed
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const bannerSettings = {
     fade: true,
@@ -249,6 +263,108 @@ export default function LandingPage() {
                   Post Job
                 </Link>
               </button>
+            </div>
+
+            {/*modal content  */}
+            <Modal
+              isOpen={isModalOpen}
+              onRequestClose={handleCloseModal}
+              className="custom-modal"
+              overlayClassName="custom-modal-overlay"
+              shouldCloseOnOverlayClick={false}
+              shouldCloseOnEsc={false}
+              onAfterClose={() => (document.body.style.overflow = "auto")}
+            >
+              <article className="custom-modal-content">
+                {/* <div className="custom-modal-flex"> */}
+                <div className="custom-modal-header">
+                  <h6 className="tell-us">Tell us about your job</h6>
+                  <p
+                    style={{
+                      color: "black",
+                      fontWeight: "700",
+                      cursor: "pointer",
+                      fontSize: "24px",
+                      padding: "4px",
+                    }}
+                    onClick={handleCloseModal}
+                  >
+                    x
+                  </p>
+                </div>
+                <div className="custom-modal-body">
+                  <JobPostPage />
+                </div>
+                {/* </div> */}
+              </article>
+            </Modal>
+          </section>
+
+          {/* nav section for mobile screen */}
+          <section className="mobile-flex-headers">
+            <div className="">
+              <div className="mobile-nav-links">
+                <li>
+                  <Link style={styles} to="/">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link style={styles} to="/designers">
+                    Designers
+                  </Link>
+                </li>
+
+                <li className="jobs">
+                  <Link to="/jobs" style={styles}>
+                    Jobs
+                  </Link>
+                  <img
+                    style={{
+                      marginLeft: "10px",
+                      cursor: "pointer",
+                      transform: isDropdownVisible
+                        ? "rotate(180deg)"
+                        : "rotate(0deg)",
+                    }}
+                    src="/assets/dropdown.svg"
+                    alt="dropdown"
+                    onClick={toggleDropdown}
+                  />
+                  {isDropdownVisible && (
+                    <div className="dropdown-texts">
+                      <ul>
+                        <li
+                          onClick={handlePostJobClick}
+                          className="menu-text-one"
+                        >
+                          Post a job
+                        </li>
+                        <div />
+                        <Link to={"/jobs"}>
+                          <li className="menu-text">Find jobs</li>
+                        </Link>
+                      </ul>
+                    </div>
+                  )}
+                </li>
+
+                <li>
+                  <Link style={styles} to="/challenges">
+                    Design Challenge
+                  </Link>
+                </li>
+                <li>
+                  <Link style={styles} to="/resources">
+                    Resources
+                  </Link>
+                </li>
+                <li>
+                  <Link style={styles} to="/university">
+                    University
+                  </Link>
+                </li>
+              </div>
             </div>
 
             {/*modal content  */}

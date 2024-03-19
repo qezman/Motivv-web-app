@@ -43,12 +43,15 @@
   justify-content: center;
   border-radius: 10px;
   /* border: 1px solid black; */
-  background: #ecf1f5;
   width: 270px;
   gap: 10px;
   /* margin: 20px; */
   padding: 8px 0;
   outline: none;
+  border: 1px solid #d2dbe4;
+  background: #fff;
+outline: none;
+  
 }
 
 .view-btn {
@@ -82,16 +85,10 @@
   appearance: none !important;
 } */
 
-.icon {
-  width: 24px;
-  height: auto;
-  margin-right: 8px;
-}
 .recommended p {
   margin: 0;
-  color: #134a7c;
-  /* font-size: 24px; */
   font-weight: 700;
+  color: #bbb;
 }
 .premium {
   display: flex;
@@ -108,14 +105,62 @@
 }
 .premium p {
   margin: 0;
-  color: #bdbdbd;
-  /* font-size: 24px; */
+  color: #BBB;
   font-weight: 700;
 }
+
+.icon.selected {
+  /* background-color: #134a7c; */
+  /* color: white; */
+}
+
+.icon {
+  width: 24px;
+  height: auto;
+  margin-right: 8px;
+  color: #bbb !important;
+}
+
+.recommended.selected .icon,
+.recommended.selected p {
+  color: #134a7c; /* Color when selected */
+  outline: none;
+}
+
+.premium.selected .icon,
+.premium.selected p {
+  color: #134a7c; /* Color when selected */
+  outline: none;
+}
+
+.icon.selected {
+  /* color: #134a7c; */
+}
+
+.recommended.selected {
+  /* background: #ecf1f5; */
+  /* color: #134a7c; */
+  outline: none;
+}
+
+.recommended.selected p {
+  /* color: #134a7c; */
+}
+
+.premium.selected {
+  /* background: #ecf1f5; */
+  /* color: #134a7c !important; */
+  outline: none;
+}
+
+.premium.selected p {
+  /* color: #134a7c !important; */
+}
+
 .search-bar {
   border: none;
   outline: none;
-  color: #bdbdbd;
+  /* color: #bdbdbd; */
   font-weight: 700;
 }
 .search {
@@ -131,9 +176,6 @@
 }
 .search p {
   margin: 0;
-  /* color: #bdbdbd; */
-  /* font-size: 24px; */
-  /* font-weight: 700; */
 }
 
 .card-grid {
@@ -218,7 +260,6 @@
     flex-direction: column;
     align-items: center; */
   }
-  
 }
 
 @media screen and (min-width: 760px) {
@@ -340,62 +381,3 @@
     font-size: 24px;
   }
 }
-/* @media screen and (min-width: 1200px) {
-  .navigations {
-    display: flex;
-    justify-content: space-between;
-    margin: 30px;
-  }
-  .main-content {
-    margin: 40px 0;
-  }
-  .recommended {
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    padding: 10px 150px;
-    gap: 15px;
-  }
-
-  .icon {
-    width: 24px;
-    height: auto;
-    margin-right: 8px;
-  }
-  .recommended p {
-    font-size: 24px;
-  }
-  .premium {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 30px;
-  }
-  .premium p {
-    font-size: 20px;
-  }
-  .search {
-    width: 500px;
-    height: 49px;
-    flex-shrink: 0;
-    padding: 8px;
-  }
-  .search p {
-    font-size: 20px;
-  }
-  .card-grid {
-    display: flex;
-    flex-direction: row;
-    width: 97%;
-    flex-wrap: wrap;
-    margin: 20px;
-  }
-  .info-cont {
-    flex: 0 1 calc(25% - 20px);
-    margin: 10px;
-    box-sizing: border-box;
-  }
-
-  .view-and-arrow {
-    margin: 68px 0 116px 0;
-  }
-} */

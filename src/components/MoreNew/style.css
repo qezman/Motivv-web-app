@@ -1,0 +1,50 @@
+.aorthar-cont {
+  background: #000;
+  padding: 40px 20px;
+}
+.aorthar-text {
+  color: #fff;
+  text-align: center;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 142.4%;
+}
+.btn-find-out {
+  display: flex;
+  width: 155px;
+  height: 43px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: auto;
+  /* margin-top: 16px; */
+  border-radius: 10px;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 112.5% */
+}
+@media screen and (min-width: 768px) {
+  .aorthar-cont {
+    /* padding: 40px 100px; */
+  }
+  .aorthar-text {
+    font-size: 23px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .aorthar-cont {
+    padding: 46px 100px;
+  }
+}
+@media screen and (min-width: 1440px) {
+    .aorthar-cont {
+      padding: 46px 480px;
+    }
+  }

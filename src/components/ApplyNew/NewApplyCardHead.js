@@ -66,189 +66,161 @@ export default function NewApplyCardHead() {
 
   document.body.style.overflow = isModalOpen ? "hidden" : "auto";
   return (
-    <section>
-      <Helmet
-        page="edit"
-        title="Edit your Profile Card"
-        description="Customize your card,  Input your name and Job Headline, Upload your avatar, Include your portfolio link, Add your preferred software, Gain approval, Create a striking profile and get vetted for your design cause, Motivv | Edit profile"
-      />
-      <div className="mot-landing-page-blue">
-        <div className="mot-explore-page">
-          {/* nav section */}
-          <section className="flex-headers">
-            <div>
-              <Link to="/">
-                <img src={Logo} alt="" className="logo" />
-              </Link>
-            </div>
-            <div className="nav-links">
-              <li>
-                <a style={styles} href="/">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a style={styles} href="/designers">
-                  Designers
-                </a>
-              </li>
+    <section className="applycard-container">
+      <img className="applycard-bg-img" src="/assets/bg.png" alt="Background Image" />
+      
+      {/* nav section */}
+      <section className="">
+        <article className="head-contents">
+          <div>
+            <Link to={"/"}>
+              <img
+                className="logo-img"
+                src="/assets/motivv-logo.png"
+                alt="Motivv Logo"
+              />
+            </Link>
+          </div>
+          <div className="mot-navlinks">
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/designers">Designers</Link>
+            </li>
 
-              <li className="jobs">
-                <a style={styles}>Jobs</a>
-                <img
-                  style={{
-                    marginLeft: "10px",
-                    cursor: "pointer",
-                    transform: isDropdownVisible
-                      ? "rotate(180deg)"
-                      : "rotate(0deg)",
-                  }}
-                  src="/assets/dropdown.svg"
-                  alt="dropdown"
-                  onClick={toggleDropdown}
-                />
-                {isDropdownVisible && (
-                  <div className="dropdown-texts">
-                    <ul>
-                      <li
-                        onClick={handlePostJobClick}
-                        className="menu-text-one"
-                      >
-                        Post a job
-                      </li>
-                      <div />
-                      <Link to={"/jobs"}>
-                        <li className="menu-text">Find jobs</li>
-                      </Link>
-                    </ul>
-                  </div>
-                )}
-              </li>
+            <li className="jobs">
+              <Link to="/jobs">Jobs</Link>
+              <img
+                style={{
+                  marginLeft: "10px",
+                  cursor: "pointer",
+                  transform: isDropdownVisible
+                    ? "rotate(180deg)"
+                    : "rotate(0deg)",
+                }}
+                src="/assets/dropdown.svg"
+                alt="dropdown"
+                onClick={toggleDropdown}
+              />
+              {isDropdownVisible && (
+                <div className="dropdown-texts">
+                  <ul>
+                    <li onClick={handlePostJobClick} className="menu-text-one">
+                      Post a job
+                    </li>
+                    <div />
+                    <Link to={"/jobs"}>
+                      <li className="menu-text">Find jobs</li>
+                    </Link>
+                  </ul>
+                </div>
+              )}
+            </li>
 
-              <li>
-                <a style={styles} href="/challenges">
-                  Design Challenge
-                </a>
-              </li>
-              <li>
-                <a style={styles} href="/resources">
-                  Resources
-                </a>
-              </li>
-              <li>
-                <a style={styles} href="/university">
-                  University
-                </a>
-              </li>
-            </div>
+            <li>
+              <Link to="/challenges">Design Challenge</Link>
+            </li>
+            <li>
+              <Link to="/resources">Resources</Link>
+            </li>
+            <li>
+              <Link to="/university">University</Link>
+            </li>
+          </div>
 
-            <button className={`post-job-btn ${isHovered ? "hovered" : ""}`}>
-              <Link
-                // to="/post-job"
-                className="post-job-text"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                onClick={handlePostJobClick}
-              >
-                <img src={postImg} alt="" className="post-job-text mr-2" /> Post
-                Job
-              </Link>
-            </button>
-
-            {/*modal content  */}
-            <Modal
-              isOpen={isModalOpen}
-              onRequestClose={handleCloseModal}
-              className="custom-modal"
-              overlayClassName="custom-modal-overlay"
-              shouldCloseOnOverlayClick={false}
-              shouldCloseOnEsc={false}
-              onAfterClose={() => (document.body.style.overflow = "auto")}
+          {/* here is the Post Job button */}
+          <button className="btn-post-job">
+            <img src="/assets/magic-wand.png" />
+            <Link
+              // to="/post-job"
+              className="post-job-text"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onClick={handlePostJobClick}
             >
-              <article className="custom-modal-content">
-                {/* <div className="custom-modal-flex"> */}
-                <div className="custom-modal-header">
-                  <h6 className="tell-us">Tell us about your job</h6>
-                  <p
-                    style={{
-                      color: "black",
-                      fontWeight: "700",
-                      cursor: "pointer",
-                      fontSize: "24px",
-                      padding: "4px",
-                    }}
-                    onClick={handleCloseModal}
-                  >
-                    x
-                  </p>
-                </div>
-                <div className="custom-modal-body">
-                  <JobPostPage />
-                </div>
-                {/* </div> */}
-              </article>
-            </Modal>
-          </section>
+              Post Job
+            </Link>
+          </button>
+        </article>
 
-          <Container className="head-content">
-            <div className="create-text-and-btn">
-              <Fade delay={1000} duration={500} bottom>
-                <h1 className="mot-catch-phrase">
-                  Create a striking <br /> profile and get vetted <br /> for
-                  your design cause
-                </h1>
-              </Fade>
-              <button className="create-profile-btn">Create profile</button>
+        {/*modal content  */}
+        <Modal
+          isOpen={isModalOpen}
+          onRequestClose={handleCloseModal}
+          className="custom-modal"
+          overlayClassName="custom-modal-overlay"
+          shouldCloseOnOverlayClick={false}
+          shouldCloseOnEsc={false}
+          onAfterClose={() => (document.body.style.overflow = "auto")}
+        >
+          <article className="custom-modal-content">
+            {/* <div className="custom-modal-flex"> */}
+            <div className="custom-modal-header">
+              <h6 className="tell-us">Tell us about your job</h6>
+              <p
+                style={{
+                  color: "black",
+                  fontWeight: "700",
+                  cursor: "pointer",
+                  fontSize: "24px",
+                  padding: "4px",
+                }}
+                onClick={handleCloseModal}
+              >
+                x
+              </p>
+            </div>
+            <div className="custom-modal-body">
+              <JobPostPage />
+            </div>
+            {/* </div> */}
+          </article>
+        </Modal>
+      </section>
+
+      <Container className="head-content">
+        <div className="create-text-and-btn">
+          <Fade delay={1000} duration={500} bottom>
+            <h1 className="mot-catch-phrase">
+              Create a striking <br /> profile and get vetted <br /> for your
+              design cause
+            </h1>
+          </Fade>
+          <button className="create-profile-btn">Create profile</button>
+        </div>
+
+        <section className="right-section-cont">
+          <p className="how-it-works">How it works:</p>
+
+          <article className="list-items-cont">
+            <div className="list-items">
+              <img className="arrow-double" src="/assets/onboard-arrows.png" />
+              <p>Input your name and Job Headline</p>
             </div>
 
-            <section className="right-section-cont">
-              <p className="how-it-works">How it works:</p>
+            <div className="list-items">
+              <img className="arrow-double" src="/assets/onboard-arrows.png" />
+              <p>Upload your avatar</p>
+            </div>
 
-              <article className="list-items-cont">
-                <div className="list-items">
-                  <img
-                    className="arrow-double"
-                    src="/assets/onboard-arrows.png"
-                  />
-                  <p>Input your name and Job Headline</p>
-                </div>
+            <div className="list-items">
+              <img className="arrow-double" src="/assets/onboard-arrows.png" />
+              <p>Include your portfolio link</p>
+            </div>
 
-                <div className="list-items">
-                  <img
-                    className="arrow-double"
-                    src="/assets/onboard-arrows.png"
-                  />
-                  <p>Upload your avatar</p>
-                </div>
+            <div className="list-items">
+              <img className="arrow-double" src="/assets/onboard-arrows.png" />
+              <p>Add the applications you are confident at</p>
+            </div>
 
-                <div className="list-items">
-                  <img
-                    className="arrow-double"
-                    src="/assets/onboard-arrows.png"
-                  />
-                  <p>Include your portfolio link</p>
-                </div>
-
-                <div className="list-items">
-                  <img
-                    className="arrow-double"
-                    src="/assets/onboard-arrows.png"
-                  />
-                  <p>Add the applications you are confident at</p>
-                </div>
-
-                <div className="list-items">
-                  <img
-                    className="arrow-double"
-                    src="/assets/onboard-arrows.png"
-                  />
-                  <p>Gain approval</p>
-                </div>
-              </article>
-            </section>
-          </Container>
-        </div>
-      </div>
+            <div className="list-items">
+              <img className="arrow-double" src="/assets/onboard-arrows.png" />
+              <p>Gain approval</p>
+            </div>
+          </article>
+        </section>
+      </Container>
     </section>
   );
 }

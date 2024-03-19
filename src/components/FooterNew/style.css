@@ -1,0 +1,124 @@
+.footer-img-container {
+  position: relative;
+  width: 100%;
+  height: auto; /* Adjust height as needed */
+}
+
+.footer-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the entire container */
+  z-index: -1;
+}
+.logo-img {
+  width: 100px;
+}
+
+.container-motivv-logo {
+  /* display: flex;
+  justify-content: center; */
+}
+
+.foot-content-one {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.love-aorther-container {
+  padding-top: 20px !important;
+  color: #fff2df;
+}
+
+.love-aorthar {
+}
+.foot-col {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff2df !important;
+  font-size: 18px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.foot-jobs {
+  padding: 0;
+  margin: 0;
+  padding-top: 4px;
+  color: #fff2df;
+}
+
+.foot-designers {
+  padding: 0;
+  margin: 0;
+  padding-top: 4px;
+  color: #fff2df;
+}
+
+.foot-partner {
+  padding: 0;
+  margin: 0;
+  padding-top: 4px;
+  color: #fff2df;
+}
+
+.foot-team {
+  padding: 0;
+  margin: 0;
+  padding-top: 4px;
+  color: #fff2df;
+}
+.foot-course {
+  padding: 0;
+  margin: 0;
+  padding-top: 4px;
+  color: #fff2df;
+}
+
+.foot-contact {
+  padding: 0;
+  margin: 0;
+  padding-top: 4px;
+  color: #fff2df;
+}
+.foot-terms {
+  padding: 0;
+  margin: 0;
+  padding-top: 4px;
+  color: #fff2df;
+}
+
+.foot-connect {
+  padding: 0;
+  margin: 0;
+  padding-top: 4px;
+  color: #fff2df;
+}
+
+.foot-hire {
+  padding: 0;
+  margin: 0;
+  padding-top: 4px;
+  color: #fff2df;
+}
+.foot-note {
+  text-align: center;
+  padding: 10px 5px;
+  color: #fff2df;
+  font-size: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-link-contents {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: start;
+  }
+  
+}

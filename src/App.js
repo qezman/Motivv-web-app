@@ -44,6 +44,7 @@ import DesignerCard from './components/DesignerCardPage/index.js';
 import EditProfile from './components/EditProfile/index.js';
 
 import GlobalContextProvider from './store/contexts/global-context.js';
+import NewHomePage from './pages/NewHomePage.js';
 
 function App() {
   const user = useContext(UserContext);
@@ -53,7 +54,8 @@ function App() {
       <Router basename="/">
         <ScrollToTop>
           <Switch>
-            <Route exact path="/" component={Home} />
+            {/* <Route exact path="/" component={Home} /> */}
+            <Route exact path="/" component={NewHomePage} />
             <Route exact path="/apply" component={Apply} />
             <Route exact path="/newapply" component={NewApplyCard} />
             <Route exact path="/jobs" component={JobsPage} />

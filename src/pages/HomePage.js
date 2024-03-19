@@ -20,7 +20,7 @@ export default function HomePage(props) {
         description="Connect with the best designers in the industry – Engage with clients and Get hired by creating a profile with us"
       />
       <LandingPage />
-      <Vetted props={props} />
+      {/* <Vetted props={props} /> */}
       <New />
       <Users />
       <Challenge />

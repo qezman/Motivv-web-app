@@ -1,0 +1,213 @@
+.vetted-cont {
+  margin-top: 200px;
+}
+.vetted-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  border-radius: 8px;
+  background: #f9f9f9;
+  box-shadow: 1px 1px 2px 0px #d2dbe4;
+  width: 240px;
+  margin: auto;
+}
+
+.vetted-card-components {
+}
+
+.designer-name {
+  color: #000;
+  margin-top: 10px;
+  font-family: "DM Sans";
+  font-size: 12.809px;
+  font-style: normal;
+  font-weight: 700;
+}
+.designer-role {
+  color: #000;
+  font-family: "DM Sans";
+  font-size: 10.407px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 142.4%; /* 14.82px */
+}
+.icon-verify {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.role-and-icon {
+  margin-top: -5px;
+}
+.skil-verified {
+  display: flex;
+  align-items: center;
+  gap: 1.56px;
+  margin-top: 10.53px;
+}
+
+.skil {
+  border-radius: 8px;
+  background: rgba(246, 180, 82, 0.19);
+
+  display: flex;
+  padding: 2.4px 8px;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-desc {
+  color: #656565;
+  text-align: center;
+  font-family: "DM Sans";
+  font-size: 11.2px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 142.4%; /* 15.949px */
+  margin-top: 9.6px;
+  padding: 0 22.4px;
+}
+.skil-rate {
+  color: #000;
+  font-family: "DM Sans";
+  font-size: 11.2px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 142.4%; /* 15.949px */
+}
+.skil-button {
+  color: #134a7c;
+  text-align: center;
+  font-family: "DM Sans";
+  font-size: 12.8px;
+  font-style: normal;
+  font-weight: 500;
+  background: transparent;
+  margin-top: -5px;
+}
+
+.already-text {
+  font-size: 32px;
+  margin-top: 20px;
+  text-align: center;
+  color: #134a7c;
+  font-weight: 700;
+}
+.enlist-text {
+  color: #000;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 142.4%;
+  text-align: center;
+  padding: 0 15px;
+  /* margin-top: 4px; */
+}
+.input-book-designer {
+  color: #bbb;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 142.4%;
+  border: none;
+  border-bottom: 1px solid #000;
+}
+
+.cont-input-designer {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-book-designer {
+  border-radius: 10px;
+  background: #134a7c;
+  gap: 8px;
+  flex-shrink: 0;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  margin-top: 17px;
+}
+
+.btn-book-cont {
+  display: flex;
+  justify-content: center;
+}
+.input-book-designer {
+  width: 264px;
+  padding: 12px 0;
+  color: #000;
+  outline: none;
+}
+
+.btn-book-cont:hover {
+}
+.btn-book-designer:hover {
+  background: #071d31;
+  transition: 0.5s ease-in-out;
+  color: #134a7c;
+}
+
+@media screen and (min-width: 768px) {
+  .vetted-cont {
+    margin-top: 300px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+  }
+  .already-text {
+    font-size: 36px;
+    margin-top: 0;
+    text-align: left;
+  }
+  .enlist-text {
+    color: #000;
+    font-size: 16px;
+    text-align: left;
+    padding: 0;
+    width: 378px;
+  }
+
+  .cont-input-designer {
+    display: flex;
+    justify-content: left;
+  }
+
+  .btn-book-cont {
+    display: flex;
+    justify-content: left;
+  }
+  .input-book-designer {
+    width: 364px;
+  }
+  .vetted-card {
+    padding: 20px 0;
+    margin-top: 20px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .vetted-cont {
+    gap: 100px;
+  }
+  .btn-book-cont {
+    width: 155px;
+    height: 53px;
+  }
+  .btn-book-designer {
+    /* padding: 18px 14px;
+text-align: center; */
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .vetted-cont {
+    gap: 123px;
+  }
+}

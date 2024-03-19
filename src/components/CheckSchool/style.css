@@ -8,7 +8,7 @@
 }
 .mot-check-school__hword {
   font-weight: 700;
-  font-size: 2.9rem;
+  font-size: 32px !important;
   text-align: center;
   color: #134a7c;
   width: 80%;
@@ -17,55 +17,38 @@
 .coming-soon-btn {
   background: transparent;
 }
-.mot-check-school__htext {
-  width: 47%;
+.mot-checkschool-text{
   text-align: center;
+  font-size: 14px;
 }
-
-.coming-soon-btn {
+.comin-soon-btn {
   color: #13497c;
   background-color: transparent;
   outline: none;
   border: none;
   padding: 10px 40px;
   border-radius: 10px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   border: 2px solid #13497c;
-
   /* margin: auto; */
 }
 
-.coming-soon-cont {
-  display: flex;
-  justify-content: center;
+.comin-soon-btn:hover {
+  background: #0a233b;
+  color: white;
+  transition: 0.5s ease-in-out;
 }
 
-.mot-check-school .explore-btn {
-  /* color: #13497c;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  padding: 10px 40px;
-  border-radius: 10px;
-  margin-top: 20px;
-  border: 2px solid #13497c; */
+.comin-soon-cont {
 }
 
-/* .mot-cs-btn:hover,
-.mot-cs-btn:focus,
-.mot-cs-btn:active {
-  border: 0 !important;
-  background-color: #13497c !important;
-  color: white !important;
-} */
-
-.coming-soon-btn:hover,
+/* .coming-soon-btn:hover,
 .coming-soon-btn:focus,
 .coming-soon-btn:active {
   border: 0 !important;
   background-color: #13497c !important;
   color: white !important;
-}
+} */
 
 .mot-check-school__features {
   margin-top: 8rem;
@@ -99,12 +82,11 @@
   align-self: center;
 }
 
-.mot-check-school__text {
-  font-weight: 400;
-  font-size: 14px;
+.become-text {
+  font-size: 18px;
   text-align: center;
-  line-height: 21px;
-  color: #000000;
+  padding: 0 20px;
+  font-weight: 400;
 }
 .explore-btn {
   background: transparent !important;
@@ -138,10 +120,6 @@
     width: 95%;
     margin: 8rem 0 0;
   }
-  .mot-check-school__htext {
-    text-align: left;
-    width: 80%;
-  }
   .mot-check-school a {
     align-self: flex-start;
     padding-left: 2.5rem;
@@ -151,19 +129,10 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .mot-check-school__htext {
-    width: 608px;
-    height: 54px;
-    flex-shrink: 0;
+  .become-text {
+    width: 650px;
   }
-  .mot-check-school__text {
-    width: 260px;
-    height: 76.135px;
-    flex-shrink: 0;
-  }
-  .mot-check-school__text {
-    width: 281.647px;
-    height: 76.135px;
-    flex-shrink: 0;
+  .mot-checkschool-text {
+    width: 250px;
   }
 }
