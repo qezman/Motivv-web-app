@@ -86,41 +86,41 @@ const Designers = () => {
     setEmailInput(e.target.value);
   };
 
-  // useEffect(() => {
-  //   const createClient = async () => {
-  //     try {
-  //       const existingClient = designers.find(
-  //         (client) => client.email === "example@example.com"
-  //       );
+  useEffect(() => {
+    const createClient = async () => {
+      try {
+        const existingClient = designers.find(
+          (client) => client.email === "example@example.com"
+        );
 
-  //       if (existingClient) {
-  //         console.log("Client already exists:", existingClient);
-  //         return;
-  //       }
+        if (existingClient) {
+          console.log("Client already exists:", existingClient);
+          return;
+        }
 
-  //       const response = await axios.post(API_URL, {
-  //         email: "example@example.com",
-  //       });
+        const response = await axios.post(API_URL, {
+          email: "example@example.com",
+        });
 
-  //       console.log("Response from server:", response);
+        console.log("Response from server:", response);
 
-  //       if (response.status === 200 || response.status === 201) {
-  //         console.log("Client created successfully!");
-  //         setDesigners([...designers, response.data.data]);
-  //         console.log("Request successful! Redirecting...");
-  //       } else {
-  //         console.error(
-  //           "Failed to create client. Status code:",
-  //           response.status
-  //         );
-  //       }
-  //     } catch (error) {
-  //       console.error("Error creating client:", error);
-  //     }
-  //   };
+        if (response.status === 200 || response.status === 201) {
+          console.log("Client created successfully!");
+          setDesigners([...designers, response.data.data]);
+          console.log("Request successful! Redirecting...");
+        } else {
+          console.error(
+            "Failed to create client. Status code:",
+            response.status
+          );
+        }
+      } catch (error) {
+        console.error("Error creating client:", error);
+      }
+    };
 
-  //   createClient();
-  // }, [designers]);
+    createClient();
+  }, [designers]);
 
   // Filter designers based on the selected category
 

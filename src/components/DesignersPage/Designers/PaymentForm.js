@@ -2,29 +2,24 @@ import React, { useState } from "react";
 import "./PaymentForm.css";
 import PaystackPop from "@paystack/inline-js";
 
-const PaymentForm = ({ onClose, userEmail }) => {
+const PaymentForm = ({ onClose }) => {
   // Implement the Paystack payment form here
- 
+
   const [amount, setAmount] = useState(1000);
-  const [email, setEmail] = useState(userEmail)
-
-  const paystackPublicKey = process.env.REACT_APP_PAYSTACK_PUBLIC_KEY;
-
+  const [email, setEmail] = useState("email@example.com")
 
   // Example:
   const paywithpaystatck = (e) => {
     e.preventDefault();
-
-    console.log("User email:", userEmail);
 
     // console.log("Amount in kobo:", Math.ceil(amount * 100));
 
     const paystack = new PaystackPop();
 
     paystack.newTransaction({
-      key: paystackPublicKey,
+      key: "pk_test_75b9d59119c4d1d83a0c8fcfb53a386cd6c03ed9",
       amount: amount * 100,
-      email: userEmail,
+      email: email,
       onSuccess(transaction) {
         let message = `Payment Complete Reference ${transaction.reference}`;
         alert(message);
