@@ -109,7 +109,7 @@ const LandingPageNew = () => {
               </li>
 
               <li className="jobs">
-                <Link to="/jobs">Jobs</Link>
+                <Link to="">Jobs</Link>
                 <img
                   style={{
                     marginLeft: "10px",
