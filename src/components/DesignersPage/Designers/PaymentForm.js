@@ -1,23 +1,39 @@
 import React, { useState } from "react";
 import "./PaymentForm.css";
 import PaystackPop from "@paystack/inline-js";
+import CustomNotification from "./CustomNotification";
 
 const PaymentForm = ({ onClose }) => {
   // Implement the Paystack payment form here
+  // const paystackKey = process.env.REACT_APP_PAYSTACK_API_KEY;
+  const paystackKey = "pk_live_5544e0bbc8f95747108ca1a057c4227a65c8725a"
 
   const [amount, setAmount] = useState(1000);
-  const [email, setEmail] = useState("email@example.com")
+  const [email, setEmail] = useState("holaryinka5050@gmail.com")
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   // Example:
   const paywithpaystatck = (e) => {
     e.preventDefault();
+    console.log("Paystack API Key:", paystackKey);
+
 
     // console.log("Amount in kobo:", Math.ceil(amount * 100));
 
     const paystack = new PaystackPop();
 
     paystack.newTransaction({
-      key: "pk_test_75b9d59119c4d1d83a0c8fcfb53a386cd6c03ed9",
+      key: paystackKey,
       amount: amount * 100,
       email: email,
       onSuccess(transaction) {
@@ -25,10 +41,11 @@ const PaymentForm = ({ onClose }) => {
         alert(message);
       },
       onCancel() {
-        alert("You have canceled the transaction");
+        handleShowModal()
       },
     });
   };
+
 
   return (
     <section className="paymentform-section">
@@ -46,6 +63,13 @@ const PaymentForm = ({ onClose }) => {
           Unlock for NGN 1,000
         </button>
       </article>
+
+      
+        {/* modal on submission */}
+        <CustomNotification
+          showModal={showModal}
+          onClose={handleCloseModal}
+        />
     </section>
   );
 };
