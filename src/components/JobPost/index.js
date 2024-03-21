@@ -23,7 +23,7 @@ export default function JobPost() {
               Put your job in front of millions of candidates. For free!
             </p>
           </Fade>
-          <p className="sub-text">
+          <p className="job-post-subtext">
             Tap into our huge community of qualified candidates who are
             searching for their next role. Post jobs online, and get your job
             ads seen by millions of job seekers.{" "}
