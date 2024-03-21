@@ -36,7 +36,7 @@ const PaymentForm = ({ onClose }) => {
 
     paystack.newTransaction({
       key: paystackKey,
-      amount: amount * 10,
+      amount: amount * 100,
       email: email,
       onSuccess(transaction) {
         localStorage.setItem("transactionId", transactionId); // Save transaction ID to localStorage
@@ -79,7 +79,7 @@ const PaymentForm = ({ onClose }) => {
       </article>
 
       {/* modal on submission */}
-      <CustomNotification showModal={showModal} onClose={handleCloseModal} />
+      {/* <CustomNotification showModal={showModal} onClose={handleCloseModal} /> */}
     </section>
   );
 };
