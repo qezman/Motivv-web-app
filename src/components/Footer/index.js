@@ -19,22 +19,31 @@ let Mailto = "mailto:hello@motivv.co";
 let Heart =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594685437/Motivv/heart_c8ufkp.png";
 export default function index() {
-  const footLinkText =
-    window.innerWidth >= 760 ? { fontSize: "18px", color: "#fff2df" } : {};
+  
+  const screenWidth = window.innerWidth;
+  const fontSize = screenWidth >= 800 ? "18px" : "18px";
+  
+  const footLinkText = {
+    fontSize: fontSize,
+    color: "#fff2df"
+  };
+  
   return (
     <div className="mot-landing-page-blue">
       <div className="mot-footer-container">
-        <Container>
+        <section className="subcont">
           <Row>
             <Col md={3}>
+              <article className="logo-and-love">
               <div className="mot-logo">
                 <a href="/">
                   <img src={Logo} alt="" className="logo" />
                 </a>
               </div>
-              <h6 style={footLinkText} className="white-text pt-4">
+              <h6 className="love-aorthar pt-3">
                 Designed with <img src={Heart} alt="Heart" /> by Aorthar
               </h6>
+              </article>
             </Col>
             <Col md={3} className="mot-footer-links">
               <div style={footLinkText} className="mt-2">
@@ -59,17 +68,6 @@ export default function index() {
                   Designers
                 </HashLink>
               </div>
-              {/* <div style={footLinkText} className="mt-2">
-                <HashLink
-                  smooth
-                  to="/#user"
-                  scroll={(el) =>
-                    el.scrollIntoView({ behavior: "smooth", block: "end" })
-                  }
-                >
-                  How it works
-                </HashLink>
-              </div> */}
               <div style={footLinkText} className="mt-2">
                 <HashLink
                   smooth
@@ -81,17 +79,6 @@ export default function index() {
                   Partner with us
                 </HashLink>
               </div>
-              {/* <div className="mt-4">
-                <div className="mt-2">
-                  <Link to="/apply">Create a Profile Card</Link>
-                </div>
-                <div className="mt-2">
-                  <Link to="/post-job">Post a new job</Link>
-                </div>
-                <div className="mt-2">
-                  <Link to="/jobs">View Jobs</Link>
-                </div>
-              </div> */}
             </Col>
             <Col md={3} className="mot-footer-links">
               <div style={footLinkText} className="mt-2">
@@ -109,17 +96,6 @@ export default function index() {
                   Contact Us
                 </a>
               </div>
-              {/* <div className="mt-4">
-                <div className="mt-2">
-                  <Link to="/challenges">Design Challenge</Link>
-                </div>
-                <div className="mt-2">
-                  <Link to="#">Design School (coming soon)</Link>
-                </div>
-                <div className="mt-2">
-                  <Link to="/business-template">Business Templates</Link>
-                </div>
-              </div> */}
             </Col>
             <Col md={3} className="mot-footer-links white-text">
               <div style={footLinkText} className="mt-2">
@@ -151,16 +127,17 @@ export default function index() {
               </div>
             </Col>
           </Row>
-          <div>
-            <div
-              style={footLinkText}
-              className="copyright-text justify-content-center text-center copy-text"
-            >
-              Copyright © {new Date().getFullYear()} The Motivv Community. All
-              Rights Reserved
-            </div>
+        <section>
+          <div
+            style={footLinkText}
+            className="copyright-text justify-content-center text-center copy-text"
+          >
+            Copyright © {new Date().getFullYear()} The Motivv Community. All
+            Rights Reserved
           </div>
-        </Container>
+        </section>
+        </section>
+
       </div>
     </div>
   );

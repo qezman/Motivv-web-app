@@ -15,6 +15,13 @@
   background-repeat: no-repeat;
 }
 
+.logo-and-love {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .mot-footer-links div a {
   color: #fff2df;
   /* padding-top: 20px; */
@@ -39,8 +46,13 @@
   color: #fff2df;
 }
 
+.love-aorthar {
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+}
 
-@media screen and (max-width: 425px) { 
+@media screen and (max-width: 759px) {
   .white-text {
     text-align: center;
   }
@@ -52,11 +64,15 @@
     justify-content: center;
     align-content: center;
   }
+  .love-aorthar {
+    /* width: 200px; */
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 760px) {
   .mot-footer-links div a {
-    color: #FFF2DF !important;
+    color: #fff2df !important;
     margin-top: 80px !important;
   }
   .social-icon {
@@ -66,14 +82,65 @@
     height: auto !important;
     width: 100% !important;
   }
-  .mot-footer-container>div>div div:nth-child(n) {
+  /* .mot-footer-container > div > div div:nth-child(n) {
     width: 100% !important;
     height: auto !important;
+  } */
+
+  .love-aorthar {
+    /* width: 200px; */
+    text-align: left;
   }
 }
 
+@media screen and (min-width: 768px) {
+  .mot-footer-container {
+  }
 
-@media screen and (min-width: 1024px) {
-.white-text {
+  .subcont {
+    padding: 0 30px;
+  }
+
+
+  .love-aorthar {
+    text-align: left;
+  }
+  .logo-and-love {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+  }
 }
+@media screen and (min-width: 1024px) {
+  .love-aorthar {
+    /* width: 200px; */
+    text-align: left;
+  }
+  .mot-footer-container-two {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .subcont {
+    padding: 0 35px;
+  }
+  .logo-and-love {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .subcont {
+    padding: 0 200px;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .subcont {
+    padding: 0 400px;
+  }
 }

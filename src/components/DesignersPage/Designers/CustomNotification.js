@@ -1,16 +1,9 @@
 import React, { useState, useRef } from "react";
 import Modal from "react-modal";
-// import "./styles.css";
 
-export default function CustomNotification({showModal, onClose}) {
+export default function CustomNotification({ showModal, onClose }) {
   // for the modal on successful submission
-
   Modal.setAppElement("#root");
-//   const [showModal, setShowModal] = useState(false);
-
-//   const handleCloseModal = () => {
-//     setShowModal(false);
-//   };
 
   return (
     <section>
@@ -22,7 +15,7 @@ export default function CustomNotification({showModal, onClose}) {
         // className="mot-modal"
         style={{
           overlay: {
-            backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent black overlay
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -34,7 +27,7 @@ export default function CustomNotification({showModal, onClose}) {
             height: "100%",
           },
           content: {
-            position: "static", // Keep content static
+            position: "static",
             top: "auto",
             left: "auto",
             right: "auto",
@@ -45,15 +38,13 @@ export default function CustomNotification({showModal, onClose}) {
             WebkitOverflowScrolling: "touch",
             outline: "none",
             padding: "20px",
-            maxWidth: "400px", // Set a maximum width if needed
+            maxWidth: "400px",
             width: "100%",
-            maxHeight: "80%", // Set a maximum height if needed
-            margin: "auto", // Center horizontally
+            maxHeight: "80%",
+            margin: "auto",
           },
         }}
       >
-        {/* <p>x</p> */}
-
         <div className="x-close">
           <svg
             onClick={onClose}
@@ -84,9 +75,7 @@ export default function CustomNotification({showModal, onClose}) {
         </div>
 
         <h1 className="success-header">Transaction Cancelled</h1>
-        <p className="para-text">
-          You have cancelled the transaction
-        </p>
+        <p className="para-text">You have cancelled the transaction</p>
       </Modal>
     </section>
   );

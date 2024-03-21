@@ -30,6 +30,12 @@
   font-weight: 500;
   line-height: 18px; /* 112.5% */
 }
+
+.btn-find-out:hover {
+  background: #fff;
+  color: #134A7C;
+  transition: 0.3s ease-in-out;
+}
 @media screen and (min-width: 768px) {
   .aorthar-cont {
     /* padding: 40px 100px; */
@@ -39,12 +45,19 @@
   }
 }
 @media screen and (min-width: 1024px) {
-  .aorthar-cont {
-    padding: 46px 100px;
+
+  .aorthar-text {
+    width: 850px;
+    margin: auto;
+  }
+  .btn-find-out {
+    margin-top: 16px;
   }
 }
 @media screen and (min-width: 1440px) {
-    .aorthar-cont {
-      padding: 46px 480px;
+
+    .aorthar-text {
+      width: 840px;
+      margin: auto;
     }
   }
