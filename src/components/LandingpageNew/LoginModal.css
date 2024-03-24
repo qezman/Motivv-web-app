@@ -1,0 +1,145 @@
+.login-modal {
+  border-radius: 8px;
+  background: #eee;
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+  outline: none;
+}
+
+.btn-X-cont {
+  background: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn-X {
+  margin: 0;
+  font-weight: 700;
+}
+
+.whatnew-and-close {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.what-text {
+  color: #000;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  margin: 0;
+}
+.login-subtexts {
+  color: #000;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+}
+.first-release {
+  color: #000;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.party-and-design {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.challenge-cont-one {
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0px 4px 17px 0px rgba(0, 0, 0, 0.08);
+  padding: 3px;
+}
+
+.made-possible {
+  color: #000;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.got-it-btn {
+  color: #134a7c;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  background: transparent;
+}
+
+.cont-btn-got-it {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 600px) {
+  .login-modal {
+    width: 488px;
+    height: 480px;
+    flex-shrink: 0;
+  }
+  .what-text {
+    font-size: 24px;
+  }
+  .whatnew-and-close {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+  .first-release {
+    text-align: justify;
+    padding: 0 20px;
+    width: 450px;
+  }
+  .party-and-design {
+    display: flex;
+    justify-content: start;
+    padding: 14px 0 8px 13px;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .made-possible {
+    text-align: justify;
+    padding: 0 14px 0 14px;
+    margin-top: 0;
+  }
+
+  .cont-btn-got-it {
+    margin-top: 26px;
+  }
+  .challenge-cont-one {
+    margin: 0 21px;
+  }
+  .whatnew-and-close {
+    margin: 0;
+  }
+  .what-text {
+    margin: 0;
+  }
+}

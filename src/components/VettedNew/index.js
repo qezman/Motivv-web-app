@@ -38,10 +38,10 @@ const VettedNew = ({ props }) => {
     } else {
       try {
         const response = await axios.get(url, { params: { email: email } });
-        console.log("Response from server:", response);
-        console.log("Response data:", response.data);
+        // console.log("Response from server:", response);
+        // console.log("Response data:", response.data);
 
-        console.log("Designers Data:", response.data.data);
+        // console.log("Designers Data:", response.data.data);
 
         if (response.data.data.length > 0) {
           setError(false);
@@ -65,6 +65,7 @@ const VettedNew = ({ props }) => {
       } finally {
         setLoading(false);
       }
+      console.log("Email entered", email)
     }
   };
 

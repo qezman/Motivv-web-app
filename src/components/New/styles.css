@@ -90,7 +90,7 @@
   .mot-section {
     display: flex;
     align-items: center;
-    height: 270px;
+    height: auto;
   }
   .image-placeholder {
     width: 250px;
@@ -129,6 +129,8 @@
   .sub-text {
     font-size: 18px;
     padding: 21px 50px;
+    width: 470px;
+    text-align: justify;
   }
   .header-text {
     padding-left: 50px;

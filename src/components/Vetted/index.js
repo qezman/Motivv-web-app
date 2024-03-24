@@ -10,6 +10,7 @@ import "./styles.css";
 import { URL } from "../../constants";
 import { ValidateEmail } from "../../constants";
 import { useHistory } from "react-router-dom";
+import PaymentForm from "../DesignersPage/Designers/PaymentForm";
 
 let VettedCard =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594318728/Motivv/Vetted_card_vms1pd.png";
@@ -40,6 +41,7 @@ export default function Vetted({ props }) {
   const history = useHistory();
 
   const [email, setEmail] = useState("");
+  const [userEmail, setUserEmail] = useState(""); // State to hold the Paystack owner's email
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorValue, setErrorValue] = useState("");
@@ -63,26 +65,6 @@ export default function Vetted({ props }) {
     } else {
       try {
         const response = await axios.get(url, { params: { email: email } });
-        console.log("Response from server:", response);
-        console.log("Response data:", response.data);
-
-        console.log("Designers Data:", response.data.data);
-
-        // if (response.data.length > 0) {
-        //   console.log("Worked!!");
-        //   setError(false);
-        //   Cookies.set("user-auth", email, { expires: 1 });
-        //   user.setUser(Cookies.get("user-auth"));
-        //   setUserPrompt("Request successful! Redirecting...");
-        //   setSuccess(true);
-
-        //   setTimeout(() => {
-        //     props.history.push("/designers");
-        //   }, 3000);
-        // } else {
-        //   setError(true);
-        //   setErrorValue("No designers found for the given email");
-        // }
 
         if (response.data.data.length > 0) {
           setError(false);
@@ -91,13 +73,19 @@ export default function Vetted({ props }) {
           setUserPrompt("Request successful! Redirecting...");
           setSuccess(true);
 
+          // Assuming you set userEmail upon successful data fetching
+          // setUserEmail("holaryinka5050@gmail.com");
+
           setTimeout(() => {
             // Redirect to "/designers" after 3 seconds
-            props.history.push("/designers");
+            props.history.push("/designers", { email: email });
           }, 3000);
         } else {
           setError(true);
           setErrorValue("No designers found for the given email");
+
+          // Set userEmail state to empty string for unsuccessful user
+          setUserEmail("");
         }
       } catch (error) {
         console.error("Error during axios.get:", error);
@@ -106,6 +94,11 @@ export default function Vetted({ props }) {
       } finally {
         setLoading(false);
       }
+
+      // Set userEmail state for successful user
+      setUserEmail(email);
+      // Log the email entered into the console
+      console.log("Email entered:", email);
     }
   };
 
@@ -121,6 +114,11 @@ export default function Vetted({ props }) {
       return () => clearTimeout(redirectTimeout);
     }
   }, [success, history]);
+
+  // Pass userEmail prop to PaymentForm whenever email changes
+  useEffect(() => {
+    console.log("Email entered:", email);
+  }, [email]);
 
   return (
     <section className="vetted-cont">
@@ -169,39 +167,44 @@ export default function Vetted({ props }) {
           Check creative’s portfolio, negotiate and hire.
         </p>
         <form className="form-input" action="">
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Input email to book a designer"
-              className="input-book-designer"
-            />
-            <div className="book-a-designer-cont">
-              <button
-                className="btn-book-designer"
-                disabled={loading}
-                style={{
-                  opacity: loading ? "0.7" : "1",
-                  cursor: loading ? "not-allowed" : "pointer",
-                  fontSize: "14px",
-                  fontWeight: "500",
-                }}
-                onClick={handleSubmit}
-                type="submit"
-              >
-                Book a designer
-              </button>
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Input email to book a designer"
+            className="input-book-designer"
+          />
+          <div className="book-a-designer-cont">
+            <button
+              className="btn-book-designer"
+              disabled={loading}
+              style={{
+                opacity: loading ? "0.7" : "1",
+                cursor: loading ? "not-allowed" : "pointer",
+                fontSize: "14px",
+                fontWeight: "500",
+              }}
+              onClick={handleSubmit}
+              type="submit"
+            >
+              Book a designer
+            </button>
+            {loading && (
+              <div className="spinner-grow" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
+            )}
 
-              {error && (
-                <div className="error-cont">
-                  <Alert className="error-text" variant="danger">
-                    {errorValue}
-                  </Alert>
-                </div>
-              )}
-            </div>
-          </form>
+            {error && (
+              <div className="error-cont">
+                <Alert className="error-text" variant="danger">
+                  {errorValue}
+                </Alert>
+              </div>
+            )}
+          </div>
+        </form>
       </div>
     </section>
   );

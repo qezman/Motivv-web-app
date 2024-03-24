@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 
@@ -7,6 +7,7 @@ import Fade from "react-reveal";
 import postImg from "../../assets/magic.svg";
 import JobPostPage from "../../pages/JobPostPage";
 import Modal from "react-modal";
+import LoginModal from "./LoginModal";
 
 let Logo =
   "https://res.cloudinary.com/denw9euui/image/upload/v1594310687/Motivv/logo_wwolum.png";
@@ -44,6 +45,8 @@ const LandingPageNew = () => {
     dots: "none",
   };
 
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
   const [hoveredOn, setHoveredOn] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [input, setInput] = useState({});
@@ -77,10 +80,31 @@ const LandingPageNew = () => {
     setIsModalOpen(false);
   };
 
+  
+  useEffect(() => {
+    // Check if the modal has been shown before
+    const modalShownBefore = localStorage.getItem("modalShownBefore");
+  
+    if (!modalShownBefore) {
+      // If not shown before, show the modal and set flag in local storage
+      setShowLoginModal(true);
+      localStorage.setItem("modalShownBefore", "true");
+    }
+  
+    // Clear localStorage value when user leaves the website
+    const handleUnload = () => {
+      localStorage.removeItem("modalShownBefore");
+    };
+  
+    window.addEventListener("beforeunload", handleUnload);
+  
+    return () => {
+      window.removeEventListener("beforeunload", handleUnload);
+    };
+  }, []);
+  
 
-  // Set the appElement for the modal to avoid accessibility issues
   Modal.setAppElement("#root");
-
 
   document.body.style.overflow = isModalOpen ? "hidden" : "auto";
 
@@ -295,7 +319,9 @@ const LandingPageNew = () => {
             </Fade>
           </section>
         </div>
-      </article>
+         {/* Render LoginModal */}
+      <LoginModal isOpen={showLoginModal} onClose={() => setShowLoginModal(false)} />
+    </article>
     </section>
   );
 };
