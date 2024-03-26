@@ -273,8 +273,6 @@ export default function JobPostPage() {
                       }
                     />
                     <p style={smallTexts} className="mot-form-hint w-100">
-                      Please provide a url to your website or linkedIn to verify
-                      your company
                     </p>
                   </div>
                 </div>

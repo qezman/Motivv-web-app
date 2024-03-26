@@ -45,6 +45,9 @@ import EditProfile from './components/EditProfile/index.js';
 
 import GlobalContextProvider from './store/contexts/global-context.js';
 import NewHomePage from './pages/NewHomePage.js';
+import PaystackOtp from './components/PaystackOtp/index.js';
+import PaystackRedirect from './components/PaystackRedirect/index.js';
+import JobPostPageNew from './components/JobPostPageNew/index.js';
 
 function App() {
   const user = useContext(UserContext);
@@ -60,10 +63,13 @@ function App() {
             <Route exact path="/newapply" component={NewApplyCard} />
             <Route exact path="/jobs" component={JobsPage} />
             <Route exact path="/post-job" component={JobPostPage} />
+            <Route exact path="/post-newjob" component={JobPostPageNew} />
             <Route exact path="/update/:id/:phone/:email" component={Update} />
             <Route exact path="/Edit" component={Edit} />
             <Route exact path="/verification" component={Verification} />
             <Route exact path="/designercard" component={DesignerCard} />
+            <Route exact path="/paystackpay" component={PaystackOtp} />
+            <Route exact path="/paystackredirect" component={PaystackRedirect} />
             <Route exact path="/editprofile" component={EditProfile} />
             <Route
               exact

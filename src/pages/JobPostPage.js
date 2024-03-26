@@ -1,6 +1,7 @@
 import React from "react";
 import JobPostPageComp from "../components/JobPostPage";
 import Helmet from "../components/Helmet";
+import JobPostPageNew from "../components/JobPostPageNew";
 
 const JobPostPage = () => {
   return (
@@ -11,6 +12,7 @@ const JobPostPage = () => {
         description="Post jobs online, and get your job ads seen by millions of job seekers."
       />
       <JobPostPageComp />
+      {/* <JobPostPageNew/> */}
     </div>
   );
 };

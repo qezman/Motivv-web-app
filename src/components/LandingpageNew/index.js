@@ -178,7 +178,7 @@ const LandingPageNew = () => {
             {/* here is the Post Job button */}
             <button className="btn-post-job">
               <img src="/assets/magic-wand.png" />
-              <Link
+              <span
                 // to="/post-job"
                 className="post-job-text"
                 onMouseEnter={handleMouseEnter}
@@ -186,7 +186,7 @@ const LandingPageNew = () => {
                 onClick={handlePostJobClick}
               >
                 Post Job
-              </Link>
+              </span>
             </button>
           </article>
 

@@ -89,6 +89,10 @@
   background: transparent;
 }
 
+.got-it-btn:hover {
+  color: #0b2842;
+}
+
 .cont-btn-got-it {
   display: flex;
   justify-content: center;

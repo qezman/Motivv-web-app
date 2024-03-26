@@ -17,8 +17,8 @@ const FooterNew = () => {
               />
             </Link>
           </div>
-          <div className="love-aorther-container">
-            <p className="love-aorther">Designed with 💚 by Aorthar</p>
+          <div className="love-aorthar-container">
+            <p className="love-aorthar">Designed with 💚 by Aorthar</p>
           </div>
         </section>
 
@@ -56,7 +56,7 @@ const FooterNew = () => {
           </Link>
 
           <Link>
-            <p className="foot-connect">Connect with Us-</p>
+            <span className="foot-connect">Connect with Us - </span>
             <span>
               <img src="assets/ti.png" />
             </span>
