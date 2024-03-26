@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
 import "./style.css";
 
+let Twitter =
+  "https://res.cloudinary.com/denw9euui/image/upload/v1594473607/Motivv/feather_twitter_mbmao2.png";
+let Instagram =
+  "https://res.cloudinary.com/denw9euui/image/upload/v1594473607/Motivv/ant-design_instagram-outlined_vo6c9g.png";
+let TwitterLink = "https://twitter.com/motivvco?s=20";
+let IGLink = "https://www.instagram.com/motivvco/";
+let TheTeam = "https://aorthar.com/theteam";
+let Courses = "https://aorthar.com/courses";
+let Mailto = "mailto:hello@motivv.co";
 const FooterNew = () => {
   return (
     <footer className="footer-img-container">
@@ -37,13 +46,13 @@ const FooterNew = () => {
         </section>
 
         <section className="foot-col">
-          <Link>
+          <a href={TheTeam} target="_blank" rel="noopener noreferrer">
             <p className="foot-team">The team</p>
-          </Link>
+          </a>
 
-          <Link>
+          <a href={Courses} target="_blank" rel="noopener noreferrer">
             <p className="foot-course">Buy a course</p>
-          </Link>
+          </a>
 
           <Link>
             <p className="foot-contact">Contact Us</p>
@@ -57,20 +66,24 @@ const FooterNew = () => {
 
           <Link>
             <span className="foot-connect">Connect with Us - </span>
-            <span>
-              <img src="assets/ti.png" />
-            </span>
+            <a href={TwitterLink} target="_blank" rel="noopener noreferrer">
+              <img src={Twitter} alt="social icons" className="social-icon" />
+            </a>
+            <a href={IGLink} target="_blank" rel="noopener noreferrer">
+              <img src={Instagram} alt="social icons" className="social-icon" />
+            </a>
           </Link>
 
-          <Link>
+          <a href={Mailto} target="_black">
             <p className="foot-hire">Hire Developers</p>
-          </Link>
+          </a>
         </section>
       </article>
 
       <section>
         <p className="foot-note">
-          Copyright © 2020 The Motivv Community. All Rights Reserved.
+          Copyright © {new Date().getFullYear()} The Motivv Community. All
+          Rights Reserved.
         </p>
       </section>
     </footer>
