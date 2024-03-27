@@ -9,7 +9,6 @@ import Challenge from "../components/Challenge";
 import JobPost from "../components/JobPost";
 import CheckSchool from "../components/CheckSchool";
 import MoreNew from "../components/MoreNew";
-import Footer from "../components/Footer"
 import FooterNew from "../components/FooterNew";
 
 const NewHomePage = (props) => {
@@ -28,7 +27,6 @@ const NewHomePage = (props) => {
       <JobPost />
       <CheckSchool />
       <MoreNew />
-      {/* <Footer/> */}
       <FooterNew/>
     </section>
   );
